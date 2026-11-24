@@ -59,9 +59,9 @@
 | 前缀 | 文件 | 已用范围 | 当前最大 | 下一个可用 |
 |---|---|---|---|---|
 | `SPEC-` | SPECS.md | 001–008 | 008 | 009 |
-| `CNF-` | CONFIG.md | 001–011 | 011 | 012 |
+| `CNF-` | CONFIG.md | 001–012 | 012 | 013 |
 | `RUL-` | RULES.md | 001–009 | 009 | 010 |
-| `DSN-` | DESIGNS.md | 001–010 | 010 | 011 |
+| `DSN-` | DESIGNS.md | 001–011 | 011 | 012 |
 | `BUG-` | BUGWALL.md | 001–011 | 011 | 012 |
 | `PRM-` | PROMPT.md | 001–010 | 010 | 011 |
 | `IDX-` | INDEX.md（本文件） | 001–007 | 007 | 008 |
@@ -100,6 +100,8 @@
 | R2 | 2026-11-24 | 内容保真机制：新增 SPEC-008 / RUL-008~009 / CNF-010~011 / DSN-010 / BUG-009~011 / TST-013~015 / VFY-004 / PRM-009；修复 3 处内容错误；新增 verify_content.js 与 content_meta.js 并接入 APP | SPECS / RULES / CONFIG / DESIGNS / BUGWALL / TESTS / PROMPT / INDEX + 2 脚本 + 小程序 apps/miniprogram/data/lesson/store | 内容链新增基准 `CNF-011`；结构基准 `CNF-007` 不变 |
 | R3 | 2026-11-24 | 解耦「可靠数据源建设」与「应用开发运行」：新增 PRM-010 专项任务启动 Prompt，把内容校验前移到数据源出口，下游只信任已发布版本 | PROMPT / INDEX | 无（仅新增上下文模板，不改约束与取值） |
 | R4 | 2026-11-24 | 迁入 GitHub 仓库 `k12-math-knowledge-map`：doc→docs/、脚本→tests/、HTML→deliverables/、小程序→apps/miniprogram/；新建 resource_data（原始资料，不入库）/ reliable-data（真源）/ views（HTML 视图）/ deploy（部署，私有信息不入库）；一科一仓 | 全仓库目录 + 全部文档路径引用 | 路径基准整体迁移；编号与取值不变 |
+| R5 | 2026-11-24 | 搭建进度同步框架：小程序 utils/sync.js 本地优先同步层 + deploy/server 零依赖 Node 进度服务（按 openid 隔离、HMAC token、冒烟 5/5）；敏感配置不入库 | apps/miniprogram/utils/{sync,runtime-config.example}.js、store.js、app.js、deploy/server/*、.gitignore | 新增运行时配置类（不入库）；编号与取值不变 |
+| R6 | 2026-11-24 | 进度同步改用微信云开发：新增 cloud-config.js、sync.js 改接云数据库 progress 集合、app.js 初始化 wx.cloud；自建 server 降级为备选；核实环境 ID 并排除错误的 cloudbase-ai-toolkit 标识；创建集合并验证 _openid 隔离与写入链路 | CONFIG（CNF-012）/ DESIGNS（DSN-011）/ INDEX / README / deploy/README / apps/miniprogram/utils/{cloud-config,sync}.js、app.js | 新增同步配置基准 `CNF-012`；结构基准 `CNF-007`、内容基准 `CNF-011` 不变 |
 
 ## IDX-007: 设计文档占用与生效说明
 

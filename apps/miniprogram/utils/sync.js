@@ -1,36 +1,40 @@
-// 进度同步层（可选增强）—— 本地优先，云端只同步几 KB 的进度。
+// 进度同步层（微信云开发）—— 本地优先，云端只同步几 KB 的进度。
 //
 // 设计约束：
 //   1) 本地 store.js 仍是唯一状态源（SPEC-003）：所有读写先落本地，UI 不等网络。
-//   2) 未配置或网络失败时静默降级为纯离线，绝不阻塞学习，也不弹错误吓孩子。
-//   3) 数据隔离：以服务端签发的 userId 为键，只读写自己的进度。
+//   2) 未初始化或网络失败时静默降级为纯离线，绝不阻塞学习，也不弹错误吓孩子。
+//   3) 数据隔离：集合 progress 权限设为「仅创建者可读写」，微信云开发按 _openid
+//      自动隔离，前端既不拿也不存 openid，只读写自己的那一条文档。
+//   4) 单用户单文档：一条文档存全量 state（status/notes/disputed），量级几 KB。
 //
-// 服务端契约（见 deploy/server/README.md）：
-//   POST {base}/api/login   { code }            -> { userId, token }
-//   GET  {base}/api/progress                     -> { state, updatedAt }
-//   PUT  {base}/api/progress { state, updatedAt} -> { ok, updatedAt }
-//   Authorization: Bearer <token>
+// 云端结构（集合 progress）：
+//   { _id, _openid, status:{}, notes:{}, disputed:{}, updatedAt:Number }
 
-var cfg;
+var config;
 try {
-  cfg = require('./runtime-config');
+  config = require('./cloud-config');
 } catch (e) {
-  cfg = {};
+  config = {};
 }
 var store = require('./store');
 
-var BASE = cfg.syncBaseUrl || '';
-var ENABLED = !!cfg.syncEnabled && !!BASE;
-var TIMEOUT = cfg.timeout || 8000;
+var ENV = config.env || '';
+var COLLECTION = config.collection || 'progress';
+var ENABLED = !!ENV;
 
-var TOKEN_KEY = 'olympiad_sync_token_v1';
+var DOCID_KEY = 'olympiad_cloud_docid_v1';
 var QUEUE_KEY = 'olympiad_sync_queue_v1'; // 离线期间的待推送标记
 
-function getToken() {
-  try { return wx.getStorageSync(TOKEN_KEY) || ''; } catch (e) { return ''; }
+function getDb() {
+  if (!ENABLED || !wx.cloud) return null;
+  try { return wx.cloud.database({ env: ENV }); } catch (e) { return null; }
 }
-function setToken(t) {
-  try { wx.setStorageSync(TOKEN_KEY, t || ''); } catch (e) {}
+
+function getDocId() {
+  try { return wx.getStorageSync(DOCID_KEY) || ''; } catch (e) { return ''; }
+}
+function setDocId(id) {
+  try { wx.setStorageSync(DOCID_KEY, id || ''); } catch (e) {}
 }
 function getQueue() {
   try { return wx.getStorageSync(QUEUE_KEY) || 0; } catch (e) { return 0; }
@@ -42,72 +46,63 @@ function clearDirty() {
   try { wx.removeStorageSync(QUEUE_KEY); } catch (e) {}
 }
 
-// 统一请求封装：不抛错，失败返回 null，由调用方决定降级策略
-function request(path, method, data, withToken, cb) {
-  if (!ENABLED) { if (cb) cb(null); return; }
-  var header = { 'content-type': 'application/json' };
-  if (withToken) {
-    var t = getToken();
-    if (!t) { if (cb) cb(null); return; }
-    header.Authorization = 'Bearer ' + t;
-  }
-  wx.request({
-    url: BASE + path,
-    method: method || 'GET',
-    data: data,
-    header: header,
-    timeout: TIMEOUT,
+// 拉取云端进度并合并到本地（本地优先：仅填补本地缺失的条目，不覆盖已有学习进度）
+function pull(cb) {
+  var db = getDb();
+  if (!db) { if (cb) cb(false); return; }
+  db.collection(COLLECTION).limit(1).get({
     success: function (res) {
-      if (res.statusCode >= 200 && res.statusCode < 300) { if (cb) cb(res.data); }
-      else if (cb) cb(null);
-    },
-    fail: function () { if (cb) cb(null); }
-  });
-}
-
-// 登录：wx.code -> 服务端换 userId/token。预览阶段无 AppID 时会被禁用。
-function login(cb) {
-  if (!ENABLED) { if (cb) cb(false); return; }
-  wx.login({
-    success: function (r) {
-      if (!r.code) { if (cb) cb(false); return; }
-      request('/api/login', 'POST', { code: r.code }, false, function (data) {
-        if (data && data.token) { setToken(data.token); if (cb) cb(true); }
-        else if (cb) cb(false);
-      });
+      var doc = res && res.data && res.data[0];
+      if (doc) {
+        if (doc._id) setDocId(doc._id);
+        try {
+          var local = store.load();
+          var merged = false;
+          ['status', 'notes', 'disputed'].forEach(function (k) {
+            var rs = doc[k] || {};
+            Object.keys(rs).forEach(function (id) {
+              // 本地没有该 id 的记录时才采用云端值 —— 合并而非覆盖
+              if (!local[k][id] && rs[id]) { local[k][id] = rs[id]; merged = true; }
+            });
+          });
+          if (merged) store.save(local);
+        } catch (e) {}
+      }
+      if (cb) cb(true);
     },
     fail: function () { if (cb) cb(false); }
   });
 }
 
-// 拉取云端进度并合并到本地（本地优先：仅填补本地缺失的条目，不覆盖已有学习进度）
-function pull(cb) {
-  request('/api/progress', 'GET', null, true, function (data) {
-    if (!data || !data.state) { if (cb) cb(false); return; }
-    try {
-      var local = store.load();
-      var remote = data.state;
-      var merged = false;
-      ['status', 'notes', 'disputed'].forEach(function (k) {
-        var rs = remote[k] || {};
-        Object.keys(rs).forEach(function (id) {
-          // 本地没有该 id 的学习记录时才采用云端值 —— 合并而非覆盖
-          if (!local[k][id] && rs[id]) { local[k][id] = rs[id]; merged = true; }
-        });
-      });
-      if (merged) store.save(local);
-      if (cb) cb(true);
-    } catch (e) { if (cb) cb(false); }
-  });
-}
-
-// 推送本地进度到云端
+// 推送本地全量进度到云端：有文档 id 则 update，否则 add（add 后记下 id 供后续复用）
 function push(cb) {
-  if (!ENABLED) { if (cb) cb(false); return; }
-  request('/api/progress', 'PUT', { state: store.load() }, true, function (data) {
-    if (data && data.ok) { clearDirty(); if (cb) cb(true); }
-    else { markDirty(); if (cb) cb(false); }
-  });
+  var db = getDb();
+  if (!db) { if (cb) cb(false); return; }
+  var s = store.load();
+  var payload = {
+    status: s.status || {},
+    notes: s.notes || {},
+    disputed: s.disputed || {},
+    updatedAt: Date.now()
+  };
+  function settle(ok) {
+    if (ok) clearDirty(); else markDirty();
+    if (cb) cb(ok);
+  }
+  var docId = getDocId();
+  if (docId) {
+    db.collection(COLLECTION).doc(docId).update({
+      data: payload,
+      success: function () { settle(true); },
+      fail: function () { settle(false); }
+    });
+  } else {
+    db.collection(COLLECTION).add({
+      data: payload,
+      success: function (res) { if (res && res._id) setDocId(res._id); settle(true); },
+      fail: function () { settle(false); }
+    });
+  }
 }
 
 var timer = null;
@@ -119,18 +114,23 @@ function schedulePush() {
   timer = setTimeout(function () { timer = null; push(); }, 1500);
 }
 
-// 启动：登录 -> 拉取；有离线待推送则先推
+// 云开发无需 wx.login 换 token，openid 由云数据库按 _openid 自动注入。
+// 保留 login 接口以兼容既有调用方：就绪即视为已登录。
+function login(cb) {
+  if (cb) cb(!!getDb());
+}
+
+// 启动：先拉取合并；有离线待推送则再推一次（本地全量覆盖，幂等）
 function init(cb) {
   if (!ENABLED) { if (cb) cb(false); return; }
-  login(function (ok) {
-    if (!ok) { if (cb) cb(false); return; }
-    if (getQueue()) push(function () { pull(cb); });
-    else pull(cb);
+  pull(function () {
+    if (getQueue()) push(function (ok) { if (cb) cb(ok); });
+    else if (cb) cb(true);
   });
 }
 
 module.exports = {
-  isEnabled: function () { return ENABLED; },
+  isEnabled: function () { return ENABLED && !!wx.cloud; },
   init: init,
   login: login,
   pull: pull,

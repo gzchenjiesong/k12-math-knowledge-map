@@ -85,3 +85,11 @@
 - 本轮实质核查节点 15 个（`R2_CHECKED`）；剩余 42 个仍为 `pending`，不得视为已核实。
 - 已发现并修复缺陷：`BUG-009`（缺结论 135°）、`BUG-010`（二面角锐钝）、`BUG-011`（校验器浮点精确比较误报）。
 - 边界声明：本快照只证明「可机械判定部分通过」，不证明内容全部正确；人工闸门 `VFY-004` 尚未有外部签核，整体内容可信度仍受限于此。
+
+### CNF-012: 进度同步配置（微信云开发 · 当前方案）
+
+- 配置文件：`apps/miniprogram/utils/cloud-config.js`，含 `env`（环境 ID `k12-math-knowledge-map-dfac0f85a`）与 `collection`（`progress`）。二者非凭证，官方文档即在前端明文，故入库。
+- 环境 ID 已用 `cloud_env_list --appid wxad6ce16e02f3b1fe` 核实有效；`progress` 集合已创建，`_openid` 索引由系统自动建立。
+- 集合权限必须为**「仅创建者可读写」**：前端按 `_openid` 自动隔离，只读写自己的一条文档（存全量 `status/notes/disputed/updatedAt`，几 KB）。
+- 同步层 `utils/sync.js`：本地优先（`store.js` 仍是唯一状态源）、拉取只填补本地缺失、离线静默降级、变更防抖 1500ms 推送。
+- 自建服务器（`deploy/server/`）降级为备选方案，见 `DSN-011`；`utils/runtime-config.example.js` 保留为备选说明，不再默认启用。

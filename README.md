@@ -29,7 +29,7 @@ resource_data/           reliable-data/            apps/miniprogram/   views/
 | `deliverables/` | 静态交付物：交互知识图谱、A3 挂图、书单（手工维护） | 是 |
 | `views/` | 由真源渲染的 HTML 人读视图（供人工复核） | 否 |
 | `deploy/` | 部署脚本与配置样例；真实私有信息放 `deploy/config/` | 样例是，私有否 |
-| `deploy/server/` | 自建进度服务（零依赖 Node，按用户隔离存几 KB 进度） | 代码是，`config.json`/`data/` 否 |
+| `deploy/server/` | 自建进度服务（**备选方案**，零依赖 Node，按用户隔离存几 KB 进度） | 代码是，`config.json`/`data/` 否 |
 
 ## 三、本地开发引导
 
@@ -55,23 +55,26 @@ node tests/check-data.js        # 可靠数据源发布闸门（真源未建时�
 
 **诚实边界**：机械校验 PASS 不等于内容正确。AI 不得自证内容正确（见 `docs/SPECS.md` 的 `SPEC-008`）；只有人对照讲义逐条核对并把 `review` 置为 `verified`、记录核对人与日期，才算真正核实。
 
-## 五、进度同步（自建服务器）
+## 五、进度同步（微信云开发 · 当前方案）
 
-内容全部内置、离线可用；服务器**只同步进度**。链路：
+内容全部内置、离线可用；云端**只同步进度**。链路：
 
 ```
-小程序 utils/sync.js  ⇄  deploy/server/（你的腾讯云服务器 + HTTPS 域名）
-   本地 store.js 仍是唯一状态源       按 openid 隔离，每用户几 KB
+小程序 utils/sync.js  ⇄  微信云开发数据库 progress 集合
+   本地 store.js 仍是唯一状态源     按 _openid 自动隔离，每用户一条文档几 KB
 ```
 
-- 默认**关闭同步**：复制 `utils/runtime-config.example.js` 为 `runtime-config.js`，填 `syncBaseUrl` 并设 `syncEnabled: true` 才启用；该文件不入库。
-- 离线 / 网络失败时静默降级为纯离线，不阻塞学习；恢复后自动补推。
-- 服务端零依赖：`cd deploy/server && node server.js`（需先填 `config.json`）。详见 `deploy/server/README.md`。
-- 微信侧必须：AppID+AppSecret、HTTPS 域名、把域名加入 request 合法域名白名单。
+- 配置在 `apps/miniprogram/utils/cloud-config.js`（环境 ID `k12-math-knowledge-map-dfac0f85a` + 集合名 `progress`）。环境 ID 不是凭证，官方文档即写在前端，故入库。
+- 集合 `progress` 已创建，权限必须为**「仅创建者可读写」**——云开发按 `_openid` 自动隔离，前端只读写自己的文档，不接触 openid 明文。
+- 本地优先：所有读写先落本地 `store.js`，UI 不等网络；拉取时只填补本地缺失的条目，不覆盖已有学习进度。
+- 离线 / 网络失败时静默降级为纯离线，不阻塞学习；有未推送标记时启动后自动补推。
+- 无需 AppSecret、HTTPS 域名、request 合法域名白名单。
+- **备选方案**：`deploy/server/` 保留自建服务器实现（零依赖 Node，按 openid 隔离），将来若需走出微信生态可切换。详见 `deploy/server/README.md`。
 
 ## 六、安全规则
 
-- `deploy/config/`、`deploy/server/config.json`（AppID/Secret/token 密钥）、`apps/miniprogram/utils/runtime-config.js`（服务器地址）**绝不入库**，只留本地。
+- 云开发环境 ID 可入库（非凭证）；但**云数据库 access token、云账号 SecretId/SecretKey 绝不入库**。
+- `deploy/config/`、`deploy/server/config.json`（AppID/Secret/token 密钥）、`apps/miniprogram/utils/runtime-config.js`（自建服务器地址）**绝不入库**，只留本地。
 - `deploy/server/data/`（用户进度）**绝不入库**。
 - `resource_data/` 下的教材 PDF 等原始资料**绝不入库**，避免版权风险与仓库膨胀。
-- `.gitignore` 已为以上各类设置排除规则；AppSecret 只存在于服务端，绝不进小程序前端；任何提交前请复查 `git status`。
+- `.gitignore` 已为以上各类设置排除规则；任何提交前请复查 `git status`。

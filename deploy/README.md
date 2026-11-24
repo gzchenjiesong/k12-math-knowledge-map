@@ -26,9 +26,9 @@ deploy/
 ## 发布链路（已确认的架构）
 
 - **内容**：可靠数据源内置到小程序包，离线可用，不经过服务器。
-- **预览发布**：走 WorkBuddy 托管链路（应用卡 → 分享 → 试用/绑定），与自建服务器无关。
-- **进度同步**：小程序 `utils/sync.js` ↔ 自建 `deploy/server/`，仅同步几 KB 的掌握状态/笔记/存疑标记。
-- **微信前置**：AppID+AppSecret 换 openid；HTTPS 域名加入 request 合法域名白名单。详见 `deploy/server/README.md`。
+- **预览发布**：走 WorkBuddy 托管链路（应用卡 → 分享 → 试用/绑定），与后端无关。
+- **进度同步（当前方案）**：小程序 `utils/sync.js` ↔ 微信云开发数据库 `progress` 集合，按 `_openid` 自动隔离，仅同步几 KB 的掌握状态/笔记/存疑标记。配置在 `apps/miniprogram/utils/cloud-config.js`，无需 AppSecret / HTTPS / 域名白名单。
+- **自建服务器（备选）**：`deploy/server/` 保留自建进度服务，将来需走出微信生态时启用。详见 `deploy/server/README.md`。
 
 ## 安全红线
 
