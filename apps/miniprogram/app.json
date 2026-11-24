@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/lecture/lecture",
+    "pages/lesson/lesson",
+    "pages/graph/graph",
+    "pages/locator/locator",
+    "pages/cards/cards",
+    "pages/gaps/gaps",
+    "pages/node/node"
+  ],
+  "window": {
+    "navigationBarTitleText": "奥数知识卡片",
+    "navigationBarBackgroundColor": "#1f2d3d",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f7fa",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8a94a6",
+    "selectedColor": "#1f6feb",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/lecture/lecture", "text": "授课" },
+      { "pagePath": "pages/graph/graph", "text": "图谱" },
+      { "pagePath": "pages/locator/locator", "text": "题型" },
+      { "pagePath": "pages/gaps/gaps", "text": "查漏" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

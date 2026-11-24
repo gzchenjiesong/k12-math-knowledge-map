@@ -1,0 +1,18 @@
+{
+  "_comment": "配置结构样例 —— 所有值均为占位符，请复制到 deploy/config/ 下改真实值，真实文件不会入库",
+  "environment": "production",
+  "server": {
+    "host": "<YOUR_SERVER_HOST>",
+    "port": 22,
+    "user": "<YOUR_SSH_USER>",
+    "deployPath": "<YOUR_DEPLOY_PATH>"
+  },
+  "credentials": {
+    "sshPrivateKeyPath": "<LOCAL_PATH_TO_PRIVATE_KEY>",
+    "apiToken": "<YOUR_API_TOKEN>"
+  },
+  "healthCheck": {
+    "url": "<YOUR_HEALTHCHECK_URL>",
+    "timeoutSeconds": 10
+  }
+}

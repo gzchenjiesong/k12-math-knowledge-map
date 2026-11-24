@@ -1,0 +1,94 @@
+<view class="page">
+  <view class="head card">
+    <view class="head-top">
+      <text class="h1">奥数知识图谱</text>
+      <text class="pct">{{stat.percent}}%</text>
+    </view>
+    <text class="sub">{{view === 'source' ? '三大来源' : '十大主题'}} · {{stat.total}} 个知识点 · 两视图共用同一份进度</text>
+    <view class="bar"><view class="bar-in" style="width:{{stat.percent}}%"></view></view>
+    <view class="stat-row">
+      <view class="stat-item"><text class="stat-num green">{{stat.done}}</text><text class="stat-label">已掌握</text></view>
+      <view class="stat-item"><text class="stat-num orange">{{stat.learning}}</text><text class="stat-label">学习中</text></view>
+      <view class="stat-item"><text class="stat-num gray">{{stat.todo}}</text><text class="stat-label">未开始</text></view>
+    </view>
+  </view>
+
+  <view class="seg">
+    <view class="seg-i {{view === 'source' ? 'on' : ''}}" bindtap="switchView" data-view="source">按来源 · 看进度</view>
+    <view class="seg-i {{view === 'theme' ? 'on' : ''}}" bindtap="switchView" data-view="theme">按主题 · 看专题</view>
+  </view>
+
+  <view class="tip">
+    <text wx:if="{{view === 'source'}}">点节点看三维卡片 · 长按节点切换掌握状态 · 切到主题视图可专题纵览</text>
+    <text wx:else>按专题纵览 · 节点后标签标注它来自初中/高中/奥赛 · 长按切换掌握状态</text>
+  </view>
+
+  <!-- 视图一：按来源（进度轴） -->
+  <view wx:if="{{view === 'source'}}">
+    <view class="domain" wx:for="{{domains}}" wx:key="id">
+      <view class="domain-head {{item.id}}" bindtap="toggleDomain" data-id="{{item.id}}">
+        <view class="domain-title">
+          <text class="arrow">{{expandedDomains[item.id] ? '▾' : '▸'}}</text>
+          <text>{{item.name}}</text>
+        </view>
+        <text class="domain-sub">{{item.sub}}</text>
+      </view>
+
+      <view wx:if="{{expandedDomains[item.id]}}">
+        <view class="module" wx:for="{{item.modules}}" wx:for-item="mod" wx:key="id">
+          <view class="module-head" bindtap="toggleModule" data-id="{{mod.id}}">
+            <text class="module-arrow">{{expandedModules[mod.id] ? '▾' : '▸'}}</text>
+            <text class="module-name">{{mod.name}}</text>
+            <text class="module-count">{{mod.topics.length}}</text>
+          </view>
+
+          <view class="topics" wx:if="{{expandedModules[mod.id]}}">
+            <view class="topic" wx:for="{{mod.topics}}" wx:for-item="t" wx:key="id"
+                  bindtap="goNode" bindlongpress="cycleStatus" data-id="{{t.id}}">
+              <view class="dot s{{t.status}}"></view>
+              <view class="topic-body">
+                <view class="topic-line">
+                  <text class="topic-name">{{t.n}}</text>
+                  <text wx:if="{{t.cardCount > 0}}" class="card-badge">{{t.cardCount}}卡</text>
+                </view>
+                <text class="topic-desc">{{t.d}}</text>
+              </view>
+              <text class="chevron">›</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 视图二：按主题（专题轴，对齐集训队的小蓝本专题式授课） -->
+  <view wx:else>
+    <view class="theme" wx:for="{{themes}}" wx:key="id">
+      <view class="theme-head {{item.tone}}" bindtap="toggleTheme" data-id="{{item.id}}">
+        <view class="theme-line">
+          <text class="arrow">{{expandedThemes[item.id] ? '▾' : '▸'}}</text>
+          <text class="theme-name">{{item.name}}</text>
+          <text class="theme-prog">{{item.done}}/{{item.topics.length}}</text>
+        </view>
+        <text class="theme-sub">{{item.sub}}</text>
+        <view class="theme-bar"><view class="theme-bar-in" style="width:{{item.percent}}%"></view></view>
+      </view>
+
+      <view class="theme-body" wx:if="{{expandedThemes[item.id]}}">
+        <view class="topic" wx:for="{{item.topics}}" wx:for-item="t" wx:key="id"
+              bindtap="goNode" bindlongpress="cycleStatus" data-id="{{t.id}}">
+          <view class="dot s{{t.status}}"></view>
+          <view class="topic-body">
+            <view class="topic-line">
+              <text class="topic-name">{{t.n}}</text>
+              <text class="src-tag src-{{t.domainKey}}">{{t.domainShort}}</text>
+              <text wx:if="{{t.cardCount > 0}}" class="card-badge">{{t.cardCount}}卡</text>
+            </view>
+            <text class="topic-desc">{{t.d}}</text>
+          </view>
+          <text class="chevron">›</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

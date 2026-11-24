@@ -1,0 +1,99 @@
+<!-- 题型卡模板：题型浏览与输入定位两种模式共用 -->
+<template name="topicCard">
+  <view class="tp-card">
+    <view class="tp-head" bindtap="toggleItem" data-id="{{item.id}}">
+      <view class="tp-title-row">
+        <text class="tp-arrow">{{open[item.id] ? '▾' : '▸'}}</text>
+        <text class="tp-name">{{item.name}}</text>
+        <text class="tp-theme">{{item.themeName}}</text>
+      </view>
+      <view class="tp-sig-line">
+        <text class="sig-chip" wx:for="{{item.signals}}" wx:for-item="s" wx:key="*this">{{s}}</text>
+      </view>
+    </view>
+    <view class="tp-body" wx:if="{{open[item.id]}}">
+      <text class="sec-label">关联知识点 · 点按看讲解卡片</text>
+      <view class="kn-row">
+        <text class="kn-tag" wx:for="{{item.nodeNames}}" wx:for-item="nd" wx:key="id" bindtap="goNode" data-id="{{nd.id}}">{{nd.n}} ›</text>
+      </view>
+      <text class="sec-label">切入方法</text>
+      <view class="tp-method" wx:for="{{item.methods}}" wx:for-item="m" wx:key="*this">→ {{m}}</view>
+      <text class="sec-label">这类题在考什么</text>
+      <text class="tp-core">{{item.lesson.core}}</text>
+      <text class="sec-label">通用步骤</text>
+      <view class="tp-step" wx:for="{{item.lesson.steps}}" wx:for-item="st" wx:for-index="si" wx:key="*this">{{si + 1}}. {{st}}</view>
+      <text class="sec-label trap-label">易错点</text>
+      <text class="tp-trap">{{item.lesson.trap}}</text>
+    </view>
+  </view>
+</template>
+
+<view class="page">
+  <view class="seg">
+    <view class="seg-i {{mode === 'index' ? 'on' : ''}}" bindtap="switchMode" data-mode="index">按题型浏览</view>
+    <view class="seg-i {{mode === 'search' ? 'on' : ''}}" bindtap="switchMode" data-mode="search">输入定位</view>
+  </view>
+
+  <!-- 模式一：题型索引 -->
+  <view wx:if="{{mode === 'index'}}">
+    <view class="intro card">
+      <text class="intro-title">题型索引 · 补上教材缺的讲解</text>
+      <text class="intro-desc">小蓝本以习题为主、几乎没有讲解。这里把同一知识点散落在各讲里的题归成一类：看到什么信号 → 考哪个知识点 → 怎么切入 → 通用讲解。点开题型卡查看。</text>
+    </view>
+
+    <view class="grp" wx:for="{{groups}}" wx:key="id">
+      <view class="grp-head" bindtap="toggleGroup" data-id="{{item.id}}">
+        <text class="grp-name">{{openGroups[item.id] ? '▾' : '▸'}} {{item.name}}</text>
+        <text class="grp-count">{{item.items.length}} 题型</text>
+      </view>
+      <view class="grp-body" wx:if="{{openGroups[item.id]}}">
+        <template is="topicCard" wx:for="{{item.items}}" wx:for-item="it" wx:key="id" data="{{item: it, open: expandedIds}}" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 模式二：输入题目特征定位 -->
+  <view wx:else>
+    <view class="intro card">
+      <text class="intro-title">题目定位器</text>
+      <text class="intro-desc">把题目特征敲进去，先匹配题型卡（含讲解），再给出可能用到的知识域。这是训练「读题→定域」能力的核心工具。</text>
+    </view>
+
+    <view class="searchbox">
+      <input class="search-input" placeholder="如：证明三点共线 求线段比" value="{{input}}" bindinput="onInput" confirm-type="search" bindconfirm="locate" />
+      <text class="go" bindtap="locate">定位</text>
+    </view>
+
+    <view class="quick-label">常见信号（点一下试试）</view>
+    <view class="quick">
+      <text class="quick-tag" wx:for="{{quick}}" wx:key="*this" bindtap="onQuick" data-text="{{item}}">{{item}}</text>
+    </view>
+
+    <view wx:if="{{searched}}">
+      <view class="result-head">
+        <text class="result-title">识别结果</text>
+        <text class="clear" bindtap="clear">清空</text>
+      </view>
+
+      <block wx:if="{{topicHits.length > 0}}">
+        <text class="result-sub">命中的题型（含讲解）</text>
+        <template is="topicCard" wx:for="{{topicHits}}" wx:for-item="it" wx:key="id" data="{{item: it, open: expandedIds}}" />
+      </block>
+
+      <block wx:if="{{results.length > 0}}">
+        <text class="result-sub second">可能用到的知识域</text>
+        <view class="card res" wx:for="{{results}}" wx:key="id" bindtap="goNode" data-id="{{item.id}}">
+          <view class="res-top">
+            <text class="res-name">{{item.n}}</text>
+            <text class="res-score">匹配 {{item.score}}</text>
+          </view>
+          <text class="res-domain">{{item.domainName}}</text>
+          <view class="res-ap" wx:for="{{item.ap}}" wx:key="*this">→ {{item}}</view>
+          <text class="res-more">查看知识卡片 ›</text>
+        </view>
+      </block>
+
+      <view class="empty" wx:if="{{results.length === 0 && topicHits.length === 0}}">没识别到明确信号，试着描述题目里的关键词，比如「共线」「整数解」「最值」。</view>
+    </view>
+  </view>
+</view>

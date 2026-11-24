@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="head card">
+    <text class="h1">查漏补缺</text>
+    <text class="sub">共 {{stat.total}} 个知识点 · 已掌握 {{stat.done}} · 学习中 {{stat.learning}} · 未开始 {{stat.todo}}</text>
+    <view class="bar"><view class="bar-in" style="width:{{stat.percent}}%"></view></view>
+  </view>
+
+  <view class="filters">
+    <view class="filter {{filter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">全部</view>
+    <view class="filter {{filter === 'learning' ? 'active' : ''}}" bindtap="setFilter" data-filter="learning">学习中</view>
+    <view class="filter {{filter === 'todo' ? 'active' : ''}}" bindtap="setFilter" data-filter="todo">未开始</view>
+  </view>
+
+  <view class="group" wx:for="{{groups}}" wx:key="id">
+    <view class="group-head {{item.id}}">
+      <text>{{item.name}}</text>
+      <text class="group-count">{{item.count}}</text>
+    </view>
+    <view class="card list">
+      <view class="gap-item" wx:for="{{item.items}}" wx:for-item="t" wx:key="id" bindtap="goNode" data-id="{{t.id}}">
+        <view class="dot s{{t.status}}"></view>
+        <view class="gi-body">
+          <text class="gi-name">{{t.n}}</text>
+          <text class="gi-desc">{{t.d}}</text>
+        </view>
+        <text class="gi-module">{{t.module}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{groups.length === 0}}">这个分类下没有知识点了</view>
+</view>

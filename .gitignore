@@ -1,0 +1,65 @@
+# ============================================================
+# 敏感信息 —— 绝对不可入库（服务器地址 / 凭证 / keys / token）
+# ============================================================
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.p8
+*.kdbx
+*.secret
+*secrets*
+*credentials*
+deploy/config/*
+!deploy/config/.gitkeep
+!deploy/config/*.example.json
+!deploy/config/*.example.yaml
+!deploy/config/*.example.yml
+
+# ============================================================
+# resource_data —— 原始资料区，本地保留，不入库
+# 版权原因：教材 PDF / 教纲原文 / wiki 数据不推送到公开仓库
+# 入库的只有 reliable-data/evidence/ 里的依据锚点（书名+版本+页码）
+# ============================================================
+resource_data/*
+!resource_data/.gitkeep
+!resource_data/**/.gitkeep
+!resource_data/README.md
+
+# ============================================================
+# 生成物 —— 由 tools/ 脚本产出，不入库
+# ============================================================
+apps/miniprogram/data/*.js
+apps/miniprogram/miniprogram_npm/
+views/*.html
+!views/.gitkeep
+reliable-data/index/*.json
+!reliable-data/index/.gitkeep
+
+# ============================================================
+# 小程序 / Node 运行缓存
+# ============================================================
+node_modules/
+dist/
+build/
+.temp/
+.cache/
+*.log
+!tests/evidence/*.log
+.workbuddy/
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# 本地 IDE / 系统
+# ============================================================
+.idea/
+.vscode/*
+!.vscode/settings.example.json
+*.swp
+*.bak

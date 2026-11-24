@@ -1,0 +1,100 @@
+/* 专题导语 */
+.intro { background: linear-gradient(150deg, #1f2d3d, #2c4a6e); color: #fff; }
+.i-title { display: block; font-size: 40rpx; font-weight: 700; }
+.i-sub { display: block; margin-top: 8rpx; font-size: 24rpx; color: #9fc0e8; }
+.i-lead { display: block; margin-top: 16rpx; font-size: 24rpx; line-height: 1.75; color: #c7d4e4; }
+.goal { display: flex; margin-top: 20rpx; background: rgba(255,255,255,.08); border-radius: 12rpx; padding: 16rpx 18rpx; }
+.goal-tag, .chain-tag { flex-shrink: 0; font-size: 21rpx; font-weight: 700; padding: 2rpx 12rpx; height: fit-content; border-radius: 12rpx; margin-right: 16rpx; }
+.goal-tag { color: #6fd3a0; background: rgba(111,211,160,.16); }
+.goal-text { flex: 1; font-size: 23rpx; line-height: 1.6; color: #e4ecf6; }
+.chain { display: flex; margin-top: 12rpx; padding: 0 18rpx; }
+.chain-tag { color: #9fc0e8; background: rgba(159,192,232,.14); }
+.chain-text { flex: 1; font-size: 22rpx; line-height: 1.6; color: #b8c6d6; }
+.intro-bar { height: 10rpx; background: rgba(255,255,255,.16); border-radius: 8rpx; margin-top: 20rpx; overflow: hidden; }
+.intro-bar-in { height: 100%; background: linear-gradient(90deg, #6fd3a0, #4aa3ff); border-radius: 8rpx; }
+.intro-foot { display: flex; align-items: center; margin-top: 14rpx; }
+.intro-prog { font-size: 22rpx; color: #b8c6d6; }
+.intro-actions { margin-left: auto; }
+.intro-actions .lnk { color: #9fc0e8; margin-left: 20rpx; }
+
+/* 知识点卡 */
+.pt { padding: 0; overflow: hidden; }
+.pt.ptdone { border-left: 8rpx solid #2bb573; }
+.pt-head { display: flex; align-items: flex-start; padding: 24rpx 26rpx; }
+.pt-idx { width: 44rpx; height: 44rpx; line-height: 44rpx; text-align: center; border-radius: 12rpx; background: #eef2f8; color: #6b7688; font-size: 24rpx; font-weight: 700; margin-right: 18rpx; flex-shrink: 0; }
+.ptdone .pt-idx { background: #e6f6ec; color: #1a8a4a; }
+.pt-titlebox { flex: 1; min-width: 0; }
+.pt-line { display: flex; align-items: center; flex-wrap: wrap; }
+.pt-title { font-size: 30rpx; font-weight: 700; color: #1f2d3d; }
+.pt-peek { display: block; margin-top: 8rpx; font-size: 22rpx; color: #8a94a6; line-height: 1.55; overflow: hidden; text-overflow: ellipsis; }
+.pt-arrow { font-size: 36rpx; color: #c4cbd6; margin-left: 12rpx; transition: transform .2s; }
+.pt-arrow.up { transform: rotate(180deg); }
+
+.src-tag { margin-left: 12rpx; padding: 2rpx 12rpx; border-radius: 14rpx; font-size: 20rpx; flex-shrink: 0; }
+.src-junior { color: #2f7de0; background: #e9f1ff; }
+.src-senior { color: #19967a; background: #e5f6f1; }
+.src-olympiad { color: #c8671c; background: #fdf0e4; }
+
+/* 展开正文 */
+.pt-body { padding: 4rpx 26rpx 26rpx; border-top: 2rpx solid #f2f4f7; }
+.sec { margin-top: 24rpx; }
+.sec-h { display: flex; align-items: center; margin-bottom: 12rpx; }
+.sec-badge { width: 34rpx; height: 34rpx; line-height: 34rpx; text-align: center; border-radius: 50%; color: #fff; font-size: 20rpx; font-weight: 700; margin-right: 12rpx; flex-shrink: 0; }
+.b1 { background: #4a9bf5; }
+.b2 { background: #5ac8b0; }
+.b3 { background: #9b7de0; }
+.b4 { background: #e8738c; }
+.b5 { background: #d0914c; }
+.b6 { background: #4b8ef0; }
+.sec-t { font-size: 26rpx; font-weight: 700; color: #33405a; }
+.sec-text { display: block; font-size: 25rpx; line-height: 1.8; color: #4a5568; }
+
+.method { display: flex; align-items: flex-start; margin-bottom: 12rpx; }
+.method-dot { color: #5ac8b0; font-size: 28rpx; margin-right: 12rpx; line-height: 1.5; }
+.method-t { flex: 1; font-size: 24rpx; line-height: 1.65; color: #4a5568; }
+
+.ex-q { background: #f5f2fc; border-radius: 12rpx; padding: 18rpx 20rpx; font-size: 25rpx; line-height: 1.7; color: #4a3d6b; }
+.ex-toggle { margin-top: 12rpx; display: inline-block; font-size: 23rpx; color: #7040b8; background: #f0eaff; padding: 8rpx 22rpx; border-radius: 20rpx; }
+.ex-a { margin-top: 12rpx; background: #faf8ff; border-left: 6rpx solid #9b7de0; border-radius: 0 12rpx 12rpx 0; padding: 18rpx 20rpx; font-size: 24rpx; line-height: 1.8; color: #4a5568; }
+
+.sec.warn .sec-h .sec-t { color: #c2526a; }
+.pit { display: flex; align-items: flex-start; margin-bottom: 10rpx; }
+.pit-x { color: #e8738c; font-size: 24rpx; margin-right: 12rpx; line-height: 1.6; }
+.pit-t { flex: 1; font-size: 24rpx; line-height: 1.6; color: #6a4a52; }
+
+.sec.link { background: #fdf9f2; border-radius: 12rpx; padding: 16rpx 18rpx; }
+.sec.link .sec-h { margin-bottom: 8rpx; }
+
+.sec.check { background: #f2f7fd; border-radius: 12rpx; padding: 16rpx 18rpx; }
+.check-q { font-size: 24rpx; line-height: 1.65; color: #3d5878; margin-bottom: 12rpx; padding-left: 30rpx; position: relative; }
+.check-q::before { content: '?'; position: absolute; left: 0; top: 0; color: #4b8ef0; font-weight: 700; }
+
+.pt-actions { display: flex; align-items: center; margin-top: 26rpx; padding-top: 20rpx; border-top: 2rpx solid #f2f4f7; }
+.status-pill { font-size: 22rpx; padding: 8rpx 20rpx; border-radius: 22rpx; font-weight: 600; }
+.status-pill.s0 { color: #6b7688; background: #eef2f8; }
+.status-pill.s1 { color: #b96a10; background: #fff1e0; }
+.status-pill.s2 { color: #1a8a4a; background: #e6f6ec; }
+.pt-links { margin-left: auto; }
+.lnk { font-size: 23rpx; color: #1f6feb; font-weight: 600; }
+
+.pt-topics { margin-top: 16rpx; display: flex; flex-wrap: wrap; align-items: center; }
+.pt-topics-label { font-size: 21rpx; color: #9aa4b4; margin-right: 10rpx; }
+.topic-chip { font-size: 21rpx; color: #7040b8; background: #f0eaff; padding: 6rpx 16rpx; border-radius: 18rpx; margin: 0 10rpx 8rpx 0; }
+
+.tail-hint { text-align: center; font-size: 24rpx; color: #1a8a4a; background: #e6f6ec; padding: 24rpx; border-radius: 16rpx; margin-bottom: 20rpx; line-height: 1.6; }
+.finish-btn { background: #1f6feb; color: #fff; font-size: 28rpx; border-radius: 14rpx; margin: 10rpx 0 20rpx; }
+
+/* 内容证据条（RUL-008 保真机制） */
+.evidence-bar { background: #f7f9fc; border-left: 6rpx solid #9aa4b4; border-radius: 0 12rpx 12rpx 0; padding: 16rpx 18rpx; margin-bottom: 24rpx; }
+.evidence-bar.ev-checked { background: #f2f9f4; border-left-color: #3aa76d; }
+.evidence-bar.ev-disputed { background: #fdf2f4; border-left-color: #e05a76; }
+.ev-line1 { display: flex; align-items: center; flex-wrap: wrap; }
+.ev-badge { font-size: 20rpx; padding: 4rpx 14rpx; border-radius: 16rpx; font-weight: 700; color: #fff; background: #7a8699; margin-right: 12rpx; }
+.ev-badge.evd-A { background: #2b7cd3; }
+.ev-badge.evd-B { background: #3aa76d; }
+.ev-badge.evd-C { background: #9b7de0; }
+.ev-review { font-size: 21rpx; color: #5a6a80; font-weight: 600; margin-right: auto; }
+.ev-flag { font-size: 20rpx; color: #c04a68; text-decoration: underline; }
+.ev-flag.on { color: #fff; background: #e05a76; padding: 4rpx 14rpx; border-radius: 14rpx; text-decoration: none; }
+.ev-source { display: block; font-size: 20rpx; color: #8894a6; margin-top: 10rpx; line-height: 1.5; }
+.ev-note { display: block; font-size: 19rpx; color: #a0a9b7; margin-top: 6rpx; line-height: 1.5; }

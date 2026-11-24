@@ -1,0 +1,55 @@
+.head { padding: 30rpx; }
+.head-row { display: flex; align-items: center; justify-content: space-between; }
+.label-group { display: flex; flex-direction: column; }
+.domain-label { font-size: 22rpx; color: #8a94a6; }
+.theme-label { margin-top: 8rpx; font-size: 22rpx; color: #1f6feb; background: #e9f1ff; padding: 4rpx 14rpx; border-radius: 16rpx; align-self: flex-start; }
+.status-pill { font-size: 22rpx; padding: 8rpx 18rpx; border-radius: 24rpx; }
+.status-pill.s0 { background: #eef1f6; color: #8a94a6; }
+.status-pill.s1 { background: #fff2df; color: #c77a1e; }
+.status-pill.s2 { background: #e5f7ed; color: #1a8a4a; }
+.title { display: block; margin-top: 20rpx; font-size: 38rpx; font-weight: 700; color: #1f2d3d; }
+.oneline { display: block; margin-top: 12rpx; font-size: 26rpx; color: #5a6678; line-height: 1.6; }
+.module-label { display: inline-block; margin-top: 18rpx; font-size: 22rpx; color: #1f6feb; background: #e9f1ff; padding: 6rpx 16rpx; border-radius: 18rpx; }
+
+.tabs { display: flex; background: #fff; border-radius: 16rpx; margin-bottom: 20rpx; padding: 8rpx; }
+.tab { flex: 1; text-align: center; padding: 18rpx 0; font-size: 27rpx; color: #7a8699; border-radius: 12rpx; }
+.tab.active { background: #1f6feb; color: #fff; font-weight: 600; }
+
+.card-title { display: block; font-size: 30rpx; font-weight: 700; color: #1f2d3d; }
+.card-title.second { margin-top: 32rpx; }
+.body-text { display: block; margin-top: 16rpx; font-size: 27rpx; color: #4a5568; line-height: 1.75; }
+.points { margin-top: 20rpx; }
+.point { display: flex; margin-bottom: 16rpx; }
+.bullet { color: #1f6feb; font-size: 28rpx; margin-right: 12rpx; }
+.point-text { flex: 1; font-size: 26rpx; color: #4a5568; line-height: 1.7; }
+
+.chips { margin-top: 16rpx; display: flex; flex-wrap: wrap; }
+.ap-line { margin-top: 10rpx; font-size: 26rpx; color: #3a7a4a; line-height: 1.6; }
+
+.ex-head { display: flex; align-items: center; justify-content: space-between; }
+.level { font-size: 22rpx; color: #b96a10; background: #fff1e0; padding: 6rpx 16rpx; border-radius: 18rpx; }
+.question { margin-top: 18rpx; padding: 22rpx; background: #f7f9fc; border-radius: 14rpx; font-size: 27rpx; color: #2b3545; line-height: 1.75; }
+.fold { margin-top: 18rpx; text-align: center; padding: 16rpx; color: #1f6feb; font-size: 26rpx; background: #eef5ff; border-radius: 12rpx; }
+.solution-block { margin-top: 20rpx; }
+.block-label { display: block; font-size: 24rpx; font-weight: 600; color: #7a8699; }
+.block-text { display: block; margin-top: 8rpx; font-size: 26rpx; color: #3a4555; line-height: 1.75; }
+.answer { margin-top: 20rpx; padding: 16rpx 20rpx; background: #eaf8f0; border-radius: 12rpx; font-size: 26rpx; color: #1a7a45; font-weight: 600; }
+
+.empty-card { text-align: center; padding: 50rpx 30rpx; }
+.empty-title { display: block; font-size: 30rpx; font-weight: 600; color: #5a6678; }
+.empty-desc { display: block; margin-top: 14rpx; font-size: 24rpx; color: #9aa4b4; line-height: 1.6; }
+
+.rel-label { display: block; margin-top: 20rpx; font-size: 24rpx; color: #8a94a6; }
+.rel-hint { display: block; margin-top: 10rpx; font-size: 22rpx; color: #9aa4b4; }
+.topic-links { margin-top: 16rpx; }
+.topic-link { display: flex; align-items: center; padding: 18rpx 20rpx; background: #f7f9fc; border-radius: 12rpx; margin-bottom: 12rpx; }
+.topic-link-name { flex: 1; font-size: 26rpx; color: #1f2d3d; font-weight: 500; }
+.topic-link-theme { font-size: 21rpx; color: #9aa4b4; margin-right: 12rpx; }
+.topic-link-arrow { font-size: 32rpx; color: #1f6feb; }
+
+.note-head { display: flex; align-items: center; justify-content: space-between; }
+.note-action { font-size: 25rpx; color: #1f6feb; }
+.note-input { width: 100%; box-sizing: border-box; margin-top: 18rpx; padding: 20rpx; min-height: 180rpx; background: #f7f9fc; border-radius: 12rpx; font-size: 26rpx; line-height: 1.6; }
+.save-btn { margin-top: 16rpx; }
+.note-text { display: block; margin-top: 16rpx; padding: 20rpx; background: #f7f9fc; border-radius: 12rpx; font-size: 26rpx; color: #3a4555; line-height: 1.7; }
+.note-placeholder { display: block; margin-top: 16rpx; font-size: 24rpx; color: #a8b0bd; }

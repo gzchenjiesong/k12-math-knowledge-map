@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数学竞赛补缺书单对照表</title>
+<style>
+  :root{
+    --bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2b303b;
+    --text:#e6e8ec;--muted:#9aa2b1;--dim:#6b7484;
+    --j:#5b9cf6;--s:#3fc39a;--o:#f0a35e;--radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    font-size:14px;line-height:1.65;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:1120px;margin:0 auto;padding:32px 22px 70px}
+  h1{font-size:25px;font-weight:650;margin:0 0 5px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+  .step{padding:15px 17px}
+  .step .no{font-size:11px;color:var(--muted);letter-spacing:1px}
+  .step .tt{font-size:16px;font-weight:600;margin:3px 0 6px}
+  .step .ds{font-size:12.5px;color:var(--muted)}
+  .step .bk{font-size:12px;color:#9fc0f5;margin-top:8px}
+  .step:nth-child(2) .bk{color:#8fd8bf}
+  .step:nth-child(3) .bk{color:#f0c08a}
+
+  .sec{margin-bottom:24px;overflow:hidden}
+  .sechead{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--panel2)}
+  .sechead .dot{width:10px;height:10px;border-radius:50%}
+  .sechead h2{font-size:16px;font-weight:600}
+  .sechead .note{font-size:12px;color:var(--muted);margin-left:auto}
+  table{width:100%;border-collapse:collapse}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;font-size:12.8px}
+  th{font-size:11.5px;color:var(--dim);font-weight:600;letter-spacing:.4px;background:var(--panel)}
+  tr:last-child td{border-bottom:none}
+  td.mod{font-weight:600;white-space:nowrap;width:130px}
+  td.talk{width:32%}
+  td.drill{width:36%}
+  td.note{color:var(--muted);font-size:12px}
+  .tag{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:20px;
+    background:#26303f;color:#a9c4ee;margin-left:6px;font-weight:500}
+
+  .tips{padding:18px 20px}
+  .tips h2{font-size:16px;margin-bottom:10px}
+  .tips ul{margin:0;padding-left:18px}
+  .tips li{font-size:13px;color:#c6ced9;margin:5px 0}
+  .tips b{color:var(--text)}
+  .btn{position:fixed;right:18px;top:18px;background:#2f6fd0;color:#fff;border:0;
+    padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;z-index:9}
+  .foot{margin-top:26px;font-size:11.5px;color:var(--dim);line-height:1.7}
+  @media print{
+    body{background:#fff;color:#14181f}
+    .btn{display:none}
+    .wrap{max-width:none;padding:0}
+    .card,.sec,.sechead{background:#fff;border-color:#ccd2da}
+    th,td{color:#14181f;border-color:#dde2e9}
+    th,.sub,.note,td.note,.foot{color:#596473}
+    td.talk b,td.drill b{color:#1a4f96}
+    .sec,.step,.tips{break-inside:avoid}
+  }
+  @media(max-width:760px){.steps{grid-template-columns:1fr}table,thead,tbody,tr,th,td{display:block}
+    th{display:none}td{border:none;padding:5px 14px}td.mod{padding-top:12px}}
+</style>
+</head>
+<body>
+<button class="btn" onclick="window.print()">打印 / 保存为 PDF</button>
+<div class="wrap">
+  <h1>数学竞赛补缺书单对照表</h1>
+  <p class="sub">配合《数学竞赛知识图谱》使用 · 发现缺漏后，按"看懂讲解 → 专项练熟 → 真题检验"三步补</p>
+
+  <div class="steps">
+    <div class="card step">
+      <div class="no">第 1 步 · 看懂</div>
+      <div class="tt">先补"讲解"</div>
+      <div class="ds">把定义、定理、基本方法读懂。这一步是您说的"讲解"的来源，不能跳过。</div>
+      <div class="bk">《奥数教程》分册 · 《数学竞赛培优教程》</div>
+    </div>
+    <div class="card step">
+      <div class="no">第 2 步 · 练熟</div>
+      <div class="tt">再做"专项"</div>
+      <div class="ds">用一个专题一本书，把刚懂的方法练成手感。按板块选对应分册。</div>
+      <div class="bk">《数学奥林匹克小丛书》对应分册（小蓝本）</div>
+    </div>
+    <div class="card step">
+      <div class="no">第 3 步 · 检验</div>
+      <div class="tt">最后"真题"</div>
+      <div class="ds">用真实赛事题检验是否真会，同时熟悉题型和难度。</div>
+      <div class="bk">《高中数学联赛备考手册》· 历年联赛真题</div>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+
+  <div class="card tips">
+    <h2>用书的几条原则（竞赛圈共识，非官方要求）</h2>
+    <ul>
+      <li><b>竞赛书在精不在多。</b>选一套讲解型教程系统学一遍，比同时铺三套更有效。</li>
+      <li><b>数学不是看会的，是算会的。</b>看懂讲解后必须自己动笔，只阅读收获很小。</li>
+      <li><b>一本书看多遍。</b>第二遍常有"豁然开朗"的效果，对稳定成绩帮助很大。</li>
+      <li><b>灵活跳过。</b>某章节独立解题正确率长期偏低，先跳过，二刷再攻，别卡死进度。</li>
+      <li><b>做好记录。</b>把不同于答案的新解法、卡点、感悟写下来——这正是图谱"查漏补缺"要记的内容。</li>
+      <li><b>及时用真题检验。</b>学完一轮就做一次历年联赛题，这是判断补缺是否有效的最佳标准。</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    出版信息（出版社、作者、分册）依据华东师范大学出版社《数学奥林匹克小丛书》第三版书目及公开图书信息；使用建议整理自竞赛社群通行做法，供参考，非官方指定。<br>
+    学校集训队的讲义和讲解通常是第一手资料，本书单用于<b>课后复盘与缺漏补齐</b>。购书前请核对最新版次与分册编号。
+  </div>
+</div>
+
+<script>
+const DATA=[
+  {
+    name:'① 初中数学课标 · 筑基',color:'var(--j)',note:'初中三年压缩完成，先把地基打牢',
+    rows:[
+      ['数与代数','<b>《奥数教程》初中分册</b>（华师大·单墫/熊斌）','小蓝本初中卷1《因式分解技巧》、卷2《方程与方程组》、卷3《一次函数与二次函数》','课内拔高为主。因式分解的拆项添项、待定系数务必吃透，后面代数变形全靠它'],
+      ['图形与几何','<b>《奥数教程》初中分册</b>几何篇；沈文选《平面几何》（浙大）','小蓝本初中卷4《三角形与四边形》、卷5《圆》','先证全等相似，再上四点共圆；五心性质是竞赛几何的入场券'],
+      ['统计与概率','课内教材 + 《奥数教程》对应章节','小蓝本初中卷7《组合趣题》（部分涉及）','这一块竞赛占比低，课内扎实即可，不必额外投入'],
+      ['初中竞赛衔接','<b>冯志刚《初中数学竞赛中的解题方法与策略》</b>','小蓝本初中卷6《整除、同余与不定方程》、卷7《组合趣题》、卷8《解题方法与策略》','数论与组合从这里起步；卷6是数论板块的第一本书']
+    ]
+  },
+  {
+    name:'② 高中数学课标 · 一试',color:'var(--s)',note:'一试不超课标但重方法，先按课内体系补',
+    rows:[
+      ['集合与函数','<b>《奥数教程》高一分册</b>（集合、函数、数列、三角、向量）','小蓝本高中卷1《集合》、卷2《函数与函数方程》、卷3《三角函数》','函数性质与抽象函数是高频点；函数方程部分看卷2后半本即可'],
+      ['几何与向量','<b>《奥数教程》高一分册</b>（向量、立体几何）','小蓝本高中卷6/8《复数与向量》、卷7《解析几何》','空间向量求角与距离是一试立体几何的高效解法，务必熟练'],
+      ['解析几何与代数','<b>《数学竞赛培优教程（一试）》</b>（浙大）','小蓝本高中卷4《平均值不等式与柯西不等式》、卷5《数列与数学归纳法》、卷9《不等式的解题方法与技巧》','解析几何重在设而不求+韦达定理；不等式是二试门票'],
+      ['计数与概率统计','<b>《奥数教程》高二分册</b>相关章节','小蓝本高中卷11《组合数学》、卷12《图论》','计数是组合板块的课标入口，先掌握分类分步与容斥']
+    ]
+  },
+  {
+    name:'③ 奥赛四大板块 · 二试',color:'var(--o)',note:'课标外内容，按板块选专题书，不必全买',
+    rows:[
+      ['平面几何','<b>小蓝本高中卷11《平面几何》</b>；沈文选《平面几何》（浙大）','卷12《面积与面积方法》、卷10《几何不等式》、卷13《复数与几何》；沈文选《三角形的五心》；田廷彦《面积与面积方法》','先分子点攻克：五心→共圆→梅氏塞瓦→面积法；高阶看《命题人讲座·圆》'],
+      ['代数','<b>小蓝本高中卷4《平均值不等式与柯西不等式》</b>','卷9《不等式的解题方法与技巧》、卷2《函数与函数方程》、卷5《数列与数学归纳法》','核心6册之二。先猜等号条件，再凑配系数——这是不等式的通用手法'],
+      ['数论','<b>小蓝本高中卷《数论》</b>（余红兵）','小蓝本初中卷6《整除、同余与不定方程》打底；命题人讲座《初等数论》（冯志刚）','数论讲究取模技巧；整除同余是地基，费马小定理/CRT是主力工具'],
+      ['组合数学','<b>小蓝本高中卷11《组合数学》</b>','卷12《图论》、卷13《组合极值》；命题人讲座《组合问题》；余红兵《构造法解题》','抽屉、容斥、极端、不变量是四把利器；图论适合最后补']
+    ]
+  },
+  {
+    name:'④ 通用与思维提升',color:'#c58af0',note:'补完知识后的进阶，不必过早使用',
+    rows:[
+      ['解题思维','<b>单墫《数学竞赛研究教程》</b>（上下册，上海教育出版社）','《数学奥林匹克命题人讲座》系列（单墫主编，上海科技教育出版社）','重点讲"解法是怎么想到的"，适合突破"懂知识点但不会做题"的瓶颈'],
+      ['真题与检验','<b>《高中数学联赛备考手册》</b>（中国数学会普及工作委员会编，华师大，每年一版）','历年联赛真题；《走向IMO》数学奥林匹克试题集锦（高阶）','汇总各省市预赛与联赛题、附详解，是检验补缺效果的最佳标准'],
+      ['长期读物','《中等数学》杂志及增刊（天津师大等主办）','增刊一聚合国内教练的高联模拟题，适合学完基础后练手','月刊的"数学讲座""命题与解题"栏目对提升解题思想有帮助']
+    ]
+  }
+];
+
+const box=document.getElementById('sections');
+box.innerHTML=DATA.map(s=>`
+  <div class="sec card">
+    <div class="sechead"><span class="dot" style="background:${s.color}"></span>
+      <h2>${s.name}</h2><span class="note">${s.note}</span></div>
+    <table>
+      <thead><tr><th>知识板块</th><th>先补讲解（必读）</th><th>再练专项（按缺漏选）</th><th>怎么用</th></tr></thead>
+      <tbody>${s.rows.map(r=>`<tr><td class="mod">${r[0]}</td><td class="talk">${r[1]}</td><td class="drill">${r[2]}</td><td class="note">${r[3]}</td></tr>`).join('')}</tbody>
+    </table>
+  </div>`).join('');
+</script>
+</body>
+</html>

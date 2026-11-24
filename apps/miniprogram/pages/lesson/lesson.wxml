@@ -1,0 +1,108 @@
+<view class="page">
+  <!-- 专题导语 -->
+  <view class="intro card">
+    <text class="i-title">{{group.title}}</text>
+    <text class="i-sub">{{group.subtitle}}</text>
+    <text class="i-lead">{{group.lead}}</text>
+    <view class="goal"><text class="goal-tag">学完目标</text><text class="goal-text">{{group.goal}}</text></view>
+    <view class="chain"><text class="chain-tag">知识链</text><text class="chain-text">{{group.chain}}</text></view>
+    <view class="intro-bar"><view class="intro-bar-in" style="width:{{percent}}%"></view></view>
+    <view class="intro-foot">
+      <text class="intro-prog">已掌握 {{done}}/{{total}}</text>
+      <view class="intro-actions">
+        <text class="lnk" bindtap="expandAll">全部展开</text>
+        <text class="lnk" bindtap="collapseAll">收起</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 知识点授课列表 -->
+  <view class="pt card {{p.status===2?'ptdone':''}}" wx:for="{{points}}" wx:key="nodeId" wx:for-item="p">
+    <view class="pt-head" bindtap="togglePoint" data-id="{{p.nodeId}}">
+      <view class="pt-idx">{{p.idx}}</view>
+      <view class="pt-titlebox">
+        <view class="pt-line">
+          <text class="pt-title">{{p.title}}</text>
+          <text class="src-tag src-{{p.domain}}">{{p.domainName}}</text>
+        </view>
+        <text class="pt-peek">{{p.essence}}</text>
+      </view>
+      <text class="pt-arrow {{openIds[p.nodeId]?'up':''}}">⌄</text>
+    </view>
+
+    <view class="pt-body" wx:if="{{openIds[p.nodeId]}}">
+      <!-- 内容证据条（RUL-008）：让用户看见"这条凭什么可信" -->
+      <view class="evidence-bar ev-{{p.review}}">
+        <view class="ev-line1">
+          <text class="ev-badge evd-{{p.evidence}}">{{p.evidenceLabel}}</text>
+          <text class="ev-review">{{p.reviewLabel}}</text>
+          <text class="ev-flag {{p.disputed?'on':''}}" bindtap="toggleDisputed" data-id="{{p.nodeId}}">{{p.disputed?'已标存疑 · 点取消':'发现错误？标记存疑'}}</text>
+        </view>
+        <text class="ev-source">范围依据：{{p.sourceName}}</text>
+        <text class="ev-note">{{p.wordingNote}}</text>
+      </view>
+
+      <!-- 本质 -->
+      <view class="sec">
+        <view class="sec-h"><text class="sec-badge b1">1</text><text class="sec-t">知识本质</text></view>
+        <text class="sec-text">{{p.essence}}</text>
+      </view>
+
+      <!-- 核心方法 -->
+      <view class="sec">
+        <view class="sec-h"><text class="sec-badge b2">2</text><text class="sec-t">核心方法与思维</text></view>
+        <view class="method" wx:for="{{p.method}}" wx:key="*this" wx:for-item="m">
+          <text class="method-dot">•</text><text class="method-t">{{m}}</text>
+        </view>
+      </view>
+
+      <!-- 讲解型例题 -->
+      <view class="sec" wx:if="{{p.example}}">
+        <view class="sec-h"><text class="sec-badge b3">3</text><text class="sec-t">讲解型例题</text></view>
+        <view class="ex-q">{{p.example.q}}</view>
+        <view class="ex-toggle" bindtap="toggleExample" data-id="{{p.nodeId}}">
+          <text>{{exampleFold[p.nodeId]?'隐藏解答':'点此看讲解'}}</text>
+        </view>
+        <view class="ex-a" wx:if="{{exampleFold[p.nodeId]}}">{{p.example.a}}</view>
+      </view>
+
+      <!-- 易错点 -->
+      <view class="sec warn">
+        <view class="sec-h"><text class="sec-badge b4">4</text><text class="sec-t">易错点</text></view>
+        <view class="pit" wx:for="{{p.pitfalls}}" wx:key="*this" wx:for-item="pit">
+          <text class="pit-x">✕</text><text class="pit-t">{{pit}}</text>
+        </view>
+      </view>
+
+      <!-- 知识连接 -->
+      <view class="sec link" wx:if="{{p.links}}">
+        <view class="sec-h"><text class="sec-badge b5">5</text><text class="sec-t">知识连接</text></view>
+        <text class="sec-text">{{p.links}}</text>
+      </view>
+
+      <!-- 概念自检 -->
+      <view class="sec check">
+        <view class="sec-h"><text class="sec-badge b6">6</text><text class="sec-t">概念自检 · 能答出才算真懂</text></view>
+        <view class="check-q" wx:for="{{p.check}}" wx:key="*this" wx:for-item="cq">{{cq}}</view>
+      </view>
+
+      <!-- 底部操作 -->
+      <view class="pt-actions">
+        <text class="status-pill s{{p.status}}" bindtap="cycleStatus" data-id="{{p.nodeId}}">{{p.statusName}} · 点按切换</text>
+        <view class="pt-links">
+          <text class="lnk" bindtap="goNode" data-id="{{p.nodeId}}">看卡片详情 ›</text>
+        </view>
+      </view>
+      <view class="pt-topics" wx:if="{{p.topics.length > 0}}">
+        <text class="pt-topics-label">验证题型：</text>
+        <text class="topic-chip" wx:for="{{p.topics}}" wx:key="id" wx:for-item="tp" bindtap="goTopic" data-id="{{tp.id}}">{{tp.title}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="tail-hint" wx:if="{{done === total && total > 0}}">
+    <text>✓ 这个专题全部掌握了，可以去「题型」按小蓝本刷题验证</text>
+  </view>
+
+  <button class="finish-btn" bindtap="markWholeDone" wx:if="{{done < total && total > 0}}">整专题已学完 · 全部标记掌握</button>
+</view>
