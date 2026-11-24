@@ -135,6 +135,7 @@
 
 > 用途：把「数据可信度」从应用开发中解耦，作为一个独立任务来建设。
 > 设计前提：校验不取消，而是前移并集中到数据源出口；下游开发 / 运行时直接信任发布后的数据。
+> 启动方式：新任务的工作目录设为仓库根 `D:\GitHub\k12-math-knowledge-map`，整段复制下方代码块作为首条指令。
 
 ```
 【任务定位】
@@ -149,7 +150,7 @@
 下游拿到的是已发布版本，直接读取、不再重复做内容校验。
 
 【输入资产（只读，不要原地覆盖）】
-工作区：C:\Users\jeaschen\WorkBuddy\2026-11-23-18-37-56
+仓库根目录（工作目录请设为此处，以下路径均相对此根）：D:\GitHub\k12-math-knowledge-map
 - 57 节点清单：apps/miniprogram/data/nodes.js（初中 21 / 高中 15 / 奥赛 21）
 - 现有授课内容：apps/miniprogram/data/lectures.js（10 专题 57 点，六段式）
 - 题型索引：apps/miniprogram/data/topic_index.js（34 题型 / 10 分组 / 覆盖 51 节点）
@@ -159,6 +160,9 @@
 - 约束与流程：docs/SPECS.md（SPEC-004、SPEC-008）、docs/RULES.md（RUL-002、RUL-008、RUL-009）
 - 数据与字段规格：docs/CONFIG.md 的 CNF-005；缺陷记录：docs/BUGWALL.md（BUG-009/010/011）
 - 现有校验思路参考：tests/verify_content.js（四类机械断言，PASS 不等于正确）
+- 原始资料本地目录（不入库）：resource_data/official|wiki|books|notes/ —— 权威锚点的原件放这里
+注：apps/miniprogram/data/*.js 已被 .gitignore 排除、不入库，但工作区本地存在，仅可作素材读取；
+    其内容可信度混杂（15 checked / 42 pending），绝不能当作真源。
 
 【权威顺序（判定冲突时自上而下）】
 1. 学校集训队讲义 / 授课老师口径 —— 最终裁决依据
@@ -169,13 +173,16 @@
 禁止复制付费教材作者的原创讲解、解析与编排；禁止抓取或内嵌盗版 PDF（SPEC-004）。
 
 【交付物：可靠数据源（四类卡片 + 发布清单）】
-在项目内建立独立数据目录（例如 reliable-data/），与小程序工程分离，不覆盖现有 data 文件。
-1. 知识点卡：57 张，一节点一卡，含来源归属、前置 / 关联、识别信号。
-2. 授课教案卡：57 份，严格按 RUL-002 六段式 —— 知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检。
-3. 易错考点卡：每个知识点不少于 2 条，写清错因、触发条件与纠正方法。
-4. 真题示范卡：每个知识点不少于 1 题，题目与解答分离；问「求 X」必须给出明确结论。
-5. manifest.json：版本号、各类条目数、每条内容哈希、生成时间、核验人、证据路径。
-6. CHANGELOG 与 tests/evidence/ 核验记录：每次版本变更留痕，不覆盖历史。
+使用仓库已建好的 reliable-data/ 骨架（nodes/ lessons/ pitfalls/ examples/ schema/ evidence/ index/），
+与小程序工程分离，不覆盖 apps/miniprogram/data/ 现有文件；一节点一文件，便于 diff 与并行编制。
+1. 知识点卡：57 张 → reliable-data/nodes/<nodeId>.json，含来源归属、前置 / 关联、识别信号。
+2. 授课教案卡：57 份 → reliable-data/lessons/<nodeId>.json，严格按 RUL-002 六段式 —— 知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检。
+3. 易错考点卡：每知识点 ≥2 条 → reliable-data/pitfalls/<nodeId>.json，写清错因、触发条件与纠正方法。
+4. 真题示范卡：每知识点 ≥1 题 → reliable-data/examples/<nodeId>.json，题目与解答分离；问「求 X」必须给出明确结论。
+5. reliable-data/manifest.json：版本号、各类条目数、每条内容哈希、生成时间、核验人、证据路径。
+6. reliable-data/CHANGELOG.md 与 tests/evidence/ 核验记录：每次版本变更留痕，不覆盖历史。
+7. reliable-data/schema/：把下方字段规格落成 JSON Schema，供 tests/check-data.js 与 tools/build-data.js 复用；
+    reliable-data/evidence/：只写「资料名称 + 版本 + 章节/页码」锚点，原件留本地 resource_data/，不复制原文入库（见 resource_data/README.md）。
 
 【每张卡必带字段】
 nodeId / id、title、domain、source_ref（依据锚点：讲义页码 / 教材条目 / 官方文件名 + 条款）、
@@ -187,11 +194,15 @@ reviewer 与 date（verified 时必填）、content_hash、version。
 【执行流程（五阶段，逐阶段产出可检查物）】
 阶段 1 盘点与差距：列出 57 节点 × 四类卡的现状矩阵（已有 / 缺失 / 存疑），
          显式标出当前 42 个 pending 节点与 3 个已知缺陷 BUG-009/010/011。
-阶段 2 依据锚定：为每条内容建立 source_ref 与 evidence；无锚点者进入待人工清单，不编造。
+阶段 2 依据锚定：原始资料放本地 resource_data/{official,wiki,books,notes}/（不入库），
+         在 reliable-data/evidence/ 只写「资料名称 + 版本 + 章节/页码」锚点，供人回原件核对；
+         为每条内容建立 source_ref 与 evidence；无锚点者进入待人工清单，不编造。
 阶段 3 分批编制：按专题分批推进，建议每批 5–8 个节点；每批先授课教案，再易错考点与真题示范。
 阶段 4 三重检查（缺一不可）：
    a. 机械检查：数值复算、定理条件齐全、结论存在性、跨卡一致性、引用有效、schema 完整。
-      参考 verify_content.js 的四类断言并扩展到你新增的内容。PASS 只说明可判定部分无矛盾。
+      运行 `node tests/check-data.js` 作为发布资格闸门（D1 manifest / D2 四类各 57 / D3 必备字段 /
+      D4 review 四态且 verified 带签字 / D5 evidence 枚举），必须 VERDICT=PASSED。
+      内容断言参考 tests/verify_content.js 并扩展到你新增的内容。PASS 只说明可判定部分无矛盾，不证明数学正确。
    b. 异源交叉：用与生成路径不同的来源 / 表述路径交叉验证；同源 AI 再自查一遍不算检查。
    c. 人工闸门：由家长 / 老师对照学校讲义逐条抽检签核。只有人能把 review 置为 verified
       并记录 reviewer + date；AI 不得自证内容正确（SPEC-008）。
@@ -200,13 +211,16 @@ reviewer 与 date（verified 时必填）、content_hash、version。
 【验收门槛（全部满足才算完成）】
 - 57/57 知识点卡、57/57 教案卡、每知识点 ≥2 条易错、每知识点 ≥1 道真题示范。
 - 每条内容都有 source_ref 与 evidence；所有 verified 条目都有 reviewer + date。
-- 机械检查 RESULT 全通过、VERDICT=PASSED，未覆盖项 UNCOVERED=0。
+- `node tests/check-data.js` 得到 RESULT 全通过、VERDICT=PASSED；注意它只检查发布资格与结构，
+  不检查数学内容正确，也不校验内容哈希一致性与 UNCOVERED=0 —— 这两项由任务在汇总中显式声明状态。
 - 人工抽检记录落盘；未签核条目如实保留 pending，不得写「全部已核实」。
 - manifest 与内容哈希一致，版本号固定可追溯。
 - 输出必须声明：正确性是「依据充分 + 人工签核」的结果，不是 AI 自证。
 
 【与下游的契约】
-本任务产出的可靠数据源是唯一内容真源。后续开发与运行时直接读取、不重复做内容校验，页面代码只读。
+本任务产出的 reliable-data/ 是唯一内容真源，发布后不可变，修改一律走新版本。
+下游链路：tools/build-data.js 从真源生成 apps/miniprogram/data/*.js（小程序内置、离线可用）；
+          tools/render-html.js 渲染 views/ 人读 HTML。开发与运行时直接信任生成产物，不重复做内容校验，页面代码只读。
 发现问题只能通过「用户标记存疑 → 本任务新版本修复」闭环（RUL-009 五步），不得在 UI 层私改数据。
 
 【禁止事项】
