@@ -14,9 +14,17 @@ function load() {
   return { status: {}, notes: {}, disputed: {} };
 }
 
+// 状态变更通知（可选监听者）—— 不改变存储逻辑与唯一数据源（SPEC-003），
+// 仅用于让同步层在保存成功后触发一次防抖推送；无监听者时行为与原来完全一致。
+var _listeners = [];
+function onChange(fn) {
+  if (typeof fn === 'function') _listeners.push(fn);
+}
+
 function save(state) {
   try {
     wx.setStorageSync(KEY, state);
+    _listeners.forEach(function (fn) { try { fn(state); } catch (e) {} });
     return true;
   } catch (e) {
     return false;
@@ -81,5 +89,6 @@ module.exports = {
   setNote: setNote,
   getDisputed: getDisputed,
   setDisputed: setDisputed,
-  stats: stats
+  stats: stats,
+  onChange: onChange
 };

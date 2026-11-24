@@ -8,12 +8,27 @@
 
 ```
 deploy/
-├── README.md            # 本文件
-├── config/              # 私有配置（不入库）：服务器地址、登录凭证、keys、token
-│   └── .gitkeep         # 目录占位，真实配置永远只在本地
-├── config.example.json  # 配置字段样例（占位值，可入库）
-└── scripts/             # 部署脚本（上传、重启、健康检查等）
+├── README.md               # 本文件
+├── config/                 # 私有配置（不入库）：服务器地址、登录凭证、keys
+│   └── .gitkeep
+├── config.example.json     # 配置字段样例（占位值，可入库）
+├── server/                 # 自建进度服务（零依赖 Node）
+│   ├── server.js           # API + 鉴权
+│   ├── lib/store.js        # 按用户隔离的进度存取
+│   ├── config.example.json # 服务端配置样例（可入库）
+│   ├── config.json         # 真实凭证（不入库）：AppID/Secret/token 密钥
+│   ├── data/               # 用户进度文件（不入库）
+│   └── README.md           # 服务端说明与微信前置条件
+└── scripts/
+    └── deploy-server.sh    # 上传/启动/健康检查（骨架，参数待填）
 ```
+
+## 发布链路（已确认的架构）
+
+- **内容**：可靠数据源内置到小程序包，离线可用，不经过服务器。
+- **预览发布**：走 WorkBuddy 托管链路（应用卡 → 分享 → 试用/绑定），与自建服务器无关。
+- **进度同步**：小程序 `utils/sync.js` ↔ 自建 `deploy/server/`，仅同步几 KB 的掌握状态/笔记/存疑标记。
+- **微信前置**：AppID+AppSecret 换 openid；HTTPS 域名加入 request 合法域名白名单。详见 `deploy/server/README.md`。
 
 ## 安全红线
 

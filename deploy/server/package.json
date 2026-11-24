@@ -1,0 +1,14 @@
+{
+  "name": "olympiad-progress-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "按用户隔离保存奥数卡片学习进度（status/notes/disputed），仅几 KB/用户",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}
