@@ -17,6 +17,7 @@
 
 .domain { margin-bottom: 22rpx; }
 .domain-head { padding: 24rpx 28rpx; border-radius: 18rpx 18rpx 0 0; color: #fff; }
+.domain-head.primary { background: linear-gradient(135deg, #6f52c9, #9b7de0); }
 .domain-head.junior { background: linear-gradient(135deg, #2f7de0, #4a9bf5); }
 .domain-head.senior { background: linear-gradient(135deg, #19967a, #2bb894); }
 .domain-head.olympiad { background: linear-gradient(135deg, #c8671c, #e08b3c); }
@@ -61,6 +62,7 @@
 .theme-head.tone8  { border-left: 10rpx solid #d0914c; }
 .theme-head.tone9  { border-left: 10rpx solid #c96fbe; }
 .theme-head.tone10 { border-left: 10rpx solid #62b57a; }
+.theme-head.tone11 { border-left: 10rpx solid #9b7de0; }
 .theme-line { display: flex; align-items: center; }
 .theme-name { flex: 1; font-size: 30rpx; font-weight: 700; color: #fff; }
 .theme-prog { font-size: 24rpx; color: #b8c6d6; background: rgba(255,255,255,.12); padding: 4rpx 16rpx; border-radius: 20rpx; }
@@ -71,6 +73,7 @@
 
 /* 主题视图里的来源标签 */
 .src-tag { margin-left: 12rpx; padding: 2rpx 12rpx; border-radius: 14rpx; font-size: 20rpx; flex-shrink: 0; }
+.src-primary { color: #6f52c9; background: #f1ecff; }
 .src-junior { color: #2f7de0; background: #e9f1ff; }
 .src-senior { color: #19967a; background: #e5f6f1; }
 .src-olympiad { color: #c8671c; background: #fdf0e4; }

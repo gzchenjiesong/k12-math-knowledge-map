@@ -549,7 +549,7 @@
       "id": "t_primary",
       "name": "小学数学思维铺垫",
       "sub": "运算 · 整除 · 代数 · 比 · 几何 · 计数 · 逻辑",
-      "tone": "tone6",
+      "tone": "tone11",
       "nodeIds": [
         "p_num",
         "p_div",

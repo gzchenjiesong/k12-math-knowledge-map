@@ -127,7 +127,7 @@
 ### CNF-016: app 数据可复现发布基准（v2.1.0）
 
 - 决策：app 数据 6 个模块（`apps/miniprogram/data/nodes.js`、`apps/miniprogram/data/lectures.js`、`apps/miniprogram/data/cards.js`、`apps/miniprogram/data/themes.js`、`apps/miniprogram/data/topic_index.js`、`apps/miniprogram/data/content_meta.js`）由生成物改为**入库**（clone 即可运行），但仍是生成物、禁止手工编辑，改动一律重跑 `node tools/build-data.js --allow-pending`。
-- 组织层固化：真源四类卡不含主题/题型索引/三维卡/领域分组结构，这些组织层数据固化于 `reliable-data/source/app_organization.json`（入库），由生成器读取。v2.1.0 增补小学段 domain/lecture/theme shell（`t_primary`），使 67 节点在来源视图/授课视图/主题视图全覆盖；主题沿用 tone6，不改页面 CSS。
+- 组织层固化：真源四类卡不含主题/题型索引/三维卡/领域分组结构，这些组织层数据固化于 `reliable-data/source/app_organization.json`（入库），由生成器读取。v2.1.0 增补小学段 domain/lecture/theme shell（`t_primary`），使 67 节点在来源视图/授课视图/主题视图全覆盖。模拟器预览后修正显示：新增 `.domain-head.primary`、`.src-primary`、`.theme-head.tone11`（避免与 t_geo 共用 tone6）；图谱页/授课页的「三大来源/十大主题/57 个知识点」改为按数据动态渲染，卡片页排序纳入 primary。
 - 字段映射：`ALL_NODES` 逐字段取自真源 nodes（title→n / points→p / prerequisites→pre / relations→rel / signals→sig / approaches→ap / description→d）；`LECTURES.points` 六段式逐字段取自真源 lessons；其余组织层取配置。
 - 覆盖基准：`ALL_NODES=67`、`LECTURES=11 专题 / 67 点`、`DOMAINS/THEMES` 均覆盖同一 67 节点集；题型 34 / 分组 10 不变（组织层）。
 - 一致性闸门：`tests/check-app-build.js` 18/18（app 数据逐字段等于真源 + 配置、四视图同节点集、头部版本/过渡警告）；删除后重建 6 模块字节级一致（可复现）。

@@ -7,7 +7,7 @@
     <text class="lead">先把知识讲透，再去小蓝本按题型验证。一个专题 = 一次完整授课，顺着知识链逐个学，不存在"某个知识点还没学"。</text>
     <view class="bar"><view class="bar-in" style="width:{{stat.percent}}%"></view></view>
     <view class="hero-stat">
-      <text>57 个知识点 · 已掌握 {{stat.done}} · 学习中 {{stat.learning}}</text>
+      <text>{{stat.total}} 个知识点 · 已掌握 {{stat.done}} · 学习中 {{stat.learning}}</text>
     </view>
   </view>
 
@@ -17,7 +17,7 @@
     <view class="pr-row"><text class="pr-num last">3</text><text class="pr-text"><b>后刷题</b>　去小蓝本按题型练，题型只用来验证掌握</text></view>
   </view>
 
-  <view class="section-title">十大专题 · 点击开始授课</view>
+  <view class="section-title">{{lectures.length}} 大专题 · 点击开始授课</view>
 
   <view class="lec card {{item.tone}}" wx:for="{{lectures}}" wx:key="id" bindtap="goLesson" data-id="{{item.id}}">
     <view class="lec-top">

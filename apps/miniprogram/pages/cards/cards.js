@@ -46,8 +46,8 @@ Page({
       list = list.filter(function (x) { return x.searchText.indexOf(kw) !== -1; });
     }
 
-    // 按来源排序
-    const order = { junior: 0, senior: 1, olympiad: 2 };
+    // 按来源排序：小学 → 初中 → 高中 → 奥赛
+    const order = { primary: 0, junior: 1, senior: 2, olympiad: 3 };
     list.sort(function (a, b) {
       const da = byId[a.id] ? order[byId[a.id].domain] : 9;
       const db = byId[b.id] ? order[byId[b.id].domain] : 9;
