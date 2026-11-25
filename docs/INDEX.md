@@ -112,6 +112,7 @@
 | R11 | 2026-11-25 | app 数据可复现发布：新增 CNF-016 / TST-019；组织层数据固化为 `reliable-data/source/app_organization.json`（含小学段 t_primary domain/lecture/theme shell，67 节点四视图全覆盖）；`build-data.js` 从骨架升级为编译 6 模块（ALL_NODES/讲义六段式取真源，其余取配置）；`.gitignore` 放行 6 模块与 bridges.json 入库；`validate.js` 去硬编码 57/10；`check-app-build.js` 18/18 + 删除重建字节一致 | CONFIG（CNF-016）/ TESTS（TST-019）/ INDEX / README / .gitignore / reliable-data/source/app_organization.json / apps/miniprogram/data/*.js / tools/build-data.js / tests/{check-app-build,validate}.js / tests/evidence/*V21.log | app 数据为过渡数据（pending=268、verified=0），头部带未签核警告；clone 可运行但不解锁人工闸门 VFY-005/006 |
 | R12 | 2026-11-25 | 小程序账号身份定稿：新增 CNF-017；后台查重实测「数海拾阶」「渐入数境」冲突后，定名「数学阶梯」、简称「阶梯」、介绍 118/120 字符（覆盖 67 知识点与四个功能点），名称避开「奥数」以保护词风险；`app.json` 全局标题与 `project.config.json` description 同步 | CONFIG（CNF-017）/ INDEX / apps/miniprogram/app.json / apps/miniprogram/project.config.json | 名称修改申请已提交待审核；服务类目须人工确认；账号身份定稿不代表内容已核准（pending=268、verified=0） |
 | R13 | 2026-11-25 | 服务类目定稿（CNF-017 追加）：按资质与功能匹配核对官方类目表后，只保留「教育服务 > 教育信息展示」单一主营类目，移除「工具 > 计算器」（app 无计算功能）与「工具 > 备忘录」（仅本地掌握状态、弱匹配）；该类目个人主体可选、免资质，与名称/介绍/四 tab 内容展示功能三者对齐；服务类目与备案服务内容标识为两个独立环节 | CONFIG（CNF-017）/ INDEX | 服务类目调整与账号信息审批均已提交待审核；备案服务内容标识须另选（个人备案避开「教育」项）；不代表内容已核准（pending=268、verified=0） |
+| R14 | 2026-11-25 | 备案提交顺序决策（CNF-017 追加）：先等名称审批生效再提交备案，不在审核期用默认名提交；依据备案订单提交后不同步改名、备案名 ≠ 实际名会被处置、管局审核期间无法改需重走变更备案全套；同时记录备案前置核对（名称取「数学阶梯」、服务内容标识选工具/信息查询、管理员与主体信息一致、不支持加急） | CONFIG（CNF-017）/ INDEX | 备案暂停等待名称审批；等待期可并行准备材料与上传代码；不代表内容已核准（pending=268、verified=0） |
 
 ## IDX-007: 设计文档占用与生效说明
 
