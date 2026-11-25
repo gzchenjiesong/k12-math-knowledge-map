@@ -1,0 +1,96 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-11-25",
+  "policy": "只写资料名称 + 版本 + 章节/页码锚点；原件留本地 resource_data/，不复制原文入库",
+  "localOriginalScan": "资源目录当前仅有 .gitkeep 与 README.md，无任何原件；全部 A/B 类锚点的 originalStatus 均为 MISSING_LOCAL_COPY",
+  "sources": [
+    {
+      "anchorId": "EV-A01",
+      "title": "教育部《义务教育数学课程标准》",
+      "version": "学校现行文本（待人工确认）",
+      "section": "第三学段（7—9年级）数与代数 / 图形与几何 / 统计与概率",
+      "original": "resource_data/official/（本地原件待补）",
+      "originalStatus": "MISSING_LOCAL_COPY",
+      "covers": "junior 21 节点",
+      "evidence": "A",
+      "note": "范围依据；讲解措辞为原创"
+    },
+    {
+      "anchorId": "EV-A02",
+      "title": "教育部《普通高中数学课程标准》（2017年版2020修订）",
+      "version": "2017年版2020修订",
+      "section": "必修 / 选择性必修各主题",
+      "original": "resource_data/official/（本地原件待补）",
+      "originalStatus": "MISSING_LOCAL_COPY",
+      "covers": "senior 15 节点；一试范围不超此课标",
+      "evidence": "A",
+      "note": "范围依据（CNF-008）"
+    },
+    {
+      "anchorId": "EV-A03",
+      "title": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）",
+      "version": "按联赛通知口径",
+      "section": "二试：平面几何 / 代数 / 数论 / 组合",
+      "original": "resource_data/official/（本地原件待补）",
+      "originalStatus": "MISSING_LOCAL_COPY",
+      "covers": "olympiad 21 节点",
+      "evidence": "A",
+      "note": "板块范围依大纲；细目以集训队当年大纲为准，学校讲义优先"
+    },
+    {
+      "anchorId": "EV-A04",
+      "title": "教育部《2025—2028 学年面向中小学生的全国性竞赛活动名单》",
+      "version": "教监管厅函〔2025〕7号",
+      "section": "全国中学生数学奥林匹克竞赛面向学段：普通高中",
+      "original": "resource_data/official/（本地原件待补）",
+      "originalStatus": "MISSING_LOCAL_COPY",
+      "covers": "SPEC-005 升学表述口径",
+      "evidence": "A",
+      "note": "竞赛及结果不得作为招生入学依据和高考加分项目"
+    },
+    {
+      "anchorId": "EV-A05",
+      "title": "2026 年全国中学生数学奥林匹克竞赛（预赛）组织委员会通知",
+      "version": "2026 赛季",
+      "section": "一试 80 分钟/120 分；二试 170 分钟/180 分、四大板块",
+      "original": "resource_data/official/（本地原件待补）",
+      "originalStatus": "MISSING_LOCAL_COPY",
+      "covers": "CNF-008 权威事实口径",
+      "evidence": "A",
+      "note": "一试不超 2017版（2020修订）课标但提高方法要求"
+    },
+    {
+      "anchorId": "EV-N01",
+      "title": "学校集训队讲义 / 授课老师口径",
+      "version": "以孩子当年集训队讲义为准",
+      "section": "逐节点页码待家长/老师补锚",
+      "original": "resource_data/notes/（本地无原件）",
+      "originalStatus": "MISSING_LOCAL_COPY",
+      "covers": "全部 57 节点（最高权威顺位）",
+      "evidence": "A",
+      "note": "权威顺序第 1 位；无原件时不得伪称已按讲义核对，人工闸门 VFY-005 保持阻塞"
+    },
+    {
+      "anchorId": "EV-B01",
+      "title": "标准数学定理与定义（权威教材可交叉验证）",
+      "version": "通用教材",
+      "section": "按节点主题对应章节，页码待人工补锚",
+      "original": "resource_data/books/（本地无原件）",
+      "originalStatus": "MISSING_LOCAL_COPY",
+      "covers": "含定理/公式的节点",
+      "evidence": "B",
+      "note": "只验证定理与定义本身，不验证本真源讲解措辞"
+    },
+    {
+      "anchorId": "EV-C01",
+      "title": "原创讲解 / 自编示范题 / 易错诊断",
+      "version": "2.0.0",
+      "section": "reliable-data/lessons|examples|pitfalls/*.json",
+      "original": "本真源自带（生成物可回查）",
+      "originalStatus": "IN_REPO",
+      "covers": "全部 57 节点",
+      "evidence": "C",
+      "note": "依据仅为定理、公式、通用方法与题目本身；需人工判断"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_trans",
+  "id": "example-j_trans",
+  "kind": "example",
+  "title": "图形变换 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_trans-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "求\"将军饮马\"问题的最短路径",
+      "answer": "把其中一个点关于直线做对称，连接对称点与另一点，与直线的交点即最优位置。核心是\"用轴对称把折线拉成直线\"。",
+      "conclusion": "对称点与另一点连线和直线的交点即最短路径位置",
+      "reasoningAnchor": "旋转常用于出现等边三角形、正方形的题目（60°、90°旋转）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:7d0fe6b517ecb66ce38f3208126eafdc3ca1fee604f51119c63359c158e1d45d"
+}

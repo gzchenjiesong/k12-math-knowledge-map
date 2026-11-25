@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_geo_ceva",
+  "id": "example-o_geo_ceva",
+  "kind": "example",
+  "title": "梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_geo_ceva-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "D、E、F 分别在三角形 ABC 三边上，求证 AD、BE、CF 共点的条件",
+      "answer": "用塞瓦定理：(BD/DC)(CE/EA)(AF/FB)=1 即共点。核心是把\"共点\"这个几何关系转成比例乘积的代数条件。",
+      "conclusion": "共点条件为 (BD/DC)(CE/EA)(AF/FB)=1",
+      "reasoningAnchor": "梅涅劳斯：一条直线截三角形三边，三段比例乘积=1（用于证共线）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:f9abe5a08882492a5bcfb28dcbf3633e068e7d08634dee5ae773bf78d7367d47"
+}

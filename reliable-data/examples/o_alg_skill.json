@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_alg_skill",
+  "id": "example-o_alg_skill",
+  "kind": "example",
+  "title": "代数变形技巧 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_alg",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_alg_skill-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "已知 x+1/x=3，求 x²+1/x²",
+      "answer": "不要去解 x。整体平方：(x+1/x)²=x²+2+1/x²=9，所以 x²+1/x²=7。核心是\"把所求式看作已知式的整体变形\"，而非逐个求未知量。",
+      "conclusion": "x²+1/x²=7",
+      "reasoningAnchor": "换元：式子中反复出现的同一结构用一个字母代替",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:a97d2019b5ec6d86b08a454dbbee944b0b46b15efbb836f407e0d6c20a90f1c2"
+}

@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_trig_id",
+  "id": "lesson-o_trig_id",
+  "kind": "lesson",
+  "title": "三角恒等式与三角不等式 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_trig",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "竞赛中的三角恒等式是恒等变换的高阶应用，重点是\"条件等式\"的证明与\"三角形式的不等式\"。核心思想仍是把三角问题代数化——万能代换 t=tan(x/2) 能把三角式变成有理式。",
+  "method": [
+    "万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)",
+    "对称结构考虑和差化积、积化和差",
+    "三角不等式常结合基本不等式与有界性 |sin x|≤1"
+  ],
+  "example": {
+    "q": "证明 (1+sin x)/cos x = cos x/(1−sin x)",
+    "a": "左边分子分母同乘 (1+sin x)？更直接：交叉相乘验证 (1+sin x)(1−sin x)=cos²x，即 1−sin²x=cos²x，成立。核心是\"证明分式恒等式可交叉相乘化为基本恒等式\"。"
+  },
+  "pitfalls": [
+    "交叉相乘时忽略分母为零的情况",
+    "万能代换后式子变得过于复杂"
+  ],
+  "links": "三角恒等式连接复数（o_complex）、不等式（o_ineq）、几何求角。",
+  "check": [
+    "证明分式恒等式时交叉相乘合法的前提是什么？",
+    "万能代换的价值在哪里？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:c07de40e3402d78a3bd78ced04b32b996c15f0e230bd0b52581a9f0c901e5ee2"
+}

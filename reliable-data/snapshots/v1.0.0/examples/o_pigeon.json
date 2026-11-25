@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_pigeon",
+  "id": "example-o_pigeon",
+  "kind": "example",
+  "title": "抽屉原理与极端原理 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_pigeon-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "13 个人中至少有两人生日在同一个月",
+      "answer": "一年 12 个月是 12 个抽屉，13 个人是物体，13>12，由抽屉原理至少两人在同月。核心是\"识别出什么是抽屉、什么是物体\"。",
+      "conclusion": "至少两人生日在同一个月",
+      "reasoningAnchor": "抽屉原理：n+1 个物体放 n 个抽屉，至少一个抽屉≥2",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:557cf72f2a0f6b6d15c0a64d7ac2b15da3f5a18d419fc16b3dcd4239aac12dfb"
+}

@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_conic",
+  "id": "example-s_conic",
+  "kind": "example",
+  "title": "圆锥曲线 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_analytic",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "2.1.0",
+  "items": [
+    {
+      "id": "EX-s_conic-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "椭圆 x²/4 + y² = 1 与直线 y = x + 1 交于 A、B 两点，求弦长 |AB|。",
+      "answer": "联立 x²/4 + (x+1)² = 1，化为 5x² + 8x = 0，得 x₁=0、x₂=−8/5，对应 y₁=1、y₂=−3/5。弦长 |AB|=√(1+k²)·|x₁−x₂|=√2 × 8/5 = 8√2/5。核心是\"不解交点坐标也能用韦达定理算弦长\"：本题因方程具体，可直接解出交点验证。",
+      "conclusion": "弦长 |AB| = 8√2/5（椭圆 x²/4+y²=1 与直线 y=x+1）",
+      "reasoningAnchor": "牢记椭圆/双曲线/抛物线定义与标准方程：椭圆 c²=a²−b²，双曲线 c²=a²+b²",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:025e3269b6ee6a9c09d4b2d2bc70ef63f7a59144c02fe83214c23290b693c61b"
+}

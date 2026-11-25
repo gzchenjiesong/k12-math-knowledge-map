@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_ineq",
+  "id": "example-s_ineq",
+  "kind": "example",
+  "title": "不等式 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_eq",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-s_ineq-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "x>0，求 x+4/x 的最小值",
+      "answer": "由基本不等式 x+4/x ≥ 2√(x·4/x)=4，当且仅当 x=4/x 即 x=2 时取等。核心是验证等号能取到——这是基本不等式使用的必要步骤。",
+      "conclusion": "最小值为 4，x=2 时取等",
+      "reasoningAnchor": "基本不等式 a+b≥2√(ab)（a,b>0），注意\"一正二定三相等\"",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:c7e0bc777074dcfe670a4db201dd04914efe5eaf4306756f3106830551d6bb89"
+}

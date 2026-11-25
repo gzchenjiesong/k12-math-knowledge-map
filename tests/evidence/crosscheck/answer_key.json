@@ -1,0 +1,1342 @@
+{
+  "j_alg": {
+    "domain": "junior",
+    "module": "数与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "分解 x⁴+x²+1",
+        "conclusion": "(x²+x+1)(x²−x+1)",
+        "answer": "直接套公式看不出来。补项配方：x⁴+2x²+1−x²=(x²+1)²−x²=(x²+x+1)(x²−x+1)。关键动作是\"补一项配成平方差\"——这是竞赛因式分解最常见的构造。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "分解 x⁴+x²+1",
+        "conclusion": null,
+        "answer": "直接套公式看不出来。补项配方：x⁴+2x²+1−x²=(x²+1)²−x²=(x²+x+1)(x²−x+1)。关键动作是\"补一项配成平方差\"——这是竞赛因式分解最常见的构造。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_circle": {
+    "domain": "junior",
+    "module": "图形与几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "AB 是直径，C 在圆上，求 ∠ACB",
+        "conclusion": "∠ACB=90°",
+        "answer": "直径所对圆周角是直角，故 ∠ACB=90°。这是一个高频基本结论，竞赛中常作为中间步骤。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "AB 是直径，C 在圆上，求 ∠ACB",
+        "conclusion": null,
+        "answer": "直径所对圆周角是直角，故 ∠ACB=90°。这是一个高频基本结论，竞赛中常作为中间步骤。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_cong": {
+    "domain": "junior",
+    "module": "图形与几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "边长为 3、4、5 的三角形是什么三角形？",
+        "conclusion": "该三角形是直角三角形",
+        "answer": "3²+4²=9+16=25=5²，由勾股逆定理，是直角三角形。核心是\"用数量关系判定几何性质\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "边长为 3、4、5 的三角形是什么三角形？",
+        "conclusion": null,
+        "answer": "3²+4²=9+16=25=5²，由勾股逆定理，是直角三角形。核心是\"用数量关系判定几何性质\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_eq": {
+    "domain": "junior",
+    "module": "数与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "方程 x²−(k+1)x+k=0 两根之和为 3，求 k",
+        "conclusion": "k=2，且 Δ=(k−1)²=1>0 有两实根",
+        "answer": "由韦达定理 x₁+x₂=k+1=3，故 k=2。再用 Δ=(k+1)²−4k=(k−1)²=1>0 验证有两实根。核心是\"把根的条件翻译成系数条件\"，且别忘验证 Δ。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "方程 x²−(k+1)x+k=0 两根之和为 3，求 k",
+        "conclusion": null,
+        "answer": "由韦达定理 x₁+x₂=k+1=3，故 k=2。再用 Δ=(k+1)²−4k=(k−1)²=1>0 验证有两实根。核心是\"把根的条件翻译成系数条件\"，且别忘验证 Δ。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_frac": {
+    "domain": "junior",
+    "module": "数与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "化简 1/(√3−√2)",
+        "conclusion": "√3+√2",
+        "answer": "分子分母同乘共轭式 (√3+√2)：原式=(√3+√2)/[(√3)²−(√2)²]=(√3+√2)/(3−2)=√3+√2。本质是用平方差公式把无理分母有理化。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "化简 1/(√3−√2)",
+        "conclusion": null,
+        "answer": "分子分母同乘共轭式 (√3+√2)：原式=(√3+√2)/[(√3)²−(√2)²]=(√3+√2)/(3−2)=√3+√2。本质是用平方差公式把无理分母有理化。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_fun": {
+    "domain": "junior",
+    "module": "数与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "求 f(x)=1/(x−2) 的定义域",
+        "conclusion": "定义域为 {x | x≠2}",
+        "answer": "分母不能为零，故 x−2≠0，即 x≠2。定义域是 {x | x≠2}。核心习惯：拿到函数先找限制条件。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "求 f(x)=1/(x−2) 的定义域",
+        "conclusion": null,
+        "answer": "分母不能为零，故 x−2≠0，即 x≠2。定义域是 {x | x≠2}。核心习惯：拿到函数先找限制条件。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_ineq": {
+    "domain": "junior",
+    "module": "数与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "解不等式 −2x+3 > 7",
+        "conclusion": "x<−2",
+        "answer": "−2x>4，两边除以 −2 要变号：x<−2。这题的唯一考点就是\"除以负数变号\"，这是最高频错误。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "解不等式 −2x+3 > 7",
+        "conclusion": null,
+        "answer": "−2x>4，两边除以 −2 要变号：x<−2。这题的唯一考点就是\"除以负数变号\"，这是最高频错误。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_num": {
+    "domain": "junior",
+    "module": "数与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "已知 a<b<0，化简 |a−b| + √(b²)",
+        "conclusion": "−a",
+        "answer": "先判符号：a−b<0，故 |a−b|=b−a；b<0，故 √(b²)=|b|=−b。原式=(b−a)+(−b)=−a。这题考的不是计算，是\"先定符号再变形\"的思维习惯。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "已知 a<b<0，化简 |a−b| + √(b²)",
+        "conclusion": null,
+        "answer": "先判符号：a−b<0，故 |a−b|=b−a；b<0，故 √(b²)=|b|=−b。原式=(b−a)+(−b)=−a。这题考的不是计算，是\"先定符号再变形\"的思维习惯。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_prob": {
+    "domain": "junior",
+    "module": "统计与概率",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "掷两枚骰子，点数和为 7 的概率",
+        "conclusion": "P=1/6",
+        "answer": "总结果 6×6=36 种，和为 7 的有 (1,6)(2,5)(3,4)(4,3)(5,2)(6,1) 共 6 种，P=6/36=1/6。核心是\"完整枚举且每种等可能\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "掷两枚骰子，点数和为 7 的概率",
+        "conclusion": null,
+        "answer": "总结果 6×6=36 种，和为 7 的有 (1,6)(2,5)(3,4)(4,3)(5,2)(6,1) 共 6 种，P=6/36=1/6。核心是\"完整枚举且每种等可能\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_quad": {
+    "domain": "junior",
+    "module": "数与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "f(x)=x²−2x+3 在 [0,3] 上的最值",
+        "conclusion": "最小值 2（x=1），最大值 6（x=3）",
+        "answer": "配方 f(x)=(x−1)²+2，对称轴 x=1 在区间内，顶点 f(1)=2 是最小值；端点 f(0)=3、f(3)=6，故最大值 6。核心是\"顶点是否在区间内\"决定最小值的位置。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "f(x)=x²−2x+3 在 [0,3] 上的最值",
+        "conclusion": null,
+        "answer": "配方 f(x)=(x−1)²+2，对称轴 x=1 在区间内，顶点 f(1)=2 是最小值；端点 f(0)=3、f(3)=6，故最大值 6。核心是\"顶点是否在区间内\"决定最小值的位置。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_quadg": {
+    "domain": "junior",
+    "module": "图形与几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明平行四边形对角线互相平分",
+        "conclusion": "AO=CO、BO=DO，即对角线互相平分",
+        "answer": "连对角线交于 O，由 AB∥CD 得内错角相等，结合对边相等用 ASA 证两个三角形全等，得 AO=CO、BO=DO。核心是\"连对角线 + 全等\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明平行四边形对角线互相平分",
+        "conclusion": null,
+        "answer": "连对角线交于 O，由 AB∥CD 得内错角相等，结合对边相等用 ASA 证两个三角形全等，得 AO=CO、BO=DO。核心是\"连对角线 + 全等\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_simi": {
+    "domain": "junior",
+    "module": "图形与几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "直角三角形斜边上的高把斜边分成 4 和 9，求高",
+        "conclusion": "斜边上的高 h=6",
+        "answer": "由射影定理（母子相似）h²=4×9=36，h=6。核心是识别出\"母子型相似\"这个常见模型。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "直角三角形斜边上的高把斜边分成 4 和 9，求高",
+        "conclusion": null,
+        "answer": "由射影定理（母子相似）h²=4×9=36，h=6。核心是识别出\"母子型相似\"这个常见模型。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_stats": {
+    "domain": "junior",
+    "module": "统计与概率",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "一组数据 1,2,2,3,100，哪个代表值更能反映\"典型水平\"？",
+        "conclusion": "中位数 2 更能反映典型水平",
+        "answer": "平均数 21.6 被极端值 100 拉高，中位数 2 更能反映典型水平。核心是\"极端值对平均数影响大，对中位数影响小\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "一组数据 1,2,2,3,100，哪个代表值更能反映\"典型水平\"？",
+        "conclusion": null,
+        "answer": "平均数 21.6 被极端值 100 拉高，中位数 2 更能反映典型水平。核心是\"极端值对平均数影响大，对中位数影响小\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_trans": {
+    "domain": "junior",
+    "module": "图形与几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "点 A(0, 2)、B(4, 3) 在 x 轴同侧，在 x 轴上求一点 P，使 PA + PB 最小，并求这个最小值。",
+        "conclusion": "最小值为 √41，此时 P(8/5, 0)（A(0,2)、B(4,3)，P 在 x 轴）",
+        "answer": "作 A 关于 x 轴的对称点 A′(0, −2)，则 PA=PA′，故 PA+PB=PA′+PB ≥ A′B（三角不等式），等号当 P 在 A′B 与 x 轴交点时成立。A′B=√[(4−0)²+(3−(−2))²]=√41。交点 P：直线 A′B 上 y=−2+5t，令 y=0 得 t=2/5，x=4×(2/5)=8/5，即 P(8/5, 0)。故最短距离为 √41，此时 P(8/5, 0)。核心是\"对称化折为直\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "点 A(0, 2)、B(4, 3) 在 x 轴同侧，在 x 轴上求一点 P，使 PA + PB 最小，并求这个最小值。",
+        "conclusion": null,
+        "answer": "作 A 关于 x 轴的对称点 A′(0, −2)，则 PA=PA′，故 PA+PB=PA′+PB ≥ A′B（三角不等式），等号当 P 在 A′B 与 x 轴交点时成立。A′B=√[(4−0)²+(3−(−2))²]=√41。交点 P：直线 A′B 上 y=−2+5t，令 y=0 得 t=2/5，x=4×(2/5)=8/5，即 P(8/5, 0)。故最短距离为 √41，此时 P(8/5, 0)。核心是\"对称化折为直\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_tri": {
+    "domain": "junior",
+    "module": "图形与几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明等腰三角形底角相等",
+        "conclusion": "等腰三角形两底角相等",
+        "answer": "作顶角平分线，把原三角形分成两个小三角形，由 SAS（两腰相等、顶角被平分、公共边）判定全等，故两底角相等。核心是\"作辅助线构造全等\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明等腰三角形底角相等",
+        "conclusion": null,
+        "answer": "作顶角平分线，把原三角形分成两个小三角形，由 SAS（两腰相等、顶角被平分、公共边）判定全等，故两底角相等。核心是\"作辅助线构造全等\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "j_trig": {
+    "domain": "junior",
+    "module": "图形与几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "斜坡长 10 米，与地面夹角 30°，求高度",
+        "conclusion": "h=10·sin30°=5 米",
+        "answer": "构造直角三角形，斜边 10，高度是 30° 的对边：h=10·sin30°=10×½=5 米。核心是\"把实际问题翻译成直角三角形，再选对三角函数\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "斜坡长 10 米，与地面夹角 30°，求高度",
+        "conclusion": null,
+        "answer": "构造直角三角形，斜边 10，高度是 30° 的对边：h=10·sin30°=10×½=5 米。核心是\"把实际问题翻译成直角三角形，再选对三角函数\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_alg_skill": {
+    "domain": "junior",
+    "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "已知 x+1/x=3，求 x²+1/x²",
+        "conclusion": "x²+1/x²=7",
+        "answer": "不要去解 x。整体平方：(x+1/x)²=x²+2+1/x²=9，所以 x²+1/x²=7。核心是\"把所求式看作已知式的整体变形\"，而非逐个求未知量。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "已知 x+1/x=3，求 x²+1/x²",
+        "conclusion": null,
+        "answer": "不要去解 x。整体平方：(x+1/x)²=x²+2+1/x²=9，所以 x²+1/x²=7。核心是\"把所求式看作已知式的整体变形\"，而非逐个求未知量。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_binom": {
+    "domain": "olympiad",
+    "module": "组合数学",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ",
+        "conclusion": "C(n,0)+C(n,1)+…+C(n,n)=2ⁿ",
+        "answer": "组合证明：左边是 n 元集合所有子集个数（按大小分类求和），右边是 2ⁿ（每个元素选或不选）。两边数同一件事，故相等。核心是\"组合恒等式可以靠数集合来证明\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ",
+        "conclusion": null,
+        "answer": "组合证明：左边是 n 元集合所有子集个数（按大小分类求和），右边是 2ⁿ（每个元素选或不选）。两边数同一件事，故相等。核心是\"组合恒等式可以靠数集合来证明\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_comb_adv": {
+    "domain": "olympiad",
+    "module": "组合数学",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "1…100 中能被 2 或 3 整除的数有多少？",
+        "conclusion": "能被 2 或 3 整除的数共 67 个",
+        "answer": "|2 的倍数|=50，|3 的倍数|=33，|6 的倍数|=16，容斥得 50+33−16=67。核心是\"重叠部分被算了两次要减去一次\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "1…100 中能被 2 或 3 整除的数有多少？",
+        "conclusion": null,
+        "answer": "|2 的倍数|=50，|3 的倍数|=33，|6 的倍数|=16，容斥得 50+33−16=67。核心是\"重叠部分被算了两次要减去一次\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_comb_opt": {
+    "domain": "olympiad",
+    "module": "组合数学",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "n 边形最多有多少条不相交的对角线？",
+        "conclusion": "最多 n−3 条互不相交的对角线",
+        "answer": "通过构造（三角剖分）得 n−3 条，再证明更多必然相交。核心是\"构造 + 证明最优\"两步缺一不可。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "n 边形最多有多少条不相交的对角线？",
+        "conclusion": null,
+        "answer": "通过构造（三角剖分）得 n−3 条，再证明更多必然相交。核心是\"构造 + 证明最优\"两步缺一不可。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_complex": {
+    "domain": "olympiad",
+    "module": "代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "用复数证明：平行四边形对角线平方和等于四边平方和",
+        "conclusion": "平行四边形对角线平方和等于四边平方和",
+        "answer": "设顶点对应复数 a,b,c,d，用 |z|²=z·z̄ 展开对角线向量，交叉项会相消，化简即得。核心是把几何长度转成复数模的代数运算。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "用复数证明：平行四边形对角线平方和等于四边平方和",
+        "conclusion": null,
+        "answer": "设顶点对应复数 a,b,c,d，用 |z|²=z·z̄ 展开对角线向量，交叉项会相消，化简即得。核心是把几何长度转成复数模的代数运算。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_cong": {
+    "domain": "olympiad",
+    "module": "数论",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "求 3²⁰⁰ mod 7",
+        "conclusion": "3²⁰⁰≡2 (mod 7)",
+        "answer": "由费马小定理 3⁶≡1 (mod 7)。200=6×33+2，故 3²⁰⁰≡3²=9≡2 (mod 7)。核心是\"用费马定理把大指数降到小指数\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "求 3²⁰⁰ mod 7",
+        "conclusion": null,
+        "answer": "由费马小定理 3⁶≡1 (mod 7)。200=6×33+2，故 3²⁰⁰≡3²=9≡2 (mod 7)。核心是\"用费马定理把大指数降到小指数\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_dio": {
+    "domain": "junior",
+    "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "求 x+y=5 的正整数解",
+        "conclusion": "正整数解共 4 组",
+        "answer": "x 可取 1,2,3,4，对应 y=4,3,2,1，共 4 组。核心是\"用正整数的范围限制把无限变有限\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "求 x+y=5 的正整数解",
+        "conclusion": null,
+        "answer": "x 可取 1,2,3,4，对应 y=4,3,2,1，共 4 组。核心是\"用正整数的范围限制把无限变有限\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_dio2": {
+    "domain": "olympiad",
+    "module": "数论",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明 x²+y²=z² 有无穷多组正整数解",
+        "conclusion": "x=m²−n², y=2mn, z=m²+n²（m>n>0）给出无穷多组正整数解",
+        "answer": "用参数化公式 x=m²−n²，y=2mn，z=m²+n²（m>n>0）。任意满足条件的 m、n 给出一组解，故有无穷多。核心是\"找到通解的参数表示\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明 x²+y²=z² 有无穷多组正整数解",
+        "conclusion": null,
+        "answer": "用参数化公式 x=m²−n²，y=2mn，z=m²+n²（m>n>0）。任意满足条件的 m、n 给出一组解，故有无穷多。核心是\"找到通解的参数表示\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_div0": {
+    "domain": "junior",
+    "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "求 2¹⁰⁰ 的末位数字",
+        "conclusion": "2¹⁰⁰ 末位是 6",
+        "answer": "末位即 mod 10。2¹=2,2²=4,2³=8,2⁴=16≡6,2⁵≡12≡2，周期为 4。100 是 4 的倍数，故 2¹⁰⁰≡2⁴≡6，末位是 6。核心是\"同余下的周期规律\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "求 2¹⁰⁰ 的末位数字",
+        "conclusion": null,
+        "answer": "末位即 mod 10。2¹=2,2²=4,2³=8,2⁴=16≡6,2⁵≡12≡2，周期为 4。100 是 4 的倍数，故 2¹⁰⁰≡2⁴≡6，末位是 6。核心是\"同余下的周期规律\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_fermat": {
+    "domain": "olympiad",
+    "module": "数论",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "求满足 x≡2(mod 3)、x≡3(mod 5) 的最小正整数",
+        "conclusion": "最小正整数解 x=8",
+        "answer": "设 x=3k+2，代入第二式：3k+2≡3(mod 5)，3k≡1(mod 5)，k≡2(mod 5)，k=5t+2，x=15t+8，最小正整数是 8。核心是\"逐次代入消元\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "求满足 x≡2(mod 3)、x≡3(mod 5) 的最小正整数",
+        "conclusion": null,
+        "answer": "设 x=3k+2，代入第二式：3k+2≡3(mod 5)，3k≡1(mod 5)，k≡2(mod 5)，k=5t+2，x=15t+8，最小正整数是 8。核心是\"逐次代入消元\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_func_eq": {
+    "domain": "olympiad",
+    "module": "代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "已知 f(x+y)=f(x)+f(y)，求 f(0)",
+        "conclusion": "f(0)=0",
+        "answer": "令 x=y=0：f(0)=f(0)+f(0)，故 f(0)=0。这是函数方程最典型的起手式——用特殊值锁定关键点。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "已知 f(x+y)=f(x)+f(y)，求 f(0)",
+        "conclusion": null,
+        "answer": "令 x=y=0：f(0)=f(0)+f(0)，故 f(0)=0。这是函数方程最典型的起手式——用特殊值锁定关键点。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_geo_area": {
+    "domain": "olympiad",
+    "module": "平面几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明三角形角平分线分对边成比例（角平分线定理）",
+        "conclusion": "BD/DC=AB/AC",
+        "answer": "用面积法：BD/DC = S△ABD/S△ACD（等高）= (AB·sin∠BAD)/(AC·sin∠CAD)=AB/AC。核心是用面积作为\"桥梁\"连接底边比与边长比。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明三角形角平分线分对边成比例（角平分线定理）",
+        "conclusion": null,
+        "answer": "用面积法：BD/DC = S△ABD/S△ACD（等高）= (AB·sin∠BAD)/(AC·sin∠CAD)=AB/AC。核心是用面积作为\"桥梁\"连接底边比与边长比。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_geo_basic": {
+    "domain": "junior",
+    "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "三角形中，D 是 AB 中点，E 是 AC 中点，DE 与 BC 的关系？",
+        "conclusion": "DE∥BC 且 DE=BC/2",
+        "answer": "由中位线定理 DE∥BC 且 DE=BC/2。核心是\"见两个中点立即想到中位线\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "三角形中，D 是 AB 中点，E 是 AC 中点，DE 与 BC 的关系？",
+        "conclusion": null,
+        "answer": "由中位线定理 DE∥BC 且 DE=BC/2。核心是\"见两个中点立即想到中位线\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_geo_ceva": {
+    "domain": "olympiad",
+    "module": "平面几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "D、E、F 分别在三角形 ABC 三边上，求证 AD、BE、CF 共点的条件",
+        "conclusion": "共点条件为 (BD/DC)(CE/EA)(AF/FB)=1",
+        "answer": "用塞瓦定理：(BD/DC)(CE/EA)(AF/FB)=1 即共点。核心是把\"共点\"这个几何关系转成比例乘积的代数条件。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "D、E、F 分别在三角形 ABC 三边上，求证 AD、BE、CF 共点的条件",
+        "conclusion": null,
+        "answer": "用塞瓦定理：(BD/DC)(CE/EA)(AF/FB)=1 即共点。核心是把\"共点\"这个几何关系转成比例乘积的代数条件。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_geo_circle": {
+    "domain": "olympiad",
+    "module": "平面几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长",
+        "conclusion": "PT₁=PT₂",
+        "answer": "P 对两圆的幂相等（都在根轴上），故 PT₁²=PT₂²，PT₁=PT₂。核心是用\"圆幂\"这个统一概念处理切线长。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长",
+        "conclusion": null,
+        "answer": "P 对两圆的幂相等（都在根轴上），故 PT₁²=PT₂²，PT₁=PT₂。核心是用\"圆幂\"这个统一概念处理切线长。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_geo_ineq": {
+    "domain": "olympiad",
+    "module": "平面几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "周长固定的三角形，何时面积最大？",
+        "conclusion": "周长固定时等边三角形面积最大",
+        "answer": "由等周不等式，等边三角形面积最大。这可以用海伦公式配合基本不等式证明。核心是\"几何问题代数化 + 不等式工具\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "周长固定的三角形，何时面积最大？",
+        "conclusion": null,
+        "answer": "由等周不等式，等边三角形面积最大。这可以用海伦公式配合基本不等式证明。核心是\"几何问题代数化 + 不等式工具\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_geo_trans": {
+    "domain": "olympiad",
+    "module": "平面几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB",
+        "conclusion": "∠APB=135°",
+        "answer": "把 △APB 绕 B 顺时针旋转 90°，使 A 落到 C，P 落到 P′。则 BP′=BP=2 且 ∠PBP′=90°，故 △PBP′ 是等腰直角三角形，PP′=2√2；又 P′C=PA=1。在 △PP′C 中，PP′²+P′C²=8+1=9=PC²，由勾股逆定理得 ∠PP′C=90°。于是 ∠BP′C=∠BP′P+∠PP′C=45°+90°=135°；旋转保持角度，故 ∠APB=∠CP′B=135°。核心是\"用旋转把分散的三条线段集中到一个三角形中，再用勾股逆定理判定直角\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB",
+        "conclusion": null,
+        "answer": "把 △APB 绕 B 顺时针旋转 90°，使 A 落到 C，P 落到 P′。则 BP′=BP=2 且 ∠PBP′=90°，故 △PBP′ 是等腰直角三角形，PP′=2√2；又 P′C=PA=1。在 △PP′C 中，PP′²+P′C²=8+1=9=PC²，由勾股逆定理得 ∠PP′C=90°。于是 ∠BP′C=∠BP′P+∠PP′C=45°+90°=135°；旋转保持角度，故 ∠APB=∠CP′B=135°。核心是\"用旋转把分散的三条线段集中到一个三角形中，再用勾股逆定理判定直角\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_geo_vec": {
+    "domain": "olympiad",
+    "module": "平面几何",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明三角形三条高交于一点",
+        "conclusion": "三角形三条高交于一点",
+        "answer": "建系设顶点坐标，写出高的方程，解方程验证交点同时满足三条高方程。核心是\"把几何证明变成代数计算\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明三角形三条高交于一点",
+        "conclusion": null,
+        "answer": "建系设顶点坐标，写出高的方程，解方程验证交点同时满足三条高方程。核心是\"把几何证明变成代数计算\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_graph": {
+    "domain": "olympiad",
+    "module": "组合数学",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明：任意 6 人中，要么有 3 人互相认识，要么有 3 人互相不认识",
+        "conclusion": "任意 6 人中必有 3 人互相认识或 3 人互相不认识（R(3,3)=6）",
+        "answer": "这是拉姆齐定理 R(3,3)=6。用一人与其他 5 人的关系染色（认识/不认识），由抽屉原理必有 3 条同色边，再分析即得。核心是\"把关系转化为图的染色\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明：任意 6 人中，要么有 3 人互相认识，要么有 3 人互相不认识",
+        "conclusion": null,
+        "answer": "这是拉姆齐定理 R(3,3)=6。用一人与其他 5 人的关系染色（认识/不认识），由抽屉原理必有 3 条同色边，再分析即得。核心是\"把关系转化为图的染色\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_induct": {
+    "domain": "olympiad",
+    "module": "代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明 1+2+…+n=n(n+1)/2",
+        "conclusion": "1+2+…+n=n(n+1)/2 对一切正整数 n 成立",
+        "answer": "n=1 时 1=1·2/2 成立。假设 n=k 成立，则 n=k+1 时：1+…+k+(k+1)=k(k+1)/2+(k+1)=(k+1)(k+2)/2，成立。核心是\"主动凑出归纳假设的形式\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明 1+2+…+n=n(n+1)/2",
+        "conclusion": null,
+        "answer": "n=1 时 1=1·2/2 成立。假设 n=k 成立，则 n=k+1 时：1+…+k+(k+1)=k(k+1)/2+(k+1)=(k+1)(k+2)/2，成立。核心是\"主动凑出归纳假设的形式\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_ineq": {
+    "domain": "olympiad",
+    "module": "代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明 a²+b² ≥ 2ab",
+        "conclusion": "a²+b²≥2ab，等号当且仅当 a=b",
+        "answer": "配方：(a−b)²≥0 ⟹ a²−2ab+b²≥0 ⟹ a²+b²≥2ab。这是最基础的\"从显然成立的事实出发\"的证明范式——非负数平方≥0 是不等式证明最常用的起点。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明 a²+b² ≥ 2ab",
+        "conclusion": null,
+        "answer": "配方：(a−b)²≥0 ⟹ a²−2ab+b²≥0 ⟹ a²+b²≥2ab。这是最基础的\"从显然成立的事实出发\"的证明范式——非负数平方≥0 是不等式证明最常用的起点。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_numfun": {
+    "domain": "olympiad",
+    "module": "数论",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "求 φ(12)",
+        "conclusion": "φ(12)=4",
+        "answer": "12=2²×3，φ(12)=12×(1−1/2)×(1−1/3)=12×½×2/3=4。即 1,5,7,11 与 12 互素。核心是\"先分解质因数再套公式\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "求 φ(12)",
+        "conclusion": null,
+        "answer": "12=2²×3，φ(12)=12×(1−1/2)×(1−1/3)=12×½×2/3=4。即 1,5,7,11 与 12 互素。核心是\"先分解质因数再套公式\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_pigeon": {
+    "domain": "junior",
+    "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "13 个人中至少有两人生日在同一个月",
+        "conclusion": "至少两人生日在同一个月",
+        "answer": "一年 12 个月是 12 个抽屉，13 个人是物体，13>12，由抽屉原理至少两人在同月。核心是\"识别出什么是抽屉、什么是物体\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "13 个人中至少有两人生日在同一个月",
+        "conclusion": null,
+        "answer": "一年 12 个月是 12 个抽屉，13 个人是物体，13>12，由抽屉原理至少两人在同月。核心是\"识别出什么是抽屉、什么是物体\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_poly": {
+    "domain": "olympiad",
+    "module": "代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "已知多项式 f(x) 除以 (x−1) 余 2，除以 (x−2) 余 3，求除以 (x−1)(x−2) 的余式",
+        "conclusion": "余式为 x+1",
+        "answer": "设余式为 ax+b（次数低于除式）。由余式定理 f(1)=2、f(2)=3，代入：a+b=2，2a+b=3，解得 a=1,b=1，余式 x+1。核心是先判断余式的次数，再转化为方程组。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "已知多项式 f(x) 除以 (x−1) 余 2，除以 (x−2) 余 3，求除以 (x−1)(x−2) 的余式",
+        "conclusion": null,
+        "answer": "设余式为 ax+b（次数低于除式）。由余式定理 f(1)=2、f(2)=3，代入：a+b=2，2a+b=3，解得 a=1,b=1，余式 x+1。核心是先判断余式的次数，再转化为方程组。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_recur": {
+    "domain": "olympiad",
+    "module": "代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "a₁=1，aₙ₊₁=2aₙ+1，求通项",
+        "conclusion": "aₙ=2ⁿ−1",
+        "answer": "构造：设 aₙ₊₁+1=2(aₙ+1)，令 bₙ=aₙ+1，则 bₙ₊₁=2bₙ，b₁=2，故 bₙ=2ⁿ，aₙ=2ⁿ−1。核心是\"加一个常数凑成等比\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "a₁=1，aₙ₊₁=2aₙ+1，求通项",
+        "conclusion": null,
+        "answer": "构造：设 aₙ₊₁+1=2(aₙ+1)，令 bₙ=aₙ+1，则 bₙ₊₁=2bₙ，b₁=2，故 bₙ=2ⁿ，aₙ=2ⁿ−1。核心是\"加一个常数凑成等比\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "o_trig_id": {
+    "domain": "olympiad",
+    "module": "代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "证明 (1+sin x)/cos x = cos x/(1−sin x)",
+        "conclusion": "原式成立（cos x≠0、sin x≠1 时）",
+        "answer": "左边分子分母同乘 (1+sin x)？更直接：交叉相乘验证 (1+sin x)(1−sin x)=cos²x，即 1−sin²x=cos²x，成立。核心是\"证明分式恒等式可交叉相乘化为基本恒等式\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "证明 (1+sin x)/cos x = cos x/(1−sin x)",
+        "conclusion": null,
+        "answer": "左边分子分母同乘 (1+sin x)？更直接：交叉相乘验证 (1+sin x)(1−sin x)=cos²x，即 1−sin²x=cos²x，成立。核心是\"证明分式恒等式可交叉相乘化为基本恒等式\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_alg": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "小明有一些糖果，给了妹妹 5 颗后还剩 12 颗。小明原来有多少颗？用方程解。",
+        "conclusion": "小明原来有 17 颗糖（x−5=12）",
+        "answer": "设小明原来有 x 颗。根据\"原有 − 给出 = 剩下\"列方程：x − 5 = 12。两边同时加 5：x = 17。**结论：小明原来有 17 颗糖。**检验：17 − 5 = 12，正好符合题意。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "小明有一些糖果，给了妹妹 5 颗后还剩 12 颗。小明原来有多少颗？用方程解。",
+        "conclusion": null,
+        "answer": "设小明原来有 x 颗。根据\"原有 − 给出 = 剩下\"列方程：x − 5 = 12。两边同时加 5：x = 17。**结论：小明原来有 17 颗糖。**检验：17 − 5 = 12，正好符合题意。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_app": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "鸡兔同笼，共有 8 个头、22 条腿。鸡和兔各有多少只？",
+        "conclusion": "鸡 5 只、兔 3 只（假设全鸡少 6 条腿，每换一只多 2 条）",
+        "answer": "假设 8 只全是鸡，腿数 = 8 × 2 = 16 条，比实际少了 22 − 16 = 6 条。每把一只鸡换成兔，腿就多 2 条，所以兔有 6 ÷ 2 = 3 只，鸡有 8 − 3 = 5 只。**结论：鸡 5 只，兔 3 只。**检验：头 5+3=8，腿 5×2+3×4=22，正确。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "鸡兔同笼，共有 8 个头、22 条腿。鸡和兔各有多少只？",
+        "conclusion": null,
+        "answer": "假设 8 只全是鸡，腿数 = 8 × 2 = 16 条，比实际少了 22 − 16 = 6 条。每把一只鸡换成兔，腿就多 2 条，所以兔有 6 ÷ 2 = 3 只，鸡有 8 − 3 = 5 只。**结论：鸡 5 只，兔 3 只。**检验：头 5+3=8，腿 5×2+3×4=22，正确。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_count": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "用 1、2、3 三张数字卡片摆三位数（每张用一次），一共能摆出多少个不同的三位数？",
+        "conclusion": "3×2×1=6 个不同的三位数",
+        "answer": "按百位分类：百位是 1 时有 123、132 两个；百位是 2 时有 213、231 两个；百位是 3 时有 312、321 两个。共 2 + 2 + 2 = 6 个。**结论：6 个。**用乘法想也一样：百位 3 种选法、十位剩 2 种、个位剩 1 种，3 × 2 × 1 = 6。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "用 1、2、3 三张数字卡片摆三位数（每张用一次），一共能摆出多少个不同的三位数？",
+        "conclusion": null,
+        "answer": "按百位分类：百位是 1 时有 123、132 两个；百位是 2 时有 213、231 两个；百位是 3 时有 312、321 两个。共 2 + 2 + 2 = 6 个。**结论：6 个。**用乘法想也一样：百位 3 种选法、十位剩 2 种、个位剩 1 种，3 × 2 × 1 = 6。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_div": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "不计算，判断 12345 能不能被 3 整除，并说明理由。",
+        "conclusion": "12345 能被 3 整除（各位数字和 15 能被 3 整除）",
+        "answer": "各位数字相加：1+2+3+4+5=15，15 能被 3 整除，所以 12345 能被 3 整除。结论：**能整除**。理由就是\"各位数字之和能被 3 整除，这个数就能被 3 整除\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "不计算，判断 12345 能不能被 3 整除，并说明理由。",
+        "conclusion": null,
+        "answer": "各位数字相加：1+2+3+4+5=15，15 能被 3 整除，所以 12345 能被 3 整除。结论：**能整除**。理由就是\"各位数字之和能被 3 整除，这个数就能被 3 整除\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_geo": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "一个梯形上底 4 厘米、下底 6 厘米、高 3 厘米，面积是多少？",
+        "conclusion": "梯形面积 15 平方厘米（(4+6)×3÷2）",
+        "answer": "梯形面积 = (上底 + 下底) × 高 ÷ 2 = (4 + 6) × 3 ÷ 2 = 10 × 3 ÷ 2 = 15 平方厘米。**结论：面积是 15 平方厘米。**别忘了写面积单位。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "一个梯形上底 4 厘米、下底 6 厘米、高 3 厘米，面积是多少？",
+        "conclusion": null,
+        "answer": "梯形面积 = (上底 + 下底) × 高 ÷ 2 = (4 + 6) × 3 ÷ 2 = 10 × 3 ÷ 2 = 15 平方厘米。**结论：面积是 15 平方厘米。**别忘了写面积单位。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_logic": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "找规律填数：2, 4, 6, 8, ( ), 12。",
+        "conclusion": "括号里填 10（相邻两数差 2）",
+        "answer": "相邻两数都相差 2：4−2=2，6−4=2，8−6=2。按这个规律，括号里的数应是 8 + 2 = 10，再往后 10 + 2 = 12，正好和最后一个数对上。**结论：括号里填 10。**",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "找规律填数：2, 4, 6, 8, ( ), 12。",
+        "conclusion": null,
+        "answer": "相邻两数都相差 2：4−2=2，6−4=2，8−6=2。按这个规律，括号里的数应是 8 + 2 = 10，再往后 10 + 2 = 12，正好和最后一个数对上。**结论：括号里填 10。**",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_num": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "简便计算：25 × 32 × 125。",
+        "conclusion": "25×32×125=100000（把 32 拆成 4×8 凑整）",
+        "answer": "把 32 拆成 4 × 8：原式 = 25 × 4 × 8 × 125 = (25×4) × (8×125) = 100 × 1000 = 100000。关键不是算得快，而是先看出 32 里面藏着 4 和 8 这两个\"好朋友\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "简便计算：25 × 32 × 125。",
+        "conclusion": null,
+        "answer": "把 32 拆成 4 × 8：原式 = 25 × 4 × 8 × 125 = (25×4) × (8×125) = 100 × 1000 = 100000。关键不是算得快，而是先看出 32 里面藏着 4 和 8 这两个\"好朋友\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_pigeon": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "一个班有 13 名同学，至少有两名同学在同一个月过生日。为什么？",
+        "conclusion": "至少有两名同学在同一个月过生日（13 人 / 12 个月）",
+        "answer": "把 12 个月看成 12 个\"抽屉\"，13 名同学看成 13 件\"物品\"。就算前 12 名同学分别生在 12 个不同的月份，第 13 名同学也一定会和其中某人同一个月。**结论：至少有两名同学在同一个月过生日。**",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "一个班有 13 名同学，至少有两名同学在同一个月过生日。为什么？",
+        "conclusion": null,
+        "answer": "把 12 个月看成 12 个\"抽屉\"，13 名同学看成 13 件\"物品\"。就算前 12 名同学分别生在 12 个不同的月份，第 13 名同学也一定会和其中某人同一个月。**结论：至少有两名同学在同一个月过生日。**",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_ratio": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "把 60 个苹果按 2 : 3 分给甲乙两人，乙分到多少个？",
+        "conclusion": "乙分到 36 个（总份数 5，每份 12，乙占 3 份）",
+        "answer": "总份数 = 2 + 3 = 5 份，每份 = 60 ÷ 5 = 12 个。乙占 3 份：12 × 3 = 36 个。**结论：乙分到 36 个。**检验：甲 24 + 乙 36 = 60，比例 24 : 36 = 2 : 3，正确。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "把 60 个苹果按 2 : 3 分给甲乙两人，乙分到多少个？",
+        "conclusion": null,
+        "answer": "总份数 = 2 + 3 = 5 份，每份 = 60 ÷ 5 = 12 个。乙占 3 份：12 × 3 = 36 个。**结论：乙分到 36 个。**检验：甲 24 + 乙 36 = 60，比例 24 : 36 = 2 : 3，正确。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "p_transform": {
+    "domain": "primary",
+    "module": "高小思维模块",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "一个平行四边形底 6 厘米、高 4 厘米。把它割补成长方形后，长方形的面积是多少？",
+        "conclusion": "割补成长方形后面积仍为 24 平方厘米（等积变形）",
+        "answer": "割补只改变形状，面积不变。原平行四边形面积 = 底 × 高 = 6 × 4 = 24 平方厘米，所以拼成的长方形面积也是 24 平方厘米。**结论：24 平方厘米。**",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "一个平行四边形底 6 厘米、高 4 厘米。把它割补成长方形后，长方形的面积是多少？",
+        "conclusion": null,
+        "answer": "割补只改变形状，面积不变。原平行四边形面积 = 底 × 高 = 6 × 4 = 24 平方厘米，所以拼成的长方形面积也是 24 平方厘米。**结论：24 平方厘米。**",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_complex": {
+    "domain": "senior",
+    "module": "几何与向量",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "已知 (1+i)z=2，求 z",
+        "conclusion": "z=1−i",
+        "answer": "z=2/(1+i)=2(1−i)/[(1+i)(1−i)]=2(1−i)/2=1−i。核心是\"分母实数化\"——乘共轭复数，与分母有理化是同一个思路。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "已知 (1+i)z=2，求 z",
+        "conclusion": null,
+        "answer": "z=2/(1+i)=2(1−i)/[(1+i)(1−i)]=2(1−i)/2=1−i。核心是\"分母实数化\"——乘共轭复数，与分母有理化是同一个思路。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_conic": {
+    "domain": "senior",
+    "module": "解析几何与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "椭圆 x²/4 + y² = 1 与直线 y = x + 1 交于 A、B 两点，求弦长 |AB|。",
+        "conclusion": "弦长 |AB| = 8√2/5（椭圆 x²/4+y²=1 与直线 y=x+1）",
+        "answer": "联立 x²/4 + (x+1)² = 1，化为 5x² + 8x = 0，得 x₁=0、x₂=−8/5，对应 y₁=1、y₂=−3/5。弦长 |AB|=√(1+k²)·|x₁−x₂|=√2 × 8/5 = 8√2/5。核心是\"不解交点坐标也能用韦达定理算弦长\"：本题因方程具体，可直接解出交点验证。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "椭圆 x²/4 + y² = 1 与直线 y = x + 1 交于 A、B 两点，求弦长 |AB|。",
+        "conclusion": null,
+        "answer": "联立 x²/4 + (x+1)² = 1，化为 5x² + 8x = 0，得 x₁=0、x₂=−8/5，对应 y₁=1、y₂=−3/5。弦长 |AB|=√(1+k²)·|x₁−x₂|=√2 × 8/5 = 8√2/5。核心是\"不解交点坐标也能用韦达定理算弦长\"：本题因方程具体，可直接解出交点验证。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_count": {
+    "domain": "senior",
+    "module": "计数与概率统计",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "从 5 人中选 3 人组成委员会，有多少种选法？",
+        "conclusion": "C(5,3)=10 种选法",
+        "answer": "选人无顺序之分，用组合 C(5,3)=10。核心是\"先判断有没有顺序\"——有顺序用排列，无顺序用组合。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "从 5 人中选 3 人组成委员会，有多少种选法？",
+        "conclusion": null,
+        "answer": "选人无顺序之分，用组合 C(5,3)=10。核心是\"先判断有没有顺序\"——有顺序用排列，无顺序用组合。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_deriv": {
+    "domain": "senior",
+    "module": "解析几何与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "求 f(x)=x³−3x 的极值",
+        "conclusion": "x=−1 为极大值点，x=1 为极小值点",
+        "answer": "f′(x)=3x²−3=3(x−1)(x+1)，令 f′=0 得 x=±1。x<−1 时 f′>0，−1<x<1 时 f′<0，x>1 时 f′>0。故 x=−1 是极大值点，x=1 是极小值点。核心是看导数在零点两侧是否变号。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "求 f(x)=x³−3x 的极值",
+        "conclusion": null,
+        "answer": "f′(x)=3x²−3=3(x−1)(x+1)，令 f′=0 得 x=±1。x<−1 时 f′>0，−1<x<1 时 f′<0，x>1 时 f′>0。故 x=−1 是极大值点，x=1 是极小值点。核心是看导数在零点两侧是否变号。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_exp": {
+    "domain": "senior",
+    "module": "集合与函数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "比较 2^0.3 与 0.3² 的大小",
+        "conclusion": "2^0.3 > 0.3²",
+        "answer": "2^0.3>2^0=1，而 0.3²=0.09<1，故 2^0.3>0.3²。核心是找中间量 1 作比较——这是比较大小的常用策略。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "比较 2^0.3 与 0.3² 的大小",
+        "conclusion": null,
+        "answer": "2^0.3>2^0=1，而 0.3²=0.09<1，故 2^0.3>0.3²。核心是找中间量 1 作比较——这是比较大小的常用策略。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_func": {
+    "domain": "senior",
+    "module": "集合与函数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "判断 f(x)=x³ 的奇偶性",
+        "conclusion": "f(x)=x³ 为奇函数",
+        "answer": "定义域为 R 关于原点对称；f(−x)=(−x)³=−x³=−f(x)，故为奇函数。核心是两步都不能省：先定义域，再 f(−x) 与 f(x) 的关系。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "判断 f(x)=x³ 的奇偶性",
+        "conclusion": null,
+        "answer": "定义域为 R 关于原点对称；f(−x)=(−x)³=−x³=−f(x)，故为奇函数。核心是两步都不能省：先定义域，再 f(−x) 与 f(x) 的关系。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_ineq": {
+    "domain": "senior",
+    "module": "解析几何与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "x>0，求 x+4/x 的最小值",
+        "conclusion": "最小值为 4，x=2 时取等",
+        "answer": "由基本不等式 x+4/x ≥ 2√(x·4/x)=4，当且仅当 x=4/x 即 x=2 时取等。核心是验证等号能取到——这是基本不等式使用的必要步骤。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "x>0，求 x+4/x 的最小值",
+        "conclusion": null,
+        "answer": "由基本不等式 x+4/x ≥ 2√(x·4/x)=4，当且仅当 x=4/x 即 x=2 时取等。核心是验证等号能取到——这是基本不等式使用的必要步骤。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_line": {
+    "domain": "senior",
+    "module": "解析几何与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "判断直线 x+y=1 与圆 x²+y²=2 的位置关系",
+        "conclusion": "d=1/√2 < r=√2，直线与圆相交",
+        "answer": "圆心 (0,0) 到直线距离 d=|0+0−1|/√2=1/√2，圆半径 r=√2。d<r，故相交。核心是\"用距离与半径的比较代替解方程组\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "判断直线 x+y=1 与圆 x²+y²=2 的位置关系",
+        "conclusion": null,
+        "answer": "圆心 (0,0) 到直线距离 d=|0+0−1|/√2=1/√2，圆半径 r=√2。d<r，故相交。核心是\"用距离与半径的比较代替解方程组\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_prob": {
+    "domain": "senior",
+    "module": "计数与概率统计",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "掷一枚公平硬币，正面得 1 分反面得 0 分，求期望",
+        "conclusion": "E=1/2",
+        "answer": "E=1×(1/2)+0×(1/2)=1/2。核心是\"期望=各取值×对应概率求和\"。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "掷一枚公平硬币，正面得 1 分反面得 0 分，求期望",
+        "conclusion": null,
+        "answer": "E=1×(1/2)+0×(1/2)=1/2。核心是\"期望=各取值×对应概率求和\"。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_seq": {
+    "domain": "senior",
+    "module": "解析几何与代数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "已知 Sₙ=n²+2n，求 aₙ",
+        "conclusion": "aₙ=2n+1（n≥1）",
+        "answer": "a₁=S₁=3；n≥2 时 aₙ=Sₙ−Sₙ₋₁=(n²+2n)−[(n−1)²+2(n−1)]=2n+1。检验 n=1：2×1+1=3 符合，故 aₙ=2n+1。核心是\"单独验证 n=1\"这一步不能省。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "已知 Sₙ=n²+2n，求 aₙ",
+        "conclusion": null,
+        "answer": "a₁=S₁=3；n≥2 时 aₙ=Sₙ−Sₙ₋₁=(n²+2n)−[(n−1)²+2(n−1)]=2n+1。检验 n=1：2×1+1=3 符合，故 aₙ=2n+1。核心是\"单独验证 n=1\"这一步不能省。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_set": {
+    "domain": "senior",
+    "module": "集合与函数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "判断\"x>2\"是\"x>1\"的什么条件",
+        "conclusion": "「x>2」是「x>1」的充分不必要条件",
+        "answer": "x>2 ⟹ x>1 成立，反过来不成立。所以\"x>2\"是\"x>1\"的充分不必要条件。判断方法是看箭头方向：小范围推大范围是充分。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "判断\"x>2\"是\"x>1\"的什么条件",
+        "conclusion": null,
+        "answer": "x>2 ⟹ x>1 成立，反过来不成立。所以\"x>2\"是\"x>1\"的充分不必要条件。判断方法是看箭头方向：小范围推大范围是充分。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_solid": {
+    "domain": "senior",
+    "module": "几何与向量",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "如何判断一条直线与一个平面垂直？",
+        "conclusion": "直线垂直于平面内两条相交直线则垂直于该平面",
+        "answer": "若这条直线与平面内两条相交直线都垂直，则线面垂直。核心是\"线面垂直要找平面内两条相交直线\"，只垂直一条不够。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "如何判断一条直线与一个平面垂直？",
+        "conclusion": null,
+        "answer": "若这条直线与平面内两条相交直线都垂直，则线面垂直。核心是\"线面垂直要找平面内两条相交直线\"，只垂直一条不够。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_trig": {
+    "domain": "senior",
+    "module": "集合与函数",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "化简 sin2x·cosx + cos2x·sinx",
+        "conclusion": "原式=sin3x",
+        "answer": "逆用正弦和角公式 sin(A+B)=sinAcosB+cosAsinB，原式=sin(2x+x)=sin3x。核心是\"看出式子的结构符合哪个公式的展开\"——恒等变换大半靠这种结构识别。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "化简 sin2x·cosx + cos2x·sinx",
+        "conclusion": null,
+        "answer": "逆用正弦和角公式 sin(A+B)=sinAcosB+cosAsinB，原式=sin(2x+x)=sin3x。核心是\"看出式子的结构符合哪个公式的展开\"——恒等变换大半靠这种结构识别。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_vec": {
+    "domain": "senior",
+    "module": "几何与向量",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "已知 |a|=1，|b|=2，夹角 60°，求 a·b",
+        "conclusion": "a·b=1",
+        "answer": "a·b=|a||b|cos60°=1×2×½=1。核心是数量积把\"长度与夹角\"整合成一个数，这是它作为几何工具的基础。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "已知 |a|=1，|b|=2，夹角 60°，求 a·b",
+        "conclusion": null,
+        "answer": "a·b=|a||b|cos60°=1×2×½=1。核心是数量积把\"长度与夹角\"整合成一个数，这是它作为几何工具的基础。",
+        "theoremConditions": []
+      }
+    ]
+  },
+  "s_vec3": {
+    "domain": "senior",
+    "module": "几何与向量",
+    "answers": [
+      {
+        "src": "example#1",
+        "q": "如何求两个平面的二面角？",
+        "conclusion": "二面角等于法向量夹角或其补角，需结合图形定锐钝",
+        "answer": "分别求两个平面的法向量 n₁、n₂。先算 |cos⟨n₁,n₂⟩|=|n₁·n₂|/(|n₁||n₂|)，它给出二面角的锐角值；二面角本身等于这个角或其补角（π 减它），要结合图形判断是锐角还是钝角。核心是\"把二面角转成法向量夹角，再用图形定锐钝\"。注意：取绝对值只为先得到锐角参考值，不能把 cosθ 直接写成 |n₁·n₂|/(|n₁||n₂|) 就当二面角的余弦——那样只会得到锐角。",
+        "theoremConditions": []
+      },
+      {
+        "src": "lesson.example",
+        "q": "如何求两个平面的二面角？",
+        "conclusion": null,
+        "answer": "分别求两个平面的法向量 n₁、n₂。先算 |cos⟨n₁,n₂⟩|=|n₁·n₂|/(|n₁||n₂|)，它给出二面角的锐角值；二面角本身等于这个角或其补角（π 减它），要结合图形判断是锐角还是钝角。核心是\"把二面角转成法向量夹角，再用图形定锐钝\"。注意：取绝对值只为先得到锐角参考值，不能把 cosθ 直接写成 |n₁·n₂|/(|n₁||n₂|) 就当二面角的余弦——那样只会得到锐角。",
+        "theoremConditions": []
+      }
+    ]
+  }
+}

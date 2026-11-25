@@ -1,0 +1,40 @@
+{
+  "nodeId": "j_circle",
+  "id": "lesson-j_circle",
+  "kind": "lesson",
+  "title": "圆 · 授课教案",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "圆的性质围绕\"圆心角、圆周角、切线\"展开。圆周角定理（同弧所对圆周角相等、直径所对圆周角是直角）是解决圆问题的核心结论，四点共圆则是竞赛几何的重要工具。",
+  "method": [
+    "同弧所对圆周角相等，直径所对圆周角是直角",
+    "切线垂直于过切点的半径",
+    "证明四点共圆：对角互补、同侧等角、相交弦逆定理"
+  ],
+  "example": {
+    "q": "AB 是直径，C 在圆上，求 ∠ACB",
+    "a": "直径所对圆周角是直角，故 ∠ACB=90°。这是一个高频基本结论，竞赛中常作为中间步骤。"
+  },
+  "pitfalls": [
+    "圆周角与圆心角的关系搞混（圆周角是圆心角的一半）",
+    "共圆判定条件用错"
+  ],
+  "links": "圆连接相似、圆幂根轴（o_geo_circle）、几何变换，是二试几何的主战场。",
+  "check": [
+    "为什么直径所对的圆周角是直角？",
+    "判定四点共圆有哪几种方法？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:1fdeaacade5f6a43045df332b8416ee8a86751b20514a1777910730ad04915d3"
+}

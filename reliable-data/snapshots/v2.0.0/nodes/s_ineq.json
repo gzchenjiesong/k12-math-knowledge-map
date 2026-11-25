@@ -1,0 +1,40 @@
+{
+  "nodeId": "s_ineq",
+  "id": "node-s_ineq",
+  "kind": "node",
+  "title": "不等式",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_eq",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "基本不等式",
+    "一元二次不等式",
+    "简单证明"
+  ],
+  "prerequisites": [
+    "j_ineq"
+  ],
+  "relations": [
+    "o_ineq"
+  ],
+  "signals": [
+    "求最值",
+    "证明不等式"
+  ],
+  "approaches": [
+    "凑定值取等",
+    "先定等号条件"
+  ],
+  "description": "竞赛不等式体系的第一步",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:99db9afd4b9ac963f886e9b0881438f42d3820e8ae53db4cc36926bc1258f02f"
+}

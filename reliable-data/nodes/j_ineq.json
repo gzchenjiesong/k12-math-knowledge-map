@@ -1,0 +1,44 @@
+{
+  "nodeId": "j_ineq",
+  "id": "node-j_ineq",
+  "kind": "node",
+  "title": "不等式",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_eq",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "一元一次不等式(组)",
+    "不等式性质",
+    "一元二次不等式初步",
+    "含参不等式"
+  ],
+  "prerequisites": [
+    "j_num",
+    "j_eq"
+  ],
+  "relations": [
+    "j_fun",
+    "o_ineq"
+  ],
+  "signals": [
+    "解不等式",
+    "含参讨论",
+    "求取值范围"
+  ],
+  "approaches": [
+    "数轴标根",
+    "含参分类讨论临界值"
+  ],
+  "description": "从方程到不等式的方法迁移",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:d0f0fbb62663d9bb88b2cbb50233d4e5b2b0dc44545e54171ea1da78e6efea41"
+}

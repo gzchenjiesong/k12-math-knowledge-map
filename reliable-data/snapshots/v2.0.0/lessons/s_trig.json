@@ -1,0 +1,40 @@
+{
+  "nodeId": "s_trig",
+  "id": "lesson-s_trig",
+  "kind": "lesson",
+  "title": "三角函数与恒等变换 · 授课教案",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "集合与函数",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "高中把三角函数放到单位圆上定义，视角从\"直角三角形\"扩展到\"任意角\"。恒等变换的核心是\"统一\"——统一函数名、统一角、统一次数，让复杂的式子变成可以套公式的形式。",
+  "method": [
+    "诱导公式：奇变偶不变，符号看象限",
+    "和差倍角公式是恒等变换的主力",
+    "辅助角公式 asinθ+bcosθ=√(a²+b²)sin(θ+φ) 处理同类项合并"
+  ],
+  "example": {
+    "q": "化简 sin2x·cosx + cos2x·sinx",
+    "a": "逆用正弦和角公式 sin(A+B)=sinAcosB+cosAsinB，原式=sin(2x+x)=sin3x。核心是\"看出式子的结构符合哪个公式的展开\"——恒等变换大半靠这种结构识别。"
+  },
+  "pitfalls": [
+    "公式记混符号，尤其和差与倍角",
+    "变换没有目标，盲目变形越变越复杂"
+  ],
+  "links": "三角变换连接解三角形、三角恒等式（o_trig_id）、向量数量积（s_vec）。",
+  "check": [
+    "\"统一函数名、统一角、统一次数\"分别是什么意思？",
+    "辅助角公式为什么能把两项合成一项？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:ce59f140a03e87658588e688edac724c126d9054c035dae07f40765c1f44f1cf"
+}

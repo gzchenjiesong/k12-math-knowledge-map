@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_cong",
+  "id": "example-o_cong",
+  "kind": "example",
+  "title": "整除与同余 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_cong-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "求 3²⁰⁰ mod 7",
+      "answer": "由费马小定理 3⁶≡1 (mod 7)。200=6×33+2，故 3²⁰⁰≡3²=9≡2 (mod 7)。核心是\"用费马定理把大指数降到小指数\"。",
+      "conclusion": "3²⁰⁰≡2 (mod 7)",
+      "reasoningAnchor": "费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:3895eea6e09574bedc556bb3d3403d3c73fa12a0c2eb48c32cf4319712226a4a"
+}

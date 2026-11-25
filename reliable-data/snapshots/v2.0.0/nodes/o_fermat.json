@@ -1,0 +1,41 @@
+{
+  "nodeId": "o_fermat",
+  "id": "node-o_fermat",
+  "kind": "node",
+  "title": "费马小定理 · 欧拉定理 · 孙子定理",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "费马小定理",
+    "欧拉定理与欧拉函数",
+    "中国剩余定理"
+  ],
+  "prerequisites": [
+    "o_cong"
+  ],
+  "relations": [
+    "o_dio2",
+    "o_poly"
+  ],
+  "signals": [
+    "求余数",
+    "解同余方程组"
+  ],
+  "approaches": [
+    "化指数用欧拉定理",
+    "CRT拆分模数"
+  ],
+  "description": "二试数论的高频定理",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:b3f51a58655a7445525133db4fe9b0ae55b834af85374f29425bd0a050a4db1a"
+}

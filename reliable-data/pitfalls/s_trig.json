@@ -1,0 +1,37 @@
+{
+  "nodeId": "s_trig",
+  "id": "pitfall-s_trig",
+  "kind": "pitfall",
+  "title": "三角函数与恒等变换 · 易错考点",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "集合与函数",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-s_trig-01",
+      "mistake": "公式记混符号，尤其和差与倍角",
+      "trigger": "题目落在「三角函数与恒等变换」考点，或出现「化简求值、图像变换、正余弦定理」类识别信号时；参照本节点示范题「化简 sin2x·cosx + cos2x·sinx」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）诱导公式：奇变偶不变，符号看象限；（2）和差倍角公式是恒等变换的主力；（3）辅助角公式 asinθ+bcosθ=√(a²+b²)sin(θ+φ) 处理同类项合并；完成后回看结论是否满足题设条件。",
+      "selfCheck": "\"统一函数名、统一角、统一次数\"分别是什么意思？"
+    },
+    {
+      "id": "PF-s_trig-02",
+      "mistake": "变换没有目标，盲目变形越变越复杂",
+      "trigger": "题目落在「三角函数与恒等变换」考点，或出现「化简求值、图像变换、正余弦定理」类识别信号时；参照本节点示范题「化简 sin2x·cosx + cos2x·sinx」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）诱导公式：奇变偶不变，符号看象限；（2）和差倍角公式是恒等变换的主力；（3）辅助角公式 asinθ+bcosθ=√(a²+b²)sin(θ+φ) 处理同类项合并；完成后回看结论是否满足题设条件。",
+      "selfCheck": "辅助角公式为什么能把两项合成一项？"
+    }
+  ],
+  "content_hash": "sha256:30c64ca960e708cbfafed1435bc5e0ce1e5b0e6607f23e2c97e1a6b280d351bd"
+}

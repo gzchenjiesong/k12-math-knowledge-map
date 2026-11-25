@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_quad",
+  "id": "example-j_quad",
+  "kind": "example",
+  "title": "二次函数专题 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_func",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_quad-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "f(x)=x²−2x+3 在 [0,3] 上的最值",
+      "answer": "配方 f(x)=(x−1)²+2，对称轴 x=1 在区间内，顶点 f(1)=2 是最小值；端点 f(0)=3、f(3)=6，故最大值 6。核心是\"顶点是否在区间内\"决定最小值的位置。",
+      "conclusion": "最小值 2（x=1），最大值 6（x=3）",
+      "reasoningAnchor": "化为顶点式 y=a(x−h)²+k，读出开口与顶点",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:4eb9ffce6765527a4255ff64743611cd3fb0fc6ce12ffec86388f85957390bbf"
+}

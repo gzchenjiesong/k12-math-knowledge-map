@@ -1,0 +1,37 @@
+{
+  "nodeId": "o_recur",
+  "id": "pitfall-o_recur",
+  "kind": "pitfall",
+  "title": "递推数列与特征方程 · 易错考点",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_seq",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-o_recur-01",
+      "mistake": "构造时常数算错",
+      "trigger": "题目落在「递推数列与特征方程」考点，或出现「求通项、证明有界/单调」类识别信号时；参照本节点示范题「a₁=1，aₙ₊₁=2aₙ+1，求通项」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）形如 aₙ₊₁=paₙ+q：待定常数 c 使 aₙ₊₁+c=p(aₙ+c)，构造等比；（2）取倒数、取对数可把非线性递推线性化；（3）二阶线性递推用特征方程 r²=pr+q 求通项形式；完成后回看结论是否满足题设条件。",
+      "selfCheck": "为什么要\"加一个常数\"构造等比数列？这个常数怎么定？"
+    },
+    {
+      "id": "PF-o_recur-02",
+      "mistake": "忽略初值的验证",
+      "trigger": "题目落在「递推数列与特征方程」考点，或出现「求通项、证明有界/单调」类识别信号时；参照本节点示范题「a₁=1，aₙ₊₁=2aₙ+1，求通项」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）形如 aₙ₊₁=paₙ+q：待定常数 c 使 aₙ₊₁+c=p(aₙ+c)，构造等比；（2）取倒数、取对数可把非线性递推线性化；（3）二阶线性递推用特征方程 r²=pr+q 求通项形式；完成后回看结论是否满足题设条件。",
+      "selfCheck": "特征方程法解决的是什么类型的递推？"
+    }
+  ],
+  "content_hash": "sha256:344fddac2318698af5ad322d8b1dcf75feffba0418de6b63fb85fa701c9f85b3"
+}

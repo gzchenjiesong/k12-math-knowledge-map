@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_trig",
+  "id": "example-j_trig",
+  "kind": "example",
+  "title": "解直角三角形 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_trig-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "斜坡长 10 米，与地面夹角 30°，求高度",
+      "answer": "构造直角三角形，斜边 10，高度是 30° 的对边：h=10·sin30°=10×½=5 米。核心是\"把实际问题翻译成直角三角形，再选对三角函数\"。",
+      "conclusion": "h=10·sin30°=5 米",
+      "reasoningAnchor": "牢记 sin=对/斜、cos=邻/斜、tan=对/邻",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:d6351cef58e636c62995439aaddc60e982781b1c372c118e18921e4019b12ae6"
+}

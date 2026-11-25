@@ -59,14 +59,14 @@
 | 前缀 | 文件 | 已用范围 | 当前最大 | 下一个可用 |
 |---|---|---|---|---|
 | `SPEC-` | SPECS.md | 001–008 | 008 | 009 |
-| `CNF-` | CONFIG.md | 001–012 | 012 | 013 |
+| `CNF-` | CONFIG.md | 001–016 | 016 | 017 |
 | `RUL-` | RULES.md | 001–009 | 009 | 010 |
-| `DSN-` | DESIGNS.md | 001–011 | 011 | 012 |
+| `DSN-` | DESIGNS.md | 001–012 | 012 | 013 |
 | `BUG-` | BUGWALL.md | 001–011 | 011 | 012 |
 | `PRM-` | PROMPT.md | 001–010 | 010 | 011 |
 | `IDX-` | INDEX.md（本文件） | 001–007 | 007 | 008 |
-| `TST-` | TESTS.md | 001–015 | 015 | 016 |
-| `VFY-` | TESTS.md | 001–004 | 004 | 005 |
+| `TST-` | TESTS.md | 001–019 | 019 | 020 |
+| `VFY-` | TESTS.md | 001–006 | 006 | 007 |
 
 - 契约 / 规则引用配置一律写 `CNF-NNN`，不写字面值；引用流程只写 `IDX-NNN`。
 - 跨文件引用只写编号，不复制条目全文。校验脚本用一套正则 `/[A-Z]{3,4}-\d{3}/` 扫描全部九类。
@@ -89,6 +89,9 @@
 | `docs/TESTS.md` | 测试台账 | TST / VFY | 编号用例、证据、追溯矩阵 |
 | `tests/validate.js` | 校验脚本 | — | 编号连续 / 重复 / 路径 / 引用四类校验（结构） |
 | `tests/verify_content.js` | 内容校验脚本 | — | 数值复算 / 定理条件 / 结论存在 / 一致性四类断言（内容可判定子集） |
+| `tests/check-data.js` | 真源发布闸门 | — | 发布资格与结构：D1 manifest / D2 四类各 57 / D3 必备字段 / D4 review 四态 / D5 evidence 枚举 |
+| `tests/check-reliable-extra.js` | 真源扩展检查 | — | 哈希一致性 / UNCOVERED / 覆盖度 / 结论 / 定理条件 / 异源复算 / 不自证 |
+| `tools/build-reliable-data.js` | 真源编制器 | — | 从只读素材生成 228 张卡 + manifest + 锚点 + schema + 差距矩阵 |
 
 > 交付物本体（非文档）：工作区根目录 3 个 HTML + `apps/miniprogram/` 小程序工程 + WorkBuddy 应用卡标记（不入库）。详见 `CNF-009`。
 
@@ -102,6 +105,11 @@
 | R4 | 2026-11-24 | 迁入 GitHub 仓库 `k12-math-knowledge-map`：doc→docs/、脚本→tests/、HTML→deliverables/、小程序→apps/miniprogram/；新建 resource_data（原始资料，不入库）/ reliable-data（真源）/ views（HTML 视图）/ deploy（部署，私有信息不入库）；一科一仓 | 全仓库目录 + 全部文档路径引用 | 路径基准整体迁移；编号与取值不变 |
 | R5 | 2026-11-24 | 搭建进度同步框架：小程序 utils/sync.js 本地优先同步层 + deploy/server 零依赖 Node 进度服务（按 openid 隔离、HMAC token、冒烟 5/5）；敏感配置不入库 | apps/miniprogram/utils/{sync,runtime-config.example}.js、store.js、app.js、deploy/server/*、.gitignore | 新增运行时配置类（不入库）；编号与取值不变 |
 | R6 | 2026-11-24 | 进度同步改用微信云开发：新增 cloud-config.js、sync.js 改接云数据库 progress 集合、app.js 初始化 wx.cloud；自建 server 降级为备选；核实环境 ID 并排除错误的 cloudbase-ai-toolkit 标识；创建集合并验证 _openid 隔离与写入链路 | CONFIG（CNF-012）/ DESIGNS（DSN-011）/ INDEX / README / deploy/README / apps/miniprogram/utils/{cloud-config,sync}.js、app.js | 新增同步配置基准 `CNF-012`；结构基准 `CNF-007`、内容基准 `CNF-011` 不变 |
+| R7 | 2026-11-24 | 可靠数据源专项（PRM-010）首次发布 v1.0.0：编制 57×4 卡 + 依据锚点 + JSON Schema + 差距矩阵 + manifest；`tests/check-data.js` 为发布闸门、`tests/check-reliable-extra.js` 为扩展检查；新增 CNF-013 / TST-016~017 / VFY-005；全部卡 review=pending、verified=0 | CONFIG（CNF-013）/ TESTS（TST-016~017、VFY-005）/ INDEX / reliable-data/* / tools/build-reliable-data.js / tests/check-reliable-extra.js / tests/evidence/* | 新增真源基准 `CNF-013`；结构基准 `CNF-007`、内容基准 `CNF-011` 不变；发现旧侧 R2_CHECKED 15 条含 1 条重复，如实记入差距矩阵 |
+| R8 | 2026-11-25 | 四段培养体系扩展 v2.0.0（小学 4—6 年级接入）：改 `SPEC-002` 为分层基线、CNF-001 增 `primary`，新增 CNF-014 / DSN-012 / VFY-006；零破坏方案落地——五个 `o_` 衔接节点 ID 与卡字段冻结，新增 10 个 `p_` 节点 40 卡（evidence=C / pending），跨学段边写入独立 `bridges.json`；归档 v1.0.0 快照；校验脚本去硬编码 57 | SPECS（SPEC-002 修订）/ CONFIG（CNF-001、CNF-014）/ DESIGNS（DSN-012）/ TESTS（VFY-006）/ INDEX / reliable-data/* / reliable-data/snapshots/v1.0.0/* / tools/{build-reliable-data,build-data}.js / tests/{check-data,check-reliable-extra}.js / tests/evidence/HUMAN_SIGNOFF_V2.md | 新增分层基准 `CNF-014`、`SPEC-002` 修订；E8a 断言 v1.0.0 的 228 卡哈希零漂移 |
+| R9 | 2026-11-25 | 多路径异源交叉校验（知识点完整性/正确性专项）：新增 TST-018；四域隔离导出盲题包（剥离答案）+裸主题清单，独立反向解题 67 题、完整性基准 67 节点、定理条件四卡合并审查；结论一致 66/67（存疑 2 为题目陈述，冲突 0）、任务禁止的条件省略 0；发现 CC-F01/F02/F03 修复建议未执行；268 卡哈希与 manifest 未动、`pending=268`/`verified=0` | TESTS（TST-018）/ INDEX / reliable-data/index/CROSS_CHECK_V1.md / tests/evidence/crosscheck/* / tools/{export-crosscheck,compare-completeness}.js | 异源 AI 交叉**不构成人工签核、不解锁 verified**（SPEC-008）；人工闸门 VFY-005/VFY-006 仍 BLOCKED |
+| R10 | 2026-11-25 | 内容修正/扩写发布 v2.1.0（家长决定内容产出不受教材扫描影响）：执行 CC-F01/F02/F03——s_conic 补椭圆方程结论 8√2/5、j_trans 补坐标结论 √41/P(8/5,0)（新推理档位独立复验一致且条件充分）；9 节点扩写进阶要点；补丁源 patches_v2_1_0.js；相对 v2.0.0 恰好 36 卡变化越界 0（E8c），v1/v2 快照完整保留（E8a）；E8 断言改为版本可追溯语义 | CONFIG（CNF-015）/ INDEX / reliable-data/snapshots/v2.0.0/* / reliable-data/source/patches_v2_1_0.js / reliable-data/CHANGELOG.md / reliable-data/index/CROSS_CHECK_V1.md / tests/evidence/crosscheck/RECHECK_V21.md / tests/check-reliable-extra.js | 有意的原 57 节点修改（7 个）导致相对 v1.0.0 漂移，历史快照不覆盖；内容依据数学公共知识 B/C 级、仍 pending，未解锁 verified |
+| R11 | 2026-11-25 | app 数据可复现发布：新增 CNF-016 / TST-019；组织层数据固化为 `reliable-data/source/app_organization.json`（含小学段 t_primary domain/lecture/theme shell，67 节点四视图全覆盖）；`build-data.js` 从骨架升级为编译 6 模块（ALL_NODES/讲义六段式取真源，其余取配置）；`.gitignore` 放行 6 模块与 bridges.json 入库；`validate.js` 去硬编码 57/10；`check-app-build.js` 18/18 + 删除重建字节一致 | CONFIG（CNF-016）/ TESTS（TST-019）/ INDEX / README / .gitignore / reliable-data/source/app_organization.json / apps/miniprogram/data/*.js / tools/build-data.js / tests/{check-app-build,validate}.js / tests/evidence/*V21.log | app 数据为过渡数据（pending=268、verified=0），头部带未签核警告；clone 可运行但不解锁人工闸门 VFY-005/006 |
 
 ## IDX-007: 设计文档占用与生效说明
 

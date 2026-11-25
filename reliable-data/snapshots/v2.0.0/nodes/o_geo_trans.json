@@ -1,0 +1,45 @@
+{
+  "nodeId": "o_geo_trans",
+  "id": "node-o_geo_trans",
+  "kind": "node",
+  "title": "几何变换",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "反射",
+    "平移",
+    "旋转",
+    "位似",
+    "反演初步"
+  ],
+  "prerequisites": [
+    "j_trans"
+  ],
+  "relations": [
+    "o_geo_circle",
+    "o_geo_vec"
+  ],
+  "signals": [
+    "最短路径",
+    "旋转构造",
+    "反演化简"
+  ],
+  "approaches": [
+    "60°旋转造等边",
+    "对称化为直线",
+    "反演化圆为线"
+  ],
+  "description": "把散点几何统一起来的思想",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:d350c0368a64ff000a815651428d9871357019ecf92033dcb260c8b940d8f284"
+}

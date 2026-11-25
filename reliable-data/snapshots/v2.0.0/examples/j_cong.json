@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_cong",
+  "id": "example-j_cong",
+  "kind": "example",
+  "title": "勾股定理与逆定理 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_cong-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "边长为 3、4、5 的三角形是什么三角形？",
+      "answer": "3²+4²=9+16=25=5²，由勾股逆定理，是直角三角形。核心是\"用数量关系判定几何性质\"。",
+      "conclusion": "该三角形是直角三角形",
+      "reasoningAnchor": "求线段长时构造直角三角形，用勾股定理列方程",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:1e1e119f6c81ea388de06044858577e8c8c67f227605c5d805cb72f68ebd4fb4"
+}

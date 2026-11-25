@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_graph",
+  "id": "example-o_graph",
+  "kind": "example",
+  "title": "图论初步 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_graph-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "证明：任意 6 人中，要么有 3 人互相认识，要么有 3 人互相不认识",
+      "answer": "这是拉姆齐定理 R(3,3)=6。用一人与其他 5 人的关系染色（认识/不认识），由抽屉原理必有 3 条同色边，再分析即得。核心是\"把关系转化为图的染色\"。",
+      "conclusion": "任意 6 人中必有 3 人互相认识或 3 人互相不认识（R(3,3)=6）",
+      "reasoningAnchor": "握手定理：所有顶点度数之和=2×边数",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:a401433dc66e6c5b2892d1251d680910f7add87ecedc81f55fa9fe4c7dd24662"
+}

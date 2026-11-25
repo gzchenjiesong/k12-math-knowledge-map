@@ -1,0 +1,39 @@
+{
+  "nodeId": "o_comb_opt",
+  "id": "node-o_comb_opt",
+  "kind": "node",
+  "title": "组合极值",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "极值构造",
+    "上界下界估计",
+    "平均论证"
+  ],
+  "prerequisites": [
+    "o_comb_adv",
+    "o_ineq"
+  ],
+  "relations": [],
+  "signals": [
+    "最大值最小值",
+    "最优方案"
+  ],
+  "approaches": [
+    "先猜极值构造",
+    "再证上界"
+  ],
+  "description": "组合与不等式的交汇",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:32c2abbabcea9c00dc262520a3a2043ebdde73c0f8e943b0bda87d35b3049b6d"
+}

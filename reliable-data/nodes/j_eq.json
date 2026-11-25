@@ -1,0 +1,49 @@
+{
+  "nodeId": "j_eq",
+  "id": "node-j_eq",
+  "kind": "node",
+  "title": "方程与方程组",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_eq",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "一元一次方程",
+    "二元一次方程组",
+    "一元二次方程",
+    "根的判别式",
+    "韦达定理",
+    "分式方程"
+  ],
+  "prerequisites": [
+    "j_alg",
+    "j_frac"
+  ],
+  "relations": [
+    "j_fun",
+    "j_ineq",
+    "o_dio",
+    "o_poly"
+  ],
+  "signals": [
+    "求根",
+    "整数根",
+    "根的分布",
+    "方程组应用"
+  ],
+  "approaches": [
+    "判别式与韦达定理联动",
+    "整数根用整除与判别式完全平方"
+  ],
+  "description": "连接代数与数论的枢纽",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:0b8af546a1c42dc0667c406d38972b0f8f1bc49ea4a8b94d502d4c56ab94b0f2"
+}

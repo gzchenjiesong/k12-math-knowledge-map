@@ -1,0 +1,41 @@
+{
+  "nodeId": "s_complex",
+  "id": "lesson-s_complex",
+  "kind": "lesson",
+  "title": "复数 · 授课教案",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "几何与向量",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "2.1.0",
+  "basisEvidence": "B",
+  "essence": "复数是把数系扩展到二维：z=a+bi。它的革命性在于，乘法运算天然包含了\"旋转与伸缩\"——乘一个复数等于做一次几何变换。这是\"代数运算几何化\"的第一次体验。",
+  "method": [
+    "复数 z=a+bi（i²=−1），相等 ⇔ 实部虚部分别相等；共轭 z̄=a−bi，|z|²=z·z̄",
+    "复数四则运算与几何意义（复平面点/向量、模与辐角）",
+    "欧拉公式 e^(iθ)=cosθ+isinθ 与三角形式 r(cosθ+isinθ)，用于乘幂与开方",
+    "复数法解几何：平行四边形对角线平方和（本节点例题）"
+  ],
+  "example": {
+    "q": "已知 (1+i)z=2，求 z",
+    "a": "z=2/(1+i)=2(1−i)/[(1+i)(1−i)]=2(1−i)/2=1−i。核心是\"分母实数化\"——乘共轭复数，与分母有理化是同一个思路。"
+  },
+  "pitfalls": [
+    "i²=−1 记成 1，或忽略 i 的幂的周期性",
+    "两个非实数复数不能比较大小"
+  ],
+  "links": "复数是复数进阶（o_complex）、复数法解几何（o_geo_vec）的基础。",
+  "check": [
+    "复数乘法为什么可以理解为旋转和伸缩？",
+    "为什么两个复数（非实数）不能比较大小？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:2feaf7813ebec12e4b809791b9b441d289bfa0f7e20339d6de0129fd07c65f47"
+}

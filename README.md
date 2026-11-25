@@ -8,9 +8,13 @@
 
 ```
 resource_data/           reliable-data/            apps/miniprogram/   views/
-  原始资料（不入库）  →   唯一真源（JSON+签核）  →     生成物（不入库）
-  课标/大纲/教材/笔记      57 节点 × 四类卡片         小程序数据 / HTML 人读视图
+  原始资料（不入库）  →   唯一真源（JSON+签核）  →     生成物（入库/不入库）
+  课标/大纲/教材/笔记      67 节点 × 四类卡片         小程序数据（入库）/ HTML（不入库）
 ```
+
+> v2.1.0 起：小程序 6 个数据模块由真源编译后**入库**，clone 后无需本地重编即可运行；
+> 但它们仍是生成物，禁止手工编辑，改动一律重跑 `node tools/build-data.js --allow-pending`。
+> 一致性由 `tests/check-app-build.js` 断言（app 数据逐字段等于真源 + 组织配置）。
 
 - **可靠数据源是独立任务建设的**（启动 Prompt 见 `docs/PROMPT.md` 的 `PRM-010`）：依据锚定 → 编制 → 三重检查 → 人工签核 → 版本发布。
 - **开发与运行时直接信任已发布数据**，不重复做内容校验；正确性在数据源出口一次性解决。
@@ -23,7 +27,7 @@ resource_data/           reliable-data/            apps/miniprogram/   views/
 | `docs/` | 项目治理文档：契约 / 规则 / 配置 / 设计 / 缺陷墙 / 上下文 / 测试台账 | 是 |
 | `resource_data/` | 原始资料：官方课标、竞赛大纲、百科摘录、教材电子书 | **否** |
 | `reliable-data/` | 唯一内容真源：知识点 / 授课教案 / 易错考点 / 真题示范 四类卡片 + 依据锚点 + 签核记录 | 是 |
-| `apps/miniprogram/` | 微信小程序工程（授课 / 图谱 / 题型 / 查漏） | 骨架是；`data/*.js` 否 |
+| `apps/miniprogram/` | 微信小程序工程（授课 / 图谱 / 题型 / 查漏） | 是；`data/*.js` v2.1.0 起入库（生成物，禁手改） |
 | `tools/` | 生成脚本：`build-data.js`（真源→小程序数据）、`render-html.js`（真源→HTML 视图） | 是 |
 | `tests/` | 校验脚本 `validate.js` / `verify_content.js` / `check-data.js` 与证据 `evidence/` | 是 |
 | `deliverables/` | 静态交付物：交互知识图谱、A3 挂图、书单（手工维护） | 是 |
@@ -33,15 +37,22 @@ resource_data/           reliable-data/            apps/miniprogram/   views/
 
 ## 三、本地开发引导
 
-小程序运行所需的 `apps/miniprogram/data/*.js` 是**生成物 / 本地文件，不入库**。两种来源：
+小程序运行所需的 `apps/miniprogram/data/*.js` 是**生成物**；v2.1.0 起与真源一并入库以保证 clone 可运行，但禁止手工编辑。
 
-1. **可靠数据源已发布**（`reliable-data/manifest.json` 存在且签核完成）：
-   ```bash
-   node tools/check-data.js      # 数据源发布闸门
-   node tools/build-data.js      # 生成 apps/miniprogram/data/*.js
-   node tools/render-html.js     # 生成 views/*.html 供人工复核
-   ```
-2. **真源尚未建立**（当前状态）：本地数据保留在原工作目录 `C:\Users\jeaschen\WorkBuddy\2026-11-23-18-37-56\olympiad-cards-mini\data\`，可复制到 `apps/miniprogram/data/` 用于开发调试。这些是**未核实内容**，不得视为可靠数据源。
+**当前状态：真源 v2.1.0 已发布，但人工签核未完成**（`reliable-data/manifest.json`：67 节点 × 四类卡 = 268 张全部 `pending`、`verified=0`，`VFY-005` 为 `BLOCKED_NO_EVIDENCE`）。app 数据为**过渡态**，头部带未签核警告。
+
+```bash
+node tools/build-reliable-data.js   # 从只读素材重新编制真源（可复现）
+node tests/check-data.js            # 发布资格闸门（结构，9/9）
+node tests/check-reliable-extra.js  # 扩展检查（哈希 / 覆盖 / 定理条件 / 异源复算，33/33）
+node tools/render-html.js           # 生成 views/*.html 供人读复核
+node tools/build-data.js --allow-pending  # 编译 6 个 app 数据模块；无 --allow-pending 会因未签核而阻塞
+node tests/check-app-build.js       # 生成物一致性（app 数据 ↔ 真源 ↔ 组织配置，18/18）
+```
+
+- 真源唯一路径：`reliable-data/`；下游 `tools/build-data.js` 与 `tools/render-html.js` 只读取它，不重复做内容校验。
+- 人工签核记录：`tests/evidence/HUMAN_SIGNOFF_V1.md`；签字后须发新版本，不覆盖 v1.0.0。
+- 正确性是「依据充分 + 人工签核」的结果，不是 AI 自证；机械 `PASSED` 不表示内容无误。
 
 ## 四、校验命令
 

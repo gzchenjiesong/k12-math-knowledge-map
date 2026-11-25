@@ -1,0 +1,36 @@
+=== E1 内容哈希一致性（manifest ↔ 文件，check-data.js 不校验）===
+OK   E1a 228 张卡 content_hash 与内容重算一致（异常 0）
+OK   E1b manifest.entries 与卡片哈希一致（异常 0）
+OK   E1c manifest.entries 条目数 = 228（实际 228）
+OK   E1d manifest.counts 与产物一致
+=== E3 覆盖度与条目数 ===
+OK   E3a 知识点卡 nodeId 覆盖 57（实际 57）
+OK   E3b lessons nodeId 集合与知识点卡完全一致
+OK   E3b pitfalls nodeId 集合与知识点卡完全一致
+OK   E3b examples nodeId 集合与知识点卡完全一致
+OK   E3c 每节点易错条目 ≥ 2（异常 0）
+OK   E3d 每节点示范题 ≥ 1（异常 0）
+OK   E3e 教案卡 RUL-002 六段齐全（异常 0）
+=== E4 结论存在性（问「求 X」必须给明确结论）===
+OK   E4a 57 题全部带非空 conclusion（异常 0）
+OK   E4b 求/证明类题目结论非纯方法描述（异常 0）
+OK   E4c BUG-009 回归：o_geo_trans 答案与结论均含 135°
+OK   E4d BUG-010 回归：s_vec3 二面角锐钝说明存在
+=== E5 定理条件完整性（在新教案卡上重查）===
+OK   E5 8 条关键定理条件完整（异常 0）
+=== E6 异源交叉：脱离生成路径，对已发布卡片独立复算 ===
+OK   E6 17 条异源独立复算一致（异常 0）
+=== E7 不自证与依据锚点 ===
+OK   E7a 全部 228 卡 review=pending（异常 0）—— AI 未自证 verified
+OK   E7b manifest 人工闸门如实标 BLOCKED_NO_EVIDENCE、verified=0
+OK   E7c 全部卡有 source_ref（异常 0）
+OK   E7d 无虚假「未找到权威依据」填充（实际 0）
+OK   E7e 8 条锚点中 7 条本地原件缺失已如实标注
+=== E2 追溯矩阵 UNCOVERED ===
+OK   E2a 文档编号引用失效数 = 0（UNCOVERED 来源：）
+OK   E2b 本任务新增用例 TST-016/TST-017/VFY-005 均已登记（UNCOVERED=0）
+---
+RESULT=24/24 FAILED=0
+UNCOVERED=0
+VERDICT=PASSED
+注意：本脚本校验结构、哈希、可判定数值与追溯关系，不证明数学讲解正确；人工闸门见 VFY-005。

@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_geo_area",
+  "id": "example-o_geo_area",
+  "kind": "example",
+  "title": "面积法与等积变换 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_geo_area-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "证明三角形角平分线分对边成比例（角平分线定理）",
+      "answer": "用面积法：BD/DC = S△ABD/S△ACD（等高）= (AB·sin∠BAD)/(AC·sin∠CAD)=AB/AC。核心是用面积作为\"桥梁\"连接底边比与边长比。",
+      "conclusion": "BD/DC=AB/AC",
+      "reasoningAnchor": "等高三角形面积比 = 底边比",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:895e1a561c26f3d551fa323e0d20dc6d679a76612e6a5e16ad6afeef8b28a57a"
+}

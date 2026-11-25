@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_geo_circle",
+  "id": "lesson-o_geo_circle",
+  "kind": "lesson",
+  "title": "圆幂 · 根轴 · 四点共圆 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "圆幂定理统一了相交弦、割线、切线长定理：从一点引出的两条线与圆的交点，线段乘积是定值（圆幂）。根轴则是到两圆幂相等的点的轨迹——这些都是把圆的问题代数化的工具。",
+  "method": [
+    "相交弦/割线：PA·PB=定值（圆幂）",
+    "证明四点共圆：幂相等、对角互补、同侧张角相等",
+    "根轴是两圆的等幂点轨迹，常用于证明共线"
+  ],
+  "example": {
+    "q": "两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长",
+    "a": "P 对两圆的幂相等（都在根轴上），故 PT₁²=PT₂²，PT₁=PT₂。核心是用\"圆幂\"这个统一概念处理切线长。"
+  },
+  "pitfalls": [
+    "圆幂的正负号（点在圆内为负、圆外为正）",
+    "四点共圆判定条件混用"
+  ],
+  "links": "圆幂根轴是圆（j_circle）、几何变换（o_geo_trans）、复数法（o_geo_vec）的综合。",
+  "check": [
+    "圆幂定理统一了哪几个定理？",
+    "为什么根轴是等幂点的轨迹？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:d62cb644170e25eab22047f3076619d695971122bc519eac588920eaaf43a5e3"
+}

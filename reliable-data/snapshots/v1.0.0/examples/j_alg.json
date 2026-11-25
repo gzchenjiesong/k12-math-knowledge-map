@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_alg",
+  "id": "example-j_alg",
+  "kind": "example",
+  "title": "整式与因式分解 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_alg",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_alg-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "分解 x⁴+x²+1",
+      "answer": "直接套公式看不出来。补项配方：x⁴+2x²+1−x²=(x²+1)²−x²=(x²+x+1)(x²−x+1)。关键动作是\"补一项配成平方差\"——这是竞赛因式分解最常见的构造。",
+      "conclusion": "(x²+x+1)(x²−x+1)",
+      "reasoningAnchor": "顺序：先提公因式，再看公式（平方差、完全平方、立方和差），最后十字相乘或分组",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:67a306f60d7561c43828d3caaa114a63d84f4aad17dbd533d7f22e1f3f565147"
+}

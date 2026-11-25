@@ -1,0 +1,47 @@
+{
+  "nodeId": "j_fun",
+  "id": "node-j_fun",
+  "kind": "node",
+  "title": "函数基础",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_func",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "平面直角坐标系",
+    "一次函数",
+    "反比例函数",
+    "二次函数图像与性质",
+    "待定系数求解析式"
+  ],
+  "prerequisites": [
+    "j_alg",
+    "j_eq"
+  ],
+  "relations": [
+    "j_quad",
+    "j_ineq",
+    "s_func"
+  ],
+  "signals": [
+    "求解析式",
+    "函数图像交点",
+    "最值问题"
+  ],
+  "approaches": [
+    "数形结合",
+    "待定系数法",
+    "交点即方程解"
+  ],
+  "description": "变量思想的起点，高中函数的前置",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:4dfab07ef39dd2dd1e14c65720a0568e56ea50a2b6b27f75b3111eba7b4b0cea"
+}

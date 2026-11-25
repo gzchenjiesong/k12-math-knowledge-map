@@ -1,0 +1,31 @@
+{
+  "nodeId": "p_alg",
+  "id": "example-p_alg",
+  "kind": "example",
+  "title": "用字母表示数与简易方程 · 示范题与解答",
+  "domain": "primary",
+  "domainName": "① 小学数学思维铺垫（4—6 年级）",
+  "module": "高小思维模块",
+  "lectureId": "primary",
+  "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "none(小学段新增，无旧侧 R2 记录)",
+  "reviewNote": "小学段无教材版权页锚点，未获教材交叉验证与人工签核，不得视为 checked/verified（SPEC-008）",
+  "version": "2.0.0",
+  "items": [
+    {
+      "id": "EX-p_alg-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "小明有一些糖果，给了妹妹 5 颗后还剩 12 颗。小明原来有多少颗？用方程解。",
+      "answer": "设小明原来有 x 颗。根据\"原有 − 给出 = 剩下\"列方程：x − 5 = 12。两边同时加 5：x = 17。**结论：小明原来有 17 颗糖。**检验：17 − 5 = 12，正好符合题意。",
+      "conclusion": "小明原来有 17 颗糖（x−5=12）",
+      "reasoningAnchor": "先找题目里\"谁和谁相等\"，这句话就是等号",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:3c3479bb5788d427f76446954ecdb31fd52d19975ffe77d2f787198cb8830211"
+}

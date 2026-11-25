@@ -1,0 +1,37 @@
+{
+  "nodeId": "o_numfun",
+  "id": "pitfall-o_numfun",
+  "kind": "pitfall",
+  "title": "数论函数与格点 · 易错考点",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-o_numfun-01",
+      "mistake": "忘记分解质因数直接套公式",
+      "trigger": "题目落在「数论函数与格点」考点，或出现「取整求和、格点计数」类识别信号时；参照本节点示范题「求 φ(12)」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）欧拉函数 φ(n)=n·∏(1−1/p)（p 遍历 n 的素因子）；（2）积性函数：gcd(m,n)=1 时 f(mn)=f(m)f(n)；（3）格点问题常用皮克定理或对称性；完成后回看结论是否满足题设条件。",
+      "selfCheck": "为什么积性函数要求互素？"
+    },
+    {
+      "id": "PF-o_numfun-02",
+      "mistake": "积性函数用在非互素的情形",
+      "trigger": "题目落在「数论函数与格点」考点，或出现「取整求和、格点计数」类识别信号时；参照本节点示范题「求 φ(12)」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）欧拉函数 φ(n)=n·∏(1−1/p)（p 遍历 n 的素因子）；（2）积性函数：gcd(m,n)=1 时 f(mn)=f(m)f(n)；（3）格点问题常用皮克定理或对称性；完成后回看结论是否满足题设条件。",
+      "selfCheck": "欧拉函数 φ(n) 计数的是什么？"
+    }
+  ],
+  "content_hash": "sha256:c1caf8624615e398d9174dd239ecbc63930498dc379dead806c3f70fd827e624"
+}

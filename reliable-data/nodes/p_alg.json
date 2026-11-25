@@ -1,0 +1,45 @@
+{
+  "nodeId": "p_alg",
+  "id": "node-p_alg",
+  "kind": "node",
+  "title": "用字母表示数与简易方程",
+  "domain": "primary",
+  "domainName": "① 小学数学思维铺垫（4—6 年级）",
+  "module": "高小思维模块",
+  "lectureId": "primary",
+  "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "none(小学段新增，无旧侧 R2 记录)",
+  "reviewNote": "小学段无教材版权页锚点，未获教材交叉验证与人工签核，不得视为 checked/verified（SPEC-008）",
+  "version": "2.0.0",
+  "points": [
+    "用字母表示数量关系",
+    "等式性质",
+    "解一元一次方程",
+    "等量代换"
+  ],
+  "prerequisites": [
+    "p_num"
+  ],
+  "relations": [
+    "j_alg",
+    "j_eq",
+    "p_app"
+  ],
+  "signals": [
+    "求未知数",
+    "用式子表示",
+    "等量关系"
+  ],
+  "approaches": [
+    "先找出题目里\"谁和谁一样多\"",
+    "等式两边同时做同样的事",
+    "解完代回原式验一验"
+  ],
+  "description": "从算术走向代数的第一步：把\"算出一个数\"变成\"表示一个关系\"",
+  "note": "来源归属/前置/关联/识别信号来自 reliable-data/source/primary_nodes.js（原创素材）；小学分册版权页未提供，未找到权威依据，evidence=C、review=pending（SPEC-008）。",
+  "content_hash": "sha256:fdf8ac43d5968dbc8ea0718311f1b0c0e39a63d5b4929b89f3bd932aa7a03b08"
+}

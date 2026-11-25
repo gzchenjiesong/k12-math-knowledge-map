@@ -1,0 +1,40 @@
+{
+  "nodeId": "j_ineq",
+  "id": "lesson-j_ineq",
+  "kind": "lesson",
+  "title": "不等式 · 授课教案",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_eq",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "不等式描述的是\"范围\"而非\"一个点\"。初中阶段的核心是掌握不等式的性质和一元一次不等式的解法，尤其是\"两边同乘负数要变号\"这条——它是所有不等式变形最容易出错的地方。",
+  "method": [
+    "不等式性质：加减不变号，乘除正数不变号，乘除负数变号",
+    "解集在数轴上表示，注意空心/实心点",
+    "应用题先设未知数、找不等关系，再求解并检验"
+  ],
+  "example": {
+    "q": "解不等式 −2x+3 > 7",
+    "a": "−2x>4，两边除以 −2 要变号：x<−2。这题的唯一考点就是\"除以负数变号\"，这是最高频错误。"
+  },
+  "pitfalls": [
+    "两边乘除负数忘记变号",
+    "解集端点是否取到判断错误"
+  ],
+  "links": "不等式性质是高中不等式（s_ineq）、不等式证明（o_ineq）、函数定义域值域的基础。",
+  "check": [
+    "为什么不等式两边乘负数要变号？用数轴解释。",
+    "x>2 和 x≥2 的解集在数轴上有什么区别？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:bbeaf4d40d21fac0839a9af305e3dddbc8cf20a04233ce1ed1ae48f4d5d8eeaa"
+}

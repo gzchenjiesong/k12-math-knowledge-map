@@ -1,0 +1,40 @@
+{
+  "nodeId": "j_simi",
+  "id": "lesson-j_simi",
+  "kind": "lesson",
+  "title": "相似三角形 · 授课教案",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "相似是\"形状相同、大小不同\"。它的核心价值是把\"角的关系\"转成\"边的比例\"——一旦证明相似，就能得到一系列比例式，从而计算长度、证明比例关系。这是几何中最常用的定量工具。",
+  "method": [
+    "判定：两角对应相等（AA）最常用，还有 SAS、SSS 成比例",
+    "证明比例线段、求线段长优先考虑相似",
+    "常见模型：A 字型、8 字型、母子型（直角三角形斜高）"
+  ],
+  "example": {
+    "q": "直角三角形斜边上的高把斜边分成 4 和 9，求高",
+    "a": "由射影定理（母子相似）h²=4×9=36，h=6。核心是识别出\"母子型相似\"这个常见模型。"
+  },
+  "pitfalls": [
+    "对应边找错导致比例式列反",
+    "相似与全等的条件混淆"
+  ],
+  "links": "相似是梅涅劳斯/塞瓦（o_geo_ceva）、面积法、圆幂定理的基础。",
+  "check": [
+    "相似三角形的价值是什么？为什么它能给出比例式？",
+    "AA 判定为什么只需两个角？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:ed6f1bc990a9ab3b70cef96d0b7ed928f32e38555fada3717e9ebd4edbf0a840"
+}

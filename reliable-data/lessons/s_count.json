@@ -1,0 +1,40 @@
+{
+  "nodeId": "s_count",
+  "id": "lesson-s_count",
+  "kind": "lesson",
+  "title": "计数原理 · 授课教案",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "计数与概率统计",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "计数原理是组合数学的地基：加法原理（分类）和乘法原理（分步）。排列组合的所有公式都从这两条推导而来。核心是判断\"分类还是分步\"\"有序还是无序\"。",
+  "method": [
+    "加法原理：分类完成，各类相加",
+    "乘法原理：分步完成，各步相乘",
+    "排列（有序）A(n,m)、组合（无序）C(n,m)"
+  ],
+  "example": {
+    "q": "从 5 人中选 3 人组成委员会，有多少种选法？",
+    "a": "选人无顺序之分，用组合 C(5,3)=10。核心是\"先判断有没有顺序\"——有顺序用排列，无顺序用组合。"
+  },
+  "pitfalls": [
+    "排列组合用混（有无顺序判断错）",
+    "分类重复或分步遗漏"
+  ],
+  "links": "计数原理是组合恒等式（o_binom）、抽屉容斥（o_comb_adv）、概率的基础。",
+  "check": [
+    "加法原理和乘法原理分别对应什么情形？",
+    "怎么判断一个问题该用排列还是组合？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:33415b69c8481eb641d05f236db66f8ef7bf815ea8ccd9a982bfd97e858c2225"
+}

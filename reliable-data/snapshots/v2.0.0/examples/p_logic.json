@@ -1,0 +1,31 @@
+{
+  "nodeId": "p_logic",
+  "id": "example-p_logic",
+  "kind": "example",
+  "title": "找规律与逻辑推理 · 示范题与解答",
+  "domain": "primary",
+  "domainName": "① 小学数学思维铺垫（4—6 年级）",
+  "module": "高小思维模块",
+  "lectureId": "primary",
+  "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "none(小学段新增，无旧侧 R2 记录)",
+  "reviewNote": "小学段无教材版权页锚点，未获教材交叉验证与人工签核，不得视为 checked/verified（SPEC-008）",
+  "version": "2.0.0",
+  "items": [
+    {
+      "id": "EX-p_logic-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "找规律填数：2, 4, 6, 8, ( ), 12。",
+      "answer": "相邻两数都相差 2：4−2=2，6−4=2，8−6=2。按这个规律，括号里的数应是 8 + 2 = 10，再往后 10 + 2 = 12，正好和最后一个数对上。**结论：括号里填 10。**",
+      "conclusion": "括号里填 10（相邻两数差 2）",
+      "reasoningAnchor": "把已知条件列成表，找\"最确定的那一句\"先下手",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:2b1a688185c22ceff69d639e299576c2c0284cd11c837fdd86a4f3b68d89ed6d"
+}

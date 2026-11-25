@@ -1,0 +1,43 @@
+{
+  "nodeId": "o_cong",
+  "id": "node-o_cong",
+  "kind": "node",
+  "title": "整除与同余",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "欧几里得算法",
+    "同余性质",
+    "完全剩余系",
+    "高斯函数"
+  ],
+  "prerequisites": [
+    "o_div0"
+  ],
+  "relations": [
+    "o_dio2",
+    "o_fermat"
+  ],
+  "signals": [
+    "整除",
+    "余数",
+    "同余方程"
+  ],
+  "approaches": [
+    "取合适的模",
+    "同余类分类"
+  ],
+  "description": "数论最核心的语言",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:0fd9a54ddaf2ae3ec8589f703e34960026dd9a7392f324073219d855a6405102"
+}

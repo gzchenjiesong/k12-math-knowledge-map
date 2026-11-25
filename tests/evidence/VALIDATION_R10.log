@@ -1,0 +1,31 @@
+OK   SEQ   SPEC- 编号连续 001..008 共 8 条
+OK   SEQ   CNF- 编号连续 001..015 共 15 条
+OK   SEQ   RUL- 编号连续 001..009 共 9 条
+OK   SEQ   DSN- 编号连续 001..012 共 12 条
+OK   SEQ   BUG- 编号连续 001..011 共 11 条
+OK   SEQ   PRM- 编号连续 001..010 共 10 条
+OK   SEQ   IDX- 编号连续 001..007 共 7 条
+OK   SEQ   TST- 编号连续 001..018 共 18 条
+OK   SEQ   VFY- 编号连续 001..006 共 6 条
+OK   REF   失效引用检查 : 无
+OK   PATH  路径存在性检查（50 个声明路径） : 全部存在
+OK   FWD   前瞻编号集合一致 : 一致
+OK   JS    15/15 语法通过
+OK   JS    2/2 文档脚本语法通过
+OK   JSON  10/10 严格校验通过
+OK   PAGE  7 页面四件套 28/28
+OK   NAV   授课为 tabBar 首项
+OK   TAB   pages/lecture/lecture
+OK   TAB   pages/graph/graph
+OK   TAB   pages/locator/locator
+OK   TAB   pages/gaps/gaps
+OK   DATA  57 节点授课全覆盖（57/57）
+OK   DATA  讲解六要素完整
+OK   DATA  10 专题节点与主题映射一致
+OK   DATA  ID 引用无悬空
+OK   DATA  题型 34 / 分组 10
+OK   DATA  TOPICS_BY_NODE 结构可解析
+OK   BASE  官方模板源哈希 9/9（LF 规范化）
+---
+RESULT=28/28 FAILED=0
+VERDICT=PASSED

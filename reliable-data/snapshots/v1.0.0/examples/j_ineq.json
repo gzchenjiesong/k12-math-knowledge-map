@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_ineq",
+  "id": "example-j_ineq",
+  "kind": "example",
+  "title": "不等式 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_eq",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_ineq-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "解不等式 −2x+3 > 7",
+      "answer": "−2x>4，两边除以 −2 要变号：x<−2。这题的唯一考点就是\"除以负数变号\"，这是最高频错误。",
+      "conclusion": "x<−2",
+      "reasoningAnchor": "不等式性质：加减不变号，乘除正数不变号，乘除负数变号",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:995ca8c5325765c7adf58236ef2983e5abddfd319b4a2c2ae3e506f7753b875b"
+}

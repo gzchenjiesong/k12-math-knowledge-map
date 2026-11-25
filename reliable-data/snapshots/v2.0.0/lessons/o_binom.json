@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_binom",
+  "id": "lesson-o_binom",
+  "kind": "lesson",
+  "title": "组合恒等式与进阶计数 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "组合恒等式研究二项式系数 C(n,k) 的各种关系。核心方法有三种：代数证明（用公式）、组合证明（两边数同一件事）、生成函数。组合证明最能体现\"对应\"思想。",
+  "method": [
+    "二项式定理 (a+b)ⁿ=ΣC(n,k)aᵏbⁿ⁻ᵏ",
+    "组合证明：两边计数同一个集合",
+    "赋值法：给二项式中的变量赋特殊值"
+  ],
+  "example": {
+    "q": "证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ",
+    "a": "组合证明：左边是 n 元集合所有子集个数（按大小分类求和），右边是 2ⁿ（每个元素选或不选）。两边数同一件事，故相等。核心是\"组合恒等式可以靠数集合来证明\"。"
+  },
+  "pitfalls": [
+    "代数变形出错",
+    "组合证明时两边数的不是同一件事"
+  ],
+  "links": "组合恒等式连接计数原理、概率、归纳法。",
+  "check": [
+    "组合证明为什么能证明恒等式？",
+    "二项式定理和 C(n,k) 有什么关系？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:bce52a57ee4a69816dd78b85920fbef5af870d6632a98888c4fb5ed7df110c0d"
+}

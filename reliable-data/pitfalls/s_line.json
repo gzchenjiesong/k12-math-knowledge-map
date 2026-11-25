@@ -1,0 +1,37 @@
+{
+  "nodeId": "s_line",
+  "id": "pitfall-s_line",
+  "kind": "pitfall",
+  "title": "直线与圆 · 易错考点",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_analytic",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-s_line-01",
+      "mistake": "直线斜率不存在的情况忘记讨论",
+      "trigger": "题目落在「直线与圆」考点，或出现「求方程、弦长、相切」类识别信号时；参照本节点示范题「判断直线 x+y=1 与圆 x²+y²=2 的位置关系」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）直线的斜率与方程（点斜式、一般式）；（2）点到直线距离 d=|Ax₀+By₀+C|/√(A²+B²)；（3）直线与圆位置关系：比较 d 与半径 r；完成后回看结论是否满足题设条件。",
+      "selfCheck": "为什么比较距离和半径就能判断直线与圆的位置？"
+    },
+    {
+      "id": "PF-s_line-02",
+      "mistake": "距离公式记错",
+      "trigger": "题目落在「直线与圆」考点，或出现「求方程、弦长、相切」类识别信号时；参照本节点示范题「判断直线 x+y=1 与圆 x²+y²=2 的位置关系」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）直线的斜率与方程（点斜式、一般式）；（2）点到直线距离 d=|Ax₀+By₀+C|/√(A²+B²)；（3）直线与圆位置关系：比较 d 与半径 r；完成后回看结论是否满足题设条件。",
+      "selfCheck": "什么情况下直线没有斜率？"
+    }
+  ],
+  "content_hash": "sha256:5c99fdf1b2e173d3d87d64c27c31c90c57cc3d2942791a1129f472cdb449ad49"
+}

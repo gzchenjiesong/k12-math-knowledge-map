@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_geo_trans",
+  "id": "example-o_geo_trans",
+  "kind": "example",
+  "title": "几何变换 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_geo_trans-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB",
+      "answer": "把 △APB 绕 B 顺时针旋转 90°，使 A 落到 C，P 落到 P′。则 BP′=BP=2 且 ∠PBP′=90°，故 △PBP′ 是等腰直角三角形，PP′=2√2；又 P′C=PA=1。在 △PP′C 中，PP′²+P′C²=8+1=9=PC²，由勾股逆定理得 ∠PP′C=90°。于是 ∠BP′C=∠BP′P+∠PP′C=45°+90°=135°；旋转保持角度，故 ∠APB=∠CP′B=135°。核心是\"用旋转把分散的三条线段集中到一个三角形中，再用勾股逆定理判定直角\"。",
+      "conclusion": "∠APB=135°",
+      "reasoningAnchor": "旋转：处理等腰、等边、正方形中的角度与长度",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:569f5a62a7fd26354c1c0dd8dd7e2b641d7af1d98b6791896a164d9a6d762bb7"
+}

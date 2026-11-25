@@ -1,0 +1,46 @@
+{
+  "nodeId": "s_trig",
+  "id": "node-s_trig",
+  "kind": "node",
+  "title": "三角函数与恒等变换",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "集合与函数",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "任意角与弧度",
+    "诱导公式",
+    "和差倍角",
+    "图像与性质",
+    "解三角形"
+  ],
+  "prerequisites": [
+    "s_func",
+    "j_trig"
+  ],
+  "relations": [
+    "s_vec",
+    "o_trig_id"
+  ],
+  "signals": [
+    "化简求值",
+    "图像变换",
+    "正余弦定理"
+  ],
+  "approaches": [
+    "角恒等变形",
+    "辅助角公式",
+    "正弦余弦定理选用"
+  ],
+  "description": "竞赛三角与几何的公共语言",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:131410da7e4357c9c4739060bd991ec7704f0f3e5defac0b88c3341e0de86830"
+}

@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_fermat",
+  "id": "lesson-o_fermat",
+  "kind": "lesson",
+  "title": "费马小定理 · 欧拉定理 · 孙子定理 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "这三大定理是数论竞赛的核心武器库。费马与欧拉处理\"幂的模\"，孙子定理（中国剩余定理）处理\"同余方程组\"。掌握它们，绝大多数数论计算题都有了系统解法。",
+  "method": [
+    "费马小定理用于素数模的降幂（前提 p 为素数且 p∤a）",
+    "欧拉定理推广到合数模，关键是算 φ(n)（前提 gcd(a,n)=1）",
+    "中国剩余定理逐次代入解同余方程组（前提模数两两互素）"
+  ],
+  "example": {
+    "q": "求满足 x≡2(mod 3)、x≡3(mod 5) 的最小正整数",
+    "a": "设 x=3k+2，代入第二式：3k+2≡3(mod 5)，3k≡1(mod 5)，k≡2(mod 5)，k=5t+2，x=15t+8，最小正整数是 8。核心是\"逐次代入消元\"。"
+  },
+  "pitfalls": [
+    "同余方程组的模数不互素时直接套定理",
+    "逆元求错"
+  ],
+  "links": "三大定理是数论函数（o_numfun）、同余应用的基础。",
+  "check": [
+    "中国剩余定理为什么要模数互素？",
+    "欧拉定理如何退化为费马小定理？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:d012b58775ec24db84ae1b76b8f58af13499f3ca24dfdb66a24569aeb132aea0"
+}

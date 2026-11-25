@@ -1,0 +1,44 @@
+{
+  "nodeId": "o_graph",
+  "id": "node-o_graph",
+  "kind": "node",
+  "title": "图论初步",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "度与握手定理",
+    "树",
+    "欧拉路",
+    "哈密顿路",
+    "染色"
+  ],
+  "prerequisites": [
+    "o_pigeon",
+    "o_comb_adv"
+  ],
+  "relations": [
+    "o_comb_opt"
+  ],
+  "signals": [
+    "连通性",
+    "一笔画",
+    "染色存在"
+  ],
+  "approaches": [
+    "握手定理算度",
+    "构造图建模"
+  ],
+  "description": "组合题的建模语言",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:04f54c172c4117e32f101483a683ee8329563a0570068da83d968869494fd27e"
+}

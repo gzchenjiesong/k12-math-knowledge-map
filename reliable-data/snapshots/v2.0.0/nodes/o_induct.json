@@ -1,0 +1,42 @@
+{
+  "nodeId": "o_induct",
+  "id": "node-o_induct",
+  "kind": "node",
+  "title": "数学归纳法",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_seq",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "第一数学归纳法",
+    "第二数学归纳法",
+    "强归纳",
+    "归纳猜想"
+  ],
+  "prerequisites": [
+    "j_alg"
+  ],
+  "relations": [
+    "o_recur",
+    "o_func_eq"
+  ],
+  "signals": [
+    "证明对所有n成立",
+    "先猜后证"
+  ],
+  "approaches": [
+    "验证初始步",
+    "强调归纳假设的使用"
+  ],
+  "description": "证明自然数命题的标配",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:ed03e21e7ed819633aa4c7e5bd07c2f3c21966d7d88a140dd862759a62d338f9"
+}

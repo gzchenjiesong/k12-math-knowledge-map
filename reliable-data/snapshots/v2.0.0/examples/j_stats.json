@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_stats",
+  "id": "example-j_stats",
+  "kind": "example",
+  "title": "统计初步 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "统计与概率",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_stats-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "一组数据 1,2,2,3,100，哪个代表值更能反映\"典型水平\"？",
+      "answer": "平均数 21.6 被极端值 100 拉高，中位数 2 更能反映典型水平。核心是\"极端值对平均数影响大，对中位数影响小\"。",
+      "conclusion": "中位数 2 更能反映典型水平",
+      "reasoningAnchor": "平均数、中位数、众数的计算与适用场景",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:0e558b93cf16cebd0e5220843940428f850463647f1d97252f3d6fbc84f64bda"
+}

@@ -1,0 +1,37 @@
+{
+  "nodeId": "o_cong",
+  "id": "pitfall-o_cong",
+  "kind": "pitfall",
+  "title": "整除与同余 · 易错考点",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-o_cong-01",
+      "mistake": "费马定理的素数条件忘记验证",
+      "trigger": "题目落在「整除与同余」考点，或出现「整除、余数、同余方程」类识别信号时；参照本节点示范题「求 3²⁰⁰ mod 7」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）；（2）欧拉定理：a^φ(n)≡1 (mod n)（a,n 互素）；（3）中国剩余定理：解模数两两互素的一次同余方程组；完成后回看结论是否满足题设条件。",
+      "selfCheck": "费马小定理为什么能把大指数化简？"
+    },
+    {
+      "id": "PF-o_cong-02",
+      "mistake": "欧拉函数中 φ(n) 计算错误",
+      "trigger": "题目落在「整除与同余」考点，或出现「整除、余数、同余方程」类识别信号时；参照本节点示范题「求 3²⁰⁰ mod 7」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）；（2）欧拉定理：a^φ(n)≡1 (mod n)（a,n 互素）；（3）中国剩余定理：解模数两两互素的一次同余方程组；完成后回看结论是否满足题设条件。",
+      "selfCheck": "欧拉定理和费马定理是什么关系？"
+    }
+  ],
+  "content_hash": "sha256:902ba44bba24d5a41ce15022c34198b1a75519b733d453ce3c620aea31e7feb2"
+}

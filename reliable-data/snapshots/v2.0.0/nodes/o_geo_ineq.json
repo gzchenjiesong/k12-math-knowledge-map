@@ -1,0 +1,42 @@
+{
+  "nodeId": "o_geo_ineq",
+  "id": "node-o_geo_ineq",
+  "kind": "node",
+  "title": "几何不等式与等周",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "几何不等式",
+    "费马点",
+    "等周问题",
+    "极值点性质"
+  ],
+  "prerequisites": [
+    "o_ineq",
+    "o_geo_trans"
+  ],
+  "relations": [
+    "o_geo_area"
+  ],
+  "signals": [
+    "最小最大",
+    "周长面积极值"
+  ],
+  "approaches": [
+    "费马点/重心性质",
+    "等周:圆的极值性"
+  ],
+  "description": "几何与不等式的交叉",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:1f0636f7569013f1b5df125318a57b595bd459ef5025922fc5a9dd226359b803"
+}

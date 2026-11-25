@@ -1,0 +1,16 @@
+{
+  "sourceVersion": "2.1.0",
+  "generatedAt": "2026-11-25T00:00:00+08:00",
+  "builtFrom": "reliable-data + source/app_organization.json",
+  "baseline": 67,
+  "notVerified": 268,
+  "allowPending": true,
+  "modules": [
+    "nodes.js",
+    "lectures.js",
+    "cards.js",
+    "themes.js",
+    "topic_index.js",
+    "content_meta.js"
+  ]
+}

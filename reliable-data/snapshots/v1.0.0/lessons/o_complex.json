@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_complex",
+  "id": "lesson-o_complex",
+  "kind": "lesson",
+  "title": "复数进阶 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_trig",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "竞赛中的复数进阶，核心是用复数的代数运算解决几何与数列问题。单位根（尤其三次单位根 ω）是处理对称性问题的 powerful 工具，能把\"角和与积\"变成简单等式。",
+  "method": [
+    "单位根 ω³=1 且 1+ω+ω²=0，用于处理三次对称",
+    "复数的几何意义：|z₁−z₂| 是两点距离",
+    "旋转用乘 e^{iθ} 表示，中点用 (z₁+z₂)/2"
+  ],
+  "example": {
+    "q": "用复数证明：平行四边形对角线平方和等于四边平方和",
+    "a": "设顶点对应复数 a,b,c,d，用 |z|²=z·z̄ 展开对角线向量，交叉项会相消，化简即得。核心是把几何长度转成复数模的代数运算。"
+  },
+  "pitfalls": [
+    "忽略复数的几何对应，只做纯代数运算",
+    "单位根性质记错"
+  ],
+  "links": "复数进阶连接多项式（o_poly）、几何变换（o_geo_vec）、三角恒等式（o_trig_id）。",
+  "check": [
+    "三次单位根满足 1+ω+ω²=0，为什么这个式子这么有用？",
+    "用复数解几何题的\"翻译\"步骤是什么？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:025e84c235aba7dcfc480b33649d55197fabb7ddf597e8e781da685721cde399"
+}

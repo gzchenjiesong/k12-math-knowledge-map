@@ -1,0 +1,43 @@
+{
+  "nodeId": "o_func_eq",
+  "id": "node-o_func_eq",
+  "kind": "node",
+  "title": "函数迭代与函数方程",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_func",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "函数迭代",
+    "n次迭代",
+    "函数方程",
+    "赋值法"
+  ],
+  "prerequisites": [
+    "s_func",
+    "o_alg_skill",
+    "o_induct"
+  ],
+  "relations": [
+    "o_recur"
+  ],
+  "signals": [
+    "求f(x)",
+    "求迭代式"
+  ],
+  "approaches": [
+    "赋特殊值(0,1,-x)",
+    "单调有界再归纳"
+  ],
+  "description": "二试代数的难点之一",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:54726e95c990412691c84d7cbdb913d11cf09a40e6f7f4f5d26b1c69326da61f"
+}

@@ -1,0 +1,45 @@
+{
+  "nodeId": "o_comb_adv",
+  "id": "node-o_comb_adv",
+  "kind": "node",
+  "title": "抽屉 · 容斥 · 极端 · 不变量",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "抽屉原理进阶",
+    "容斥原理",
+    "极端原理",
+    "不变量与染色"
+  ],
+  "prerequisites": [
+    "o_pigeon",
+    "s_count"
+  ],
+  "relations": [
+    "o_graph",
+    "o_comb_opt"
+  ],
+  "signals": [
+    "至少存在",
+    "方案计数",
+    "染色"
+  ],
+  "approaches": [
+    "构造抽屉",
+    "算补集用容斥",
+    "找不变量"
+  ],
+  "description": "组合证明的四把利器",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:c6ebdcbd95dc17fbfdf4336611a752590f8747d288f97375751e7787a13f6594"
+}

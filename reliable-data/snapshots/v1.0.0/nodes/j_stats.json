@@ -1,0 +1,41 @@
+{
+  "nodeId": "j_stats",
+  "id": "node-j_stats",
+  "kind": "node",
+  "title": "统计初步",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "统计与概率",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "数据收集与图表",
+    "平均数/中位数/众数",
+    "方差",
+    "频数分布"
+  ],
+  "prerequisites": [
+    "j_num"
+  ],
+  "relations": [
+    "s_prob"
+  ],
+  "signals": [
+    "求平均数方差",
+    "读统计图"
+  ],
+  "approaches": [
+    "先排序再定位",
+    "方差反映波动"
+  ],
+  "description": "高考统计题的基础",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:1daee5610bfd452dae5327eba28a5460d3b586efe29869f3b24379544632c166"
+}

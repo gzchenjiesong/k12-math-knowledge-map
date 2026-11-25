@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_geo_vec",
+  "id": "example-o_geo_vec",
+  "kind": "example",
+  "title": "复数法与向量法解几何 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_geo_vec-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "证明三角形三条高交于一点",
+      "answer": "建系设顶点坐标，写出高的方程，解方程验证交点同时满足三条高方程。核心是\"把几何证明变成代数计算\"。",
+      "conclusion": "三角形三条高交于一点",
+      "reasoningAnchor": "向量法：用数量积证垂直、用共线条件证平行",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:e77737d63ec5d600336157b29ee417d2640a3708c3dc56bbd2838024cf8cded3"
+}

@@ -1,0 +1,37 @@
+{
+  "nodeId": "o_binom",
+  "id": "pitfall-o_binom",
+  "kind": "pitfall",
+  "title": "组合恒等式与进阶计数 · 易错考点",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "2.1.0",
+  "items": [
+    {
+      "id": "PF-o_binom-01",
+      "mistake": "代数变形出错",
+      "trigger": "题目落在「组合恒等式与进阶计数」考点，或出现「证明恒等式、复杂计数」类识别信号时；参照本节点示范题「证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）二项式定理 (a+b)ⁿ=Σ C(n,k)aⁿ⁻ᵏbᵏ，通项 Tₖ₊₁=C(n,k)aⁿ⁻ᵏbᵏ；（2）赋值法求系数和：令 a=b=1 得 ΣC(n,k)=2ⁿ（本节点例题）；（3）帕斯卡恒等式 C(n+1,k)=C(n,k)+C(n,k−1) 与范德蒙德恒等式 ΣC(r,k)C(s,n−k)=C(r+s,n)；（4）生成函数初步：用 (1+x)ⁿ 的系数读取组合计数；完成后回看结论是否满足题设条件。",
+      "selfCheck": "组合证明为什么能证明恒等式？"
+    },
+    {
+      "id": "PF-o_binom-02",
+      "mistake": "组合证明时两边数的不是同一件事",
+      "trigger": "题目落在「组合恒等式与进阶计数」考点，或出现「证明恒等式、复杂计数」类识别信号时；参照本节点示范题「证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）二项式定理 (a+b)ⁿ=Σ C(n,k)aⁿ⁻ᵏbᵏ，通项 Tₖ₊₁=C(n,k)aⁿ⁻ᵏbᵏ；（2）赋值法求系数和：令 a=b=1 得 ΣC(n,k)=2ⁿ（本节点例题）；（3）帕斯卡恒等式 C(n+1,k)=C(n,k)+C(n,k−1) 与范德蒙德恒等式 ΣC(r,k)C(s,n−k)=C(r+s,n)；（4）生成函数初步：用 (1+x)ⁿ 的系数读取组合计数；完成后回看结论是否满足题设条件。",
+      "selfCheck": "二项式定理和 C(n,k) 有什么关系？"
+    }
+  ],
+  "content_hash": "sha256:efd130f0add98f91dcc5da54e778b5ba2abef04501e8e092070018b022c589da"
+}

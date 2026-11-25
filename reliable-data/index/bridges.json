@@ -1,0 +1,94 @@
+{
+  "version": "2.1.0",
+  "generatedAt": "2026-11-25",
+  "policy": "跨学段逻辑归属与衔接边的唯一声明处；不回写 v1.0.0 卡字段，228 卡哈希冻结不变（DSN-012）",
+  "reclassify": [
+    {
+      "nodeId": "o_div0",
+      "from": "初中竞赛衔接",
+      "to": "跨学段衔接（高小→初中→奥赛）"
+    },
+    {
+      "nodeId": "o_alg_skill",
+      "from": "初中竞赛衔接",
+      "to": "跨学段衔接（高小→初中→奥赛）"
+    },
+    {
+      "nodeId": "o_pigeon",
+      "from": "初中竞赛衔接",
+      "to": "跨学段衔接（高小→初中→奥赛）"
+    },
+    {
+      "nodeId": "o_dio",
+      "from": "初中竞赛衔接",
+      "to": "跨学段衔接（高小→初中→奥赛）"
+    },
+    {
+      "nodeId": "o_geo_basic",
+      "from": "初中竞赛衔接",
+      "to": "跨学段衔接（高小→初中→奥赛）"
+    }
+  ],
+  "edges": [
+    {
+      "from": "p_num",
+      "to": "j_num",
+      "kind": "铺垫→课标"
+    },
+    {
+      "from": "p_div",
+      "to": "o_div0",
+      "kind": "铺垫→竞赛衔接"
+    },
+    {
+      "from": "p_alg",
+      "to": "j_alg",
+      "kind": "铺垫→课标"
+    },
+    {
+      "from": "p_alg",
+      "to": "j_eq",
+      "kind": "铺垫→课标"
+    },
+    {
+      "from": "p_ratio",
+      "to": "j_frac",
+      "kind": "铺垫→课标"
+    },
+    {
+      "from": "p_app",
+      "to": "j_eq",
+      "kind": "铺垫→课标"
+    },
+    {
+      "from": "p_geo",
+      "to": "j_tri",
+      "kind": "铺垫→课标"
+    },
+    {
+      "from": "p_geo",
+      "to": "j_quadg",
+      "kind": "铺垫→课标"
+    },
+    {
+      "from": "p_transform",
+      "to": "o_geo_area",
+      "kind": "铺垫→竞赛衔接"
+    },
+    {
+      "from": "p_count",
+      "to": "o_pigeon",
+      "kind": "铺垫→竞赛衔接"
+    },
+    {
+      "from": "p_pigeon",
+      "to": "o_pigeon",
+      "kind": "铺垫→竞赛衔接"
+    },
+    {
+      "from": "p_logic",
+      "to": "o_induct",
+      "kind": "铺垫→奥赛"
+    }
+  ]
+}

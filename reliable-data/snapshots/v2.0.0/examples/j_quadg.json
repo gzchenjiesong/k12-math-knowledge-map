@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_quadg",
+  "id": "example-j_quadg",
+  "kind": "example",
+  "title": "四边形 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_quadg-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "证明平行四边形对角线互相平分",
+      "answer": "连对角线交于 O，由 AB∥CD 得内错角相等，结合对边相等用 ASA 证两个三角形全等，得 AO=CO、BO=DO。核心是\"连对角线 + 全等\"。",
+      "conclusion": "AO=CO、BO=DO，即对角线互相平分",
+      "reasoningAnchor": "连对角线把四边形分成三角形",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:f8f525a413cfe1dd148a992f6e02376ebbca1764600888e9646a1278ade43948"
+}

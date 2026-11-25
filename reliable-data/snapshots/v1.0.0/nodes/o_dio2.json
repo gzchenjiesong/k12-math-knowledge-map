@@ -1,0 +1,42 @@
+{
+  "nodeId": "o_dio2",
+  "id": "node-o_dio2",
+  "kind": "node",
+  "title": "不定方程",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "一次不定方程",
+    "二次不定方程",
+    "Pell方程",
+    "无穷递降"
+  ],
+  "prerequisites": [
+    "o_cong",
+    "o_dio"
+  ],
+  "relations": [
+    "o_fermat"
+  ],
+  "signals": [
+    "整数解",
+    "无解证明"
+  ],
+  "approaches": [
+    "模运算缩小范围",
+    "因式分解或递降"
+  ],
+  "description": "数论大题的主战场",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:b97360a3746630626d69130bcd71cba8c742d59949660ae8a25f350a2fee1f49"
+}

@@ -1,0 +1,37 @@
+{
+  "nodeId": "s_vec",
+  "id": "pitfall-s_vec",
+  "kind": "pitfall",
+  "title": "平面向量 · 易错考点",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "几何与向量",
+  "lectureId": "t_solid",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-s_vec-01",
+      "mistake": "向量运算与实数运算混淆（向量不能直接比大小）",
+      "trigger": "题目落在「平面向量」考点，或出现「共线垂直、数量积求角、向量最值」类识别信号时；参照本节点示范题「已知 |a|=1，|b|=2，夹角 60°，求 a·b」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）向量加减的三角形/平行四边形法则；（2）数量积 a·b=|a||b|cosθ，垂直 ⟺ a·b=0；（3）共线 ⟺ a=λb，用于证明平行；完成后回看结论是否满足题设条件。",
+      "selfCheck": "为什么数量积能判断垂直？"
+    },
+    {
+      "id": "PF-s_vec-02",
+      "mistake": "数量积公式忘记夹角",
+      "trigger": "题目落在「平面向量」考点，或出现「共线垂直、数量积求角、向量最值」类识别信号时；参照本节点示范题「已知 |a|=1，|b|=2，夹角 60°，求 a·b」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）向量加减的三角形/平行四边形法则；（2）数量积 a·b=|a||b|cosθ，垂直 ⟺ a·b=0；（3）共线 ⟺ a=λb，用于证明平行；完成后回看结论是否满足题设条件。",
+      "selfCheck": "向量和实数在运算上有什么本质区别？"
+    }
+  ],
+  "content_hash": "sha256:8c72bd6245d1495bcb07d43aa1ec2da3fa9f18ff10acaefab7d9c8130c905a2d"
+}

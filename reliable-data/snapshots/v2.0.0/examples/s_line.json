@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_line",
+  "id": "example-s_line",
+  "kind": "example",
+  "title": "直线与圆 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_analytic",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-s_line-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "判断直线 x+y=1 与圆 x²+y²=2 的位置关系",
+      "answer": "圆心 (0,0) 到直线距离 d=|0+0−1|/√2=1/√2，圆半径 r=√2。d<r，故相交。核心是\"用距离与半径的比较代替解方程组\"。",
+      "conclusion": "d=1/√2 < r=√2，直线与圆相交",
+      "reasoningAnchor": "直线的斜率与方程（点斜式、一般式）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:df28c10984fe70754a60aef601af14964662e599b0671bbf849e2ad3d98ad1b4"
+}

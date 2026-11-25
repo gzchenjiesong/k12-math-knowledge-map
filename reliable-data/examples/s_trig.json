@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_trig",
+  "id": "example-s_trig",
+  "kind": "example",
+  "title": "三角函数与恒等变换 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "集合与函数",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-s_trig-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "化简 sin2x·cosx + cos2x·sinx",
+      "answer": "逆用正弦和角公式 sin(A+B)=sinAcosB+cosAsinB，原式=sin(2x+x)=sin3x。核心是\"看出式子的结构符合哪个公式的展开\"——恒等变换大半靠这种结构识别。",
+      "conclusion": "原式=sin3x",
+      "reasoningAnchor": "诱导公式：奇变偶不变，符号看象限",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:8ae02a15080cd7103ef4d9b5986acd52815f5d122efe1293b4a91313cbdead60"
+}

@@ -1,0 +1,5 @@
+生成 reliable-data v1.0.0：四类各 57 卡，共 228 张
+易错条目 114，示范题 57
+review 统计 {"pending":228,"checked":0,"verified":0,"disputed":0}
+RESULT=4/4 FAILED=0
+VERDICT=PASSED（仅表示编制完成；内容正确性未获人工签核）

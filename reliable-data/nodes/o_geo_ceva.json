@@ -1,0 +1,46 @@
+{
+  "nodeId": "o_geo_ceva",
+  "id": "node-o_geo_ceva",
+  "kind": "node",
+  "title": "梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "梅涅劳斯定理及逆",
+    "塞瓦定理及逆",
+    "托勒密定理",
+    "西姆松定理"
+  ],
+  "prerequisites": [
+    "j_simi",
+    "j_circle",
+    "o_geo_basic"
+  ],
+  "relations": [
+    "o_geo_area",
+    "o_geo_circle"
+  ],
+  "signals": [
+    "证明三点共线",
+    "证明三线共点",
+    "四点共圆"
+  ],
+  "approaches": [
+    "共线用梅氏逆",
+    "共点用塞瓦逆",
+    "有圆想托勒密"
+  ],
+  "description": "竞赛几何四大骨干定理",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:44a6ffbf72cadc04278dad0a138f0d25b4c5d077c17981cff318fd33b757294f"
+}

@@ -1,0 +1,6 @@
+渲染 views\nodes.html
+渲染 views\lessons.html
+渲染 views\pitfalls.html
+渲染 views\examples.html
+RESULT=4/4 FAILED=0
+VERDICT=PASSED

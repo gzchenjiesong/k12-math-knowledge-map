@@ -5,7 +5,7 @@
  * 定位：validate.js 校验文档与程序结构；本脚本只在数据源出口校验「发布资格」。
  * 检查项：
  *   D1 manifest 存在且版本非空
- *   D2 四类卡片各 57 份，nodeId 覆盖 57 基线
+ *   D2 四类卡片各 N 份（N 由 manifest.domainBaseline.total 动态取，v1=57 / v2=67）
  *   D3 每条卡必备字段齐全（nodeId/title/review/evidence/source_ref）
  *   D4 review 只能取四态之一；verified 必须有 reviewer + date（不自证红线）
  *   D5 evidence 只能取 A/B/C
@@ -29,13 +29,15 @@ try { mf = JSON.parse(fs.readFileSync(mp, 'utf8')); }
 catch (e) { console.log('FAIL manifest 解析失败：' + e.message); console.log('VERDICT=FAILED'); process.exit(1); }
 say(!!mf.version, 'D1 manifest.version 非空（' + (mf.version || '空') + '）');
 
+// 基线动态取值：v2.0.0 起从 manifest.domainBaseline.total 读取（分层 67）；旧版回退 counts.nodes
+const BASE_N = (mf.domainBaseline && mf.domainBaseline.total) || mf.counts.nodes || 57;
 const kinds = ['nodes', 'lessons', 'pitfalls', 'examples'];
 const all = {};
 for (const k of kinds) {
   const d = path.join(SRC, k);
   if (!fs.existsSync(d)) { say(false, 'D2 ' + k + '/ 目录缺失'); continue; }
   const fs_ = fs.readdirSync(d).filter(f => f.endsWith('.json'));
-  say(fs_.length === 57, 'D2 ' + k + ' 卡片数 = 57（实际 ' + fs_.length + '）');
+  say(fs_.length === BASE_N, 'D2 ' + k + ' 卡片数 = ' + BASE_N + '（实际 ' + fs_.length + '）');
   all[k] = fs_.map(f => {
     try { return JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')); }
     catch (e) { say(false, 'D2 ' + k + '/' + f + ' 解析失败'); return null; }

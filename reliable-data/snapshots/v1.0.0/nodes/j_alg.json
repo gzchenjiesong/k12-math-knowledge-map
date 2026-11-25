@@ -1,0 +1,49 @@
+{
+  "nodeId": "j_alg",
+  "id": "node-j_alg",
+  "kind": "node",
+  "title": "整式与因式分解",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_alg",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "整式加减与幂运算",
+    "乘法公式",
+    "提公因式法",
+    "公式法",
+    "分组分解",
+    "十字相乘",
+    "待定系数法"
+  ],
+  "prerequisites": [
+    "j_num"
+  ],
+  "relations": [
+    "j_frac",
+    "j_eq",
+    "j_fun",
+    "o_alg_skill"
+  ],
+  "signals": [
+    "因式分解",
+    "化简求值",
+    "待定系数"
+  ],
+  "approaches": [
+    "先观察公因式与公式",
+    "拆项添项后分组",
+    "对称性用待定系数"
+  ],
+  "description": "初等代数变形的核心工具",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:ed87daa963a4ca02b62c1500758367f09db8f8a868de49aa76ad73e2ea5b68cc"
+}

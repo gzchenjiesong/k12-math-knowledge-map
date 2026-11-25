@@ -1,0 +1,41 @@
+{
+  "nodeId": "o_pigeon",
+  "id": "node-o_pigeon",
+  "kind": "node",
+  "title": "抽屉原理与极端原理",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "抽屉原理",
+    "构造抽屉",
+    "极端原理",
+    "枚举法"
+  ],
+  "prerequisites": [],
+  "relations": [
+    "o_comb_adv",
+    "o_graph"
+  ],
+  "signals": [
+    "至少存在",
+    "最值构造",
+    "染色问题"
+  ],
+  "approaches": [
+    "明确\"物品\"与\"抽屉\"",
+    "取最大/最小元入手"
+  ],
+  "description": "组合证明的入门武器",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:f040a361d24e91f291f71639ffc3f6c4e7209bc11bc810496ebfc589548c9c19"
+}

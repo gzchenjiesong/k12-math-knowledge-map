@@ -1,0 +1,31 @@
+{
+  "nodeId": "p_div",
+  "id": "example-p_div",
+  "kind": "example",
+  "title": "整除与余数初步 · 示范题与解答",
+  "domain": "primary",
+  "domainName": "① 小学数学思维铺垫（4—6 年级）",
+  "module": "高小思维模块",
+  "lectureId": "primary",
+  "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "none(小学段新增，无旧侧 R2 记录)",
+  "reviewNote": "小学段无教材版权页锚点，未获教材交叉验证与人工签核，不得视为 checked/verified（SPEC-008）",
+  "version": "2.1.0",
+  "items": [
+    {
+      "id": "EX-p_div-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "不计算，判断 12345 能不能被 3 整除，并说明理由。",
+      "answer": "各位数字相加：1+2+3+4+5=15，15 能被 3 整除，所以 12345 能被 3 整除。结论：**能整除**。理由就是\"各位数字之和能被 3 整除，这个数就能被 3 整除\"。",
+      "conclusion": "12345 能被 3 整除（各位数字和 15 能被 3 整除）",
+      "reasoningAnchor": "整除意义与 2、3、5、9 倍数特征；带余除法 被除数=除数×商+余数，且余数<除数",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:8f1e52ec1a759f9f626e3ccd168e037b1f67594097a48aefa6c5299317a84bab"
+}

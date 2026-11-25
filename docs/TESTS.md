@@ -161,6 +161,50 @@
 - **状态**：PASS
 - **最近执行**：R2
 
+### TST-016: 可靠数据源发布资格闸门
+
+- **归属**：`SPEC-008` / `RUL-008` / `PRM-010`
+- **前置**：`reliable-data/manifest.json` 与四类卡各 57 份存在
+- **步骤**：`node tests/check-data.js`，执行 D1 manifest 版本 / D2 四类各 57 / D3 必备字段 / D4 review 四态且 verified 带签字 / D5 evidence 枚举
+- **期望**：`RESULT=9/9 FAILED=0`、`VERDICT=PASSED`
+- **证据**：`tests/evidence/CHECK_DATA_V1.log`
+- **状态**：PASS
+- **最近执行**：R7（2026-11-24）
+- **边界**：只检查发布资格与结构，**不证明数学内容正确**（`SPEC-008`）
+
+### TST-017: 可靠数据源扩展机械检查
+
+- **归属**：`SPEC-008` / `CNF-013` / `PRM-010`
+- **前置**：`reliable-data/manifest.json`、`tests/check-reliable-extra.js` 可读
+- **步骤**：`node tests/check-reliable-extra.js`：E1 哈希一致性（manifest ↔ 文件）、E2 追溯 UNCOVERED、E3 覆盖度与条目数、E4 结论存在性、E5 定理条件、E6 异源独立复算（17 条）、E7 不自证红线
+- **期望**：`VERDICT=PASSED`、`UNCOVERED=0`；全部 228 卡 `review=pending`、`verified=0`
+- **证据**：`tests/evidence/RELIABLE_EXTRA_V1.log`
+- **状态**：PASS
+- **最近执行**：R7
+- **边界**：补 `check-data.js` 不查的哈希一致性与 UNCOVERED；仍不证明讲解正确
+
+### TST-018: 多路径异源交叉校验（内容正确性辅助，非签核）
+
+- **归属**：`SPEC-008` / `CNF-013` / `PRM-010`
+- **前置**：v2.0.0 真源 268 卡可读；四个独立解题/评审方互相隔离
+- **步骤**：`node tools/export-crosscheck.js` 导出盲题包（剥离答案，禁读 answer_key/reliable-data/apps）+ 裸主题清单 → 路径 A 四域独立反向解题（67 题）→ 路径 B 裸主题完整性基准（67 节点）→ 路径 C 定理条件四卡合并审查 → 主审逐条比对并落 `reliable-data/index/CROSS_CHECK_V1.md`
+- **期望**：结论冲突 0（或如实记录）；任务明令禁止的条件省略 0；发现项进修复清单；268 卡哈希与 manifest 不变、`pending=268`、`verified=0`
+- **证据**：`tests/evidence/crosscheck/*`、`reliable-data/index/CROSS_CHECK_V1.md`
+- **状态**：PASS（67 题独立解覆盖，结论一致 66/67，存疑 2 为题目陈述，冲突 0；定理条件齐全 0 省略）
+- **最近执行**：R9
+- **边界**：**异源 AI 交叉不构成人工签核、不解锁 `verified`**（`SPEC-008`）；"一致"仅表示两套独立推导无矛盾，不等于内容已核实。关键词粗筛 `completeness_coarse.md` 仅定位线索，低覆盖≠缺漏。发现项 CC-F01/F02/F03 未执行，修改走 v2.0.1。
+
+### TST-019: app 数据生成物一致性（生成物 ↔ 真源 ↔ 组织配置）
+
+- **归属**：`CNF-016` / `SPEC-008`
+- **前置**：`reliable-data/` v2.1.0 + `source/app_organization.json` 可读；`tools/build-data.js --allow-pending` 已生成 6 模块
+- **步骤**：`node tests/check-app-build.js` → G1 六模块导出齐全；G2 `ALL_NODES` 逐字段等于真源 nodes 映射；G3 `LECTURES.points` 六段式等于真源 lessons（含补丁）；G4 四视图覆盖同一 67 节点集；G5 组织层内容等于配置；G6 头部版本与未签核警告
+- **期望**：18/18 PASSED；删除 6 模块后重跑生成器字节级一致（可复现）
+- **证据**：`tests/evidence/APP_BUILD_V21.log`、`tests/evidence/BUILD_APP_V21.log`
+- **状态**：PASS（18/18；重建 6 模块 cmp 全 IDENTICAL）
+- **最近执行**：R11
+- **边界**：一致性≠内容正确；真源仍 `pending=268`、`verified=0`，app 数据为带警告的过渡数据，人工闸门 VFY-005/006 不变（`SPEC-008`）
+
 ---
 
 ## 二、验收用例 VFY-NNN（环境相关）
@@ -208,6 +252,28 @@
 
 > VFY-004 是本系统唯一能真正保证内容正确性的人工环节。在此之前，全部内容的复核状态均为 `pending` 或 `checked`，**没有任何一条是 `verified`**。
 
+### VFY-005: 可靠数据源人工签核闸门
+
+- **归属**：`SPEC-008` / `RUL-008` / `CNF-013` / `PRM-010`
+- **前置**：`reliable-data/` v1.0.0 已发布；`reliable-data/evidence/SOURCES.json` 标明本地原件状态；供复核的 HTML 视图由 `tools/render-html.js` 生成
+- **步骤**：由**人**（家长 / 老师）对照学校集训队讲义，抽检 ≥10 个节点：① 定理条件是否齐全；② 例题数值是否算对；③ 问「求 X」是否给结论；④ 口吻是否把方法论说成硬结论。核对通过的节点在真源新版本中置 `verified` 并记录 reviewer + date；未签核条目保持 `pending`。
+- **期望（量化）**：抽检 ≥10 节点；`verified` 条目 100% 带 reviewer + date；无 AI 自证。
+- **证据**：**尚无外部签核证据**。本地 `resource_data/` 无讲义原件，8 条锚点中 7 条为 `MISSING_LOCAL_COPY`；v1.0.0 全部 228 卡 `review=pending`、`verified=0`。
+- **状态**：**BLOCKED_NO_EVIDENCE**（等待人对照讲义签核；不得判 PASS）
+- **最近执行**：R7（识别为阻塞项）
+
+> 正确性是「依据充分 + 人工签核」的结果，不是 AI 自证。机械 `PASSED` 与哈希一致只说明可判定部分无矛盾。
+
+### VFY-006: 小学段教材锚点与人工签核闸门（v2.0.0）
+
+- **归属**：`SPEC-008` / `CNF-014` / `DSN-012`
+- **前置**：`reliable-data/` v2.0.0 已发布，小学 10 节点 40 卡全部 `evidence=C` / `review=pending`
+- **步骤**：由**人**（家长 / 老师）提供三套小学分册与《举一反三》版权页（ISBN / 版次 / 印次），回填 10 节点页码锚点；对照实体书抽检例题结论与定理条件；通过者在新版本置 `checked`（教材交叉验证），仅人工签字后置 `verified` 并记 reviewer + date。
+- **期望（量化）**：10 节点全部回填 `source_ref` 具体版次 + 页码；抽检 ≥5 节点；`verified` 100% 带签字；无 AI 自证。
+- **证据**：**尚无外部签核证据**。小学分册版权页未提供、PDF 下载中；`source_ref` 如实写「未找到权威依据」。
+- **状态**：**BLOCKED_NO_EVIDENCE**（等待教材版权页 + 人工签核；不得判 PASS）
+- **最近执行**：R8（识别为阻塞项）
+
 ---
 
 ## 三、追溯矩阵
@@ -236,12 +302,34 @@
 | `BUG-010` | `TST-015`、`VFY-004` | COVERED（部分） | 锐钝说明断言；人工复核 `VFY-004` 仍 BLOCKED |
 | `BUG-011` | `TST-013` | COVERED | 容差比较，22/22 全绿 |
 | 交付门槛 | `VFY-001`、`VFY-002`、`VFY-003` | COVERED | 应用卡 / 打印 / 浏览器三项 |
+| 可靠数据源发布资格 | `TST-016` | COVERED | `check-data.js` 9/9 PASSED（结构，非内容正确） |
+| 哈希一致性 / UNCOVERED | `TST-017` | COVERED | `check-reliable-extra.js` E1/E2 显式声明状态 |
+| `SPEC-008`（真源出口） | `TST-016`、`TST-017`、`VFY-005` | COVERED（部分） | 机械闸门全绿；人工闸门 `VFY-005` 为 `BLOCKED_NO_EVIDENCE` |
+| `CNF-013` | `TST-016`、`TST-017`、`VFY-005` | COVERED | 版本 / 计数 / 复核基准有对应用例 |
+| `CNF-014`（分层基线） | `TST-016`、`TST-017`、`E8`/`E9` | COVERED | `check-data.js` D2 动态取基线；extra E8 零破坏、E9 小学合规 |
+| `DSN-012`（四段体系） | `TST-016`、`E8b`、`E9d`、`VFY-006` | COVERED（部分） | 新增 40 卡 + 12 条衔接边可断言；人工闸门 `VFY-006` 为 `BLOCKED_NO_EVIDENCE` |
+| `SPEC-008`（小学段） | `TST-016`、`TST-017`、`VFY-006` | COVERED（部分） | 小学 40 卡全 pending/evidence=C；教材版权页未提供，人工闸门阻塞 |
+| 内容正确性辅助校验 | `TST-018` | COVERED（部分） | 四路径异源交叉：结论冲突 0、定理条件省略 0；**非人工签核、不解锁 verified** |
+| `CNF-015`（v2.1.0 修正） | `TST-016`、`TST-017`、`E8c`、`TST-018` | COVERED（部分） | 36 卡变更作用域精确（越界 0）、两题独立复验一致；快照完整保留；人工闸门仍 BLOCKED |
+| `CNF-016`（app 数据可复现） | `TST-019` | COVERED | 6 模块生成物逐字段等于真源+配置（18/18）、删除重建字节一致；仍为过渡数据不解锁 verified |
 
-`UNCOVERED` 计数：**0**（2 项豁免为人工审查项，已写明理由与执行清单）。注意 `VFY-004` 为 `BLOCKED_NO_EVIDENCE`，按 `RUL-006` 整体不判"内容已完全正确"，但不妨碍功能交付。
+`UNCOVERED` 计数：**0**（2 项豁免为人工审查项，已写明理由与执行清单）。注意 `VFY-004`、`VFY-005`、`VFY-006` 均为 `BLOCKED_NO_EVIDENCE`，按 `RUL-006` 整体不判"内容已完全正确"，但不妨碍功能交付与真源发布。v2.0.0 的 228 旧卡哈希零漂移已由 E8a 断言。
 
 ---
 
 ## 四、执行结果
+
+### R7 · 2026-11-24（可靠数据源专项轮）
+
+```
+发布闸门 RESULT=9/9 FAILED=0  VERDICT=PASSED
+扩展检查 RESULT=24/24 FAILED=0 UNCOVERED=0 VERDICT=PASSED
+人工闸门 VFY-005=BLOCKED_NO_EVIDENCE（无外部签核，全部 228 卡 pending）
+```
+
+- 产物：`reliable-data/` v1.0.0，四类各 57 卡（228 张）、114 条易错、57 道示范题，`manifest.json` 逐条 SHA-256。
+- 证据：`tests/evidence/CHECK_DATA_V1.log`、`tests/evidence/RELIABLE_EXTRA_V1.log`、`tests/evidence/BUILD_RELIABLE_V1.log`、`tests/evidence/VALIDATION_R7.log`、`tests/evidence/CONTENT_VERIFY_R7.log`、`tests/evidence/HUMAN_SIGNOFF_V1.md`。
+- 边界声明：`PASSED` 只表示发布资格、结构、哈希与可判定数值无矛盾；**不证明数学讲解正确**，不表示「全部已核实」。
 
 ### R2 · 2026-11-24（内容保真轮）
 
@@ -253,6 +341,7 @@ VERDICT=PASSED_WITH_BLOCKER   （功能可交付；内容正确性未被完整�
 ```
 
 - `TST-001`~`TST-015`：15/15 PASS。
+- `TST-016`~`TST-018`：3/3 PASS（TST-018 为异源交叉校验，非人工签核）。
 - `VFY-001`~`VFY-003`：3/3 PASS。
 - `VFY-004`：**BLOCKED_NO_EVIDENCE** —— 无外部人工签核，按 `SPEC-008` AI 不得自证，不得判 PASS。
 

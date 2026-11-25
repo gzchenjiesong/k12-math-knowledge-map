@@ -1,0 +1,1637 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-11-24T00:00:00+08:00",
+  "generator": "tools/build-reliable-data.js",
+  "sourceVersionNote": "由 apps/miniprogram/data/*.js 只读素材结构化编制，不覆盖原文件",
+  "hashAlgorithm": "sha256",
+  "hashScope": "卡片全部字段（按 key 排序规范化）剔除 content_hash 自身，见 tools/build-reliable-data.js",
+  "counts": {
+    "nodes": 57,
+    "lessons": 57,
+    "pitfalls": 57,
+    "examples": 57,
+    "totalCards": 228,
+    "pitfallItems": 114,
+    "exampleItems": 57
+  },
+  "reviewStats": {
+    "pending": 228,
+    "checked": 0,
+    "verified": 0,
+    "disputed": 0
+  },
+  "evidenceStats": {
+    "A": 57,
+    "B": 0,
+    "C": 171
+  },
+  "gapBaseline": {
+    "r2RawEntries": 15,
+    "r2UniqueNodes": 14,
+    "pendingNodes": 43
+  },
+  "humanSignOff": {
+    "status": "BLOCKED_NO_EVIDENCE",
+    "verifiedCount": 0,
+    "note": "AI 不得自证（SPEC-008）；人工闸门 VFY-005 尚无签核记录，全部条目保持 pending"
+  },
+  "evidencePath": "reliable-data/evidence/SOURCES.json",
+  "entries": {
+    "nodes/j_alg.json": {
+      "nodeId": "j_alg",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:ed87daa963a4ca02b62c1500758367f09db8f8a868de49aa76ad73e2ea5b68cc"
+    },
+    "nodes/j_circle.json": {
+      "nodeId": "j_circle",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:6719845092e8816c8d61be2905d4b5a1fe4f7fec2d2a9c97b4034e8fa1444c3c"
+    },
+    "nodes/j_cong.json": {
+      "nodeId": "j_cong",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:a35d36d85cf527c0c00250ae82b60c5f742c4f75e4ec79d836cfa8fa397e15f1"
+    },
+    "nodes/j_eq.json": {
+      "nodeId": "j_eq",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:0b8af546a1c42dc0667c406d38972b0f8f1bc49ea4a8b94d502d4c56ab94b0f2"
+    },
+    "nodes/j_frac.json": {
+      "nodeId": "j_frac",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:b9a4e9abe9dd93cd35312f2a0637db78bf8192b8100aa5539143284402e8a015"
+    },
+    "nodes/j_fun.json": {
+      "nodeId": "j_fun",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:4dfab07ef39dd2dd1e14c65720a0568e56ea50a2b6b27f75b3111eba7b4b0cea"
+    },
+    "nodes/j_ineq.json": {
+      "nodeId": "j_ineq",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:d0f0fbb62663d9bb88b2cbb50233d4e5b2b0dc44545e54171ea1da78e6efea41"
+    },
+    "nodes/j_num.json": {
+      "nodeId": "j_num",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:8bced946895e85c2e9ab3b2a2f2d3c2d21a85092c0fe83a7934e213baa511630"
+    },
+    "nodes/j_prob.json": {
+      "nodeId": "j_prob",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:20939b46d1978c2359ad309c4162175e4eb5bb884f78268753a9763efc5783f6"
+    },
+    "nodes/j_quad.json": {
+      "nodeId": "j_quad",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:319a82f69d6cae01861f09a9e898bead1602526c241b7929890d75c44937c346"
+    },
+    "nodes/j_quadg.json": {
+      "nodeId": "j_quadg",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:5c83804c54d62bd8539850ae3d6f7788e24e358ee587b55493991a51584f3fca"
+    },
+    "nodes/j_simi.json": {
+      "nodeId": "j_simi",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:48beae36991f0b026796f35ad24a77bf4565e3bbfc7f0639ebc8087053f72d97"
+    },
+    "nodes/j_stats.json": {
+      "nodeId": "j_stats",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:1daee5610bfd452dae5327eba28a5460d3b586efe29869f3b24379544632c166"
+    },
+    "nodes/j_trans.json": {
+      "nodeId": "j_trans",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:888aa95ae53d62f3d9b77394f83ae40034697c9c60dc320663dd9d99d326e545"
+    },
+    "nodes/j_tri.json": {
+      "nodeId": "j_tri",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:a33b3c24e3efed36038cd090c7d34e142936bd6984798e061f1e9420674c1b8a"
+    },
+    "nodes/j_trig.json": {
+      "nodeId": "j_trig",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:61ef0b65bf1b02b603253a6466a443947cdc6fe3e0860197a335787791776997"
+    },
+    "nodes/o_alg_skill.json": {
+      "nodeId": "o_alg_skill",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:495503d4574329ee5aa0468d90b76726084f1d6b6372fe1a0e022d3fdd0dec80"
+    },
+    "nodes/o_binom.json": {
+      "nodeId": "o_binom",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:2c9c087983aad18b1537d3d5ec741366f3a794fdbc00539084d470caa2483063"
+    },
+    "nodes/o_comb_adv.json": {
+      "nodeId": "o_comb_adv",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:c6ebdcbd95dc17fbfdf4336611a752590f8747d288f97375751e7787a13f6594"
+    },
+    "nodes/o_comb_opt.json": {
+      "nodeId": "o_comb_opt",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:32c2abbabcea9c00dc262520a3a2043ebdde73c0f8e943b0bda87d35b3049b6d"
+    },
+    "nodes/o_complex.json": {
+      "nodeId": "o_complex",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:0e7b422ce7adc145e756541de56ca5bc0a70ef46dea6bebfd22bd628db80aec8"
+    },
+    "nodes/o_cong.json": {
+      "nodeId": "o_cong",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:0fd9a54ddaf2ae3ec8589f703e34960026dd9a7392f324073219d855a6405102"
+    },
+    "nodes/o_dio.json": {
+      "nodeId": "o_dio",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:72e4a587890b82961b236963b88b517126a74a9deccf1201066c78610c43450f"
+    },
+    "nodes/o_dio2.json": {
+      "nodeId": "o_dio2",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:b97360a3746630626d69130bcd71cba8c742d59949660ae8a25f350a2fee1f49"
+    },
+    "nodes/o_div0.json": {
+      "nodeId": "o_div0",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:eac430dcb6597f7e9c8fbb7cce6b3c66cfb800233cedf6478d75132a06711a9d"
+    },
+    "nodes/o_fermat.json": {
+      "nodeId": "o_fermat",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:b3f51a58655a7445525133db4fe9b0ae55b834af85374f29425bd0a050a4db1a"
+    },
+    "nodes/o_func_eq.json": {
+      "nodeId": "o_func_eq",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:54726e95c990412691c84d7cbdb913d11cf09a40e6f7f4f5d26b1c69326da61f"
+    },
+    "nodes/o_geo_area.json": {
+      "nodeId": "o_geo_area",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:a6820e836485d4a7e09ecaca95f6d401cc181e7248871342a57bbc7b8f7daf2f"
+    },
+    "nodes/o_geo_basic.json": {
+      "nodeId": "o_geo_basic",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:0eed38628e407e3b9f529b77730a90c00f9c6cb2b969cad025425413a9eccadb"
+    },
+    "nodes/o_geo_ceva.json": {
+      "nodeId": "o_geo_ceva",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:44a6ffbf72cadc04278dad0a138f0d25b4c5d077c17981cff318fd33b757294f"
+    },
+    "nodes/o_geo_circle.json": {
+      "nodeId": "o_geo_circle",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:b3704989454f564e1b36c627346851ab81154b7d484f01d94e3f2b2b61caadcb"
+    },
+    "nodes/o_geo_ineq.json": {
+      "nodeId": "o_geo_ineq",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:1f0636f7569013f1b5df125318a57b595bd459ef5025922fc5a9dd226359b803"
+    },
+    "nodes/o_geo_trans.json": {
+      "nodeId": "o_geo_trans",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:d350c0368a64ff000a815651428d9871357019ecf92033dcb260c8b940d8f284"
+    },
+    "nodes/o_geo_vec.json": {
+      "nodeId": "o_geo_vec",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:afebf41b95a2ebc5691fbd3af50f3e97bba2e8dfc1e0a42dd81ad99077a3c280"
+    },
+    "nodes/o_graph.json": {
+      "nodeId": "o_graph",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:04f54c172c4117e32f101483a683ee8329563a0570068da83d968869494fd27e"
+    },
+    "nodes/o_induct.json": {
+      "nodeId": "o_induct",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:ed03e21e7ed819633aa4c7e5bd07c2f3c21966d7d88a140dd862759a62d338f9"
+    },
+    "nodes/o_ineq.json": {
+      "nodeId": "o_ineq",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:f6c024198c5549f5135a81f1ddc8320b078d1d69337d836442f5ef4a7c426fed"
+    },
+    "nodes/o_numfun.json": {
+      "nodeId": "o_numfun",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:398056a322dacea3397016c65067d418f8fe794cd98eaa8142a89ffb66804558"
+    },
+    "nodes/o_pigeon.json": {
+      "nodeId": "o_pigeon",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:f040a361d24e91f291f71639ffc3f6c4e7209bc11bc810496ebfc589548c9c19"
+    },
+    "nodes/o_poly.json": {
+      "nodeId": "o_poly",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:980ae5148d02ab6a4ea33b324e7e966fca9b1f55a3360d7107203dd40d44dffe"
+    },
+    "nodes/o_recur.json": {
+      "nodeId": "o_recur",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:eba06fae3f9e411f53ea2da59acfcab2e9589bdedfcc08fc5a2a04a88f0e1ff7"
+    },
+    "nodes/o_trig_id.json": {
+      "nodeId": "o_trig_id",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:1dcda7526601c28d2de7321623a1d6e53d1867159d2a93b349b09f46b4f327e7"
+    },
+    "nodes/s_complex.json": {
+      "nodeId": "s_complex",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:887152f0b4cd842ba0a96c4d6ec6fd612ecc5ea7e1e9633d5fd13b941d3977c3"
+    },
+    "nodes/s_conic.json": {
+      "nodeId": "s_conic",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:a16198192b337d5e9f0f109c65121bde95825ec58408bfddfd367983ddfeb22a"
+    },
+    "nodes/s_count.json": {
+      "nodeId": "s_count",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:76760816fc0ed6b1f26462c4e7aa56174c3449957f2692d12efa1a98d0ff26e2"
+    },
+    "nodes/s_deriv.json": {
+      "nodeId": "s_deriv",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:085c3037ca755109a4d3660dd21bc8f79ee0b1424b00f1a7569fc757041fdd4b"
+    },
+    "nodes/s_exp.json": {
+      "nodeId": "s_exp",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:5cba0c1e11a7e1f57343b87332ef7612666d3a92b1b75c1c1346bc672185656c"
+    },
+    "nodes/s_func.json": {
+      "nodeId": "s_func",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:e6360b4166eb8277df2f9fa2ec3f2fc15ea9f1228de84cf9fc20b5ba370eb486"
+    },
+    "nodes/s_ineq.json": {
+      "nodeId": "s_ineq",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:99db9afd4b9ac963f886e9b0881438f42d3820e8ae53db4cc36926bc1258f02f"
+    },
+    "nodes/s_line.json": {
+      "nodeId": "s_line",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:fd768661b1ee368fb5dad61f9de8e17576366dc941127355374c2b4ba084a409"
+    },
+    "nodes/s_prob.json": {
+      "nodeId": "s_prob",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:c20f839bd503214638d688ee3c8f603670de14e62bb3e48c409d84ffd85ae1c0"
+    },
+    "nodes/s_seq.json": {
+      "nodeId": "s_seq",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:2d628b8c1bbead3ca8e309cdef0789facbe39a2fb1fc3eda82c1fb998f60c45f"
+    },
+    "nodes/s_set.json": {
+      "nodeId": "s_set",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:5c97acd56b62d229d7324d19b246abe4bf0cd349212ab0c1cc1447716f2281fe"
+    },
+    "nodes/s_solid.json": {
+      "nodeId": "s_solid",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:78378102a9a5c733c2eac3dfc6750dd0fb00b758ab6180110f8e8fdcd3242f04"
+    },
+    "nodes/s_trig.json": {
+      "nodeId": "s_trig",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:131410da7e4357c9c4739060bd991ec7704f0f3e5defac0b88c3341e0de86830"
+    },
+    "nodes/s_vec.json": {
+      "nodeId": "s_vec",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:dcec06f3234c5837b31511ad44066f3a94a70061916d49e0e722a2bef0aa3913"
+    },
+    "nodes/s_vec3.json": {
+      "nodeId": "s_vec3",
+      "evidence": "A",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）",
+      "content_hash": "sha256:27ee9d246153aa08a302244e02f8eb61087788ad1e20e863a581a972dba8f938"
+    },
+    "lessons/j_alg.json": {
+      "nodeId": "j_alg",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:ef36e83ed0163e2ef391458a81092a86766300e3d428dafb5ee2ea2e5b3d54e7"
+    },
+    "lessons/j_circle.json": {
+      "nodeId": "j_circle",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:1fdeaacade5f6a43045df332b8416ee8a86751b20514a1777910730ad04915d3"
+    },
+    "lessons/j_cong.json": {
+      "nodeId": "j_cong",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:0b3872c9d0c64a5563cb34189e0ad74f152e6e814c11ab2ed4bc50e1e2808ff5"
+    },
+    "lessons/j_eq.json": {
+      "nodeId": "j_eq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:214f6fa085506f5025c2e92cc6d73a2f333fb1d6c6ed9f066fb6239a2b426c02"
+    },
+    "lessons/j_frac.json": {
+      "nodeId": "j_frac",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:7ad2fb43da109798ddb8cf69f49a0c5ec8ba886c1c31b88ec37ddfc71501986b"
+    },
+    "lessons/j_fun.json": {
+      "nodeId": "j_fun",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:c8eae5b1e93f45edfd0aa0b0253e7e72a9c4daf634d55ca4a2855faf8cda03ec"
+    },
+    "lessons/j_ineq.json": {
+      "nodeId": "j_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:bbeaf4d40d21fac0839a9af305e3dddbc8cf20a04233ce1ed1ae48f4d5d8eeaa"
+    },
+    "lessons/j_num.json": {
+      "nodeId": "j_num",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:e33600ab2b6f7e2f511217ca18ee9c2dcbc4801fa71a8a3906a6f7ad8f4ff746"
+    },
+    "lessons/j_prob.json": {
+      "nodeId": "j_prob",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:52deaf460f5e4def4621f016655cd13be0d8b9bf7c024bc9be82fea7c926ba8d"
+    },
+    "lessons/j_quad.json": {
+      "nodeId": "j_quad",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:7c396035bbbf1b12a79f1eb8d032d23444282a9fda013ab2246d8ad94f067d81"
+    },
+    "lessons/j_quadg.json": {
+      "nodeId": "j_quadg",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:e907d44075f195f688b1ecedfd07a3b7c553ec3af6e3d9d6cae483ec728b3516"
+    },
+    "lessons/j_simi.json": {
+      "nodeId": "j_simi",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:ed6f1bc990a9ab3b70cef96d0b7ed928f32e38555fada3717e9ebd4edbf0a840"
+    },
+    "lessons/j_stats.json": {
+      "nodeId": "j_stats",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:d7763a3448719c8f6d761ac552c9d1846217e35db54e148da98674491a84c3fc"
+    },
+    "lessons/j_trans.json": {
+      "nodeId": "j_trans",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:5d1ceb3b1622a226d7ca717a28f78b4de22be1f0eb3b55de5ccefb7f0e818f26"
+    },
+    "lessons/j_tri.json": {
+      "nodeId": "j_tri",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:551da04e1ae01e9d89fa2f468f3da0dfb1cd937af526a06ffb095831e26208d1"
+    },
+    "lessons/j_trig.json": {
+      "nodeId": "j_trig",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:5d724110638ee0c1db706b74f7a94b524c7c8eb338962570bf36a16575dbeace"
+    },
+    "lessons/o_alg_skill.json": {
+      "nodeId": "o_alg_skill",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:926ef6b32e57c5fc76a086b47d7c4a016717423e667853585c7b7fa7aadcfb5e"
+    },
+    "lessons/o_binom.json": {
+      "nodeId": "o_binom",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:bce52a57ee4a69816dd78b85920fbef5af870d6632a98888c4fb5ed7df110c0d"
+    },
+    "lessons/o_comb_adv.json": {
+      "nodeId": "o_comb_adv",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:5c5b93c6f546a854e5476a35c69f52886a0ac308b4bf528aa8691133e97505b6"
+    },
+    "lessons/o_comb_opt.json": {
+      "nodeId": "o_comb_opt",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:d10725fea51c6bc0383f1ee4685bd916ebc406b14827c74aab75a8e3efa44268"
+    },
+    "lessons/o_complex.json": {
+      "nodeId": "o_complex",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:025e84c235aba7dcfc480b33649d55197fabb7ddf597e8e781da685721cde399"
+    },
+    "lessons/o_cong.json": {
+      "nodeId": "o_cong",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:6b3e82467e923369681e2277330df2b6830926cf199f1107196a7cb47a6a2cf3"
+    },
+    "lessons/o_dio.json": {
+      "nodeId": "o_dio",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:de589a2a1d28f301b6401579371f08e190360a1f8fa9c1c8b18abb532027cb47"
+    },
+    "lessons/o_dio2.json": {
+      "nodeId": "o_dio2",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:238cfd9cfa129605217135f01cef66c5a634e73271003f026e435c1a5b4054b0"
+    },
+    "lessons/o_div0.json": {
+      "nodeId": "o_div0",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:e3c9346e1a6930f2a327921a47c445037ddae3e402e2d173a2689a09bb1574d1"
+    },
+    "lessons/o_fermat.json": {
+      "nodeId": "o_fermat",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:d012b58775ec24db84ae1b76b8f58af13499f3ca24dfdb66a24569aeb132aea0"
+    },
+    "lessons/o_func_eq.json": {
+      "nodeId": "o_func_eq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:63f552537694b44ff59f64354ba7180b47c55f2f6790890862aef9e2db4fc020"
+    },
+    "lessons/o_geo_area.json": {
+      "nodeId": "o_geo_area",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:2181d7ebd35260aaaa4bb2ed0ddcdf57605e239b73c65db527a257f5f71bcef7"
+    },
+    "lessons/o_geo_basic.json": {
+      "nodeId": "o_geo_basic",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:a0b76a13b64c6596735cbdaf8681c2802f28e74d12f065227d630ba48b4e4e16"
+    },
+    "lessons/o_geo_ceva.json": {
+      "nodeId": "o_geo_ceva",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:c6f34873e4e121ccc3bf36111290b0ae1c6f8a72ef8becb8d8874be7f6af601c"
+    },
+    "lessons/o_geo_circle.json": {
+      "nodeId": "o_geo_circle",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:d62cb644170e25eab22047f3076619d695971122bc519eac588920eaaf43a5e3"
+    },
+    "lessons/o_geo_ineq.json": {
+      "nodeId": "o_geo_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:52563cb32c3cf543ca1b016ef50ada1119a4167e385f9d6108f1b340353090b7"
+    },
+    "lessons/o_geo_trans.json": {
+      "nodeId": "o_geo_trans",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:c24d148989c26971f53504a1590dedb5cfc180655134c13fafcf0b9c81cd2aa4"
+    },
+    "lessons/o_geo_vec.json": {
+      "nodeId": "o_geo_vec",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:7649c1d9ce0850180f766a61020e7bd97260541c5bea8c66b809430167afe0d4"
+    },
+    "lessons/o_graph.json": {
+      "nodeId": "o_graph",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:161cf79127afdd4c1c437b74617e7cf6fa7624f619947568b19340bbb84f816f"
+    },
+    "lessons/o_induct.json": {
+      "nodeId": "o_induct",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:1359b87cc4ead4cb58c7dc37d1c80057a96848564deaf8a32adc14fc8bee644a"
+    },
+    "lessons/o_ineq.json": {
+      "nodeId": "o_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:bf7f48d2d1fe827fb97c3bde369696d1286a1b2138bac62f51dfe1a32b04578a"
+    },
+    "lessons/o_numfun.json": {
+      "nodeId": "o_numfun",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:29c909c030b1accb99f6e38f7b3545b8e9dd7fd68fd73c14f0010255c2382cde"
+    },
+    "lessons/o_pigeon.json": {
+      "nodeId": "o_pigeon",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:d300fbdb62cd304d42a410494cda06850c69bd3c1f19e78711f91ac81f05eafc"
+    },
+    "lessons/o_poly.json": {
+      "nodeId": "o_poly",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:21403321aa68afaf4ba60d6a1339dbbdd3ded17d63bb41b8952f93de5974785e"
+    },
+    "lessons/o_recur.json": {
+      "nodeId": "o_recur",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:17d1c35303ad1da1f13da2495de2db649de97495b9f04e0e1b2fb588529999ae"
+    },
+    "lessons/o_trig_id.json": {
+      "nodeId": "o_trig_id",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:c07de40e3402d78a3bd78ced04b32b996c15f0e230bd0b52581a9f0c901e5ee2"
+    },
+    "lessons/s_complex.json": {
+      "nodeId": "s_complex",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:2ee99061ac71bb6dbb5b2389ef6fd59586cec77ada50214d9b3e6a88bc3e8f49"
+    },
+    "lessons/s_conic.json": {
+      "nodeId": "s_conic",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:c53ed32ffe61cf7eec09171d0e8b66c4b4134deee870fa50da7c7aec5839cf32"
+    },
+    "lessons/s_count.json": {
+      "nodeId": "s_count",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:33415b69c8481eb641d05f236db66f8ef7bf815ea8ccd9a982bfd97e858c2225"
+    },
+    "lessons/s_deriv.json": {
+      "nodeId": "s_deriv",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:9f3f0f85c26a78d7f8cdd95fe6988eda629c4b0cb2b38df5b6c575a9551c8d5e"
+    },
+    "lessons/s_exp.json": {
+      "nodeId": "s_exp",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:341045813f9bea80483220bd4c339a6d8d9697e8f48cc06855acc2f13fd81ec3"
+    },
+    "lessons/s_func.json": {
+      "nodeId": "s_func",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:378fb26169859907cf6cfc7af2a9cca2868a7a5803e20a0117b3d44da75f5973"
+    },
+    "lessons/s_ineq.json": {
+      "nodeId": "s_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:879116215067f7ecb45fb55b286ad466993c723765b2a77697ba1c6df5011179"
+    },
+    "lessons/s_line.json": {
+      "nodeId": "s_line",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:7bae8a4e620b3145db5b3764a96f41a61d96fe5e77ac21e9c652046057e7b4e1"
+    },
+    "lessons/s_prob.json": {
+      "nodeId": "s_prob",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:0a5727ca0ced85a99932f96e9d605ef858fcce4e7b0f148a2b961b66c4f83330"
+    },
+    "lessons/s_seq.json": {
+      "nodeId": "s_seq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:a4c5afd15d1a89572e5b53e9e7cfdb976366e77f066bd1c3654a7342bd0ae5b4"
+    },
+    "lessons/s_set.json": {
+      "nodeId": "s_set",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:a65140c7e38258572e87d70f610aae0258c6589f394a4d3e38662cc8f275e1ec"
+    },
+    "lessons/s_solid.json": {
+      "nodeId": "s_solid",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:2eba101db9c06e84602dcfcf989e12fa0f1ef308b46ca334ce8850866ddcabd7"
+    },
+    "lessons/s_trig.json": {
+      "nodeId": "s_trig",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:ce59f140a03e87658588e688edac724c126d9054c035dae07f40765c1f44f1cf"
+    },
+    "lessons/s_vec.json": {
+      "nodeId": "s_vec",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:c251e5a7bff893318cc4e478a51e50489c361d2a11522e78ef1f55c8ffd69e19"
+    },
+    "lessons/s_vec3.json": {
+      "nodeId": "s_vec3",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:ec0cd512185f92929f18077b1d168e37310dde7d296609bb1e2633a9222e8eb5"
+    },
+    "pitfalls/j_alg.json": {
+      "nodeId": "j_alg",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:163c1b5f3489ae9941c0a7d030c56a13ceb2f300ad17d66bdb4a32141c888e5f"
+    },
+    "pitfalls/j_circle.json": {
+      "nodeId": "j_circle",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:138463299592abf0827bff693240a4998321901b8de44ff912e9051d9a35db76"
+    },
+    "pitfalls/j_cong.json": {
+      "nodeId": "j_cong",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:bc9455aa071e1816be1af8ca2f02e9a1cfa73c8dbdbfe393bf4c6dea3ef24956"
+    },
+    "pitfalls/j_eq.json": {
+      "nodeId": "j_eq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:9d7e0c41bdfa92350a1f5d50d3f015f83ceeb0c85b8a5412f6b28faef1b34383"
+    },
+    "pitfalls/j_frac.json": {
+      "nodeId": "j_frac",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:b4414d03d17fe8436262ebfda287b2ff7fd5e80b87c81fd7b7f4843693d153cd"
+    },
+    "pitfalls/j_fun.json": {
+      "nodeId": "j_fun",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:2c848d986beb5a4dd38b2deff7c811a9831c5bb728e9b3abbdd9000eefb1a993"
+    },
+    "pitfalls/j_ineq.json": {
+      "nodeId": "j_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:211e9ae30028cd0d7b63cea537cf0a3a229f7232d88632a6adc79e061e6ce33c"
+    },
+    "pitfalls/j_num.json": {
+      "nodeId": "j_num",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:019f32ba494a500039fef061ea2b19bcd4f9f12e2381e50b86fd4380ce29036a"
+    },
+    "pitfalls/j_prob.json": {
+      "nodeId": "j_prob",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:8ca6f07a32437b90cf7990dcf5322107a52fe5eb8bcf096fc1d2bea9bdf5fe07"
+    },
+    "pitfalls/j_quad.json": {
+      "nodeId": "j_quad",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:d58db9bd3e8ae724d91588acbad099828208863a21eab17b79db1d61d6ee4894"
+    },
+    "pitfalls/j_quadg.json": {
+      "nodeId": "j_quadg",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:c0852a20251143419868d77671562f88bc3eae402e1b4a80e9fb1a29571ff74a"
+    },
+    "pitfalls/j_simi.json": {
+      "nodeId": "j_simi",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:40c6912faa8508913f376db7b90c91378661212c708652144b90e12b9ff1045d"
+    },
+    "pitfalls/j_stats.json": {
+      "nodeId": "j_stats",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:25cc45b4e9c5c5855aeb8c0348c5260417db115b2f7eeefa374ac43852ea5fab"
+    },
+    "pitfalls/j_trans.json": {
+      "nodeId": "j_trans",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:f41691e30b6495c43055ef2bd1aba268398999d9b1cb0669c0c108011d8f4299"
+    },
+    "pitfalls/j_tri.json": {
+      "nodeId": "j_tri",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:5350c47237aab93c28e4044b647046339911454e489ec5592e4c7c4a92f2b63a"
+    },
+    "pitfalls/j_trig.json": {
+      "nodeId": "j_trig",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:6c339a8811e8c97616ff17132f3bac554432d5236d8e66d1c94c5eb65c30b3c8"
+    },
+    "pitfalls/o_alg_skill.json": {
+      "nodeId": "o_alg_skill",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:64f549619e2f8aaa88b6c0f840f4e4cb70cae4d822894ff7c93d0fe82047a988"
+    },
+    "pitfalls/o_binom.json": {
+      "nodeId": "o_binom",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:f06365ba8525b2d1f83ac022c47aac87af682e55ecd51f4b52c5a4af2e82bd8d"
+    },
+    "pitfalls/o_comb_adv.json": {
+      "nodeId": "o_comb_adv",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:b2570fd26ab7353f449897e91dba1a85edc92cc84a5630a7a2f31a7afbfb3ced"
+    },
+    "pitfalls/o_comb_opt.json": {
+      "nodeId": "o_comb_opt",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:28c9b27de365845c72ce2962f8fa9be5f4552fc72c08c57de4b77bafe4c0d243"
+    },
+    "pitfalls/o_complex.json": {
+      "nodeId": "o_complex",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:f4b4d6ec67b70cce22abc505b0a731af4ca4ab3785fabdd965230b8d7f6aa049"
+    },
+    "pitfalls/o_cong.json": {
+      "nodeId": "o_cong",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:902ba44bba24d5a41ce15022c34198b1a75519b733d453ce3c620aea31e7feb2"
+    },
+    "pitfalls/o_dio.json": {
+      "nodeId": "o_dio",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:8dbead41add4758a4c30a415c69ddf4740de2dc1b375a6127c13963dd34df6dd"
+    },
+    "pitfalls/o_dio2.json": {
+      "nodeId": "o_dio2",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:00e549e515eff23061a6f2adf946b5cbe716d5501b872b7b31cbfdf85ce62afa"
+    },
+    "pitfalls/o_div0.json": {
+      "nodeId": "o_div0",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:3119b452c47b57b383ca39027a38e6fc824fa0972c7f2a847130c6b7ea4edaed"
+    },
+    "pitfalls/o_fermat.json": {
+      "nodeId": "o_fermat",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:0e785b1a743fbc55c59fd080c68fbccbc87425bd43248ef1af5c114b33a496e7"
+    },
+    "pitfalls/o_func_eq.json": {
+      "nodeId": "o_func_eq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:45cdd169a528431199b9bf5f197ab806933ac91c591eba3206acce7e8da89e9e"
+    },
+    "pitfalls/o_geo_area.json": {
+      "nodeId": "o_geo_area",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:71d7557a36a0f41dac09c804efe252f26259acf87a96b40314416a24438a56da"
+    },
+    "pitfalls/o_geo_basic.json": {
+      "nodeId": "o_geo_basic",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:5ba4bd650080f09768b688bade9c5b071a7b89c3ce8cc443e444e653cabb1752"
+    },
+    "pitfalls/o_geo_ceva.json": {
+      "nodeId": "o_geo_ceva",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:a72832eb2e9910eb12ead65d7f1f0be515c29370cfa29022102c361ba4d157ab"
+    },
+    "pitfalls/o_geo_circle.json": {
+      "nodeId": "o_geo_circle",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:075fbc0aa5d4b61fad6acda690cc137abfbd6ddf03359a338221a1dd510bad02"
+    },
+    "pitfalls/o_geo_ineq.json": {
+      "nodeId": "o_geo_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:2a52ef6d50a91c0320210d39a3e7747b4d61035c49b3aad8e791cbc972938bc0"
+    },
+    "pitfalls/o_geo_trans.json": {
+      "nodeId": "o_geo_trans",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:88fd105b06235eae965c2c81eabae1e8705134e122ab98cc15b5bc0220a1da42"
+    },
+    "pitfalls/o_geo_vec.json": {
+      "nodeId": "o_geo_vec",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:2bf1f6892f0b038cc5bce6cbc57ffe32033461a4b7ce3c900ab48cde0f6f8847"
+    },
+    "pitfalls/o_graph.json": {
+      "nodeId": "o_graph",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:e4de85aa8cbc50f9402ef47076328af16e03622921ae4232472fe1d2bd4b422a"
+    },
+    "pitfalls/o_induct.json": {
+      "nodeId": "o_induct",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:66dc7b651ca90389bdda7a3c6654eaa17af4817865ac1a4f1558713f8dcb5cfb"
+    },
+    "pitfalls/o_ineq.json": {
+      "nodeId": "o_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:f7e2b2012bde65d80659bfed21a43746d042592bf2175c2aaeb2ce71e661cb98"
+    },
+    "pitfalls/o_numfun.json": {
+      "nodeId": "o_numfun",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:c1caf8624615e398d9174dd239ecbc63930498dc379dead806c3f70fd827e624"
+    },
+    "pitfalls/o_pigeon.json": {
+      "nodeId": "o_pigeon",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:04374d26c244a9135f4bbb8f6fa7a686229f332c99d9caee40a86059badf6203"
+    },
+    "pitfalls/o_poly.json": {
+      "nodeId": "o_poly",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:2e90410a638ad1d33b86eb99fa6b07cdc70f8afc1cf4bbf101e0426763ba668a"
+    },
+    "pitfalls/o_recur.json": {
+      "nodeId": "o_recur",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:344fddac2318698af5ad322d8b1dcf75feffba0418de6b63fb85fa701c9f85b3"
+    },
+    "pitfalls/o_trig_id.json": {
+      "nodeId": "o_trig_id",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:f64d70ad3c027604583e3d75b894a5110cdd1fcd0531a14fc032cfd5f1e6a9f9"
+    },
+    "pitfalls/s_complex.json": {
+      "nodeId": "s_complex",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:2fe40553c4248eeb11c8c348dccc5e8793019ff28f55ec1771d954d6404c0f82"
+    },
+    "pitfalls/s_conic.json": {
+      "nodeId": "s_conic",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:faee23af506051833e2b5eff9dcc01eaf81bcf5d7bedc07d7f826315eaeff60f"
+    },
+    "pitfalls/s_count.json": {
+      "nodeId": "s_count",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:de2c01e83bba88a18ceeb6e161453c5e295a78458d8476ae4e46ae42790ef2b2"
+    },
+    "pitfalls/s_deriv.json": {
+      "nodeId": "s_deriv",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:2dc6b7c461a08d8238a9a19ec70786cd0d86e153bfdf909a90ad1dbfdee29eb1"
+    },
+    "pitfalls/s_exp.json": {
+      "nodeId": "s_exp",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:db81e6d89029f1de4556a70b36fd5968eeb170c3eeaac8dd32336d61435359ac"
+    },
+    "pitfalls/s_func.json": {
+      "nodeId": "s_func",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:d1a3dd195376a4a77672d77ce20d95e570c6f9ab4b786cb5b876abcba9af42b8"
+    },
+    "pitfalls/s_ineq.json": {
+      "nodeId": "s_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:d02098a135079caadfdb330079f0ce7e115910737b1d49fb73b65b9ebb2fa120"
+    },
+    "pitfalls/s_line.json": {
+      "nodeId": "s_line",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:5c99fdf1b2e173d3d87d64c27c31c90c57cc3d2942791a1129f472cdb449ad49"
+    },
+    "pitfalls/s_prob.json": {
+      "nodeId": "s_prob",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:f536b5e1bb24538a840156e9a4e144e76ba7f7229d32cc65e3f5dae3822434b9"
+    },
+    "pitfalls/s_seq.json": {
+      "nodeId": "s_seq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:1db8a4be3dd57139872528250483ec84159697f960611d472fd5f31b303b1354"
+    },
+    "pitfalls/s_set.json": {
+      "nodeId": "s_set",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:168da875287f43fd59c1227c82e6c547efd99a280e3c780cee4b47585814c934"
+    },
+    "pitfalls/s_solid.json": {
+      "nodeId": "s_solid",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:37d846459adcaa1d76df3af5a7c03989c4372d06052686cd9b57e441c444bfc8"
+    },
+    "pitfalls/s_trig.json": {
+      "nodeId": "s_trig",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:30c64ca960e708cbfafed1435bc5e0ce1e5b0e6607f23e2c97e1a6b280d351bd"
+    },
+    "pitfalls/s_vec.json": {
+      "nodeId": "s_vec",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:8c72bd6245d1495bcb07d43aa1ec2da3fa9f18ff10acaefab7d9c8130c905a2d"
+    },
+    "pitfalls/s_vec3.json": {
+      "nodeId": "s_vec3",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:4dc5939c3b34908f513e76335d92a52b199cdefa693204491137751b9ea78b44"
+    },
+    "examples/j_alg.json": {
+      "nodeId": "j_alg",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:67a306f60d7561c43828d3caaa114a63d84f4aad17dbd533d7f22e1f3f565147"
+    },
+    "examples/j_circle.json": {
+      "nodeId": "j_circle",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:7070bea67d92fc651ef095c32d68a9a5e504ce5847193220ef50bbd0df78ecb5"
+    },
+    "examples/j_cong.json": {
+      "nodeId": "j_cong",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:1e1e119f6c81ea388de06044858577e8c8c67f227605c5d805cb72f68ebd4fb4"
+    },
+    "examples/j_eq.json": {
+      "nodeId": "j_eq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:46a1754d93c36d90fac7f8c1c3d5330e2fecb47e96fc2e61fcb15f1493480535"
+    },
+    "examples/j_frac.json": {
+      "nodeId": "j_frac",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:596a42c705d9237d0ff4291f62b3b6f00f6e06385a69635cdb3f6d511ee0207f"
+    },
+    "examples/j_fun.json": {
+      "nodeId": "j_fun",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:dee3073225e3b4b8363fb2d28be3f71b25f6f1a4237c55611065b9edc4a55bbb"
+    },
+    "examples/j_ineq.json": {
+      "nodeId": "j_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:995ca8c5325765c7adf58236ef2983e5abddfd319b4a2c2ae3e506f7753b875b"
+    },
+    "examples/j_num.json": {
+      "nodeId": "j_num",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:bffe8241908f89f746f86e713c4baabfff5e604fbf90dac28c8c9c7d4c2d2cd8"
+    },
+    "examples/j_prob.json": {
+      "nodeId": "j_prob",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:a65387398a08df3cc9a9662bb7d6dbf9169ce23c2f3fd4d36b77651b605b2033"
+    },
+    "examples/j_quad.json": {
+      "nodeId": "j_quad",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:4eb9ffce6765527a4255ff64743611cd3fb0fc6ce12ffec86388f85957390bbf"
+    },
+    "examples/j_quadg.json": {
+      "nodeId": "j_quadg",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:f8f525a413cfe1dd148a992f6e02376ebbca1764600888e9646a1278ade43948"
+    },
+    "examples/j_simi.json": {
+      "nodeId": "j_simi",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:ad8af37ad59c73001a863cfb8712c60a48d0dfd2ab6f1cfe23b6323ecce0547e"
+    },
+    "examples/j_stats.json": {
+      "nodeId": "j_stats",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:0e558b93cf16cebd0e5220843940428f850463647f1d97252f3d6fbc84f64bda"
+    },
+    "examples/j_trans.json": {
+      "nodeId": "j_trans",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:7d0fe6b517ecb66ce38f3208126eafdc3ca1fee604f51119c63359c158e1d45d"
+    },
+    "examples/j_tri.json": {
+      "nodeId": "j_tri",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:295912e6851349a2fc3b988828edbf38a577dabc5e85709185f1e69c1645c5b7"
+    },
+    "examples/j_trig.json": {
+      "nodeId": "j_trig",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:d6351cef58e636c62995439aaddc60e982781b1c372c118e18921e4019b12ae6"
+    },
+    "examples/o_alg_skill.json": {
+      "nodeId": "o_alg_skill",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:a97d2019b5ec6d86b08a454dbbee944b0b46b15efbb836f407e0d6c20a90f1c2"
+    },
+    "examples/o_binom.json": {
+      "nodeId": "o_binom",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:d5a84578219f7b9fca7208f5ae6c1311d31802f30f03979a6932132c365618ca"
+    },
+    "examples/o_comb_adv.json": {
+      "nodeId": "o_comb_adv",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:5174fab642dceb1d39e77a5b214cc12985112ea71bdb39811c5232ff9d526e53"
+    },
+    "examples/o_comb_opt.json": {
+      "nodeId": "o_comb_opt",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:995c68c0f14db1638c0547b45471760913960272493a3645df30615d78988709"
+    },
+    "examples/o_complex.json": {
+      "nodeId": "o_complex",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:791e04e5864dbc1f7d67ab283cb1409da126e4e06ce485381540ebc0c028785f"
+    },
+    "examples/o_cong.json": {
+      "nodeId": "o_cong",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:3895eea6e09574bedc556bb3d3403d3c73fa12a0c2eb48c32cf4319712226a4a"
+    },
+    "examples/o_dio.json": {
+      "nodeId": "o_dio",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:97534465d810cec5d2ca4ded36abfbf0649455287201b778e8ff63708e55599f"
+    },
+    "examples/o_dio2.json": {
+      "nodeId": "o_dio2",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:8bd74587d0cbd3abea46d3c0305c5b2b1f374da2b60f8e495923ccc318e94843"
+    },
+    "examples/o_div0.json": {
+      "nodeId": "o_div0",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:81e0368f182d4d60ab7008ec3be25b88abfa95b92728860192687af4cb659fd7"
+    },
+    "examples/o_fermat.json": {
+      "nodeId": "o_fermat",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:78321c8a3fceb423616e168f653b1c4e1167fad2fbc48077b35bab1496fdeff8"
+    },
+    "examples/o_func_eq.json": {
+      "nodeId": "o_func_eq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:39bd10bcfb168def32448968766b85c1092c47618c41ab157e0ae2e83175bafa"
+    },
+    "examples/o_geo_area.json": {
+      "nodeId": "o_geo_area",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:895e1a561c26f3d551fa323e0d20dc6d679a76612e6a5e16ad6afeef8b28a57a"
+    },
+    "examples/o_geo_basic.json": {
+      "nodeId": "o_geo_basic",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:23cf4c8aa83674e0f3242fcb07e24bb709580ec037b6c7ae4d8ef85535fb34be"
+    },
+    "examples/o_geo_ceva.json": {
+      "nodeId": "o_geo_ceva",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:f9abe5a08882492a5bcfb28dcbf3633e068e7d08634dee5ae773bf78d7367d47"
+    },
+    "examples/o_geo_circle.json": {
+      "nodeId": "o_geo_circle",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:22d45e916a5a576f601821ab30cf54ba43ff206f167da0ec7d3521fc65729f74"
+    },
+    "examples/o_geo_ineq.json": {
+      "nodeId": "o_geo_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:605dda5461b94a0982fd45e5090f48d57f9860778be72493e8a2265916c7f154"
+    },
+    "examples/o_geo_trans.json": {
+      "nodeId": "o_geo_trans",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:569f5a62a7fd26354c1c0dd8dd7e2b641d7af1d98b6791896a164d9a6d762bb7"
+    },
+    "examples/o_geo_vec.json": {
+      "nodeId": "o_geo_vec",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:e77737d63ec5d600336157b29ee417d2640a3708c3dc56bbd2838024cf8cded3"
+    },
+    "examples/o_graph.json": {
+      "nodeId": "o_graph",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:a401433dc66e6c5b2892d1251d680910f7add87ecedc81f55fa9fe4c7dd24662"
+    },
+    "examples/o_induct.json": {
+      "nodeId": "o_induct",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:f0544cb04f0351a212c765bf83c827c2c62fbc96094887030f659cee32790f5c"
+    },
+    "examples/o_ineq.json": {
+      "nodeId": "o_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:598fedf66e8393b0220dcc16fe9e234a92753697b6654af386ee8ec810514399"
+    },
+    "examples/o_numfun.json": {
+      "nodeId": "o_numfun",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:b897ca16be695fc636500adf358b424d43075f3b81e453d4f2797c957ff0ada1"
+    },
+    "examples/o_pigeon.json": {
+      "nodeId": "o_pigeon",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:557cf72f2a0f6b6d15c0a64d7ac2b15da3f5a18d419fc16b3dcd4239aac12dfb"
+    },
+    "examples/o_poly.json": {
+      "nodeId": "o_poly",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:9364266ce2a97a470de0421d18ea7a50123d27dd6675973ee63d283378aa7070"
+    },
+    "examples/o_recur.json": {
+      "nodeId": "o_recur",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:3018333c10c9fc4cf4fad9b42e0c9347881ebf1d1b4c54007edc9afbd6d92af9"
+    },
+    "examples/o_trig_id.json": {
+      "nodeId": "o_trig_id",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:9d89da7388add3e5724be756f9586e721e0fb2a54d5167ae1fd990c1334d043a"
+    },
+    "examples/s_complex.json": {
+      "nodeId": "s_complex",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:a605873307557b18d61f18ef751b94f4edaab1460972100cb0bf79f306e850eb"
+    },
+    "examples/s_conic.json": {
+      "nodeId": "s_conic",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:81c71d5c3034a08b7235591288e37d0a03baadc29473b5f062346aace6293bbe"
+    },
+    "examples/s_count.json": {
+      "nodeId": "s_count",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:be09834cd0cb618b366ad9fd105e7ab2e2e3e55a90bfb981d3e711b6e6093d6e"
+    },
+    "examples/s_deriv.json": {
+      "nodeId": "s_deriv",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:8647d0dcdc16950f8c369d9f0ca514c895894c3db1cf2711325384bf12e4cc37"
+    },
+    "examples/s_exp.json": {
+      "nodeId": "s_exp",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:d457d7ea3159d7b2310bbf04faba6f8b63a37a7f4fc1dbd7f389b0b576ca5b3a"
+    },
+    "examples/s_func.json": {
+      "nodeId": "s_func",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:d95e343ae65287828eb4556d98e020e4443549265035ef6b4b7aee7e84585b75"
+    },
+    "examples/s_ineq.json": {
+      "nodeId": "s_ineq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:c7e0bc777074dcfe670a4db201dd04914efe5eaf4306756f3106830551d6bb89"
+    },
+    "examples/s_line.json": {
+      "nodeId": "s_line",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:df28c10984fe70754a60aef601af14964662e599b0671bbf849e2ad3d98ad1b4"
+    },
+    "examples/s_prob.json": {
+      "nodeId": "s_prob",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:43b3f0ef0aec9ff57b67736e143054ce91e4d5fece67a84f8d12086cd249a4fb"
+    },
+    "examples/s_seq.json": {
+      "nodeId": "s_seq",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:14034a7e87d92e8cfcda210f734ba9d978f1a8c76c20d2244b8102fd791b74bb"
+    },
+    "examples/s_set.json": {
+      "nodeId": "s_set",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:0181fc4c15618332a8e2751cb995cb146424ed65b872d4365cc1ebcff43b2d3f"
+    },
+    "examples/s_solid.json": {
+      "nodeId": "s_solid",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:bb02e4220c3ba6233bbc8efae1a73f870e926ef634f9ad0dd77c85e0671d7ac8"
+    },
+    "examples/s_trig.json": {
+      "nodeId": "s_trig",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+      "content_hash": "sha256:8ae02a15080cd7103ef4d9b5986acd52815f5d122efe1293b4a91313cbdead60"
+    },
+    "examples/s_vec.json": {
+      "nodeId": "s_vec",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:69e82c04daa4b1b424a958f981b0fc3e18491cd31a19e603cd6bbc2d14229a5a"
+    },
+    "examples/s_vec3.json": {
+      "nodeId": "s_vec3",
+      "evidence": "C",
+      "review": "pending",
+      "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+      "content_hash": "sha256:2fc8b33e6d02558a660a47bc13c74f8ab14e1aa8bf297b4fee6c234546d0fde0"
+    }
+  }
+}

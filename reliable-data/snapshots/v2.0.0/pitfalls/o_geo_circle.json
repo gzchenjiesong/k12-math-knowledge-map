@@ -1,0 +1,37 @@
+{
+  "nodeId": "o_geo_circle",
+  "id": "pitfall-o_geo_circle",
+  "kind": "pitfall",
+  "title": "圆幂 · 根轴 · 四点共圆 · 易错考点",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-o_geo_circle-01",
+      "mistake": "圆幂的正负号（点在圆内为负、圆外为正）",
+      "trigger": "题目落在「圆幂 · 根轴 · 四点共圆」考点，或出现「四点共圆、幂相等、共圆证明」类识别信号时；参照本节点示范题「两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）相交弦/割线：PA·PB=定值（圆幂）；（2）证明四点共圆：幂相等、对角互补、同侧张角相等；（3）根轴是两圆的等幂点轨迹，常用于证明共线；完成后回看结论是否满足题设条件。",
+      "selfCheck": "圆幂定理统一了哪几个定理？"
+    },
+    {
+      "id": "PF-o_geo_circle-02",
+      "mistake": "四点共圆判定条件混用",
+      "trigger": "题目落在「圆幂 · 根轴 · 四点共圆」考点，或出现「四点共圆、幂相等、共圆证明」类识别信号时；参照本节点示范题「两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）相交弦/割线：PA·PB=定值（圆幂）；（2）证明四点共圆：幂相等、对角互补、同侧张角相等；（3）根轴是两圆的等幂点轨迹，常用于证明共线；完成后回看结论是否满足题设条件。",
+      "selfCheck": "为什么根轴是等幂点的轨迹？"
+    }
+  ],
+  "content_hash": "sha256:075fbc0aa5d4b61fad6acda690cc137abfbd6ddf03359a338221a1dd510bad02"
+}

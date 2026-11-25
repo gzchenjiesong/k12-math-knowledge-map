@@ -1,0 +1,40 @@
+{
+  "nodeId": "s_line",
+  "id": "lesson-s_line",
+  "kind": "lesson",
+  "title": "直线与圆 · 授课教案",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_analytic",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "直线与圆是解析几何的入门：核心是\"方程与几何的对应\"。点到直线距离公式、圆的方程、直线与圆的位置关系（判别式或距离法）是最重要的工具。",
+  "method": [
+    "直线的斜率与方程（点斜式、一般式）",
+    "点到直线距离 d=|Ax₀+By₀+C|/√(A²+B²)",
+    "直线与圆位置关系：比较 d 与半径 r"
+  ],
+  "example": {
+    "q": "判断直线 x+y=1 与圆 x²+y²=2 的位置关系",
+    "a": "圆心 (0,0) 到直线距离 d=|0+0−1|/√2=1/√2，圆半径 r=√2。d<r，故相交。核心是\"用距离与半径的比较代替解方程组\"。"
+  },
+  "pitfalls": [
+    "直线斜率不存在的情况忘记讨论",
+    "距离公式记错"
+  ],
+  "links": "直线与圆是圆锥曲线（s_conic）的基础，也是几何代数化的入门。",
+  "check": [
+    "为什么比较距离和半径就能判断直线与圆的位置？",
+    "什么情况下直线没有斜率？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:7bae8a4e620b3145db5b3764a96f41a61d96fe5e77ac21e9c652046057e7b4e1"
+}

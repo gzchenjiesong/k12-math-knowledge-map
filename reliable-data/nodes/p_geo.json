@@ -1,0 +1,45 @@
+{
+  "nodeId": "p_geo",
+  "id": "node-p_geo",
+  "kind": "node",
+  "title": "图形周长与面积",
+  "domain": "primary",
+  "domainName": "① 小学数学思维铺垫（4—6 年级）",
+  "module": "高小思维模块",
+  "lectureId": "primary",
+  "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "none(小学段新增，无旧侧 R2 记录)",
+  "reviewNote": "小学段无教材版权页锚点，未获教材交叉验证与人工签核，不得视为 checked/verified（SPEC-008）",
+  "version": "2.0.0",
+  "points": [
+    "长方形正方形周长面积",
+    "三角形平行四边形面积",
+    "梯形面积",
+    "组合图形面积"
+  ],
+  "prerequisites": [
+    "p_num"
+  ],
+  "relations": [
+    "j_tri",
+    "j_quadg",
+    "p_transform"
+  ],
+  "signals": [
+    "求周长",
+    "求面积",
+    "组合图形"
+  ],
+  "approaches": [
+    "先认清图形的底和高",
+    "组合图形用\"补\"或\"割\"",
+    "面积单位要统一"
+  ],
+  "description": "从\"数格子\"到\"用公式\"，建立空间感与度量感",
+  "note": "来源归属/前置/关联/识别信号来自 reliable-data/source/primary_nodes.js（原创素材）；小学分册版权页未提供，未找到权威依据，evidence=C、review=pending（SPEC-008）。",
+  "content_hash": "sha256:02af00aa72d3eabd51d6e43b120140d3b1154536f3ddaf3926dc70cd3c8801c4"
+}

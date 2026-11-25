@@ -1,0 +1,41 @@
+{
+  "nodeId": "o_trig_id",
+  "id": "node-o_trig_id",
+  "kind": "node",
+  "title": "三角恒等式与三角不等式",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_trig",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "三倍角公式",
+    "三角形恒等式",
+    "三角不等式"
+  ],
+  "prerequisites": [
+    "s_trig"
+  ],
+  "relations": [
+    "o_complex",
+    "o_ineq"
+  ],
+  "signals": [
+    "证明三角恒等式",
+    "求角范围"
+  ],
+  "approaches": [
+    "和差化积",
+    "复数法生成恒等式"
+  ],
+  "description": "代数与几何的公共工具",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:1dcda7526601c28d2de7321623a1d6e53d1867159d2a93b349b09f46b4f327e7"
+}

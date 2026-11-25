@@ -1,0 +1,13 @@
+OK   D1 manifest.version 非空（1.0.0）
+OK   D2 nodes 卡片数 = 57（实际 57）
+OK   D2 lessons 卡片数 = 57（实际 57）
+OK   D2 pitfalls 卡片数 = 57（实际 57）
+OK   D2 examples 卡片数 = 57（实际 57）
+OK   D3 必备字段齐全（缺失条目 0）
+OK   D4a review 取值合法（异常 0）
+OK   D4b verified 均有 reviewer + date（缺失签字 0）
+OK   D5 evidence 取值合法（异常 0）
+---
+RESULT=9/9 FAILED=0
+VERDICT=PASSED
+注意：本脚本只检查发布资格与结构，不证明数学内容正确；人工闸门仍以 PRM-010 阶段 4c 为准。

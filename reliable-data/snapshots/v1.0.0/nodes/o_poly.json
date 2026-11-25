@@ -1,0 +1,46 @@
+{
+  "nodeId": "o_poly",
+  "id": "node-o_poly",
+  "kind": "node",
+  "title": "多项式",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_alg",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "根与系数",
+    "虚根成对",
+    "因式定理",
+    "多项式恒等"
+  ],
+  "prerequisites": [
+    "j_eq",
+    "j_quad",
+    "s_conic"
+  ],
+  "relations": [
+    "o_complex",
+    "o_recur"
+  ],
+  "signals": [
+    "求根",
+    "整数根",
+    "恒等式"
+  ],
+  "approaches": [
+    "韦达定理",
+    "虚根成对",
+    "比较系数"
+  ],
+  "description": "代数结构题的基础",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:980ae5148d02ab6a4ea33b324e7e966fca9b1f55a3360d7107203dd40d44dffe"
+}

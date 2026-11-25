@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_complex",
+  "id": "example-o_complex",
+  "kind": "example",
+  "title": "复数进阶 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_trig",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_complex-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "用复数证明：平行四边形对角线平方和等于四边平方和",
+      "answer": "设顶点对应复数 a,b,c,d，用 |z|²=z·z̄ 展开对角线向量，交叉项会相消，化简即得。核心是把几何长度转成复数模的代数运算。",
+      "conclusion": "平行四边形对角线平方和等于四边平方和",
+      "reasoningAnchor": "单位根 ω³=1 且 1+ω+ω²=0，用于处理三次对称",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:791e04e5864dbc1f7d67ab283cb1409da126e4e06ce485381540ebc0c028785f"
+}

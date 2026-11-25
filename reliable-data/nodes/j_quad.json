@@ -1,0 +1,46 @@
+{
+  "nodeId": "j_quad",
+  "id": "node-j_quad",
+  "kind": "node",
+  "title": "二次函数专题",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_func",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "图像与对称轴",
+    "顶点与最值",
+    "与方程/不等式的关系",
+    "区间最值",
+    "含参二次函数"
+  ],
+  "prerequisites": [
+    "j_fun",
+    "j_eq"
+  ],
+  "relations": [
+    "s_deriv",
+    "o_ineq",
+    "o_poly"
+  ],
+  "signals": [
+    "区间最值",
+    "恒成立问题",
+    "根的分布"
+  ],
+  "approaches": [
+    "配方与顶点式",
+    "分类讨论对称轴与区间位置"
+  ],
+  "description": "初高中衔接与竞赛代数的高频交汇点",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:319a82f69d6cae01861f09a9e898bead1602526c241b7929890d75c44937c346"
+}

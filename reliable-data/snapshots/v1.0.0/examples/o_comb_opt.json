@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_comb_opt",
+  "id": "example-o_comb_opt",
+  "kind": "example",
+  "title": "组合极值 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_comb_opt-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "n 边形最多有多少条不相交的对角线？",
+      "answer": "通过构造（三角剖分）得 n−3 条，再证明更多必然相交。核心是\"构造 + 证明最优\"两步缺一不可。",
+      "conclusion": "最多 n−3 条互不相交的对角线",
+      "reasoningAnchor": "构造法给出下界（例子）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:995c68c0f14db1638c0547b45471760913960272493a3645df30615d78988709"
+}

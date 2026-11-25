@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_geo_circle",
+  "id": "example-o_geo_circle",
+  "kind": "example",
+  "title": "圆幂 · 根轴 · 四点共圆 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_geo_circle-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长",
+      "answer": "P 对两圆的幂相等（都在根轴上），故 PT₁²=PT₂²，PT₁=PT₂。核心是用\"圆幂\"这个统一概念处理切线长。",
+      "conclusion": "PT₁=PT₂",
+      "reasoningAnchor": "相交弦/割线：PA·PB=定值（圆幂）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:22d45e916a5a576f601821ab30cf54ba43ff206f167da0ec7d3521fc65729f74"
+}

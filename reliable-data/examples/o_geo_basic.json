@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_geo_basic",
+  "id": "example-o_geo_basic",
+  "kind": "example",
+  "title": "几何定理进阶(初中部分) · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_geo_basic-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "三角形中，D 是 AB 中点，E 是 AC 中点，DE 与 BC 的关系？",
+      "answer": "由中位线定理 DE∥BC 且 DE=BC/2。核心是\"见两个中点立即想到中位线\"。",
+      "conclusion": "DE∥BC 且 DE=BC/2",
+      "reasoningAnchor": "见中点想中位线、见角平分线想到角平分线定理",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:23cf4c8aa83674e0f3242fcb07e24bb709580ec037b6c7ae4d8ef85535fb34be"
+}

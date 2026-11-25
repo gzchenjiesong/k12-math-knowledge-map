@@ -1,0 +1,31 @@
+{
+  "nodeId": "p_ratio",
+  "id": "example-p_ratio",
+  "kind": "example",
+  "title": "比与百分数 · 示范题与解答",
+  "domain": "primary",
+  "domainName": "① 小学数学思维铺垫（4—6 年级）",
+  "module": "高小思维模块",
+  "lectureId": "primary",
+  "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "none(小学段新增，无旧侧 R2 记录)",
+  "reviewNote": "小学段无教材版权页锚点，未获教材交叉验证与人工签核，不得视为 checked/verified（SPEC-008）",
+  "version": "2.1.0",
+  "items": [
+    {
+      "id": "EX-p_ratio-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "把 60 个苹果按 2 : 3 分给甲乙两人，乙分到多少个？",
+      "answer": "总份数 = 2 + 3 = 5 份，每份 = 60 ÷ 5 = 12 个。乙占 3 份：12 × 3 = 36 个。**结论：乙分到 36 个。**检验：甲 24 + 乙 36 = 60，比例 24 : 36 = 2 : 3，正确。",
+      "conclusion": "乙分到 36 个（总份数 5，每份 12，乙占 3 份）",
+      "reasoningAnchor": "比的意义、比值与比的基本性质；化简比与求比值不同（化简比仍是比，比值是一个数）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:9092b5ba1d76539c601ec94303b64887b20073476804c9739f7f9adf4be3d8c7"
+}

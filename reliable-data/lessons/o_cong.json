@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_cong",
+  "id": "lesson-o_cong",
+  "kind": "lesson",
+  "title": "整除与同余 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "这是同余的系统学习。核心工具是费马小定理、欧拉定理、中国剩余定理——它们让大数的高次幂计算、同余方程组求解变得可行。同余是数论竞赛使用频率最高的语言。",
+  "method": [
+    "费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）",
+    "欧拉定理：a^φ(n)≡1 (mod n)（a,n 互素）",
+    "中国剩余定理：解模数两两互素的一次同余方程组"
+  ],
+  "example": {
+    "q": "求 3²⁰⁰ mod 7",
+    "a": "由费马小定理 3⁶≡1 (mod 7)。200=6×33+2，故 3²⁰⁰≡3²=9≡2 (mod 7)。核心是\"用费马定理把大指数降到小指数\"。"
+  },
+  "pitfalls": [
+    "费马定理的素数条件忘记验证",
+    "欧拉函数中 φ(n) 计算错误"
+  ],
+  "links": "同余是费马欧拉定理（o_fermat）、不定方程（o_dio2）、数论函数（o_numfun）的核心工具。",
+  "check": [
+    "费马小定理为什么能把大指数化简？",
+    "欧拉定理和费马定理是什么关系？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:6b3e82467e923369681e2277330df2b6830926cf199f1107196a7cb47a6a2cf3"
+}

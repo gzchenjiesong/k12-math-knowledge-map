@@ -1,0 +1,42 @@
+{
+  "nodeId": "o_alg_skill",
+  "id": "node-o_alg_skill",
+  "kind": "node",
+  "title": "代数变形技巧",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_alg",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "拆项添项",
+    "配方",
+    "待定系数",
+    "对称式与轮换对称式"
+  ],
+  "prerequisites": [
+    "j_alg"
+  ],
+  "relations": [
+    "o_ineq",
+    "o_func_eq"
+  ],
+  "signals": [
+    "恒等式证明",
+    "因式分解技巧"
+  ],
+  "approaches": [
+    "从对称结构猜形式",
+    "特殊值验候选"
+  ],
+  "description": "竞赛代数的通用手法",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:495503d4574329ee5aa0468d90b76726084f1d6b6372fe1a0e022d3fdd0dec80"
+}

@@ -1,0 +1,46 @@
+{
+  "nodeId": "s_func",
+  "id": "node-s_func",
+  "kind": "node",
+  "title": "函数概念与性质",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "集合与函数",
+  "lectureId": "t_func",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "定义域值域",
+    "单调性",
+    "奇偶性",
+    "最值",
+    "函数图像"
+  ],
+  "prerequisites": [
+    "s_set",
+    "j_fun"
+  ],
+  "relations": [
+    "s_exp",
+    "s_trig",
+    "o_func_eq"
+  ],
+  "signals": [
+    "求定义域值域",
+    "判断单调奇偶",
+    "抽象函数"
+  ],
+  "approaches": [
+    "定义法作差比较",
+    "数形结合"
+  ],
+  "description": "一试填空题高频考点",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:e6360b4166eb8277df2f9fa2ec3f2fc15ea9f1228de84cf9fc20b5ba370eb486"
+}

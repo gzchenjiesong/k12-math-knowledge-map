@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_numfun",
+  "id": "lesson-o_numfun",
+  "kind": "lesson",
+  "title": "数论函数与格点 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "数论",
+  "lectureId": "t_num",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "数论函数是定义在正整数上的函数，如欧拉函数 φ(n)、约数个数函数。竞赛中它们常与格点计数、组合问题结合。核心是理解函数的乘性——互素时函数值可以分解计算。",
+  "method": [
+    "欧拉函数 φ(n)=n·∏(1−1/p)（p 遍历 n 的素因子）",
+    "积性函数：gcd(m,n)=1 时 f(mn)=f(m)f(n)",
+    "格点问题常用皮克定理或对称性"
+  ],
+  "example": {
+    "q": "求 φ(12)",
+    "a": "12=2²×3，φ(12)=12×(1−1/2)×(1−1/3)=12×½×2/3=4。即 1,5,7,11 与 12 互素。核心是\"先分解质因数再套公式\"。"
+  },
+  "pitfalls": [
+    "忘记分解质因数直接套公式",
+    "积性函数用在非互素的情形"
+  ],
+  "links": "数论函数连接欧拉定理（o_fermat）、组合计数（o_binom）。",
+  "check": [
+    "为什么积性函数要求互素？",
+    "欧拉函数 φ(n) 计数的是什么？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:29c909c030b1accb99f6e38f7b3545b8e9dd7fd68fd73c14f0010255c2382cde"
+}

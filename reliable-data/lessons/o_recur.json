@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_recur",
+  "id": "lesson-o_recur",
+  "kind": "lesson",
+  "title": "递推数列与特征方程 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_seq",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "递推数列给的是\"相邻项的关系\"，目标是求通项。核心方法是\"构造\"——通过加减适当的量，把一般递推转化为等差或等比。特征方程法则是处理线性递推的系统化工具。",
+  "method": [
+    "形如 aₙ₊₁=paₙ+q：待定常数 c 使 aₙ₊₁+c=p(aₙ+c)，构造等比",
+    "取倒数、取对数可把非线性递推线性化",
+    "二阶线性递推用特征方程 r²=pr+q 求通项形式"
+  ],
+  "example": {
+    "q": "a₁=1，aₙ₊₁=2aₙ+1，求通项",
+    "a": "构造：设 aₙ₊₁+1=2(aₙ+1)，令 bₙ=aₙ+1，则 bₙ₊₁=2bₙ，b₁=2，故 bₙ=2ⁿ，aₙ=2ⁿ−1。核心是\"加一个常数凑成等比\"。"
+  },
+  "pitfalls": [
+    "构造时常数算错",
+    "忽略初值的验证"
+  ],
+  "links": "递推数列连接多项式特征方程（o_poly）、归纳法（o_induct）、函数迭代（o_func_eq）。",
+  "check": [
+    "为什么要\"加一个常数\"构造等比数列？这个常数怎么定？",
+    "特征方程法解决的是什么类型的递推？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:17d1c35303ad1da1f13da2495de2db649de97495b9f04e0e1b2fb588529999ae"
+}

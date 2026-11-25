@@ -1,0 +1,43 @@
+{
+  "nodeId": "o_div0",
+  "id": "node-o_div0",
+  "kind": "node",
+  "title": "整除与同余初步",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_num",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "被2/3/4/5/8/9/11整除",
+    "奇偶性分析",
+    "带余除法",
+    "完全平方数"
+  ],
+  "prerequisites": [
+    "j_num"
+  ],
+  "relations": [
+    "o_cong",
+    "o_dio"
+  ],
+  "signals": [
+    "整除证明",
+    "奇偶性",
+    "尾数"
+  ],
+  "approaches": [
+    "按奇偶或模分类",
+    "利用余数分类讨论"
+  ],
+  "description": "数论板块的第一块砖",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:eac430dcb6597f7e9c8fbb7cce6b3c66cfb800233cedf6478d75132a06711a9d"
+}

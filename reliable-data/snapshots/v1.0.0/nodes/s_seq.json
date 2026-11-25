@@ -1,0 +1,43 @@
+{
+  "nodeId": "s_seq",
+  "id": "node-s_seq",
+  "kind": "node",
+  "title": "数列",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_seq",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "等差等比",
+    "通项与前n和",
+    "递推关系",
+    "数列求和"
+  ],
+  "prerequisites": [
+    "j_fun"
+  ],
+  "relations": [
+    "s_deriv",
+    "o_recur"
+  ],
+  "signals": [
+    "求通项",
+    "裂项相消",
+    "递推"
+  ],
+  "approaches": [
+    "累加累乘",
+    "构造等差等比"
+  ],
+  "description": "竞赛递推数列的课标底座",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:2d628b8c1bbead3ca8e309cdef0789facbe39a2fb1fc3eda82c1fb998f60c45f"
+}

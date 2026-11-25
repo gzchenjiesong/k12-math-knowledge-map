@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_trans",
+  "id": "example-j_trans",
+  "kind": "example",
+  "title": "图形变换 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "2.1.0",
+  "items": [
+    {
+      "id": "EX-j_trans-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "点 A(0, 2)、B(4, 3) 在 x 轴同侧，在 x 轴上求一点 P，使 PA + PB 最小，并求这个最小值。",
+      "answer": "作 A 关于 x 轴的对称点 A′(0, −2)，则 PA=PA′，故 PA+PB=PA′+PB ≥ A′B（三角不等式），等号当 P 在 A′B 与 x 轴交点时成立。A′B=√[(4−0)²+(3−(−2))²]=√41。交点 P：直线 A′B 上 y=−2+5t，令 y=0 得 t=2/5，x=4×(2/5)=8/5，即 P(8/5, 0)。故最短距离为 √41，此时 P(8/5, 0)。核心是\"对称化折为直\"。",
+      "conclusion": "最小值为 √41，此时 P(8/5, 0)（A(0,2)、B(4,3)，P 在 x 轴）",
+      "reasoningAnchor": "轴对称把折线拉直：作 A 关于直线的对称点 A′，则 PA=PA′",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:a4d4cbb081c40e1288067275118effa6c3b377cad380423e26b7a5246272ee4d"
+}

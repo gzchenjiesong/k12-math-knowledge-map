@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_geo_area",
+  "id": "lesson-o_geo_area",
+  "kind": "lesson",
+  "title": "面积法与等积变换 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "面积法是一种\"降维\"思想：把长度关系、比例关系转化为面积关系来处理。它的威力在于——等高三角形的面积比等于底边比，这把\"比例\"变成了\"面积\"，而面积往往更容易计算或比较。",
+  "method": [
+    "等高三角形面积比 = 底边比",
+    "共角三角形面积比 = 两边乘积之比",
+    "燕尾定理处理三角形内部一点分割的面积关系"
+  ],
+  "example": {
+    "q": "证明三角形角平分线分对边成比例（角平分线定理）",
+    "a": "用面积法：BD/DC = S△ABD/S△ACD（等高）= (AB·sin∠BAD)/(AC·sin∠CAD)=AB/AC。核心是用面积作为\"桥梁\"连接底边比与边长比。"
+  },
+  "pitfalls": [
+    "等高条件没确认就用面积比=底边比",
+    "面积法列式后忘记化简"
+  ],
+  "links": "面积法连接相似、梅涅劳斯、几何不等式，是一种通用的\"翻译器\"。",
+  "check": [
+    "为什么说面积法是\"降维\"思想？",
+    "等高三角形的面积比为什么等于底边比？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:2181d7ebd35260aaaa4bb2ed0ddcdf57605e239b73c65db527a257f5f71bcef7"
+}

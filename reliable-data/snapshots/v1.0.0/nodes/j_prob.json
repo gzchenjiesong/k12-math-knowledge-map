@@ -1,0 +1,41 @@
+{
+  "nodeId": "j_prob",
+  "id": "node-j_prob",
+  "kind": "node",
+  "title": "概率初步",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "统计与概率",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "随机事件",
+    "古典概型",
+    "列表法与树状图"
+  ],
+  "prerequisites": [
+    "j_num"
+  ],
+  "relations": [
+    "s_count",
+    "s_prob"
+  ],
+  "signals": [
+    "求概率",
+    "列举等可能结果"
+  ],
+  "approaches": [
+    "不重不漏地列举",
+    "树状图处理分步"
+  ],
+  "description": "高中计数与概率的前置",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:20939b46d1978c2359ad309c4162175e4eb5bb884f78268753a9763efc5783f6"
+}

@@ -1,0 +1,44 @@
+{
+  "nodeId": "j_simi",
+  "id": "node-j_simi",
+  "kind": "node",
+  "title": "相似三角形",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "相似判定与性质",
+    "平行线分线段成比例",
+    "位似"
+  ],
+  "prerequisites": [
+    "j_tri",
+    "j_quadg"
+  ],
+  "relations": [
+    "o_geo_basic",
+    "j_circle",
+    "o_geo_area"
+  ],
+  "signals": [
+    "证明成比例",
+    "求线段比",
+    "相似构造"
+  ],
+  "approaches": [
+    "找对应角锁定相似",
+    "A字型/8字型基本图形"
+  ],
+  "description": "竞赛几何比例题的entrance",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:48beae36991f0b026796f35ad24a77bf4565e3bbfc7f0639ebc8087053f72d97"
+}

@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_solid",
+  "id": "example-s_solid",
+  "kind": "example",
+  "title": "立体几何初步 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "几何与向量",
+  "lectureId": "t_solid",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-s_solid-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "如何判断一条直线与一个平面垂直？",
+      "answer": "若这条直线与平面内两条相交直线都垂直，则线面垂直。核心是\"线面垂直要找平面内两条相交直线\"，只垂直一条不够。",
+      "conclusion": "直线垂直于平面内两条相交直线则垂直于该平面",
+      "reasoningAnchor": "用三视图和直观图帮助建立空间感",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:bb02e4220c3ba6233bbc8efae1a73f870e926ef634f9ad0dd77c85e0671d7ac8"
+}

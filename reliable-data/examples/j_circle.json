@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_circle",
+  "id": "example-j_circle",
+  "kind": "example",
+  "title": "圆 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_circle-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "AB 是直径，C 在圆上，求 ∠ACB",
+      "answer": "直径所对圆周角是直角，故 ∠ACB=90°。这是一个高频基本结论，竞赛中常作为中间步骤。",
+      "conclusion": "∠ACB=90°",
+      "reasoningAnchor": "同弧所对圆周角相等，直径所对圆周角是直角",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:7070bea67d92fc651ef095c32d68a9a5e504ce5847193220ef50bbd0df78ecb5"
+}

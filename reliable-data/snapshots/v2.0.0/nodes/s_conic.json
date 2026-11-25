@@ -1,0 +1,44 @@
+{
+  "nodeId": "s_conic",
+  "id": "node-s_conic",
+  "kind": "node",
+  "title": "圆锥曲线",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_analytic",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "椭圆",
+    "双曲线",
+    "抛物线",
+    "统一定义",
+    "直线与圆锥曲线"
+  ],
+  "prerequisites": [
+    "s_line"
+  ],
+  "relations": [
+    "s_deriv",
+    "o_geo_vec"
+  ],
+  "signals": [
+    "求离心率",
+    "弦长面积",
+    "定点定值"
+  ],
+  "approaches": [
+    "设而不求韦达定理",
+    "定义优先于方程"
+  ],
+  "description": "一试压轴与二试代数的交汇",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:a16198192b337d5e9f0f109c65121bde95825ec58408bfddfd367983ddfeb22a"
+}

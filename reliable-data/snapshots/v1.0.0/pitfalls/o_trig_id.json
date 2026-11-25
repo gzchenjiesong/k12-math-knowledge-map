@@ -1,0 +1,37 @@
+{
+  "nodeId": "o_trig_id",
+  "id": "pitfall-o_trig_id",
+  "kind": "pitfall",
+  "title": "三角恒等式与三角不等式 · 易错考点",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_trig",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-o_trig_id-01",
+      "mistake": "交叉相乘时忽略分母为零的情况",
+      "trigger": "题目落在「三角恒等式与三角不等式」考点，或出现「证明三角恒等式、求角范围」类识别信号时；参照本节点示范题「证明 (1+sin x)/cos x = cos x/(1−sin x)」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)；（2）对称结构考虑和差化积、积化和差；（3）三角不等式常结合基本不等式与有界性 |sin x|≤1；完成后回看结论是否满足题设条件。",
+      "selfCheck": "证明分式恒等式时交叉相乘合法的前提是什么？"
+    },
+    {
+      "id": "PF-o_trig_id-02",
+      "mistake": "万能代换后式子变得过于复杂",
+      "trigger": "题目落在「三角恒等式与三角不等式」考点，或出现「证明三角恒等式、求角范围」类识别信号时；参照本节点示范题「证明 (1+sin x)/cos x = cos x/(1−sin x)」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)；（2）对称结构考虑和差化积、积化和差；（3）三角不等式常结合基本不等式与有界性 |sin x|≤1；完成后回看结论是否满足题设条件。",
+      "selfCheck": "万能代换的价值在哪里？"
+    }
+  ],
+  "content_hash": "sha256:f64d70ad3c027604583e3d75b894a5110cdd1fcd0531a14fc032cfd5f1e6a9f9"
+}

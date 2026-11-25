@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_count",
+  "id": "example-s_count",
+  "kind": "example",
+  "title": "计数原理 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "计数与概率统计",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-s_count-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "从 5 人中选 3 人组成委员会，有多少种选法？",
+      "answer": "选人无顺序之分，用组合 C(5,3)=10。核心是\"先判断有没有顺序\"——有顺序用排列，无顺序用组合。",
+      "conclusion": "C(5,3)=10 种选法",
+      "reasoningAnchor": "加法原理：分类完成，各类相加",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:be09834cd0cb618b366ad9fd105e7ab2e2e3e55a90bfb981d3e711b6e6093d6e"
+}

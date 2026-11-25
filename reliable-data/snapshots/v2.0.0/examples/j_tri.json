@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_tri",
+  "id": "example-j_tri",
+  "kind": "example",
+  "title": "三角形与全等 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "图形与几何",
+  "lectureId": "t_geo",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_tri-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "证明等腰三角形底角相等",
+      "answer": "作顶角平分线，把原三角形分成两个小三角形，由 SAS（两腰相等、顶角被平分、公共边）判定全等，故两底角相等。核心是\"作辅助线构造全等\"。",
+      "conclusion": "等腰三角形两底角相等",
+      "reasoningAnchor": "证明角相等、边相等，先想能否凑全等",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:295912e6851349a2fc3b988828edbf38a577dabc5e85709185f1e69c1645c5b7"
+}

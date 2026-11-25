@@ -6,9 +6,10 @@
 
 ### CNF-001: 知识节点基线
 
-- 总数 **57**；三大来源：初中课标 `junior` = 21、高中课标 `senior` = 15、奥赛 `olympiad` = 21。
+- 总数 **57**（v1.0.0 基线，ID 冻结）；三大来源：初中课标 `junior` = 21、高中课标 `senior` = 15、奥赛 `olympiad` = 21。
+- v2.0.0 起新增小学层 `primary`（4—6 年级思维铺垫）= 10，总数 **67**；分层构成与配色见 `CNF-014`。
 - 板块（module）合计 12；主题（theme）合计 10；题型分组 10。
-- 来源标签色：初中蓝 / 高中绿 / 奥赛橙。
+- 来源标签色：初中蓝 / 高中绿 / 奥赛橙；小学层色值见 `CNF-014`。
 
 ### CNF-002: 掌握状态存储
 
@@ -93,3 +94,42 @@
 - 集合权限必须为**「仅创建者可读写」**：前端按 `_openid` 自动隔离，只读写自己的一条文档（存全量 `status/notes/disputed/updatedAt`，几 KB）。
 - 同步层 `utils/sync.js`：本地优先（`store.js` 仍是唯一状态源）、拉取只填补本地缺失、离线静默降级、变更防抖 1500ms 推送。
 - 自建服务器（`deploy/server/`）降级为备选方案，见 `DSN-011`；`utils/runtime-config.example.js` 保留为备选说明，不再默认启用。
+
+### CNF-013: 可靠数据源发布基准（v1.0.0）
+
+- 真源目录 `reliable-data/`；版本 `1.0.0`，生成日期 2026-11-24，可复现命令 `node tools/build-reliable-data.js`。
+- 四类卡各 57：知识点 57 / 教案 57 / 易错 57（114 条）/ 示范 57（57 题），合计 228 张；逐条 SHA-256 见 `reliable-data/manifest.json`。
+- 复核基准：228/228 `pending`、`checked=0`、`verified=0`、`disputed=0`；人工闸门 `VFY-005` 状态 `BLOCKED_NO_EVIDENCE`。
+- 证据基准：`reliable-data/evidence/SOURCES.json` 共 8 条锚点，其中 7 条 `MISSING_LOCAL_COPY`（本地 `resource_data/` 无原件）。
+- 差距基准：旧侧 `R2_CHECKED` 15 条含 1 条重复，去重为 14 个节点（43 pending）；与任务描述「15/42」的差异已记入 `reliable-data/index/GAP_MATRIX.md`。
+- 闸门基准：`node tests/check-data.js` → `RESULT=9/9`、`VERDICT=PASSED`；`node tests/check-reliable-extra.js` → `VERDICT=PASSED`、`UNCOVERED=0`。
+- 边界：两项机械 PASS 均不证明数学内容正确；正确性是「依据充分 + 人工签核」的结果。
+- 教材补充（v1.0.1 准备，未生效）：家长确认教材为《奥数教程》《奥数学习手册》《奥数能力测试》× 七/八/九年级共 9 本，为正版纸质书 + 官网可下正版 PDF、高中分册另有但本学期仅授初中。计划见 `reliable-data/evidence/TEXTBOOK_PLAN.md`，状态 `DRAFT_NOT_MERGED`；未并入前 `SOURCES.json`（8 锚点 / 7 缺失）与 228 卡不变，教材按权威顺序第 3 层「可交叉验证」处理，仅能支撑 `pending → checked`，`verified` 仍须人工签字。高中 15 + 奥赛 21 节点暂维持 pending。
+
+### CNF-014: 四段培养体系节点分层（v2.0.0 起生效）
+
+- 层级：`primary`（小学 4—6 年级思维铺垫，10 节点，`p_` 前缀）/ `junior`（初中课标，21）/ `senior`（高中课标，15）/ `olympiad`（奥赛四大板块，21）。合计 **67**，见 `DSN-012`。
+- `primary` 10 节点：`p_num` / `p_div` / `p_alg` / `p_ratio` / `p_app` / `p_geo` / `p_transform` / `p_count` / `p_pigeon` / `p_logic`。
+- 来源标签色：小学紫（新增，CSS 变量 `--p`）；初中蓝 / 高中绿 / 奥赛橙不变。
+- 跨学段衔接边只写入 `reliable-data/index/bridges.json`，不回写旧卡字段；v1.0.0 的 228 卡 ID、文件名、内容哈希冻结不变。
+- 政策口径：小学段称「思维铺垫」，不称竞赛、不挂钩升学（`SPEC-005`、`CNF-008`）。教材锚点未到位前，10 节点全部 `evidence=C`、`review=pending`、`source_ref` 如实标注无权威依据。
+
+### CNF-015: 内容修正 / 扩写发布基准（v2.1.0）
+
+- 触发：`reliable-data/index/CROSS_CHECK_V1.md` 四路径异源交叉校验；家长决定内容产出不受教材扫描页影响，该改即改。
+- 版本：`2.1.0`，生成日期 2026-11-25，四类卡各 67、共 268 张（条目数不变）；补丁源 `reliable-data/source/patches_v2_1_0.js`。
+- 修正：CC-F01 `s_conic` 补椭圆方程 x²/4+y²=1 与直线 y=x+1，结论弦长 8√2/5；CC-F02 `j_trans` 补 A(0,2)/B(4,3) 坐标，结论 √41、P(8/5,0)。两结论经新推理档位独立复验一致且条件充分（`tests/evidence/crosscheck/RECHECK_V21.md`）。
+- 扩写：9 节点（j_trans / s_conic / o_binom / o_comb_opt / o_graph / o_poly / s_complex / p_div / p_ratio）补进阶要点与方法，依据数学公共知识 / 标准定理（B/C 级），不冒充教材核对（SPEC-004）、仍 `review=pending`（SPEC-008）。
+- 版本契约：被修改节点卡 `version=2.1.0`，未修改节点保持原版本；相对 v2.0.0 恰好 36 卡（9×4）变化、越界 0，由 E8c 断言守护。v1.0.0 与 v2.0.0 历史快照均完整保留未覆盖（E8a）。
+- 明确声明：v2.1.0 有意修改了原 57 节点中的 7 个，故这些卡相对 v1.0.0 快照发生漂移；内容修正优先于「v1 卡永久冻结」的旧承诺，历史版本本身仍可完整追溯。
+- 闸门：`check-data` 9/9、`check-reliable-extra` 33/33（UNCOVERED=0）、`validate` 28/28、`verify_content` 22/22 全 PASSED；人工闸门 VFY-005/006 仍 BLOCKED，`verified=0`。
+
+### CNF-016: app 数据可复现发布基准（v2.1.0）
+
+- 决策：app 数据 6 个模块（`apps/miniprogram/data/nodes.js`、`apps/miniprogram/data/lectures.js`、`apps/miniprogram/data/cards.js`、`apps/miniprogram/data/themes.js`、`apps/miniprogram/data/topic_index.js`、`apps/miniprogram/data/content_meta.js`）由生成物改为**入库**（clone 即可运行），但仍是生成物、禁止手工编辑，改动一律重跑 `node tools/build-data.js --allow-pending`。
+- 组织层固化：真源四类卡不含主题/题型索引/三维卡/领域分组结构，这些组织层数据固化于 `reliable-data/source/app_organization.json`（入库），由生成器读取。v2.1.0 增补小学段 domain/lecture/theme shell（`t_primary`），使 67 节点在来源视图/授课视图/主题视图全覆盖；主题沿用 tone6，不改页面 CSS。
+- 字段映射：`ALL_NODES` 逐字段取自真源 nodes（title→n / points→p / prerequisites→pre / relations→rel / signals→sig / approaches→ap / description→d）；`LECTURES.points` 六段式逐字段取自真源 lessons；其余组织层取配置。
+- 覆盖基准：`ALL_NODES=67`、`LECTURES=11 专题 / 67 点`、`DOMAINS/THEMES` 均覆盖同一 67 节点集；题型 34 / 分组 10 不变（组织层）。
+- 一致性闸门：`tests/check-app-build.js` 18/18（app 数据逐字段等于真源 + 配置、四视图同节点集、头部版本/过渡警告）；删除后重建 6 模块字节级一致（可复现）。
+- 校验脚本去硬编码：`validate.js` 基线从 manifest.domainBaseline.total 与组织配置 lectureShells/topicItems 动态取值（对齐 check-data.js），避免 57/10 写死。
+- 状态：全部 268 卡仍 `pending`、`verified=0`，app 数据头部带未签核警告，仅为开发期过渡数据；人工闸门 VFY-005/006 不变。

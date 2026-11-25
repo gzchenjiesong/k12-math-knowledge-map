@@ -1,0 +1,40 @@
+{
+  "nodeId": "o_geo_trans",
+  "id": "lesson-o_geo_trans",
+  "kind": "lesson",
+  "title": "几何变换 · 授课教案",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "C",
+  "essence": "竞赛中的几何变换比初中更进一步：重点是旋转、位似、反演。变换的思想是\"不直接证明结论，而是把图形变成一个更容易处理的位置\"，很多难题通过一次恰当的变换迎刃而解。",
+  "method": [
+    "旋转：处理等腰、等边、正方形中的角度与长度",
+    "位似：处理相似图形的缩放与共线",
+    "反演：把圆变成直线，处理圆与圆的相切问题"
+  ],
+  "example": {
+    "q": "正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB",
+    "a": "把 △APB 绕 B 顺时针旋转 90°，使 A 落到 C，P 落到 P′。则 BP′=BP=2 且 ∠PBP′=90°，故 △PBP′ 是等腰直角三角形，PP′=2√2；又 P′C=PA=1。在 △PP′C 中，PP′²+P′C²=8+1=9=PC²，由勾股逆定理得 ∠PP′C=90°。于是 ∠BP′C=∠BP′P+∠PP′C=45°+90°=135°；旋转保持角度，故 ∠APB=∠CP′B=135°。核心是\"用旋转把分散的三条线段集中到一个三角形中，再用勾股逆定理判定直角\"。"
+  },
+  "pitfalls": [
+    "旋转中心和角度选错",
+    "变换后的对应关系没有理顺"
+  ],
+  "links": "几何变换连接复数法（o_geo_vec）、圆幂（o_geo_circle）、图形变换（j_trans）。",
+  "check": [
+    "为什么说变换是\"把图形搬到更好处理的位置\"？",
+    "旋转适合处理什么特征的题目？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:c24d148989c26971f53504a1590dedb5cfc180655134c13fafcf0b9c81cd2aa4"
+}

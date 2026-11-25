@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_geo_ineq",
+  "id": "example-o_geo_ineq",
+  "kind": "example",
+  "title": "几何不等式与等周 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_geo_ineq-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "周长固定的三角形，何时面积最大？",
+      "answer": "由等周不等式，等边三角形面积最大。这可以用海伦公式配合基本不等式证明。核心是\"几何问题代数化 + 不等式工具\"。",
+      "conclusion": "周长固定时等边三角形面积最大",
+      "reasoningAnchor": "三角形不等式：两边之和大于第三边，用于求范围",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:605dda5461b94a0982fd45e5090f48d57f9860778be72493e8a2265916c7f154"
+}

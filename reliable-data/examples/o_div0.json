@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_div0",
+  "id": "example-o_div0",
+  "kind": "example",
+  "title": "整除与同余初步 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_num",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_div0-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "求 2¹⁰⁰ 的末位数字",
+      "answer": "末位即 mod 10。2¹=2,2²=4,2³=8,2⁴=16≡6,2⁵≡12≡2，周期为 4。100 是 4 的倍数，故 2¹⁰⁰≡2⁴≡6，末位是 6。核心是\"同余下的周期规律\"。",
+      "conclusion": "2¹⁰⁰ 末位是 6",
+      "reasoningAnchor": "整除的基本性质与整除判别法（被 2、3、9、11 整除的规律）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:81e0368f182d4d60ab7008ec3be25b88abfa95b92728860192687af4cb659fd7"
+}

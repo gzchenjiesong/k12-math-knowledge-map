@@ -1,0 +1,44 @@
+{
+  "nodeId": "o_geo_circle",
+  "id": "node-o_geo_circle",
+  "kind": "node",
+  "title": "圆幂 · 根轴 · 四点共圆",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "相交弦/切割线(圆幂)",
+    "根轴",
+    "四点共圆判定",
+    "切线与极线初步"
+  ],
+  "prerequisites": [
+    "j_circle",
+    "s_line"
+  ],
+  "relations": [
+    "o_geo_ceva",
+    "o_geo_trans"
+  ],
+  "signals": [
+    "四点共圆",
+    "幂相等",
+    "共圆证明"
+  ],
+  "approaches": [
+    "对角互补或等角",
+    "圆幂转化乘积"
+  ],
+  "description": "竞赛圆题的高频核心",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:b3704989454f564e1b36c627346851ab81154b7d484f01d94e3f2b2b61caadcb"
+}

@@ -1,0 +1,40 @@
+{
+  "nodeId": "s_complex",
+  "id": "lesson-s_complex",
+  "kind": "lesson",
+  "title": "复数 · 授课教案",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "几何与向量",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "复数是把数系扩展到二维：z=a+bi。它的革命性在于，乘法运算天然包含了\"旋转与伸缩\"——乘一个复数等于做一次几何变换。这是\"代数运算几何化\"的第一次体验。",
+  "method": [
+    "复数相等：实部等于实部、虚部等于虚部",
+    "模 |z|=√(a²+b²) 表示到原点的距离",
+    "共轭复数 z̄=a−bi，z·z̄=|z|² 是常用技巧"
+  ],
+  "example": {
+    "q": "已知 (1+i)z=2，求 z",
+    "a": "z=2/(1+i)=2(1−i)/[(1+i)(1−i)]=2(1−i)/2=1−i。核心是\"分母实数化\"——乘共轭复数，与分母有理化是同一个思路。"
+  },
+  "pitfalls": [
+    "i²=−1 记错",
+    "复数不能比较大小（不像实数有序）"
+  ],
+  "links": "复数是复数进阶（o_complex）、复数法解几何（o_geo_vec）的基础。",
+  "check": [
+    "复数乘法为什么可以理解为旋转和伸缩？",
+    "为什么两个复数（非实数）不能比较大小？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:2ee99061ac71bb6dbb5b2389ef6fd59586cec77ada50214d9b3e6a88bc3e8f49"
+}

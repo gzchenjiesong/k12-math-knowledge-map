@@ -1,0 +1,21 @@
+OK   G1 nodes.js 导出齐全（缺 ）
+OK   G1 lectures.js 导出齐全（缺 ）
+OK   G1 cards.js 导出齐全（缺 ）
+OK   G1 themes.js 导出齐全（缺 ）
+OK   G1 topic_index.js 导出齐全（缺 ）
+OK   G1 content_meta.js 导出齐全（缺 ）
+OK   G2 ALL_NODES 67 节点逐字段等于真源（不符 0）
+OK   G2 SIGNAL_RULES 等于组织配置
+OK   G3 LECTURES 六段式 67 点等于真源 lessons（不符 0）
+OK   G3 LECTURES 专题外壳等于组织配置
+OK   G4 ALL_NODES / LECTURES / DOMAINS / THEMES 四视图覆盖同一 67 节点集
+OK   G4 THEMES 等于组织配置
+OK   G5 CARDS 等于组织配置
+OK   G5 题型索引 items/groups 等于组织配置
+OK   G5 TOPICS_BY_NODE 由 items 正确派生
+OK   G5 证据元数据等于组织配置
+OK   G6 六个模块头部含 GENERATED FILE 与版本 2.1.0
+OK   G6 过渡态警告头存在（pending=268）
+---
+RESULT=18/18 FAILED=0
+VERDICT=PASSED

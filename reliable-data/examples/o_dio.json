@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_dio",
+  "id": "example-o_dio",
+  "kind": "example",
+  "title": "不定方程初步 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "初中竞赛衔接（课标外 · 初中三年压缩完成）",
+  "lectureId": "t_num",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_dio-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "求 x+y=5 的正整数解",
+      "answer": "x 可取 1,2,3,4，对应 y=4,3,2,1，共 4 组。核心是\"用正整数的范围限制把无限变有限\"。",
+      "conclusion": "正整数解共 4 组",
+      "reasoningAnchor": "因式分解法：把方程化为两个因式乘积等于常数",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:97534465d810cec5d2ca4ded36abfbf0649455287201b778e8ff63708e55599f"
+}

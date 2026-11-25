@@ -165,9 +165,17 @@ const L = loadMod(path.join(MINI, 'data/lectures.js'));
 const T = loadMod(path.join(MINI, 'data/themes.js'));
 const I = loadMod(path.join(MINI, 'data/topic_index.js'));
 const C = loadMod(path.join(MINI, 'data/cards.js'));
+// 基线动态取值：v2.1.0 起真源 67 节点 / 11 专题，文件从 manifest 与组织配置读取（对齐 check-data.js 的做法）
+const truthManifestPath = path.join(ROOT, 'reliable-data/manifest.json');
+const BASE_N = fs.existsSync(truthManifestPath)
+  ? ((JSON.parse(fs.readFileSync(truthManifestPath, 'utf8')).domainBaseline || {}).total || 57) : 57;
+const orgPath = path.join(ROOT, 'reliable-data/source/app_organization.json');
+const BASE_SHELLS = fs.existsSync(orgPath)
+  ? JSON.parse(fs.readFileSync(orgPath, 'utf8')).lectureShells.length : 10;
 const ids = new Set(K.ALL_NODES.map(n => n.id));
 const lectured = new Set(); L.LECTURES.forEach(g => g.points.forEach(p => lectured.add(p.nodeId)));
-say(ids.size === 57 && lectured.size === 57 && [...lectured].every(i => ids.has(i)), 'DATA  57 节点授课全覆盖（' + lectured.size + '/' + ids.size + '）');
+say(ids.size === BASE_N && lectured.size === BASE_N && [...lectured].every(i => ids.has(i)),
+  'DATA  ' + BASE_N + ' 节点授课全覆盖（' + lectured.size + '/' + ids.size + '）');
 let badElt = [];
 L.LECTURES.forEach(g => g.points.forEach(p => {
   if (!p.essence || !p.example || !p.example.q || !p.example.a || !p.pitfalls || p.pitfalls.length < 1 || !p.check || p.check.length < 2) badElt.push(p.nodeId);
@@ -180,12 +188,16 @@ L.LECTURES.forEach(g => {
   const act = g.points.map(p => p.nodeId);
   if (exp.size !== act.length || act.some(a => !exp.has(a))) themeBad.push(g.id);
 });
-say(themeBad.length === 0 && L.LECTURES.length === 10, 'DATA  10 专题节点与主题映射一致');
+say(themeBad.length === 0 && L.LECTURES.length === BASE_SHELLS, 'DATA  ' + BASE_SHELLS + ' 专题节点与主题映射一致');
 let badRef = [];
 K.ALL_NODES.forEach(n => { [...(n.pre || []), ...(n.rel || [])].forEach(r => { if (!ids.has(r)) badRef.push(n.id + '->' + r); }); });
 I.TOPIC_ITEMS.forEach(it => (it.nodes || []).forEach(id => { if (!ids.has(id)) badRef.push(it.id + '->' + id); }));
 say(badRef.length === 0, 'DATA  ID 引用无悬空' + (badRef.length ? ' : ' + badRef.join(' | ') : ''));
-say(I.TOPIC_ITEMS.length === 34 && I.TOPIC_GROUPS.length === 10, 'DATA  题型 ' + I.TOPIC_ITEMS.length + ' / 分组 ' + I.TOPIC_GROUPS.length);
+const orgData = fs.existsSync(orgPath) ? JSON.parse(fs.readFileSync(orgPath, 'utf8')) : null;
+const BASE_TOPICS = orgData ? orgData.topicItems.length : 34;
+const BASE_GROUPS = orgData ? orgData.topicGroups.length : 10;
+say(I.TOPIC_ITEMS.length === BASE_TOPICS && I.TOPIC_GROUPS.length === BASE_GROUPS,
+  'DATA  题型 ' + I.TOPIC_ITEMS.length + ' / 分组 ' + I.TOPIC_GROUPS.length);
 // TOPICS_BY_NODE 结构（BUG-007）
 const tbnOk = Object.values(I.TOPICS_BY_NODE).every(v => Array.isArray(v) && v.every(x => typeof x === 'string') &&
   v.every(tid => I.TOPIC_ITEMS.some(it => it.id === tid)));

@@ -1,0 +1,43 @@
+{
+  "nodeId": "s_vec",
+  "id": "node-s_vec",
+  "kind": "node",
+  "title": "平面向量",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "几何与向量",
+  "lectureId": "t_solid",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "向量运算",
+    "数量积",
+    "坐标表示",
+    "共线垂直条件"
+  ],
+  "prerequisites": [
+    "s_trig"
+  ],
+  "relations": [
+    "s_vec3",
+    "o_geo_vec"
+  ],
+  "signals": [
+    "共线垂直",
+    "数量积求角",
+    "向量最值"
+  ],
+  "approaches": [
+    "基底法或坐标法",
+    "数量积处理垂直"
+  ],
+  "description": "解析与几何之间的万能工具",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:dcec06f3234c5837b31511ad44066f3a94a70061916d49e0e722a2bef0aa3913"
+}

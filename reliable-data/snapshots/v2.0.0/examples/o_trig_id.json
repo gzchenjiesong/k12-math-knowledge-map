@@ -1,0 +1,31 @@
+{
+  "nodeId": "o_trig_id",
+  "id": "example-o_trig_id",
+  "kind": "example",
+  "title": "三角恒等式与三角不等式 · 示范题与解答",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_trig",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-o_trig_id-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "证明 (1+sin x)/cos x = cos x/(1−sin x)",
+      "answer": "左边分子分母同乘 (1+sin x)？更直接：交叉相乘验证 (1+sin x)(1−sin x)=cos²x，即 1−sin²x=cos²x，成立。核心是\"证明分式恒等式可交叉相乘化为基本恒等式\"。",
+      "conclusion": "原式成立（cos x≠0、sin x≠1 时）",
+      "reasoningAnchor": "万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:9d89da7388add3e5724be756f9586e721e0fb2a54d5167ae1fd990c1334d043a"
+}

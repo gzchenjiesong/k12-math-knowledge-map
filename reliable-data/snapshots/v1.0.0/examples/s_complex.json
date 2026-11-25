@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_complex",
+  "id": "example-s_complex",
+  "kind": "example",
+  "title": "复数 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "几何与向量",
+  "lectureId": "t_trig",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-s_complex-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "已知 (1+i)z=2，求 z",
+      "answer": "z=2/(1+i)=2(1−i)/[(1+i)(1−i)]=2(1−i)/2=1−i。核心是\"分母实数化\"——乘共轭复数，与分母有理化是同一个思路。",
+      "conclusion": "z=1−i",
+      "reasoningAnchor": "复数相等：实部等于实部、虚部等于虚部",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:a605873307557b18d61f18ef751b94f4edaab1460972100cb0bf79f306e850eb"
+}

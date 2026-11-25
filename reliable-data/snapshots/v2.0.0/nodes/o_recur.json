@@ -1,0 +1,43 @@
+{
+  "nodeId": "o_recur",
+  "id": "node-o_recur",
+  "kind": "node",
+  "title": "递推数列与特征方程",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "代数",
+  "lectureId": "t_seq",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "一阶递推",
+    "二阶线性递推",
+    "特征方程法",
+    "不动点法"
+  ],
+  "prerequisites": [
+    "s_seq",
+    "o_induct"
+  ],
+  "relations": [
+    "o_poly",
+    "o_func_eq"
+  ],
+  "signals": [
+    "求通项",
+    "证明有界/单调"
+  ],
+  "approaches": [
+    "构造特征方程",
+    "不动点化简"
+  ],
+  "description": "数列竞赛题的主线",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:eba06fae3f9e411f53ea2da59acfcab2e9589bdedfcc08fc5a2a04a88f0e1ff7"
+}

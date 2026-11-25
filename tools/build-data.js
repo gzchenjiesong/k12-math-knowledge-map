@@ -1,16 +1,29 @@
 #!/usr/bin/env node
 /**
- * build-data.js —— 把可靠数据源（reliable-data/）编译为小程序可读的数据模块
+ * build-data.js —— 把唯一真源编译为小程序可读的 6 个数据模块
  *
- * 定位：下游应用层不校验内容正确性，只做格式转换与完整性检查。
- * 输入：reliable-data/{nodes,lessons,pitfalls,examples}/*.json + manifest.json
- * 输出：apps/miniprogram/data/*.js（生成物，不入库）
+ * 定位：下游应用层不校验内容正确性，只做格式转换与结构完整性检查。
+ * 输入：
+ *   reliable-data/manifest.json
+ *   reliable-data/{nodes,lessons,pitfalls,examples}/*.json   —— 内容四类卡（真源）
+ *   reliable-data/source/app_organization.json               —— 组织层配置（领域/专题/主题/三维卡/题型/证据元数据）
+ * 输出：apps/miniprogram/data/*.js（6 个页面消费模块，生成物；v2.1.0 起入库以可复现）
+ *   nodes.js / lectures.js / cards.js / themes.js / topic_index.js / content_meta.js
+ *
+ * 页面消费契约（字段名固定，不可改）：
+ *   nodes.js       → { DOMAINS, ALL_NODES, SIGNAL_RULES }
+ *   lectures.js    → { LECTURES }
+ *   cards.js       → { CARDS, cardCount }
+ *   themes.js      → { THEMES, THEME_OF, THEME_NAME, DOMAIN_SHORT }
+ *   topic_index.js → { TOPIC_GROUPS, TOPIC_ITEMS, TOPICS_BY_NODE }
+ *   content_meta.js→ { DOMAIN_SOURCE, R2_CHECKED, metaFor, EVIDENCE_LABEL, REVIEW_LABEL }
  *
  * 闸门：
- *   1) manifest 必须存在且 version 非空 —— 否则视为「真源未发布」，直接 BLOCKED。
- *   2) 四类卡片必须 57/57 齐全 —— 否则 BLOCKED，不产出半成品数据。
- *   3) 每条内容的 review 必须是 verified —— 否则 BLOCKED（不自证红线）。
- *      * 例外：allow-pending 参数可在开发期产出过渡数据，但输出文件头部会带显著警告。
+ *   1) manifest 存在且 version 非空 —— 否则真源未发布，BLOCKED。
+ *   2) 四类卡各 N 份（N 取 manifest.domainBaseline.total）—— 否则 BLOCKED。
+ *   3) 每条卡 review=verified —— 否则 BLOCKED；--allow-pending 可产出开发期过渡数据（头部带警告）。
+ *   4) 组织配置齐全（domain/lecture/theme shell、领域/模块映射）—— 否则 BLOCKED。
+ *   5) 结构一致性：67 节点 = ALL_NODES = LECTURES.points 并集；theme shell 与 lecture shell 一一对应且节点集相同。
  *
  * 运行：node tools/build-data.js [--allow-pending]
  * 输出：RESULT= / VERDICT=PASSED|BLOCKED|FAILED
@@ -24,64 +37,196 @@ const OUT = path.join(ROOT, 'apps/miniprogram/data');
 const allowPending = process.argv.includes('--allow-pending');
 
 function die(msg) { console.log('BLOCK ' + msg); console.log('VERDICT=BLOCKED'); process.exit(2); }
+function fail(msg) { console.log('FAIL ' + msg); console.log('VERDICT=FAILED'); process.exit(1); }
 
+// ---------- 1. manifest ----------
 const manifestPath = path.join(SRC, 'manifest.json');
-if (!fs.existsSync(manifestPath)) die('reliable-data/manifest.json 不存在：可靠数据源尚未发布，请先完成专项任务（PRM-010）。');
+if (!fs.existsSync(manifestPath)) die('reliable-data/manifest.json 不存在：真源未发布。');
 let manifest;
 try { manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8')); }
-catch (e) { console.log('FAIL manifest.json 解析失败：' + e.message); console.log('VERDICT=FAILED'); process.exit(1); }
+catch (e) { fail('manifest.json 解析失败：' + e.message); }
 if (!manifest.version) die('manifest.version 为空：真源未标记版本。');
+const BASE_N = (manifest.domainBaseline && manifest.domainBaseline.total) || manifest.counts.nodes || 57;
 
+// ---------- 2. 四类卡 ----------
 const DIRS = ['nodes', 'lessons', 'pitfalls', 'examples'];
-const files = {};
+const cards = {};
 const problems = [];
 for (const d of DIRS) {
   const dir = path.join(SRC, d);
   if (!fs.existsSync(dir)) { problems.push(d + '/ 目录缺失'); continue; }
-  files[d] = fs.readdirSync(dir).filter(f => f.endsWith('.json')).sort();
-  if (files[d].length !== 57) problems.push(d + '/ 卡片数 ' + files[d].length + ' ≠ 57');
-}
-if (problems.length) {
-  console.log(problems.map(p => 'BLOCK ' + p).join('\n'));
-  console.log('VERDICT=BLOCKED'); process.exit(2);
-}
-
-// 校验 review 状态（verified 需人工签核，AI 不得自证）
-let notVerified = 0;
-for (const d of DIRS) {
-  for (const f of files[d]) {
-    const obj = JSON.parse(fs.readFileSync(path.join(SRC, d, f), 'utf8'));
-    if (obj.review !== 'verified') notVerified++;
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.json')).sort();
+  if (files.length !== BASE_N) problems.push(d + '/ 卡片数 ' + files.length + ' ≠ ' + BASE_N);
+  cards[d] = {};
+  for (const f of files) {
+    const o = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+    cards[d][o.nodeId] = o;
   }
 }
+if (problems.length) { console.log(problems.map(p => 'BLOCK ' + p).join('\n')); console.log('VERDICT=BLOCKED'); process.exit(2); }
+
+// review 闸门
+let notVerified = 0;
+for (const d of DIRS) for (const id in cards[d]) if (cards[d][id].review !== 'verified') notVerified++;
 if (notVerified > 0 && !allowPending) {
-  die('有 ' + notVerified + ' 条内容未达 verified（人工签核未完成）。确需开发期过渡数据，请加 --allow-pending。');
+  die('有 ' + notVerified + ' 条内容未达 verified（人工签核未完成）。开发期过渡数据请加 --allow-pending。');
 }
 
-// 生成数据模块（真实映射由专项任务确定后补齐；此处提供可复现骨架）
-function wrap(name, data, warning) {
-  const head = '// GENERATED FILE — 由 tools/build-data.js 生成，请勿手工编辑。\n' +
-    '// source=reliable-data version=' + manifest.version + '\n' +
-    (warning ? '// ⚠ ' + warning + '\n' : '') +
-    'module.exports = ';
-  return head + JSON.stringify(data, null, 2) + ';\n';
+// ---------- 3. 组织层配置 ----------
+const orgPath = path.join(SRC, 'source/app_organization.json');
+if (!fs.existsSync(orgPath)) die('reliable-data/source/app_organization.json 缺失：组织层配置未固化。');
+const ORG = JSON.parse(fs.readFileSync(orgPath, 'utf8'));
+for (const k of ['domainModules', 'signalRules', 'lectureShells', 'themeShells', 'cards', 'topicGroups', 'topicItems', 'domainSource', 'r2Checked', 'evidenceLabel', 'reviewLabel']) {
+  if (ORG[k] == null) die('组织层配置缺少字段 ' + k);
 }
+
+// ---------- 4. 构造 ALL_NODES（字段映射：真源 → 页面契约） ----------
+const nodeIds = Object.keys(cards.nodes).sort();
+const ALL_NODES = nodeIds.map(id => {
+  const o = cards.nodes[id];
+  return {
+    id: o.nodeId,
+    n: o.title,
+    p: o.points || [],
+    pre: o.prerequisites || [],
+    rel: o.relations || [],
+    sig: o.signals || [],
+    ap: o.approaches || [],
+    d: o.description || '',
+    domain: o.domain,
+    domainName: o.domainName,
+    module: o.module
+  };
+});
+const nodeById = {};
+ALL_NODES.forEach(n => { nodeById[n.id] = n; });
+
+// ---------- 5. 构造 DOMAINS（外壳取配置，topic 取真源节点，按配置 nodeIds 顺序） ----------
+const DOMAINS = ORG.domainModules.map(d => ({
+  id: d.id, name: d.name, sub: d.sub, color: d.color,
+  modules: d.modules.map(m => ({
+    id: m.id, name: m.name,
+    topics: m.nodeIds.map(id => nodeById[id] || null).filter(Boolean)
+  }))
+}));
+
+// ---------- 6. 构造 LECTURES（六段式取自真源 lessons） ----------
+const LECTURES = ORG.lectureShells.map(s => ({
+  id: s.id, title: s.title, subtitle: s.subtitle, lead: s.lead, goal: s.goal, chain: s.chain,
+  points: s.nodeIds.map(id => {
+    const l = cards.lessons[id];
+    if (!l) return null;
+    return {
+      nodeId: id,
+      title: cards.nodes[id] ? cards.nodes[id].title : (l.title || id),
+      essence: l.essence,
+      method: l.method || [],
+      example: l.example || { q: '', a: '' },
+      pitfalls: l.pitfalls || [],
+      links: l.links || '',
+      check: l.check || []
+    };
+  }).filter(Boolean)
+}));
+
+// ---------- 7. 构造 themes / topic_index / cards / content_meta ----------
+const THEMES = ORG.themeShells.map(t => ({ id: t.id, name: t.name, sub: t.sub, tone: t.tone, nodeIds: t.nodeIds.slice() }));
+const THEME_OF = {}, THEME_NAME = {}, DOMAIN_SHORT = Object.assign({}, ORG.domainShort);
+THEMES.forEach(t => { THEME_NAME[t.id] = t.name; t.nodeIds.forEach(id => { THEME_OF[id] = t.id; }); });
+
+const TOPIC_ITEMS = JSON.parse(JSON.stringify(ORG.topicItems));
+const TOPIC_GROUPS = JSON.parse(JSON.stringify(ORG.topicGroups));
+const TOPICS_BY_NODE = {};
+TOPIC_ITEMS.forEach(it => (it.nodes || []).forEach(id => {
+  (TOPICS_BY_NODE[id] = TOPICS_BY_NODE[id] || []).push(it.id);
+}));
+
+const CARDS = JSON.parse(JSON.stringify(ORG.cards));
+
+// ---------- 8. 结构一致性闸门 ----------
+const structural = [];
+if (ALL_NODES.length !== BASE_N) structural.push('ALL_NODES ' + ALL_NODES.length + ' ≠ ' + BASE_N);
+const lectureIds = [];
+LECTURES.forEach(g => g.points.forEach(p => lectureIds.push(p.nodeId)));
+if (lectureIds.length !== BASE_N) structural.push('LECTURES.points ' + lectureIds.length + ' ≠ ' + BASE_N);
+const uniqLecture = Array.from(new Set(lectureIds));
+if (uniqLecture.length !== lectureIds.length) structural.push('LECTURES.points 有重复 nodeId');
+const missingLecture = nodeIds.filter(id => uniqLecture.indexOf(id) < 0);
+if (missingLecture.length) structural.push('LECTURES 缺少节点：' + missingLecture.join(','));
+const ghostLecture = uniqLecture.filter(id => !nodeById[id]);
+if (ghostLecture.length) structural.push('LECTURES 含真源外节点：' + ghostLecture.join(','));
+if (LECTURES.length !== THEMES.length) structural.push('LECTURES(' + LECTURES.length + ') 与 THEMES(' + THEMES.length + ') 专题数不一致');
+LECTURES.forEach(g => {
+  const th = THEMES.find(t => t.id === g.id);
+  if (!th) { structural.push('LECTURE ' + g.id + ' 无对应 THEME'); return; }
+  const a = g.points.map(p => p.nodeId).sort().join('|');
+  const b = th.nodeIds.slice().sort().join('|');
+  if (a !== b) structural.push('LECTURE/THEME ' + g.id + ' 节点集不一致');
+});
+const domainIds = [];
+DOMAINS.forEach(d => d.modules.forEach(m => m.topics.forEach(t => domainIds.push(t.id))));
+const uniqDomain = Array.from(new Set(domainIds));
+if (uniqDomain.length !== BASE_N) structural.push('DOMAINS 覆盖节点 ' + uniqDomain.length + ' ≠ ' + BASE_N);
+const missingDomain = nodeIds.filter(id => uniqDomain.indexOf(id) < 0);
+if (missingDomain.length) structural.push('DOMAINS 缺少节点：' + missingDomain.join(','));
+const dangling = [];
+ALL_NODES.forEach(n => [...(n.pre || []), ...(n.rel || [])].forEach(r => { if (!nodeById[r]) dangling.push(n.id + '->' + r); }));
+if (dangling.length) structural.push('前置/关联悬空：' + dangling.join(','));
+// 三维卡/题型索引引用的节点必须在真源内
+Object.keys(CARDS).forEach(id => { if (!nodeById[id]) structural.push('CARDS 含真源外节点：' + id); });
+TOPIC_ITEMS.forEach(it => (it.nodes || []).forEach(id => { if (!nodeById[id]) structural.push('TOPIC ' + it.id + ' 含真源外节点：' + id); }));
+if (structural.length) { console.log(structural.map(s => 'BLOCK ' + s).join('\n')); console.log('VERDICT=BLOCKED'); process.exit(2); }
+
+// ---------- 9. 写出 6 个模块 ----------
+function head(lines, warning) {
+  return [
+    '// GENERATED FILE — 由 tools/build-data.js 从唯一真源生成，请勿手工编辑。',
+    '// source=reliable-data version=' + manifest.version + ' generatedAt=' + manifest.generatedAt,
+    (warning ? '// ⚠ ' + warning + '\n' : '') + lines
+  ].join('\n') + '\n';
+}
+// 直接导出对象字面量的模块
+function wrap(lines, data, warning) {
+  return head(lines, warning) + 'module.exports = ' + JSON.stringify(data, null, 2) + ';\n';
+}
+// 先声明 const 再导出（用于需要附带函数定义的模块）
+function wrapConst(constLines, exportsLine, warning) {
+  return head('', warning) + constLines + '\n' + exportsLine;
+}
+const warning = allowPending && notVerified > 0
+  ? '过渡数据：' + notVerified + ' 条未人工签核（review=pending），禁止用于交付判断（SPEC-008）' : '';
 
 fs.mkdirSync(OUT, { recursive: true });
-const nodes = files.nodes.map(f => JSON.parse(fs.readFileSync(path.join(SRC, 'nodes', f), 'utf8')));
-const lessons = files.lessons.map(f => JSON.parse(fs.readFileSync(path.join(SRC, 'lessons', f), 'utf8')));
-const pitfalls = files.pitfalls.map(f => JSON.parse(fs.readFileSync(path.join(SRC, 'pitfalls', f), 'utf8')));
-const examples = files.examples.map(f => JSON.parse(fs.readFileSync(path.join(SRC, 'examples', f), 'utf8')));
-const warning = allowPending && notVerified > 0 ? '过渡数据：' + notVerified + ' 条未人工签核，禁止用于交付判断' : '';
+fs.writeFileSync(path.join(OUT, 'nodes.js'), wrap('// 导出 DOMAINS / ALL_NODES / SIGNAL_RULES，由真源编译。',
+  { DOMAINS, ALL_NODES, SIGNAL_RULES: ORG.signalRules }, warning));
+fs.writeFileSync(path.join(OUT, 'lectures.js'), wrap('// 导出 LECTURES：专题外壳取组织配置，六段式内容取真源 lessons。',
+  { LECTURES }, warning));
+fs.writeFileSync(path.join(OUT, 'cards.js'), wrapConst(
+  'const CARDS = ' + JSON.stringify(CARDS, null, 2) + ';\n\n' +
+  'function cardCount(nodeId) {\n  const c = CARDS[nodeId];\n  if (!c) return 0;\n  return (c.concept ? 1 : 0) + (c.explain ? c.explain.length : 0) + (c.examples ? c.examples.length : 0);\n}\n',
+  'module.exports = { CARDS: CARDS, cardCount: cardCount };\n', warning));
+fs.writeFileSync(path.join(OUT, 'themes.js'), wrap('// 导出 THEMES / THEME_OF / THEME_NAME / DOMAIN_SHORT：主题外壳取组织配置。',
+  { THEMES, THEME_OF, THEME_NAME, DOMAIN_SHORT }, warning));
+fs.writeFileSync(path.join(OUT, 'topic_index.js'), wrap('// 导出 TOPIC_ITEMS / TOPIC_GROUPS / TOPICS_BY_NODE：题型索引取组织配置。',
+  { TOPIC_GROUPS, TOPIC_ITEMS, TOPICS_BY_NODE }, warning));
+fs.writeFileSync(path.join(OUT, 'content_meta.js'), wrapConst(
+  '// 导出 DOMAIN_SOURCE / R2_CHECKED / EVIDENCE_LABEL / REVIEW_LABEL / metaFor：证据元数据取组织配置。\n' +
+  'const DOMAIN_SOURCE = ' + JSON.stringify(ORG.domainSource, null, 2) + ';\n' +
+  'const R2_CHECKED = ' + JSON.stringify(ORG.r2Checked, null, 2) + ';\n' +
+  'const EVIDENCE_LABEL = ' + JSON.stringify(ORG.evidenceLabel, null, 2) + ';\n' +
+  'const REVIEW_LABEL = ' + JSON.stringify(ORG.reviewLabel, null, 2) + ';\n\n' +
+  'function metaFor(nodeId, domain) {\n  const base = DOMAIN_SOURCE[domain] || DOMAIN_SOURCE.junior;\n  const review = R2_CHECKED.indexOf(nodeId) >= 0 ? \'checked\' : \'pending\';\n  return {\n    source: base.source, evidence: base.evidence, review: review, note: base.note,\n    wording: \'C\', wordingNote: \'讲解措辞与自编例题为原创，属方法论建议，需人工判断\'\n  };\n}\n',
+  'module.exports = { DOMAIN_SOURCE: DOMAIN_SOURCE, R2_CHECKED: R2_CHECKED, metaFor: metaFor, EVIDENCE_LABEL: EVIDENCE_LABEL, REVIEW_LABEL: REVIEW_LABEL };\n', warning));
 
-fs.writeFileSync(path.join(OUT, 'nodes.js'), wrap('nodes', nodes, warning));
-fs.writeFileSync(path.join(OUT, 'lectures.js'), wrap('lectures', lessons, warning));
-fs.writeFileSync(path.join(OUT, 'pitfalls.js'), wrap('pitfalls', pitfalls, warning));
-fs.writeFileSync(path.join(OUT, 'examples.js'), wrap('examples', examples, warning));
 fs.writeFileSync(path.join(OUT, 'manifest.generated.json'), JSON.stringify({
-  sourceVersion: manifest.version, builtAt: new Date().toISOString(), notVerified, allowPending
-}, null, 2));
+  sourceVersion: manifest.version,
+  generatedAt: manifest.generatedAt,
+  builtFrom: 'reliable-data + source/app_organization.json',
+  baseline: BASE_N,
+  notVerified, allowPending,
+  modules: ['nodes.js', 'lectures.js', 'cards.js', 'themes.js', 'topic_index.js', 'content_meta.js']
+}, null, 2) + '\n');
 
-console.log('生成：nodes.js / lectures.js / pitfalls.js / examples.js（各 57 条）');
-console.log('RESULT=4/4 FAILED=0');
+console.log('生成：nodes/lectures/cards/themes/topic_index/content_meta（各模块覆盖 ' + BASE_N + ' 节点）');
+console.log('RESULT=6/6 FAILED=0');
 console.log('VERDICT=PASSED' + (warning ? '（过渡数据，含未签核条目）' : ''));

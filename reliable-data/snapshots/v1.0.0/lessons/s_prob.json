@@ -1,0 +1,40 @@
+{
+  "nodeId": "s_prob",
+  "id": "lesson-s_prob",
+  "kind": "lesson",
+  "title": "概率与统计 · 授课教案",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "计数与概率统计",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "basisEvidence": "B",
+  "essence": "高中概率引入随机变量与分布，核心是期望——长期平均意义下的结果。期望的线性性质 E(X+Y)=E(X)+E(Y) 极其强大，因为它不需要 X、Y 独立。",
+  "method": [
+    "分布列描述随机变量取各值的概率",
+    "期望 E(X)=Σxᵢpᵢ，方差反映波动",
+    "期望的线性性不要求独立"
+  ],
+  "example": {
+    "q": "掷一枚公平硬币，正面得 1 分反面得 0 分，求期望",
+    "a": "E=1×(1/2)+0×(1/2)=1/2。核心是\"期望=各取值×对应概率求和\"。"
+  },
+  "pitfalls": [
+    "把期望当成\"一次试验一定得到的值\"",
+    "误用期望线性性时强加独立条件"
+  ],
+  "links": "概率统计连接计数原理、组合恒等式。",
+  "check": [
+    "期望的直观含义是什么？",
+    "为什么期望的线性性不需要独立性？"
+  ],
+  "structure": "RUL-002 六段式：知识本质 / 核心方法与思维 / 讲解型例题 / 易错点 / 知识连接 / 概念自检",
+  "content_hash": "sha256:0a5727ca0ced85a99932f96e9d605ef858fcce4e7b0f148a2b961b66c4f83330"
+}

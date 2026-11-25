@@ -1,0 +1,44 @@
+{
+  "nodeId": "j_frac",
+  "id": "node-j_frac",
+  "kind": "node",
+  "title": "分式与二次根式",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "数与代数",
+  "lectureId": "t_alg",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "分式性质与约分",
+    "分式四则运算",
+    "分式方程",
+    "二次根式化简",
+    "分母有理化"
+  ],
+  "prerequisites": [
+    "j_alg"
+  ],
+  "relations": [
+    "j_eq",
+    "j_fun"
+  ],
+  "signals": [
+    "分式化简",
+    "根式化简",
+    "增根"
+  ],
+  "approaches": [
+    "通分与因式约分",
+    "注意定义域与增根检验"
+  ],
+  "description": "代数运算的熟练度关卡",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:b9a4e9abe9dd93cd35312f2a0637db78bf8192b8100aa5539143284402e8a015"
+}

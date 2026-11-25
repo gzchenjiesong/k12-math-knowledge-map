@@ -1,0 +1,44 @@
+{
+  "nodeId": "o_geo_area",
+  "id": "node-o_geo_area",
+  "kind": "node",
+  "title": "面积法与等积变换",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "面积比与线段比",
+    "共边定理",
+    "等积变形",
+    "面积坐标"
+  ],
+  "prerequisites": [
+    "j_simi",
+    "o_geo_basic"
+  ],
+  "relations": [
+    "o_geo_ceva",
+    "o_geo_circle"
+  ],
+  "signals": [
+    "求比值",
+    "证明共线",
+    "面积关系"
+  ],
+  "approaches": [
+    "同高比=底比",
+    "面积比连乘"
+  ],
+  "description": "把几何问题代数化的第一手段",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:a6820e836485d4a7e09ecaca95f6d401cc181e7248871342a57bbc7b8f7daf2f"
+}

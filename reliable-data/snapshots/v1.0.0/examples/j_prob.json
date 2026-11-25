@@ -1,0 +1,31 @@
+{
+  "nodeId": "j_prob",
+  "id": "example-j_prob",
+  "kind": "example",
+  "title": "概率初步 · 示范题与解答",
+  "domain": "junior",
+  "domainName": "① 初中数学课标",
+  "module": "统计与概率",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-j_prob-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "掷两枚骰子，点数和为 7 的概率",
+      "answer": "总结果 6×6=36 种，和为 7 的有 (1,6)(2,5)(3,4)(4,3)(5,2)(6,1) 共 6 种，P=6/36=1/6。核心是\"完整枚举且每种等可能\"。",
+      "conclusion": "P=1/6",
+      "reasoningAnchor": "古典概型：P=有利结果/总结果（等可能前提）",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:a65387398a08df3cc9a9662bb7d6dbf9169ce23c2f3fd4d36b77651b605b2033"
+}

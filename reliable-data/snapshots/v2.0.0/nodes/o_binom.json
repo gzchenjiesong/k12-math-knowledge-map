@@ -1,0 +1,42 @@
+{
+  "nodeId": "o_binom",
+  "id": "node-o_binom",
+  "kind": "node",
+  "title": "组合恒等式与进阶计数",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "组合数学",
+  "lectureId": "t_comb",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "组合恒等式",
+    "圆排列",
+    "可重复组合",
+    "二项式系数性质"
+  ],
+  "prerequisites": [
+    "s_count"
+  ],
+  "relations": [
+    "o_comb_adv",
+    "o_poly"
+  ],
+  "signals": [
+    "证明恒等式",
+    "复杂计数"
+  ],
+  "approaches": [
+    "组合意义解释",
+    "赋值与递推"
+  ],
+  "description": "组合代数化的入口",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:2c9c087983aad18b1537d3d5ec741366f3a794fdbc00539084d470caa2483063"
+}

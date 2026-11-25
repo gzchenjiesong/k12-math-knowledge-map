@@ -1,0 +1,40 @@
+{
+  "nodeId": "s_prob",
+  "id": "node-s_prob",
+  "kind": "node",
+  "title": "概率与统计",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "计数与概率统计",
+  "lectureId": "t_comb",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）",
+  "evidence": "A",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "points": [
+    "条件概率",
+    "分布列与期望",
+    "正态分布",
+    "回归与独立性检验"
+  ],
+  "prerequisites": [
+    "j_prob",
+    "s_count"
+  ],
+  "relations": [],
+  "signals": [
+    "求分布列期望",
+    "统计推断"
+  ],
+  "approaches": [
+    "明确随机变量",
+    "公式与图表结合"
+  ],
+  "description": "高考概率统计主干",
+  "note": "来源归属/前置/关联/识别信号来自 nodes.js；范围锚定官方依据（A），识别信号为原创（C）。",
+  "content_hash": "sha256:c20f839bd503214638d688ee3c8f603670de14e62bb3e48c409d84ffd85ae1c0"
+}

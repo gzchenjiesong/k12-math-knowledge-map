@@ -1,0 +1,6 @@
+生成 reliable-data v2.1.0：四类各 67 卡，共 268 张
+v2.1.0 补丁修改节点 9 个：j_trans,o_binom,o_comb_opt,o_graph,o_poly,p_div,p_ratio,s_complex,s_conic
+易错条目 136，示范题 67
+review 统计 {"pending":268,"checked":0,"verified":0,"disputed":0}
+RESULT=4/4 FAILED=0
+VERDICT=PASSED（仅表示编制完成；内容正确性未获人工签核）

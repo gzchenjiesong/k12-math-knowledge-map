@@ -1,0 +1,37 @@
+{
+  "nodeId": "o_geo_trans",
+  "id": "pitfall-o_geo_trans",
+  "kind": "pitfall",
+  "title": "几何变换 · 易错考点",
+  "domain": "olympiad",
+  "domainName": "③ 奥赛四大板块",
+  "module": "平面几何",
+  "lectureId": "t_geo",
+  "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "checked(R2 机械复算，AI 执行，非人工签核)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "PF-o_geo_trans-01",
+      "mistake": "旋转中心和角度选错",
+      "trigger": "题目落在「几何变换」考点，或出现「最短路径、旋转构造、反演化简」类识别信号时；参照本节点示范题「正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）旋转：处理等腰、等边、正方形中的角度与长度；（2）位似：处理相似图形的缩放与共线；（3）反演：把圆变成直线，处理圆与圆的相切问题；完成后回看结论是否满足题设条件。",
+      "selfCheck": "为什么说变换是\"把图形搬到更好处理的位置\"？"
+    },
+    {
+      "id": "PF-o_geo_trans-02",
+      "mistake": "变换后的对应关系没有理顺",
+      "trigger": "题目落在「几何变换」考点，或出现「最短路径、旋转构造、反演化简」类识别信号时；参照本节点示范题「正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB」。",
+      "rootCause": "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+      "correction": "按核心方法逐步处理：（1）旋转：处理等腰、等边、正方形中的角度与长度；（2）位似：处理相似图形的缩放与共线；（3）反演：把圆变成直线，处理圆与圆的相切问题；完成后回看结论是否满足题设条件。",
+      "selfCheck": "旋转适合处理什么特征的题目？"
+    }
+  ],
+  "content_hash": "sha256:88fd105b06235eae965c2c81eabae1e8705134e122ab98cc15b5bc0220a1da42"
+}

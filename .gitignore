@@ -41,13 +41,19 @@ deploy/server/config.json
 apps/miniprogram/project.private.config.json
 
 # ============================================================
-# 生成物 —— 由 tools/ 脚本产出，不入库
+# 生成物
+# ------------------------------------------------------------
+# v2.1.0 起：apps/miniprogram/data/*.js 虽为 tools/build-data.js 生成物，
+# 但作为「可复现 app 数据」入库，clone 后无需本地真源即可运行小程序。
+# 真源仍是 reliable-data/；这些文件禁止手工编辑，改动一律重跑生成器。
 # ============================================================
-apps/miniprogram/data/*.js
 apps/miniprogram/miniprogram_npm/
 views/*.html
 !views/.gitkeep
+# bridges.json 是跨学段衔接的唯一声明（真源事实），必须入库；
+# 其余 index/*.json 若为临时产物仍忽略。
 reliable-data/index/*.json
+!reliable-data/index/bridges.json
 !reliable-data/index/.gitkeep
 
 # ============================================================

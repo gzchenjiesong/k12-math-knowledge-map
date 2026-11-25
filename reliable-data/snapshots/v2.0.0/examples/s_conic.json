@@ -1,0 +1,31 @@
+{
+  "nodeId": "s_conic",
+  "id": "example-s_conic",
+  "kind": "example",
+  "title": "圆锥曲线 · 示范题与解答",
+  "domain": "senior",
+  "domainName": "② 高中数学课标",
+  "module": "解析几何与代数",
+  "lectureId": "t_analytic",
+  "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+  "evidence": "C",
+  "review": "pending",
+  "reviewer": null,
+  "date": null,
+  "priorReview": "pending(R2)",
+  "reviewNote": "checked 仅表示旧侧 R2 机械复算通过；本真源未获人工签核，不得视为 verified（SPEC-008）",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "EX-s_conic-01",
+      "category": "原创示范题（题型源自数学公共知识；未锚定官方真题原文）",
+      "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+      "question": "直线 y=kx+1 与椭圆交于两点，求弦长",
+      "answer": "联立得关于 x 的二次方程，用韦达定理得 x₁+x₂、x₁x₂，弦长=√(1+k²)·|x₁−x₂|。核心是\"不解出交点，直接用韦达定理算\"——这是解析几何的标志性策略。",
+      "conclusion": "弦长=√(1+k²)·|x₁−x₂|",
+      "reasoningAnchor": "牢记三种曲线的定义与标准方程、离心率",
+      "theoremConditions": []
+    }
+  ],
+  "content_hash": "sha256:81c71d5c3034a08b7235591288e37d0a03baadc29473b5f062346aace6293bbe"
+}
