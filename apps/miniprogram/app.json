@@ -9,7 +9,7 @@
     "pages/node/node"
   ],
   "window": {
-    "navigationBarTitleText": "奥数知识卡片",
+    "navigationBarTitleText": "数海拾阶",
     "navigationBarBackgroundColor": "#1f2d3d",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f5f7fa",
