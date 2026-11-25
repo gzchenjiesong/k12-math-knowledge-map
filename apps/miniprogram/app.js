@@ -4,7 +4,7 @@ var config = require('./utils/cloud-config');
 
 App({
   globalData: {
-    appName: '奥数知识卡片'
+    appName: '数学阶梯'
   },
 
   onLaunch: function () {

@@ -1,7 +1,7 @@
 <view class="page">
   <view class="head card">
     <view class="head-top">
-      <text class="h1">奥数知识图谱</text>
+      <text class="h1">数学阶梯 · 知识图谱</text>
       <text class="pct">{{stat.percent}}%</text>
     </view>
     <text class="sub">{{view === 'source' ? domains.length + ' 大来源' : themes.length + ' 大主题'}} · {{stat.total}} 个知识点 · 两视图共用同一份进度</text>
