@@ -30,7 +30,7 @@ resource_data/           reliable-data/            apps/miniprogram/   views/
 | `apps/miniprogram/` | 微信小程序工程（授课 / 图谱 / 题型 / 查漏） | 是；`data/*.js` v2.1.0 起入库（生成物，禁手改） |
 | `tools/` | 生成脚本：`build-data.js`（真源→小程序数据）、`render-html.js`（真源→HTML 视图） | 是 |
 | `tests/` | 校验脚本 `validate.js` / `verify_content.js` / `check-data.js` 与证据 `evidence/` | 是 |
-| `deliverables/` | 静态交付物：交互知识图谱、A3 挂图、书单（手工维护） | 是 |
+| `deliverables/` | 静态交付物：A3 挂图两版（按学段 / 按主题，由 `tools/build-poster.js` 从 app 数据生成，不手工维护）、书单等 | 是 |
 | `views/` | 由真源渲染的 HTML 人读视图（供人工复核） | 否 |
 | `deploy/` | 部署脚本与配置样例；真实私有信息放 `deploy/config/` | 样例是，私有否 |
 | `deploy/server/` | 自建进度服务（**备选方案**，零依赖 Node，按用户隔离存几 KB 进度） | 代码是，`config.json`/`data/` 否 |
@@ -46,6 +46,7 @@ node tools/build-reliable-data.js   # 从只读素材重新编制真源（可复
 node tests/check-data.js            # 发布资格闸门（结构，9/9）
 node tests/check-reliable-extra.js  # 扩展检查（哈希 / 覆盖 / 定理条件 / 异源复算，33/33）
 node tools/render-html.js           # 生成 views/*.html 供人读复核
+node tools/build-poster.js          # 渲染两版 A3 挂图（按学段 / 按主题，从 app 数据模块生成，可复现）
 node tools/build-data.js --allow-pending  # 编译 7 个 app 数据模块（含 bridges.js 衔接边）；无 --allow-pending 会因未签核而阻塞
 node tests/check-app-build.js       # 生成物一致性（app 数据 ↔ 真源 ↔ 组织配置，24/24）
 ```

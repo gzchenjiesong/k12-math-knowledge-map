@@ -117,10 +117,12 @@
 
 | R16 | 2026-11-26 | 跨学段衔接关系可视化：新增第 7 个生成模块 `bridges.js`（从 bridges.json 编译 12 条边 + 富化字段 + 反向索引 + 统计）；图谱页主题视图新增「跨学段衔接链」折叠卡片与节点 `⇢N` 徽标，节点可跳详情；更正 DSN-007 记录滞后（小程序按主题视图早已实现，仅 A3 挂图未拍板）；check-app-build G1/G6 扩到 7 模块 + 新增 G7 四项，18/18→24/24 | CONFIG / DESIGNS（DSN-007 更正）/ PROMPT（PRM-007）/ TESTS（TST-019）/ INDEX / README / tools/build-data.js / tests/{check-app-build,validate}.js / apps/miniprogram/pages/graph/* / apps/miniprogram/data/bridges.js / tests/evidence/BRIDGES_V21.md | 衔接边为组织层声明，不改写真源卡（零破坏）；机械 PASS 不代表内容正确，仍 pending=268、verified=0 |
 
+| R17 | 2026-11-26 | A3 挂图刷新到 v2.1.0（改生成式，杜绝手工过时）：新增 `tools/build-poster.js` 从 app 数据模块渲染两版挂图——按学段版（⓪小学10/①初中21/②高中15/③奥赛21=67 节点）、按主题版（DSN-007 提案落地，11 主题网格 + 主题内学段深化链）；两版含 12 条衔接链与 15 类题目信号速查，保留 A3 横向打印样式；删除重建字节一致；README 交付物口径改「生成式」 | README / INDEX / tools/build-poster.js / deliverables/olympiad-poster-A3.html / deliverables/olympiad-poster-themes-A3.html / tests/evidence/POSTER_V21.md | 挂图为真源下游视图，仍 pending=268、verified=0，机械 PASS 不代表内容正确；未做纸质打样 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。
 - 现行口径判定顺序：① `PRM-001` 上下文卡「当前口径」区 → ② `RULES.md` 末次修订 → ③ `IDX-005` 占用说明。
-- `DSN-010`（内容保真三层机制）为 R2 确认稿，已生效；`DSN-007` 小程序侧「按主题视图」已于 v2.1.0 实现（仅 A3 挂图主题版未拍板），`DSN-008`~`009` 仍为未实现提案。
+- `DSN-010`（内容保真三层机制）为 R2 确认稿，已生效；`DSN-007` 小程序侧「按主题视图」已于 v2.1.0 实现（A3 挂图主题版已生成（见 R17）），`DSN-008`~`009` 仍为未实现提案。
 - 提案转确认稿：决策者确认后**另取新号、另起确认稿**，提案原文转历史存档，不覆盖、不删编号。
 - 本项目设计主线是一次完整的定位演进：图谱工具 → 主题视图 → 题型索引 → **授课优先**（当前生效，见 `DSN-004`）；前几步不是被推翻，而是降为辅助层。
