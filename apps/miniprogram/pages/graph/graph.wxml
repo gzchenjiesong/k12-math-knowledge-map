@@ -4,7 +4,7 @@
       <text class="h1">数学阶梯 · 知识图谱</text>
       <text class="pct">{{stat.percent}}%</text>
     </view>
-    <text class="sub">{{view === 'source' ? domains.length + ' 大来源' : themes.length + ' 大主题'}} · {{stat.total}} 个知识点 · 两视图共用同一份进度</text>
+    <text class="sub">{{view === 'source' ? domains.length + ' 大学段' : themes.length + ' 大主题'}} · {{stat.total}} 个知识点 · 两视图共用同一份进度</text>
     <view class="bar"><view class="bar-in" style="width:{{stat.percent}}%"></view></view>
     <view class="stat-row">
       <view class="stat-item"><text class="stat-num green">{{stat.done}}</text><text class="stat-label">已掌握</text></view>

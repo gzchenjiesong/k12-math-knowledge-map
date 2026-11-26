@@ -10,6 +10,7 @@
 
 .group { margin-bottom: 22rpx; }
 .group-head { display: flex; align-items: center; justify-content: space-between; padding: 18rpx 28rpx; border-radius: 14rpx 14rpx 0 0; font-size: 27rpx; font-weight: 600; color: #fff; }
+.group-head.primary { background: #6f52c9; }
 .group-head.junior { background: #2f7de0; }
 .group-head.senior { background: #19967a; }
 .group-head.olympiad { background: #c8671c; }

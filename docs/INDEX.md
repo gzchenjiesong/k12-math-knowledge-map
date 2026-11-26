@@ -127,6 +127,8 @@
 
 | R21 | 2026-11-26 | M1 投屏演示模式（家长决策：手机+电视小米、走系统屏幕镜像、手机当遥控器、专注电视显示）：新增第 8 页 `pages/present`，全屏深色高对比大字幻灯片——每个知识点拆本质/方法/题目/解析/易错自检页（例题题干与解析分页先思后答）、底部大按钮+左右滑动翻页+目录跳转、`navigationStyle:custom`+状态栏避让；入口在 lesson 导语卡「▣ 投屏演示」。只读 lectures.js 视图重组，357 张幻灯片/0 异常节点，五链全绿（24/24 app-build 不变）。IDE 为验证 iPad 自动生成的多平台文件（app.miniapp.json/project.miniapp.json/i18n/base.json/project.config.json 改 multiPlatform，base.json 的「寇德计算器」为审批通过前的当前正式名，审批通过后须改「数学阶梯」）保留工作区但不入库 | app.json / pages/present/{js,wxml,wxss,json} / pages/lesson/{js,wxml,wxss} / docs/RESEARCH-SCREEN.md / tests/evidence/PRESENT_M1.md / INDEX | R20/R21 原记「CLI 未接入无法截图」有误：内置 CLI v0.3.11 实含 simulator_screenshot / simulator_open_page / automation_viewport_action，已实测截图成功（CURRENT_STATE.jpg 手机竖屏）；但 CLI 无切换设备/横屏参数，横屏需家长在工具 UI 选 iPad 设备后我截图。待家长按 MIRROR_TEST_GUIDE 实测；1.0.0 审核中，投屏页需真机调试或重传开发版；内容仍 pending=268、verified=0 |
 
+| R22 | 2026-11-26 | iPad Pro 13 模拟器 CLI 截图实测（首轮真机级视觉验证，非纯静态）：家长在工具切 iPad Pro 13（1032×1376 竖屏，触发 768px 断点），CLI v0.3.11 `simulator_screenshot` 逐页取证 8 页。修 3 bug：①投屏页 `.canvas` 缺 `min-height:0` 致底部翻页栏被挤出屏幕（flex 子项按内容撑开）+ `.stage` 缺 `box-sizing:border-box`；②投屏封面标题 92→60rpx、正文 line-clamp 5 行（原拆行/溢出、一屏看不全）；③查漏页小学分组 id=primary 无背景色致白底白字（补紫色，graph 页同类问题当时漏改 gaps）。附带图谱副标题「4 大来源」→「4 大学段」。修复后逐页截图复验 PASS。CLI 截图能力已实测可用（更正此前"CLI 未接入"误记） | pages/present/present.wxss / pages/gaps/gaps.wxss / pages/graph/graph.wxml / tests/evidence/IPAD13_PREVIEW.md / tests/evidence/simulator/IPAD13_*.png / INDEX | 仅竖屏实测，横屏待家长旋转设备后验证；内容为 pending=268/verified=0 未变 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。
