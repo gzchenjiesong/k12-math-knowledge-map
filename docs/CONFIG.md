@@ -178,3 +178,12 @@
 - 实现口径：`pages/present` 用固定 1280×720 内部坐标系 + `transform:scale(cw/1280)` 等比适配，运行时取最大 16:9 矩形居中 letterbox，源设备比例不影响画布。7 类 PPT 版式（cover/essence/method/question/answer/recap/end），例题保持**先思后答两页**。遥控器 4 按钮悬浮画布外、翻页后 3.5s 自动淡出、触摸唤醒。
 - 实测：iPad 13" 模拟器 1032×1376 下画布 1032×581（比例 1.776≈16/9），52 页，各版式截图取证 6 张。五链全绿。
 - 边界：系统镜像下唤醒态控制条仍会出现在电视画面（3.5s 后淡出），若要完全无控制条须升级双端方案，本轮不做；真机投屏效果待家长按 `MIRROR_TEST_GUIDE.md` 实测。
+
+### CNF-021: 自定义 tabBar 修复 iPad 底栏字号（2026-11-26）
+
+- 问题：微信原生 tabBar 字号固定约 10px、不随屏幕放大，iPad（窗口 1032px）上 4 个标签明显偏小。
+- 方案：`app.json` 的 `tabBar` 加 `custom: true`，`list` 等字段完整保留（兼容低版本 + `validate.js` 的 NAV/TAB 断言依赖）；新增 `custom-tab-bar/index.{js,json,wxml,wxss}` 四件套（路径/文件名微信固定）。
+- 字号口径：用**物理 px** 分档——基础（手机）12px / 高 50px，`@media (min-width:768px)`（iPad 等宽屏）16px / 高 66px；不用 rpx（宽屏会等比放大，无法分档）。选中态蓝色胶囊高亮。
+- 选中态同步：每个 tab 页持有独立 tabBar 实例，封装 `utils/tabbar.js#setSelected(page,index)`，四个 tab 页 `onShow` 传 0/1/2/3；跳转用 `wx.switchTab`。
+- 实测：iPad 13" 模拟器窗口 1032px，`hasBar:true`、讲解页 `selected:0`、图谱页 `selected:1` 切换正常，字号清晰无截断；截图 `TABBAR_{lecture,graph}_ipad.jpg`。完整记录见 `tests/evidence/TABBAR_CUSTOM_IPAD.md`。
+- 边界：基础库 <2.5.0 回退原生渲染（功能不受影响）；自定义模式下 `wx.setTabBarItem` 等样式接口失效（本项目未用）。本次为审核期功能改动，若需随首版上线须重传开发版（家长决策）。

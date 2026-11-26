@@ -59,7 +59,7 @@
 | 前缀 | 文件 | 已用范围 | 当前最大 | 下一个可用 |
 |---|---|---|---|---|
 | `SPEC-` | SPECS.md | 001–008 | 008 | 009 |
-| `CNF-` | CONFIG.md | 001–020 | 020 | 021 |
+| `CNF-` | CONFIG.md | 001–021 | 021 | 022 |
 | `RUL-` | RULES.md | 001–009 | 009 | 010 |
 | `DSN-` | DESIGNS.md | 001–012 | 012 | 013 |
 | `BUG-` | BUGWALL.md | 001–011 | 011 | 012 |
@@ -140,6 +140,7 @@
 | R27 | 2026-11-26 | 提交代码审核（家长在公众平台后台操作）：15:35:28 提交开发版 `1.0.0`（11-26 重传包），状态「审核中」，平台预估 1–7 天。版本描述 132/200 字符（家长删去草稿末尾内部状态披露句，聚焦产品功能）；测试账号选「无需登录」、订单中心 path 留空、隐私指引选「采集用户隐私」（与后台已配置指引一致）。`SUBMIT_V100_CHECKLIST.md` 增补提审事实区块与实际提交文案 | tests/evidence/SUBMIT_V100_CHECKLIST.md / docs/INDEX.md | 审核中不自动上线，通过后须手动发布且备案须全部完成；若驳回按清单第 5 节对照处理。内容仍 pending=268/verified=0 |
 
 | R28 | 2026-11-26 | 投屏演示页改为标准 16:9 PPT 画布（家长要求按电视屏幕定制横屏 PPT、进入后类似 PPT 播放、电视投影手机/iPad 当控制器）。调研 55/65/75/85/100 寸电视：4:3 已淘汰、全是 16:9 4K，四个主力尺寸占 74%，故只做一套 16:9 母版不做 4:3 两套（4:3 只在 iPad 控制器端）。新增 CNF-020 固化口径。`pages/present` 重构：固定 1280×720 坐标系 + transform scale 等比适配，最大 16:9 矩形居中 letterbox；7 类 PPT 版式（封面金句/编号卡/题纸/绿框解析/双栏易错自检），例题保持先思后答两页；遥控器 4 按钮悬浮画布外、3.5s 自动淡出、触摸唤醒。iPad 13" 模拟器实测画布 1032×581（1.776≈16/9）、52 页、6 张版式截图取证；修复 kicker 与信息条重叠、方法卡溢出、封面标签压页脚、字段名笔误。五链全绿 | docs/CONFIG.md（CNF-020）/ docs/INDEX.md / apps/miniprogram/pages/present/{js,wxml,wxss} / tests/evidence/TV_PPT_16X9.md / tests/evidence/simulator/PPT16x9_*.jpg | 系统镜像固有限制：唤醒态控制条仍会出现在电视画面（3.5s 后淡出），要完全无控制条须升级双端方案，本轮按 M1 决策不做；真机投屏待家长按 MIRROR_TEST_GUIDE 实测。注意：本次为审核期功能改动，后台审核包为改动前版本，若需随首版上线须重传开发版（家长决策）。内容仍 pending=268/verified=0 |
+| R29 | 2026-11-26 | README 演示截图更新 + iPad 底栏字号适配。① README 投屏演示图从旧版 `IPAD13_present.png` 换为新版 16:9 PPT 实拍：从 `PPT16x9_*.jpg` 裁去上下黑边（定位画布 y=352..850、888×499、比例 1.7796）得 `README_present_{cover,essence,answer}.jpg`，README 由 4 图扩为 6 图（3 iPad 页 + 3 投屏页）。② 家长明确"控制条出现没关系、不影响功能使用"，本轮不改投屏控制条逻辑。③ 微信原生 tabBar 字号固定约 10px，iPad 1032px 窗口下偏小——改用自定义 tabBar（CNF-021）：`app.json` 加 `custom:true`（list 保留供断言）、新增 `custom-tab-bar/index` 四件套、物理 px 分档（手机 12px / 宽屏 16px）、`utils/tabbar.js` 同步四页选中态。iPad 实测 `hasBar:true`、selected 0↔1 切换正常、字号清晰。五链全绿 | README.md / docs/CONFIG.md（CNF-021）/ docs/INDEX.md / apps/miniprogram/{app.json,custom-tab-bar/index.*,utils/tabbar.js,pages/{lecture,graph,locator,gaps}/*.js} / tests/evidence/TABBAR_CUSTOM_IPAD.md / tests/evidence/simulator/{README_present_*.jpg,TABBAR_*_ipad.jpg} | 自定义 tabBar 基础库 <2.5.0 回退原生（功能不受影响）；审核期功能改动，若需随首版上线须重传开发版（家长决策）。内容仍 pending=268/verified=0 |
 
 ## IDX-007: 设计文档占用与生效说明
 

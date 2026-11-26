@@ -1,6 +1,7 @@
 const knowledge = require('../../data/nodes.js');
 const topicIdx = require('../../data/topic_index.js');
 const store = require('../../utils/store.js');
+const tabbar = require('../../utils/tabbar.js');
 
 const QUICK = ['证明三点共线', '整数解整除', '证明不等式最值', '至少存在染色', '求通项递推', '四点共圆切线'];
 
@@ -22,6 +23,7 @@ Page({
   },
 
   onShow: function () {
+    tabbar.setSelected(this, 2);
     // 从知识点详情页跳来时，展开指定题型
     const app = getApp();
     if (app.globalData && app.globalData.focusTopic) {

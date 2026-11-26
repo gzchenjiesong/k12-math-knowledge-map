@@ -3,6 +3,7 @@ const themeData = require('../../data/themes.js');
 const cardsData = require('../../data/cards.js');
 const bridgeData = require('../../data/bridges.js');
 const store = require('../../utils/store.js');
+const tabbar = require('../../utils/tabbar.js');
 
 Page({
   data: {
@@ -23,6 +24,7 @@ Page({
   },
 
   onShow: function () {
+    tabbar.setSelected(this, 1);
     // 从详情页点主题标签跳回时，自动切到主题视图并展开该主题
     const app = getApp();
     if (app.globalData && app.globalData.focusTheme) {

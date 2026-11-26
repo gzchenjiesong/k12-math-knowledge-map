@@ -19,6 +19,7 @@
   },
   "resizable": true,
   "tabBar": {
+    "custom": true,
     "color": "#8a94a6",
     "selectedColor": "#1f6feb",
     "backgroundColor": "#ffffff",

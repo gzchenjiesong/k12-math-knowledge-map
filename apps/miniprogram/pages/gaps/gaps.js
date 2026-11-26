@@ -1,5 +1,6 @@
 const knowledge = require('../../data/nodes.js');
 const store = require('../../utils/store.js');
+const tabbar = require('../../utils/tabbar.js');
 
 Page({
   data: {
@@ -13,6 +14,7 @@ Page({
   },
 
   onShow: function () {
+    tabbar.setSelected(this, 3);
     this.build();
   },
 

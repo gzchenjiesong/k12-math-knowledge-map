@@ -1,0 +1,47 @@
+/* 自定义 tabBar：微信原生 tabBar 字号固定约 10px，在 iPad 大屏上明显偏小。
+   这里改用物理 px 显式控制，并在宽屏断点放大，保证跨设备可读。 */
+.tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #ffffff;
+  border-top: 1px solid #e6eaf0;
+  box-shadow: 0 -2px 12px rgba(31, 45, 61, 0.05);
+}
+
+.tabbar-item {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabbar-text {
+  font-size: 12px;
+  line-height: 1;
+  color: #8a94a6;
+  padding: 6px 18px;
+  border-radius: 18px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.tabbar-item.active .tabbar-text {
+  color: #1f6feb;
+  font-weight: 600;
+  background: #e7f0ff;
+}
+
+.tabbar-hover .tabbar-text { opacity: 0.7; }
+
+/* iPad 横竖屏 / 手机横屏 / PC 大屏：字号与高度按物理 px 放大，避免大屏小字 */
+@media (min-width: 768px) {
+  .tabbar { height: 66px; }
+  .tabbar-text { font-size: 16px; padding: 9px 30px; border-radius: 22px; }
+}

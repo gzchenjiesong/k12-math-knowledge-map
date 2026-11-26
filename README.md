@@ -6,9 +6,13 @@
 |---|---|
 | ![讲解首页](tests/evidence/simulator/IPAD13_lecture.png) | ![讲解详情](tests/evidence/simulator/IPAD13_lesson.png) |
 
-| 知识图谱 | 投屏演示 |
+| 知识图谱 | 投屏演示 · 封面（16:9 电视横屏） |
 |---|---|
-| ![知识图谱](tests/evidence/simulator/IPAD13_graph.png) | ![投屏演示](tests/evidence/simulator/IPAD13_present.png) |
+| ![知识图谱](tests/evidence/simulator/IPAD13_graph.png) | ![投屏封面](tests/evidence/simulator/README_present_cover.jpg) |
+
+| 投屏演示 · 知识点页 | 投屏演示 · 例题解析页 |
+|---|---|
+| ![投屏知识点](tests/evidence/simulator/README_present_essence.jpg) | ![投屏解析](tests/evidence/simulator/README_present_answer.jpg) |
 
 ## 它解决什么问题
 
