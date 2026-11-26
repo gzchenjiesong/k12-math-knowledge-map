@@ -121,6 +121,8 @@
 
 | R18 | 2026-11-26 | 用语调整：代码包内用户可见文案「授课」→「讲解」（tabBar 首项 / lecture.json + lesson.json 页面标题 / lecture 首页 5 处 / project.config.json description）；保留页面路径 `pages/lecture/`、数据字段 LECTURES、历史决策名（DSN-004/SPEC-007/TST-003）与版本证据原文（契约与可追溯性，非用户文案）；CNF-017 记录该调整并注明后台账号介绍仍为「授课卡片」、如需统一须家长人工改 | CONFIG（CNF-017）/ INDEX / apps/miniprogram/{app.json,project.config.json,pages/lecture/lecture.json,pages/lecture/lecture.wxml,pages/lesson/lesson.json} | 后台对外介绍字段未随代码改动（审批中）；内容仍 pending=268、verified=0 |
 
+| R19 | 2026-11-26 | 多屏适配与投影可行性调研（只调研未实现）：核对微信官方文档确认 iPad 横屏（`resizable: true`，2.3.0+）/ CSS 媒体查询 / match-media / row-col 栅格 / PC 大屏模式均官方支持；小程序投屏 API 仅绑定 video 组件，不能投任意页面；无 TV 端运行时，WMPF 属 B 端硬件接入。实测本项目 7 页零 @media、全 rpx、未开 resizable。给出 L1 横屏可用 / L2 演示模式 / L3 大屏演示页分层方案，待家长拍板 | docs/RESEARCH-SCREEN.md / INDEX | 未改代码；后台账号介绍由家长审批后人工改；1.0.0 审核中，本轮如要随首版发布需重新上传 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。
