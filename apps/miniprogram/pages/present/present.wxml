@@ -5,7 +5,7 @@
   <view class="topbar">
     <view class="top-title">
       <text class="dot"></text>
-      <text class="brand">数学阶梯</text>
+      <text class="brand">数海扶摇</text>
       <text class="sep">/</text>
       <text class="gname">{{groupTitle}}</text>
     </view>

@@ -145,7 +145,7 @@ function buildStagePoster() {
       <div class="bridge-note">衔接关系来自独立声明（bridges.json），不改写知识点卡片；仅作学习路径参考。</div></div>
     ${signalSection()}
   </div>`;
-  return page('数学阶梯 · 知识图谱家庭挂图（按学段）',
+  return page('数海扶摇 · 知识图谱家庭挂图（按学段）',
     '四段培养体系 · 小学 → 初中 → 高中 → 奥赛　｜　' + ALL_NODES.length + ' 知识点　｜　赛制依据：2026 全国高中数学联赛组委会通知 / 教育部教监管厅函〔2025〕7 号',
     `<div class="cols" style="grid-template-columns:repeat(4,1fr)">${html}</div>` + bottom);
 }
@@ -170,7 +170,7 @@ function buildThemePoster() {
       <div class="bridge-note">按主题纵览：同一主题内节点按 小学 → 初中 → 高中 → 奥赛 顺序排列，呈现深化链。</div></div>
     ${signalSection()}
   </div>`;
-  return page('数学阶梯 · 知识图谱家庭挂图（按主题）',
+  return page('数海扶摇 · 知识图谱家庭挂图（按主题）',
     THEMES.length + ' 大主题 · ' + ALL_NODES.length + ' 知识点　｜　主题内节点按学段顺序排列，串联小学铺垫到竞赛进阶',
     `<div class="cols" style="grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(3,1fr)">${groups}</div>` + bottom);
 }

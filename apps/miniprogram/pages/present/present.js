@@ -61,7 +61,7 @@ Page({
 
     slides.push({
       kind: 'cover',
-      eyebrow: '数学阶梯 · 投屏演示',
+      eyebrow: '数海扶摇 · 投屏演示',
       title: g.title,
       body: g.lead || '',
       bullets: g.goal ? ['本节目标：' + g.goal] : [],
@@ -104,7 +104,7 @@ Page({
     const chainText = typeof g.chain === 'string' ? g.chain : (Array.isArray(g.chain) ? g.chain.join(' → ') : '');
     slides.push({
       kind: 'end',
-      eyebrow: '数学阶梯 · 投屏演示',
+      eyebrow: '数海扶摇 · 投屏演示',
       title: g.title + ' · 小结',
       body: g.goal || '',
       bullets: chainText ? ['知识链：' + chainText] : [],
