@@ -103,3 +103,22 @@
 .bridge-node-name { font-size: 25rpx; color: #1f2329; margin-top: 4rpx; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .bridge-arrow-mid { width: 48rpx; text-align: center; font-size: 28rpx; color: #0f766e; flex-shrink: 0; }
 .bridge-foot { margin-top: 16rpx; padding: 12rpx 8rpx; font-size: 20rpx; color: #9aa4b4; background: #f7f9fc; border-radius: 10rpx; }
+
+/* 宽屏：来源/主题列表两列，字号回到物理尺寸；衔接链保持通栏 */
+@media (min-width: 768px) {
+  .list-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+
+  .head { padding: 22px 26px; }
+  .h1 { font-size: 26px; }
+  .pct { font-size: 28px; }
+  .sub, .tip, .stat-label, .domain-sub, .theme-sub, .topic-desc, .bridge-sub, .bridge-foot { font-size: 13px; }
+  .stat-num { font-size: 22px; }
+  .seg-i { font-size: 15px; padding: 10px 0; }
+  .domain-title, .theme-name, .bridge-title { font-size: 18px; }
+  .module-name, .topic-name, .bridge-node-name, .bridge-kind-name { font-size: 16px; }
+  .arrow, .module-arrow, .chevron, .bridge-arrow-mid { font-size: 18px; }
+  .card-badge, .src-tag, .bridge-badge, .bridge-count, .bridge-node-domain, .bridge-kind-count { font-size: 12px; }
+  .domain-head, .theme-head, .bridge-head { padding: 16px 18px; }
+  .module-head { padding: 14px 18px; }
+  .topic { padding: 12px 18px; }
+}

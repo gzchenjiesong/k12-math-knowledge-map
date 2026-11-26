@@ -98,3 +98,40 @@
 .ev-flag.on { color: #fff; background: #e05a76; padding: 4rpx 14rpx; border-radius: 14rpx; text-decoration: none; }
 .ev-source { display: block; font-size: 20rpx; color: #8894a6; margin-top: 10rpx; line-height: 1.5; }
 .ev-note { display: block; font-size: 19rpx; color: #a0a9b7; margin-top: 6rpx; line-height: 1.5; }
+
+/* ===== 宽屏适配 ===== */
+@media (min-width: 768px) {
+  .intro { padding: 24px 28px; }
+  .i-title { font-size: 28px; }
+  .i-sub, .i-lead, .goal-text, .chain-text { font-size: 14px; }
+  .intro-prog, .intro-actions .lnk { font-size: 13px; }
+
+  .pt-head { padding: 16px 20px; }
+  .pt-title { font-size: 20px; }
+  .pt-peek, .sec-text, .method-t, .ex-q, .ex-a, .pit-t, .check-q { font-size: 15px; }
+  .sec-t { font-size: 16px; }
+  .status-pill, .lnk, .topic-chip, .pt-topics-label { font-size: 13px; }
+  .ev-badge, .ev-review, .ev-flag, .ev-source, .ev-note { font-size: 12px; }
+  .tail-hint, .finish-btn { font-size: 15px; }
+
+  /* 展开正文两列：证据条/操作区通栏 */
+  .pt-body { padding: 4px 20px 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+  .pt-body .evidence-bar, .pt-body .pt-actions, .pt-body .pt-topics { grid-column: 1 / -1; }
+}
+
+/* 演示模式条（仅宽屏出现，窄屏自动退出演示） */
+.demo-bar { display: flex; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.18); }
+.demo-btn { font-size: 13px; font-weight: 700; color: #1f2d3d; background: #fff; border-radius: 16px; padding: 6px 14px; }
+.demo-btn.on { background: #6fd3a0; color: #123a2a; }
+.demo-nav { font-size: 13px; color: #c7d4e4; margin-left: 16px; }
+.demo-pos { font-size: 13px; color: #9fc0e8; margin-left: 16px; }
+
+/* 演示模式：精简导语、只显示聚焦知识点、正文放大到投影可读 */
+.demo .i-lead, .demo .goal, .demo .chain { display: none; }
+.demo .pt-dim { display: none; }
+.demo .pt-focus { box-shadow: 0 4px 24px rgba(31,45,61,.12); }
+.demo .i-title { font-size: 34px; }
+.demo .pt-title { font-size: 26px; }
+.demo .pt-peek, .demo .sec-text, .demo .method-t, .demo .ex-q, .demo .ex-a, .demo .pit-t, .demo .check-q { font-size: 18px; line-height: 1.85; }
+.demo .sec-t { font-size: 20px; }
+.demo .pt-body { display: block; }

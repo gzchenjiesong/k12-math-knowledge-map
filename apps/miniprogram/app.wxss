@@ -63,3 +63,29 @@ button {
   color: #9aa4b4;
   font-size: 28rpx;
 }
+
+/* ===== 宽屏适配：iPad 横屏 / 手机横屏 / PC 大屏 ===== */
+/* rpx 以 750 为基准等比换算：屏幕越宽元素越大。宽屏下限制内容宽度并回到物理字号，
+   否则横屏只会得到「放大版手机页」，而不是一屏看更多。 */
+@media (min-width: 768px) {
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 32px 64px;
+  }
+
+  /* 注意：这里不用 page .card 提高权重，避免压过页面里 .pt{padding:0} 等特例 */
+  .card {
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px rgba(31, 45, 61, 0.06);
+  }
+
+  .muted { font-size: 13px; }
+  .small { font-size: 13px; }
+  .tiny { font-size: 12px; }
+  .tag { font-size: 12px; padding: 4px 10px; margin: 0 8px 6px 0; }
+  .btn-primary, .btn-ghost { font-size: 14px; border-radius: 8px; }
+  .empty { font-size: 14px; padding: 48px 12px; }
+}

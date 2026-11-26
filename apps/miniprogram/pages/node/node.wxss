@@ -53,3 +53,10 @@
 .save-btn { margin-top: 16rpx; }
 .note-text { display: block; margin-top: 16rpx; padding: 20rpx; background: #f7f9fc; border-radius: 12rpx; font-size: 26rpx; color: #3a4555; line-height: 1.7; }
 .note-placeholder { display: block; margin-top: 16rpx; font-size: 24rpx; color: #a8b0bd; }
+
+/* 宽屏兜底：限宽由 app.wxss 处理，这里只把字号拉回物理尺寸 */
+@media (min-width: 768px) {
+  .title { font-size: 26px; }
+  .body-text, .point-text, .question, .answer, .block-text, .note-text { font-size: 15px; }
+  .tab, .status-pill, .level, .domain-label, .module-label, .theme-label { font-size: 13px; }
+}

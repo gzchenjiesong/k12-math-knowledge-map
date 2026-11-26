@@ -123,6 +123,8 @@
 
 | R19 | 2026-11-26 | 多屏适配与投影可行性调研（只调研未实现）：核对微信官方文档确认 iPad 横屏（`resizable: true`，2.3.0+）/ CSS 媒体查询 / match-media / row-col 栅格 / PC 大屏模式均官方支持；小程序投屏 API 仅绑定 video 组件，不能投任意页面；无 TV 端运行时，WMPF 属 B 端硬件接入。实测本项目 7 页零 @media、全 rpx、未开 resizable。给出 L1 横屏可用 / L2 演示模式 / L3 大屏演示页分层方案，待家长拍板 | docs/RESEARCH-SCREEN.md / INDEX | 未改代码；后台账号介绍由家长审批后人工改；1.0.0 审核中，本轮如要随首版发布需重新上传 |
 
+| R20 | 2026-11-26 | L1 横屏适配 + L2 演示模式落地（家长拍板「L1+L2 一起、手机也开 auto」）：app.json 开 `resizable:true` + `pageOrientation:auto`；app.wxss 建 768px 断点基类（.page 限宽 1180px 居中、字号回物理尺寸）；讲解首页 top-grid/lec-grid 两列、图谱 list-grid 两列（衔接链通栏）、卡片三列、讲解详情正文两列，其余四页字号兜底；lesson 详情页加 onResize + 演示模式（无 tabBar、一屏一个点、前后翻页、投影字号 18px），窄屏自动退出。WXML 标签配对全 OK、8/8 断点覆盖、五链全绿 | app.json / app.wxss / pages/{lecture,graph,cards,lesson,gaps,node,locator}/* / tests/evidence/RESPONSIVE_V21.md / docs/RESEARCH-SCREEN.md / INDEX | 未做模拟器/真机横屏截图（CLI 未接入工具链），仅静态核对；1.0.0 审核中，随首版发布需重新上传；内容仍 pending=268、verified=0 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。

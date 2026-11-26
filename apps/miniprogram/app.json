@@ -13,8 +13,10 @@
     "navigationBarBackgroundColor": "#1f2d3d",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f5f7fa",
-    "backgroundTextStyle": "light"
+    "backgroundTextStyle": "light",
+    "pageOrientation": "auto"
   },
+  "resizable": true,
   "tabBar": {
     "color": "#8a94a6",
     "selectedColor": "#1f6feb",

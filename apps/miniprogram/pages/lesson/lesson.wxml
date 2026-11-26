@@ -1,4 +1,4 @@
-<view class="page">
+<view class="page {{demo ? 'demo' : ''}}">
   <!-- 专题导语 -->
   <view class="intro card">
     <text class="i-title">{{group.title}}</text>
@@ -14,10 +14,20 @@
         <text class="lnk" bindtap="collapseAll">收起</text>
       </view>
     </view>
+
+    <!-- 宽屏演示模式：一屏一个知识点，适合投影放大播放 -->
+    <view class="demo-bar" wx:if="{{wide}}">
+      <text class="demo-btn {{demo ? 'on' : ''}}" bindtap="toggleDemo">{{demo ? '退出演示' : '演示模式'}}</text>
+      <block wx:if="{{demo}}">
+        <text class="demo-nav" bindtap="demoPrev">‹ 上一个</text>
+        <text class="demo-pos">{{focusIdx + 1}} / {{points.length}}</text>
+        <text class="demo-nav" bindtap="demoNext">下一个 ›</text>
+      </block>
+    </view>
   </view>
 
   <!-- 知识点授课列表 -->
-  <view class="pt card {{p.status===2?'ptdone':''}}" wx:for="{{points}}" wx:key="nodeId" wx:for-item="p">
+  <view class="pt card {{p.status===2?'ptdone':''}} {{demo && p.idx === focusIdx + 1 ? 'pt-focus' : ''}} {{demo && p.idx !== focusIdx + 1 ? 'pt-dim' : ''}}" wx:for="{{points}}" wx:key="nodeId" wx:for-item="p">
     <view class="pt-head" bindtap="togglePoint" data-id="{{p.nodeId}}">
       <view class="pt-idx">{{p.idx}}</view>
       <view class="pt-titlebox">

@@ -25,6 +25,7 @@
 
   <!-- 视图一：按来源（进度轴） -->
   <view wx:if="{{view === 'source'}}">
+    <view class="list-grid">
     <view class="domain" wx:for="{{domains}}" wx:key="id">
       <view class="domain-head {{item.id}}" bindtap="toggleDomain" data-id="{{item.id}}">
         <view class="domain-title">
@@ -58,6 +59,7 @@
           </view>
         </view>
       </view>
+    </view>
     </view>
   </view>
 
@@ -97,6 +99,7 @@
       </view>
     </view>
 
+    <view class="list-grid">
     <view class="theme" wx:for="{{themes}}" wx:key="id">
       <view class="theme-head {{item.tone}}" bindtap="toggleTheme" data-id="{{item.id}}">
         <view class="theme-line">
@@ -124,6 +127,7 @@
           <text class="chevron">›</text>
         </view>
       </view>
+    </view>
     </view>
   </view>
 </view>

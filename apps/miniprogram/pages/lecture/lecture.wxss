@@ -46,3 +46,18 @@
 .note { background: #fbfaf4; border: 2rpx solid #efe9d2; }
 .note-title { display: block; font-size: 26rpx; font-weight: 700; color: #8a6d28; margin-bottom: 10rpx; }
 .note-text { display: block; font-size: 23rpx; color: #7a6d4a; line-height: 1.7; }
+
+/* 宽屏：导语与 principles 并排，专题卡两列；字号回到物理尺寸 */
+@media (min-width: 768px) {
+  .top-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; align-items: stretch; }
+  .lec-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+
+  .hero .h1 { font-size: 26px; }
+  .hero .pct { font-size: 28px; }
+  .hero .lead, .hero-stat { font-size: 14px; }
+  .pr-text, .lec-sub, .lec-lead, .note-text { font-size: 14px; }
+  .pr-num { width: 26px; height: 26px; line-height: 26px; font-size: 14px; margin-right: 12px; }
+  .section-title, .note-title { font-size: 15px; }
+  .lec-name { font-size: 20px; }
+  .lec-prog, .lec-enter, .lec-tag { font-size: 13px; }
+}

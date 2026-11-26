@@ -17,7 +17,10 @@ Page({
     checkFold: {},
     percent: 0,
     done: 0,
-    total: 0
+    total: 0,
+    wide: false,   // 宽屏（iPad 横屏 / 手机横屏 / PC 大屏）
+    demo: false,   // 演示模式：一屏一个知识点，放大聚焦，适合投影
+    focusIdx: 0
   },
 
   onLoad: function (options) {
@@ -25,12 +28,24 @@ Page({
     const g = lectureData.LECTURES.find(function (x) { return x.id === id; }) || lectureData.LECTURES[0];
     wx.setNavigationBarTitle({ title: g.title });
     this.groupId = g.id;
-    this.setData({ id: g.id, group: { title: g.title, subtitle: g.subtitle, lead: g.lead, goal: g.goal, chain: g.chain } });
+    const info = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync();
+    this.setData({
+      id: g.id,
+      group: { title: g.title, subtitle: g.subtitle, lead: g.lead, goal: g.goal, chain: g.chain },
+      wide: info.windowWidth >= 768
+    });
     this.build();
   },
 
   onShow: function () {
     if (this.groupId) this.build();
+  },
+
+  onResize: function (res) {
+    const wide = res.size.windowWidth >= 768;
+    // 缩回窄屏时自动退出演示模式，避免小屏上被隐藏的知识点不可见
+    if (!wide && this.data.demo) this.setData({ wide: false, demo: false });
+    else if (wide !== this.data.wide) this.setData({ wide: wide });
   },
 
   build: function () {
@@ -93,6 +108,39 @@ Page({
 
   collapseAll: function () {
     this.setData({ openIds: {} });
+  },
+
+  // 演示模式：优先聚焦第一个未掌握的知识点；导航一次只展开一个，投影时一屏一个点
+  toggleDemo: function () {
+    if (this.data.demo) {
+      this.setData({ demo: false });
+      return;
+    }
+    const points = this.data.points;
+    if (!points.length) return;
+    let idx = -1;
+    for (let i = 0; i < points.length; i++) {
+      if (points[i].status !== 2) { idx = i; break; }
+    }
+    if (idx < 0) idx = 0;
+    const open = {};
+    open[points[idx].nodeId] = true;
+    this.setData({ demo: true, focusIdx: idx, openIds: open });
+  },
+
+  demoPrev: function () { this.demoMove(-1); },
+
+  demoNext: function () { this.demoMove(1); },
+
+  demoMove: function (delta) {
+    const points = this.data.points;
+    if (!points.length) return;
+    let idx = this.data.focusIdx + delta;
+    if (idx < 0) idx = 0;
+    if (idx >= points.length) idx = points.length - 1;
+    const open = {};
+    open[points[idx].nodeId] = true;
+    this.setData({ focusIdx: idx, openIds: open });
   },
 
   toggleExample: function (e) {

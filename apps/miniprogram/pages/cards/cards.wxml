@@ -12,17 +12,19 @@
 
   <view class="tip">已编写 {{count}} 个知识点的三维卡片，内容持续分批补充中</view>
 
-  <view class="card item" wx:for="{{list}}" wx:key="id" bindtap="goNode" data-id="{{item.id}}">
-    <view class="item-head">
-      <text class="item-name">{{item.n}}</text>
-      <text class="status-dot s{{item.status}}"></text>
-    </view>
-    <text class="item-domain">{{item.domainName}} · {{item.module}}</text>
-    <text class="item-concept">{{item.conceptTitle}}</text>
-    <view class="item-badges">
-      <text class="mini-tag blue">知识点</text>
-      <text class="mini-tag green">讲解 {{item.explainCount}}</text>
-      <text class="mini-tag orange">例题 {{item.exampleCount}}</text>
+  <view class="card-list">
+    <view class="card item" wx:for="{{list}}" wx:key="id" bindtap="goNode" data-id="{{item.id}}">
+      <view class="item-head">
+        <text class="item-name">{{item.n}}</text>
+        <text class="status-dot s{{item.status}}"></text>
+      </view>
+      <text class="item-domain">{{item.domainName}} · {{item.module}}</text>
+      <text class="item-concept">{{item.conceptTitle}}</text>
+      <view class="item-badges">
+        <text class="mini-tag blue">知识点</text>
+        <text class="mini-tag green">讲解 {{item.explainCount}}</text>
+        <text class="mini-tag orange">例题 {{item.exampleCount}}</text>
+      </view>
     </view>
   </view>
 

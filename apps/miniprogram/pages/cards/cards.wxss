@@ -22,3 +22,15 @@
 .mini-tag.blue { background: #e9f1ff; color: #1f6feb; }
 .mini-tag.green { background: #e8f7ee; color: #1a8a4a; }
 .mini-tag.orange { background: #fff2e3; color: #c77a1e; }
+
+/* 宽屏：卡片三列网格，字号回到物理尺寸 */
+@media (min-width: 768px) {
+  .card-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; }
+  .searchbox { height: 52px; padding: 0 16px; }
+  .search-icon { font-size: 22px; }
+  .search-input, .item-name { font-size: 16px; }
+  .filter { font-size: 14px; padding: 8px 16px; }
+  .count, .tip, .item-domain, .mini-tag { font-size: 12px; }
+  .item-concept { font-size: 15px; }
+  .item { padding: 16px 18px; }
+}

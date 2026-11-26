@@ -26,3 +26,10 @@
 .gi-name { display: block; font-size: 27rpx; color: #1f2329; font-weight: 500; }
 .gi-desc { display: block; margin-top: 6rpx; font-size: 22rpx; color: #9aa4b4; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .gi-module { font-size: 21rpx; color: #a8b0bd; margin-left: 14rpx; flex-shrink: 0; }
+
+/* 宽屏兜底：限宽由 app.wxss 处理，这里只把字号拉回物理尺寸 */
+@media (min-width: 768px) {
+  .h1 { font-size: 26px; }
+  .sub, .gi-desc, .gi-module { font-size: 13px; }
+  .filter, .gi-name, .group-count { font-size: 15px; }
+}
