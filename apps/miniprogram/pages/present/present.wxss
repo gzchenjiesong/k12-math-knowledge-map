@@ -1,149 +1,212 @@
-/* 投屏演示页：深色高对比大字，投到电视后远距离可读。手机端体验次要。 */
+/* 投屏演示页：16:9 固定画布等比缩放居中，letterbox 黑边；内部 1280×720 坐标系用 px 大字号远距可读 */
+
 .stage {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: #0b1020;
-  color: #f4f6fb;
+  background: #050810;
   overflow: hidden;
 }
 
-/* 顶部信息条 */
-.topbar {
+/* 画布包裹层：把 16:9 画布在可用区域内居中 */
+.canvas-wrap {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 外层按设备算出的 px 定尺，溢出裁掉；内层固定 1280×720 等比缩放填满它 */
+.deck-frame {
+  position: relative;
+  overflow: hidden;
+  background: #0b1020;
+  border-radius: 8px;
+}
+.deck {
+  position: absolute;
+  top: 0; left: 0;
+  transform-origin: 0 0;
+  box-sizing: border-box;
+  /* 顶部：状态条34+进度14+间距；底部：页脚26+安全距。避免正文压住信息条/页脚 */
+  padding: 78px 56px 54px;
+  display: flex;
+  flex-direction: column;
+  background: #0b1020;
+  color: #f4f6fb;
+}
+
+/* ===== 画布内顶部信息 ===== */
+.deck-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10rpx 32rpx 6rpx;
+  height: 34px;
   flex-shrink: 0;
 }
-.top-title { display: flex; align-items: center; flex: 1; min-width: 0; }
-.dot { width: 16rpx; height: 16rpx; border-radius: 50%; background: #4fd1a5; margin-right: 14rpx; flex-shrink: 0; }
-.brand { font-size: 26rpx; color: #8fa3c8; font-weight: 600; letter-spacing: 2rpx; }
-.sep { font-size: 24rpx; color: #5a6b8c; margin: 0 12rpx; }
-.gname { font-size: 28rpx; color: #cfd9ec; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.top-right { display: flex; align-items: center; flex-shrink: 0; }
-.progress { font-size: 30rpx; color: #f0c561; font-weight: 700; font-variant-numeric: tabular-nums; margin-right: 24rpx; }
-.quit { font-size: 24rpx; color: #8697b6; padding: 8rpx 16rpx; border: 1rpx solid #33405e; border-radius: 24rpx; }
+.dh-left { display: flex; align-items: center; }
+.dh-dot { width: 12px; height: 12px; border-radius: 50%; background: #4fd1a5; margin-right: 16px; }
+.dh-brand { font-size: 22px; color: #8fa3c8; letter-spacing: 2px; }
+.dh-sep { font-size: 20px; color: #5a6b8c; margin: 0 14px; }
+.dh-group { font-size: 24px; color: #cfd9ec; }
+.dh-page { font-size: 26px; color: #f0c561; font-variant-numeric: tabular-nums; }
+.deck-track { height: 4px; background: #1c2740; margin-top: 10px; border-radius: 2px; flex-shrink: 0; }
+.deck-fill { height: 100%; background: #4fd1a5; border-radius: 2px; transition: width .25s ease; }
 
-/* 进度条 */
-.bar-track { height: 6rpx; background: #1c2740; margin: 0 32rpx 8rpx; border-radius: 3rpx; flex-shrink: 0; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, #4fd1a5, #f0c561); border-radius: 3rpx; transition: width .2s ease; }
-
-/* 幻灯片画布 */
-/* 关键：flex 子项必须 min-height:0，否则 scroll-view 按内容撑开会顶出底部按钮栏 */
-.canvas { flex: 1; min-height: 0; width: 100%; }
-.slide {
-  box-sizing: border-box;
-  min-height: 100%;
-  padding: 40rpx 64rpx 80rpx;
+/* ===== 幻灯片正文容器：占满画布剩余高度 ===== */
+.slide-body {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-/* 宽屏（横屏 iPad / 手机横屏镜像）限制阅读宽度，避免一行太长 */
-@media (min-width: 768px) {
-  .slide { padding: 48rpx 10vw 64rpx; }
-  .body, .btext { max-width: 1600rpx; }
+  padding: 20px 0;
 }
 
-.eyebrow { font-size: 30rpx; color: #4fd1a5; letter-spacing: 3rpx; margin-bottom: 28rpx; font-weight: 600; }
-.title { font-size: 72rpx; font-weight: 800; line-height: 1.3; color: #ffffff; margin-bottom: 36rpx; word-break: break-all; }
-.sub { font-size: 40rpx; color: #9db0d4; line-height: 1.5; margin-top: -20rpx; margin-bottom: 32rpx; }
+/* 通用 kicker / title */
+.e-kicker, .m-kicker, .q-kicker, .a-kicker, .r-kicker {
+  font-size: 26px;
+  color: #4fd1a5;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+.e-title, .m-title, .q-title, .r-title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
 
-.body { font-size: 38rpx; line-height: 1.65; color: #e6ecf8; font-weight: 400; }
-.body.answer { color: #d9f5e8; border-left: 8rpx solid #4fd1a5; padding-left: 32rpx; }
+/* 封面 / 结束：居中隆重。严格控制在 720px 画布内，避免目标标签压页脚 */
+.ly-center {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  max-height: 100%; overflow: hidden;
+}
+.c-eyebrow { font-size: 24px; color: #4fd1a5; letter-spacing: 4px; margin-bottom: 20px; }
+.c-title { font-size: 72px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 16px; }
+.c-sub { font-size: 34px; color: #9db0d4; margin-top: -6px; margin-bottom: 16px; }
+.c-lead {
+  font-size: 32px;
+  color: #c3d0ea;
+  line-height: 1.5;
+  max-width: 1040px;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;
+}
+.c-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
+.chip {
+  font-size: 26px; color: #f0c561;
+  background: #1a2340; border: 1px solid #33405e;
+  padding: 10px 24px; border-radius: 40px;
+  max-width: 1040px;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
 
-.bullets { margin-top: 16rpx; }
-.bullet { display: flex; align-items: flex-start; margin-bottom: 26rpx; }
-.bidx {
-  width: 52rpx; height: 52rpx; line-height: 52rpx; text-align: center;
+/* 知识本质：大字金句 */
+.ly-essence { display: flex; flex-direction: column; }
+.e-quote {
+  position: relative;
+  border-left: 8px solid #4fd1a5;
+  padding: 30px 40px 30px 60px;
+  background: #111a30;
+  border-radius: 0 16px 16px 0;
+}
+.e-mark {
+  position: absolute; left: 16px; top: 8px;
+  font-size: 90px; color: #2c4a6e; line-height: 1;
+}
+.e-text { font-size: 44px; line-height: 1.65; color: #eaf1ff; }
+
+/* 方法要点：编号卡片。控制在 3 条卡片 + 标题可完整放入 720px 画布 */
+.ly-method { display: flex; flex-direction: column; max-height: 100%; overflow: hidden; }
+.ly-method .m-kicker { margin-bottom: 14px; }
+.ly-method .m-title { margin-bottom: 20px; }
+.m-list { display: flex; flex-direction: column; gap: 12px; }
+.m-row { display: flex; align-items: flex-start; background: #111a30; border-radius: 14px; padding: 14px 24px; }
+.m-num {
+  width: 48px; height: 48px; line-height: 48px; text-align: center;
   border-radius: 50%; background: #22315a; color: #f0c561;
-  font-size: 28rpx; font-weight: 700; margin-right: 24rpx; flex-shrink: 0;
+  font-size: 28px; margin-right: 24px; flex-shrink: 0;
 }
-.btext { flex: 1; font-size: 36rpx; line-height: 1.55; color: #e6ecf8; }
+.m-text { flex: 1; font-size: 36px; line-height: 1.45; color: #e6ecf8; }
 
-/* 封面 / 结束页：居中隆重，但控制在一屏内（iPad 竖屏 1184px 实测） */
-.slide-cover .title, .slide-end .title {
-  font-size: 60rpx; text-align: center; margin-top: 12rpx; margin-bottom: 28rpx;
-  word-break: break-all; line-height: 1.35;
+/* 例题·先看题：题干居中卡片 */
+.ly-question { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.q-paper {
+  background: #f4f6fb; color: #16203a;
+  border-radius: 18px; padding: 44px 56px;
+  max-width: 1080px; min-height: 200px;
+  display: flex; align-items: center; justify-content: center;
 }
-.slide-cover .eyebrow, .slide-end .eyebrow { text-align: center; }
-.slide-cover .body, .slide-end .body {
-  text-align: center; font-size: 34rpx; color: #b9c8e6; line-height: 1.6;
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden;
+.q-text { font-size: 46px; line-height: 1.6; font-weight: 500; }
+.q-hint { margin-top: 36px; font-size: 30px; color: #7f93b8; }
+
+/* 例题·解析：绿框突出 */
+.ly-answer { display: flex; flex-direction: column; }
+.a-q { font-size: 30px; color: #9db0d4; margin-bottom: 22px; line-height: 1.4; }
+.a-paper {
+  background: #10241f; border: 2px solid #2f7d63;
+  border-radius: 18px; padding: 36px 44px;
 }
-.slide-cover .bullets, .slide-end .bullets { justify-content: center; }
-/* 封面 bullets 也限高，避免目标文字被底部按钮栏压住 */
-.slide-cover .bullet .btext, .slide-end .bullet .btext {
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: 32rpx;
+.a-text { font-size: 40px; line-height: 1.65; color: #d9f5e8; }
+
+/* 易错与自检：左右双栏 */
+.ly-recap { display: flex; flex-direction: column; }
+.r-cols { display: flex; gap: 28px; flex: 1; min-height: 0; }
+.r-col { flex: 1; min-width: 0; border-radius: 16px; padding: 28px 32px; display: flex; flex-direction: column; }
+.r-warn { background: #2a1c14; border: 2px solid #7a4a20; }
+.r-check { background: #102420; border: 2px solid #2f7d63; }
+.r-col-head { font-size: 34px; font-weight: 700; margin-bottom: 26px; }
+.r-warn .r-col-head { color: #f5b865; }
+.r-check .r-col-head { color: #4fd1a5; }
+.r-row { display: flex; align-items: flex-start; margin-bottom: 22px; }
+.r-bullet {
+  width: 44px; height: 44px; line-height: 44px; text-align: center;
+  border-radius: 50%; font-size: 26px; font-weight: 700; margin-right: 20px; flex-shrink: 0;
 }
-.slide-cover .sub { text-align: center; font-size: 30rpx; line-height: 1.4; }
+.r-warn .r-bullet { background: #5a3a1c; color: #f5b865; }
+.r-check .r-bullet { background: #1c4a3d; color: #4fd1a5; }
+.r-text { flex: 1; font-size: 34px; line-height: 1.5; color: #e6ecf8; }
 
-/* 易错自检页用暖色强调 */
-.slide-recap .bidx { background: #5a3a1c; color: #f5b865; }
-.slide-recap .eyebrow { color: #f5b865; }
+/* 画布内页脚 */
+.deck-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 26px;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+.df-brand { font-size: 18px; color: #4a5a7a; letter-spacing: 2px; }
+.df-kind { font-size: 18px; color: #4a5a7a; }
 
-/* 例题页提示 */
-.hint { margin-top: 40rpx; font-size: 28rpx; color: #7f93b8; font-style: italic; }
-
-/* 底部遥控器：大按钮，横屏竖屏都好点 */
+/* ===== 遥控器：悬浮在画布外底部，自动淡出 ===== */
 .controls {
-  display: flex; gap: 20rpx; padding: 18rpx 32rpx 24rpx;
-  background: #080d18; border-top: 1rpx solid #1c2740; flex-shrink: 0;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex; gap: 14px;
+  padding: 14px 24px 18px;
+  background: rgba(8, 13, 24, .82);
+  border-top: 1px solid #1c2740;
+  z-index: 10;
+  transition: opacity .35s ease;
 }
+.controls.hidden { opacity: 0; pointer-events: none; }
 .ctl {
-  padding: 24rpx 0; border-radius: 20rpx; text-align: center;
-  font-size: 36rpx; font-weight: 700; letter-spacing: 2rpx;
+  padding: 18px 0; border-radius: 14px; text-align: center;
+  font-size: 28rpx; font-weight: 700; letter-spacing: 1px;
 }
-.ctl-toc { flex: 0 0 20%; background: #1b2540; color: #c7d4ec; }
+.ctl-toc { flex: 0 0 16%; background: #1b2540; color: #c7d4ec; }
 .ctl-prev { flex: 1; background: #22315a; color: #e6ecf8; }
 .ctl-next { flex: 1; background: #4fd1a5; color: #06251b; }
+.ctl-quit { flex: 0 0 16%; background: #2a1830; color: #d9a8c8; }
 .ctl.disabled { opacity: .35; }
 
-/* ===== 矮横屏（手机横屏镜像到电视的常见形态，如 874×276）=====
-   顶部条 + 按钮栏在矮屏会吃掉大半高度，必须整体压缩，把空间还给内容区。
-   命中条件：宽屏且高度 <= 560px；iPad 竖屏(1032×1376)、大屏横屏(高度>560)不受影响。 */
-@media (min-width: 768px) and (max-height: 560px) {
-  .topbar { padding: 4rpx 24rpx 2rpx; }
-  .brand { font-size: 20rpx; }
-  .sep { font-size: 18rpx; margin: 0 8rpx; }
-  .gname { font-size: 22rpx; }
-  .progress { font-size: 24rpx; margin-right: 14rpx; }
-  .quit { font-size: 20rpx; padding: 4rpx 12rpx; }
-  .bar-track { height: 4rpx; margin: 0 24rpx 4rpx; }
-
-  .slide { padding: 12rpx 40rpx 20rpx; }
-  .eyebrow { font-size: 20rpx; margin-bottom: 8rpx; letter-spacing: 2rpx; }
-  .title { font-size: 42rpx; margin-bottom: 12rpx; line-height: 1.25; }
-  .sub { font-size: 24rpx; margin-top: -8rpx; margin-bottom: 10rpx; }
-  .body { font-size: 26rpx; line-height: 1.45; }
-  .body.answer { border-left-width: 5rpx; padding-left: 20rpx; }
-  .bullets { margin-top: 6rpx; }
-  .bullet { margin-bottom: 8rpx; }
-  .bidx { width: 34rpx; height: 34rpx; line-height: 34rpx; font-size: 18rpx; margin-right: 14rpx; }
-  .btext { font-size: 24rpx; line-height: 1.4; }
-  .hint { margin-top: 12rpx; font-size: 20rpx; }
-
-  /* 封面/结束页在矮屏更激进地限行，确保标题与正文都完整可见 */
-  .slide-cover .title, .slide-end .title {
-    font-size: 40rpx; margin-top: 4rpx; margin-bottom: 10rpx;
-  }
-  .slide-cover .body, .slide-end .body {
-    font-size: 22rpx; line-height: 1.4; -webkit-line-clamp: 2;
-  }
-  /* 矮屏封面/结束页直接隐藏 bullets（本节目标等内容翻页可见），彻底避免被按钮栏压住 */
-  .slide-cover .bullets, .slide-end .bullets { display: none; }
-  .slide-cover .sub { font-size: 20rpx; }
-
-  /* 按钮栏瘦身：从约 126rpx 压到约 60rpx */
-  .controls { gap: 12rpx; padding: 8rpx 24rpx 12rpx; }
-  .ctl { padding: 12rpx 0; font-size: 26rpx; border-radius: 14rpx; }
-}
-
 /* 目录浮层 */
-.toc-mask { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(4, 8, 18, .88); z-index: 20; display: flex; align-items: center; justify-content: center; }
+.toc-mask { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(4, 8, 18, .9); z-index: 20; display: flex; align-items: center; justify-content: center; }
 .toc-panel { width: 86%; max-width: 900rpx; max-height: 76%; background: #101a30; border: 2rpx solid #2b3a5c; border-radius: 24rpx; display: flex; flex-direction: column; overflow: hidden; }
 .toc-head { display: flex; justify-content: space-between; align-items: center; padding: 28rpx 36rpx; border-bottom: 1rpx solid #263554; }
 .toc-title { font-size: 40rpx; font-weight: 700; color: #fff; }
