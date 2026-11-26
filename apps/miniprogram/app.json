@@ -2,6 +2,7 @@
   "pages": [
     "pages/lecture/lecture",
     "pages/lesson/lesson",
+    "pages/present/present",
     "pages/graph/graph",
     "pages/locator/locator",
     "pages/cards/cards",

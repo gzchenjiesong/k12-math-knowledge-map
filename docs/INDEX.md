@@ -125,6 +125,8 @@
 
 | R20 | 2026-11-26 | L1 横屏适配 + L2 演示模式落地（家长拍板「L1+L2 一起、手机也开 auto」）：app.json 开 `resizable:true` + `pageOrientation:auto`；app.wxss 建 768px 断点基类（.page 限宽 1180px 居中、字号回物理尺寸）；讲解首页 top-grid/lec-grid 两列、图谱 list-grid 两列（衔接链通栏）、卡片三列、讲解详情正文两列，其余四页字号兜底；lesson 详情页加 onResize + 演示模式（无 tabBar、一屏一个点、前后翻页、投影字号 18px），窄屏自动退出。WXML 标签配对全 OK、8/8 断点覆盖、五链全绿 | app.json / app.wxss / pages/{lecture,graph,cards,lesson,gaps,node,locator}/* / tests/evidence/RESPONSIVE_V21.md / docs/RESEARCH-SCREEN.md / INDEX | 未做模拟器/真机横屏截图（CLI 未接入工具链），仅静态核对；1.0.0 审核中，随首版发布需重新上传；内容仍 pending=268、verified=0 |
 
+| R21 | 2026-11-26 | M1 投屏演示模式（家长决策：手机+电视小米、走系统屏幕镜像、手机当遥控器、专注电视显示）：新增第 8 页 `pages/present`，全屏深色高对比大字幻灯片——每个知识点拆本质/方法/题目/解析/易错自检页（例题题干与解析分页先思后答）、底部大按钮+左右滑动翻页+目录跳转、`navigationStyle:custom`+状态栏避让；入口在 lesson 导语卡「▣ 投屏演示」。只读 lectures.js 视图重组，357 张幻灯片/0 异常节点，五链全绿（24/24 app-build 不变）。IDE 为验证 iPad 自动生成的多平台文件（app.miniapp.json/project.miniapp.json/i18n/base.json/project.config.json 改 multiPlatform，base.json 含错误模板名「寇德计算器」）保留工作区但不入库 | app.json / pages/present/{js,wxml,wxss,json} / pages/lesson/{js,wxml,wxss} / docs/RESEARCH-SCREEN.md / tests/evidence/PRESENT_M1.md / INDEX | 未做真机/模拟器截图（CLI 未接入），待家长按 MIRROR_TEST_GUIDE 实测；1.0.0 审核中，投屏页需真机调试或重传开发版；内容仍 pending=268、verified=0 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。

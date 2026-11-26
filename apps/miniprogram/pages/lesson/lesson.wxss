@@ -16,6 +16,7 @@
 .intro-prog { font-size: 22rpx; color: #b8c6d6; }
 .intro-actions { margin-left: auto; }
 .intro-actions .lnk { color: #9fc0e8; margin-left: 20rpx; }
+.intro-actions .lnk-cast { color: #12a182; font-weight: 700; }
 
 /* 知识点卡 */
 .pt { padding: 0; overflow: hidden; }

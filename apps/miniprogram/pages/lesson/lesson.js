@@ -184,6 +184,11 @@ Page({
     wx.showToast({ title: next ? '已标记存疑' : '已取消存疑', icon: 'none' });
   },
 
+  // 投屏演示：跳转到全屏幻灯片页，手机当遥控器（M1 系统镜像专用）
+  goPresent: function () {
+    wx.navigateTo({ url: '/pages/present/present?id=' + this.data.id });
+  },
+
   goNode: function (e) {
     wx.navigateTo({ url: '/pages/node/node?id=' + e.currentTarget.dataset.id });
   },

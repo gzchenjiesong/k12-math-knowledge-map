@@ -1,0 +1,68 @@
+<!-- 投屏演示页：全屏深色高对比大字，手机当遥控器；一屏一个主题，翻页靠底部按钮或左右滑动 -->
+<view class="stage" style="padding-top:{{statusBarH}}px;" bindtouchstart="touchStart" bindtouchend="touchEnd">
+
+  <!-- 顶部：专题名 + 退出 + 进度 -->
+  <view class="topbar">
+    <view class="top-title">
+      <text class="dot"></text>
+      <text class="brand">数学阶梯</text>
+      <text class="sep">/</text>
+      <text class="gname">{{groupTitle}}</text>
+    </view>
+    <view class="top-right">
+      <text class="progress">{{cur + 1}} / {{total}}</text>
+      <text class="quit" bindtap="quit">退出 ✕</text>
+    </view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="bar-track"><view class="bar-fill" style="width:{{(cur + 1) * 100 / total}}%;"></view></view>
+
+  <!-- 幻灯片主体 -->
+  <scroll-view class="canvas" scroll-y="true" enhanced="true">
+    <view class="slide slide-{{slide.kind}}">
+
+      <text wx:if="{{slide.eyebrow}}" class="eyebrow">{{slide.eyebrow}}</text>
+      <text class="title">{{slide.title}}</text>
+
+      <view wx:if="{{slide.sub}}" class="sub">{{slide.sub}}</view>
+
+      <view wx:if="{{slide.body}}" class="body {{slide.kind === 'answer' ? 'answer' : ''}}">{{slide.body}}</view>
+
+      <view wx:if="{{slide.bullets.length}}" class="bullets">
+        <view class="bullet" wx:for="{{slide.bullets}}" wx:key="*this">
+          <text class="bidx">{{index + 1}}</text>
+          <text class="btext">{{item}}</text>
+        </view>
+      </view>
+
+      <!-- 例题页右下角提示：先看题，再翻页看解析 -->
+      <view wx:if="{{slide.kind === 'question'}}" class="hint">先独立思考，再翻页看解析 →</view>
+
+    </view>
+  </scroll-view>
+
+  <!-- 底部遥控器：目录 + 上一页 + 下一页（大按钮，手指好点） -->
+  <view class="controls" style="padding-bottom:{{safeBottom}}px;">
+    <view class="ctl ctl-toc" bindtap="toggleToc">目录</view>
+    <view class="ctl ctl-prev {{cur === 0 ? 'disabled' : ''}}" bindtap="prev">← 上一页</view>
+    <view class="ctl ctl-next {{cur === total - 1 ? 'disabled' : ''}}" bindtap="next">下一页 →</view>
+  </view>
+
+  <!-- 目录浮层：演示中跳到某个知识点 -->
+  <view wx:if="{{tocOpen}}" class="toc-mask" bindtap="toggleToc">
+    <view class="toc-panel" catchtap="noop">
+      <view class="toc-head">
+        <text class="toc-title">知识点目录</text>
+        <text class="toc-close" bindtap="toggleToc">收起 ✕</text>
+      </view>
+      <scroll-view class="toc-list" scroll-y="true">
+        <view class="toc-item {{pointStarts[index] === cur ? 'active' : ''}}" wx:for="{{toc}}" wx:key="nodeId" data-start="{{item.start}}" bindtap="jumpToc">
+          <text class="toc-label">{{item.label}}</text>
+          <text class="toc-name">{{item.title}}</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>

@@ -10,6 +10,7 @@
     <view class="intro-foot">
       <text class="intro-prog">已掌握 {{done}}/{{total}}</text>
       <view class="intro-actions">
+        <text class="lnk lnk-cast" bindtap="goPresent">▣ 投屏演示</text>
         <text class="lnk" bindtap="expandAll">全部展开</text>
         <text class="lnk" bindtap="collapseAll">收起</text>
       </view>
