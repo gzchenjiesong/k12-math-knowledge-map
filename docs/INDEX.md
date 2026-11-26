@@ -131,6 +131,8 @@
 
 | R23 | 2026-11-26 | 横屏实测与修复（家长找不到旋转开关：手机模式本无该按钮、仅 iPad 设备下出现；CLI 亦无方向参数）：临时把 window.pageOrientation 改 landscape 触发模拟器横屏（iPhone 17 横屏 874×276 矮屏）逐页取证 6 页后恢复 auto。发现 present 投屏页在矮横屏封面标题被底部按钮栏完全遮挡（controls 约 126rpx + 顶部条约 60rpx 吃掉矮屏）→ 新增 `@media (min-width:768px) and (max-height:560px)` 矮横屏专用断点（顶部条/内容字号压缩、按钮栏 126→60rpx、封面矮屏隐藏 bullets），复验封面/正文页完整可见。其余 5 页横屏 PASS。证据 LANDSCAPE_PREVIEW.md + LAND_*.png | pages/present/present.wxss / tests/evidence/LANDSCAPE_PREVIEW.md / tests/evidence/simulator/LAND_*.png / INDEX | 仅 iPhone 矮横屏实测（比 iPad 横屏更严苛），iPad 真横屏仍建议家长确认；IDE 多平台文件仍未入库；内容 pending=268/verified=0 |
 
+| R24 | 2026-11-26 | 多平台配置入库决策变更：家长原为本地验证 iPad 启用多端处理（工具生成配置），最初按"本地验证不入库"处理；本次决定一并提交入库以便换设备复现验证环境。新增 CNF-018 记录 4 个入库文件（project.config.json 改 multiPlatform+condition:true+插件版本 / app.miniapp.json / project.miniapp.json / i18n/base.json），**重点待办：i18n/base.json 三处 name 为审批前旧名「寇德计算器」，名称审批通过后须改「数学阶梯」**（与后台账号改名独立）。库内核心内容此前已全部入库（HEAD=origin/main），本轮补齐最后 4 个文件 | docs/CONFIG.md（CNF-018）/ INDEX / apps/miniprogram/{project.config.json,app.miniapp.json,project.miniapp.json,i18n/base.json} | 入库前五链全绿（9/9、33/33、28/28、22/22、24/24）；内容仍 pending=268/verified=0；旧名改动待名称审批通过后执行 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。

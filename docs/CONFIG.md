@@ -152,3 +152,10 @@
 - 开发版本上传（2026-11-25）：已用微信开发者工具 CLI 上传 `1.0.0`（首个对外版本），代码包 277,403 字节、`success: true`，生成开发版本，未提交审核 / 未发布；完整记录见 `tests/evidence/UPLOAD_V100.md`。代码包内界面标题已是「数学阶梯」（`app.json` / `app.js` / `project.config.json`），与后台待审批账号名是两个独立字段，故名称审批通过后**无需重传**。上传发生在名称审批期间不影响有效性——开发版本不进入发布链路，且上传与备案无依赖可并行。
 - 头像资产：`deliverables/brand/math-ladder-avatar-1024.png`（1024×1024 PNG，1.02 MB，低于平台 2 MB 上限）。四级阶梯由「+ × √ △」数学符号构成、顶端五角星，深蓝渐变配浅青/暖金线条；主体居中并留安全边距，圆形裁切预览 `deliverables/brand/math-ladder-avatar-circle-preview.png` 验证无裁切丢失。生成后已用图像修复移除生成器强制叠加的「AI生成 / WORKBUDDY」水印（平台规范禁止头像含水印标识）；无文字、字母、数字、品牌标识。头像须在公众平台「设置 → 基本设置 → 头像」人工上传，每月可申请修改 5 次。
 - 状态：账号身份定稿不等于内容已核准；268 卡仍 `pending`、`verified=0`，发布的是开发过渡数据，人工闸门 VFY-005/006 不变。
+
+### CNF-018: 多平台（multiPlatform）配置入库与改名待办（2026-11-26）
+
+- 背景：家长为在微信开发者工具里验证 iPad 显示效果，手动开启了多端处理，工具据此生成了一批多平台配置文件。最初作为本地验证配置保留工作区、不入库；2026-11-26 家长决定**一并提交入库**，以便换设备 / 重装后仍能复现 iPad 多端验证环境。
+- 入库文件 4 项：`project.config.json`（`projectArchitecture` 改为 `multiPlatform`、`condition: true`、`simulatorPluginLibVersion` 写入插件版本）、`app.miniapp.json`、`project.miniapp.json`（miniVersion v2，含 android/ios/ohos SDK 版本与空图标占位）、`i18n/base.json`。
+- **`i18n/base.json` 含审批前旧名「寇德计算器」**（`ios` / `android` / `common` 三处 `name`）——这是当前尚未审批通过的正式名，不是错误。名称审批通过后须将三处 `name` 同步改为「数学阶梯」，否则多端包会一直沿用旧名。此改名待办与 CNF-017 的后台账号改名是两个独立字段，须一并处理。
+- 影响说明：`project.config.json` 的 `multiPlatform` 是开发者工具的多端编译开关，开启后可切 iPad 设备验证横屏；不影响小程序端（微信）的发布包，也不改变 `app.json` / `app.js` 的界面标题。若后续上传遇到编译差异，先确认此开关状态。

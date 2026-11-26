@@ -26,7 +26,7 @@
     "localPlugins": false,
     "disableUseStrict": false,
     "useCompilerPlugins": false,
-    "condition": false,
+    "condition": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -37,6 +37,9 @@
   "appid": "wxad6ce16e02f3b1fe",
   "projectname": "k12-math-knowledge-map",
   "miniprogramRoot": "./",
-  "simulatorPluginLibVersion": {},
-  "editorSetting": {}
+  "simulatorPluginLibVersion": {
+    "wxext14566970e7e9f62": "2.27.3"
+  },
+  "editorSetting": {},
+  "projectArchitecture": "multiPlatform"
 }
