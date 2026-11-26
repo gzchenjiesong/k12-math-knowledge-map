@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 /**
- * build-data.js —— 把唯一真源编译为小程序可读的 6 个数据模块
+ * build-data.js —— 把唯一真源编译为小程序可读的 7 个数据模块
  *
  * 定位：下游应用层不校验内容正确性，只做格式转换与结构完整性检查。
  * 输入：
  *   reliable-data/manifest.json
  *   reliable-data/{nodes,lessons,pitfalls,examples}/*.json   —— 内容四类卡（真源）
  *   reliable-data/source/app_organization.json               —— 组织层配置（领域/专题/主题/三维卡/题型/证据元数据）
- * 输出：apps/miniprogram/data/*.js（6 个页面消费模块，生成物；v2.1.0 起入库以可复现）
- *   nodes.js / lectures.js / cards.js / themes.js / topic_index.js / content_meta.js
+ *   reliable-data/index/bridges.json                          —— 跨学段衔接边（零破坏声明处，不回写真源卡）
+ * 输出：apps/miniprogram/data/*.js（7 个页面消费模块，生成物；v2.1.0 起入库以可复现）
+ *   nodes.js / lectures.js / cards.js / themes.js / topic_index.js / content_meta.js / bridges.js
  *
  * 页面消费契约（字段名固定，不可改）：
  *   nodes.js       → { DOMAINS, ALL_NODES, SIGNAL_RULES }
@@ -17,6 +18,7 @@
  *   themes.js      → { THEMES, THEME_OF, THEME_NAME, DOMAIN_SHORT }
  *   topic_index.js → { TOPIC_GROUPS, TOPIC_ITEMS, TOPICS_BY_NODE }
  *   content_meta.js→ { DOMAIN_SOURCE, R2_CHECKED, metaFor, EVIDENCE_LABEL, REVIEW_LABEL }
+ *   bridges.js     → { BRIDGES, BRIDGES_BY_NODE, BRIDGE_STATS }
  *
  * 闸门：
  *   1) manifest 存在且 version 非空 —— 否则真源未发布，BLOCKED。
@@ -24,6 +26,7 @@
  *   3) 每条卡 review=verified —— 否则 BLOCKED；--allow-pending 可产出开发期过渡数据（头部带警告）。
  *   4) 组织配置齐全（domain/lecture/theme shell、领域/模块映射）—— 否则 BLOCKED。
  *   5) 结构一致性：67 节点 = ALL_NODES = LECTURES.points 并集；theme shell 与 lecture shell 一一对应且节点集相同。
+ *   6) 衔接边两端节点必须在真源内（bridges.json 为唯一声明处，不回写卡片字段）。
  *
  * 运行：node tools/build-data.js [--allow-pending]
  * 输出：RESULT= / VERDICT=PASSED|BLOCKED|FAILED
@@ -143,6 +146,31 @@ TOPIC_ITEMS.forEach(it => (it.nodes || []).forEach(id => {
 
 const CARDS = JSON.parse(JSON.stringify(ORG.cards));
 
+// ---------- 7b. 构造 bridges（跨学段衔接边，取自 bridges.json 唯一声明处） ----------
+const bridgesPath = path.join(SRC, 'index/bridges.json');
+if (!fs.existsSync(bridgesPath)) die('reliable-data/index/bridges.json 缺失：衔接边声明未发布。');
+const BRIDGES_SRC = JSON.parse(fs.readFileSync(bridgesPath, 'utf8'));
+if (!Array.isArray(BRIDGES_SRC.edges)) die('bridges.json.edges 非数组：衔接边声明格式错误。');
+// 富化每条边：补两端节点名称 / 学段 / 主题，供图谱视图直接渲染；不改写 from/to/kind 原字段。
+const BRIDGES = BRIDGES_SRC.edges.map(function (e, i) {
+  const from = nodeById[e.from], to = nodeById[e.to];
+  return {
+    from: e.from, to: e.to, kind: e.kind,
+    fromName: from ? from.n : e.from, toName: to ? to.n : e.to,
+    fromDomain: from ? from.domainName : '', toDomain: to ? to.domainName : '',
+    fromTheme: THEME_OF[e.from] || '', toTheme: THEME_OF[e.to] || ''
+  };
+});
+// 反向索引：节点 → { out:[边序号], in:[边序号] }，零破坏，不改 ALL_NODES。
+const BRIDGES_BY_NODE = {};
+BRIDGES.forEach(function (b, i) {
+  (BRIDGES_BY_NODE[b.from] = BRIDGES_BY_NODE[b.from] || { out: [], in: [] }).out.push(i);
+  (BRIDGES_BY_NODE[b.to] = BRIDGES_BY_NODE[b.to] || { out: [], in: [] }).in.push(i);
+});
+const BRIDGE_KIND_COUNT = {};
+BRIDGES.forEach(function (b) { BRIDGE_KIND_COUNT[b.kind] = (BRIDGE_KIND_COUNT[b.kind] || 0) + 1; });
+const BRIDGE_STATS = { total: BRIDGES.length, byKind: BRIDGE_KIND_COUNT };
+
 // ---------- 8. 结构一致性闸门 ----------
 const structural = [];
 if (ALL_NODES.length !== BASE_N) structural.push('ALL_NODES ' + ALL_NODES.length + ' ≠ ' + BASE_N);
@@ -175,6 +203,10 @@ if (dangling.length) structural.push('前置/关联悬空：' + dangling.join(',
 // 三维卡/题型索引引用的节点必须在真源内
 Object.keys(CARDS).forEach(id => { if (!nodeById[id]) structural.push('CARDS 含真源外节点：' + id); });
 TOPIC_ITEMS.forEach(it => (it.nodes || []).forEach(id => { if (!nodeById[id]) structural.push('TOPIC ' + it.id + ' 含真源外节点：' + id); }));
+BRIDGES.forEach((b, i) => {
+  if (!nodeById[b.from]) structural.push('BRIDGE[' + i + '].from 含真源外节点：' + b.from);
+  if (!nodeById[b.to]) structural.push('BRIDGE[' + i + '].to 含真源外节点：' + b.to);
+});
 if (structural.length) { console.log(structural.map(s => 'BLOCK ' + s).join('\n')); console.log('VERDICT=BLOCKED'); process.exit(2); }
 
 // ---------- 9. 写出 6 个模块 ----------
@@ -217,16 +249,18 @@ fs.writeFileSync(path.join(OUT, 'content_meta.js'), wrapConst(
   'const REVIEW_LABEL = ' + JSON.stringify(ORG.reviewLabel, null, 2) + ';\n\n' +
   'function metaFor(nodeId, domain) {\n  const base = DOMAIN_SOURCE[domain] || DOMAIN_SOURCE.junior;\n  const review = R2_CHECKED.indexOf(nodeId) >= 0 ? \'checked\' : \'pending\';\n  return {\n    source: base.source, evidence: base.evidence, review: review, note: base.note,\n    wording: \'C\', wordingNote: \'讲解措辞与自编例题为原创，属方法论建议，需人工判断\'\n  };\n}\n',
   'module.exports = { DOMAIN_SOURCE: DOMAIN_SOURCE, R2_CHECKED: R2_CHECKED, metaFor: metaFor, EVIDENCE_LABEL: EVIDENCE_LABEL, REVIEW_LABEL: REVIEW_LABEL };\n', warning));
+fs.writeFileSync(path.join(OUT, 'bridges.js'), wrap('// 导出 BRIDGES / BRIDGES_BY_NODE / BRIDGE_STATS：跨学段衔接边取 bridges.json（零破坏，不回写真源卡）。',
+  { BRIDGES, BRIDGES_BY_NODE, BRIDGE_STATS }, warning));
 
 fs.writeFileSync(path.join(OUT, 'manifest.generated.json'), JSON.stringify({
   sourceVersion: manifest.version,
   generatedAt: manifest.generatedAt,
-  builtFrom: 'reliable-data + source/app_organization.json',
+  builtFrom: 'reliable-data + source/app_organization.json + index/bridges.json',
   baseline: BASE_N,
   notVerified, allowPending,
-  modules: ['nodes.js', 'lectures.js', 'cards.js', 'themes.js', 'topic_index.js', 'content_meta.js']
+  modules: ['nodes.js', 'lectures.js', 'cards.js', 'themes.js', 'topic_index.js', 'content_meta.js', 'bridges.js']
 }, null, 2) + '\n');
 
-console.log('生成：nodes/lectures/cards/themes/topic_index/content_meta（各模块覆盖 ' + BASE_N + ' 节点）');
-console.log('RESULT=6/6 FAILED=0');
+console.log('生成：nodes/lectures/cards/themes/topic_index/content_meta/bridges（各模块覆盖 ' + BASE_N + ' 节点）');
+console.log('RESULT=7/7 FAILED=0');
 console.log('VERDICT=PASSED' + (warning ? '（过渡数据，含未签核条目）' : ''));

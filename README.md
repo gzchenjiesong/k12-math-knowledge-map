@@ -46,8 +46,8 @@ node tools/build-reliable-data.js   # 从只读素材重新编制真源（可复
 node tests/check-data.js            # 发布资格闸门（结构，9/9）
 node tests/check-reliable-extra.js  # 扩展检查（哈希 / 覆盖 / 定理条件 / 异源复算，33/33）
 node tools/render-html.js           # 生成 views/*.html 供人读复核
-node tools/build-data.js --allow-pending  # 编译 6 个 app 数据模块；无 --allow-pending 会因未签核而阻塞
-node tests/check-app-build.js       # 生成物一致性（app 数据 ↔ 真源 ↔ 组织配置，18/18）
+node tools/build-data.js --allow-pending  # 编译 7 个 app 数据模块（含 bridges.js 衔接边）；无 --allow-pending 会因未签核而阻塞
+node tests/check-app-build.js       # 生成物一致性（app 数据 ↔ 真源 ↔ 组织配置，24/24）
 ```
 
 - 真源唯一路径：`reliable-data/`；下游 `tools/build-data.js` 与 `tools/render-html.js` 只读取它，不重复做内容校验。

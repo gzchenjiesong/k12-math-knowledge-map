@@ -117,7 +117,7 @@ function loadMod(p) {
 }
 const jsDir = [
   'app.js', 'data/nodes.js', 'data/themes.js', 'data/topic_index.js', 'data/cards.js', 'data/lectures.js',
-  'data/content_meta.js', 'utils/store.js',
+  'data/content_meta.js', 'data/bridges.js', 'utils/store.js',
   'pages/lecture/lecture.js', 'pages/lesson/lesson.js', 'pages/graph/graph.js', 'pages/node/node.js',
   'pages/cards/cards.js', 'pages/locator/locator.js', 'pages/gaps/gaps.js'
 ];

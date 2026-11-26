@@ -1,6 +1,7 @@
 const knowledge = require('../../data/nodes.js');
 const themeData = require('../../data/themes.js');
 const cardsData = require('../../data/cards.js');
+const bridgeData = require('../../data/bridges.js');
 const store = require('../../utils/store.js');
 
 Page({
@@ -11,7 +12,10 @@ Page({
     stat: {},
     expandedDomains: {},
     expandedModules: {},
-    expandedThemes: {}
+    expandedThemes: {},
+    bridgeOpen: false,
+    bridgeGroups: [],
+    bridgeStats: bridgeData.BRIDGE_STATS
   },
 
   onLoad: function () {
@@ -61,6 +65,7 @@ Page({
         .map(function (n) {
           const status = store.getStatus(n.id);
           if (status === 2) done++;
+          const links = bridgeData.BRIDGES_BY_NODE[n.id];
           return {
             id: n.id,
             n: n.n,
@@ -68,7 +73,8 @@ Page({
             status: status,
             cardCount: cardsData.cardCount(n.id),
             domainKey: n.domain,
-            domainShort: themeData.DOMAIN_SHORT[n.domain] || ''
+            domainShort: themeData.DOMAIN_SHORT[n.domain] || '',
+            bridgeCount: links ? links.out.length + links.in.length : 0
           };
         });
       return {
@@ -82,7 +88,21 @@ Page({
       };
     });
 
-    const patch = { domains: domains, themes: themes, stat: store.stats(knowledge.ALL_NODES) };
+    // 衔接链按 kind 分组，顺序固定：课标 → 竞赛衔接 → 奥赛
+    const KIND_ORDER = ['铺垫→课标', '铺垫→竞赛衔接', '铺垫→奥赛'];
+    const bridgeGroups = KIND_ORDER.map(function (kind) {
+      const rows = bridgeData.BRIDGES.map(function (b, i) {
+        return {
+          idx: i,
+          from: b.from, to: b.to, kind: b.kind,
+          fromName: b.fromName, toName: b.toName,
+          fromDomain: b.fromDomain, toDomain: b.toDomain,
+          fromTheme: b.fromTheme, toTheme: b.toTheme
+        };
+      }).filter(function (b) { return b.kind === kind; });
+      return { kind: kind, count: rows.length, rows: rows };
+    }).filter(function (g) { return g.count > 0; });
+    const patch = { domains: domains, themes: themes, bridgeGroups: bridgeGroups, stat: store.stats(knowledge.ALL_NODES) };
     // 主题视图首次进入默认展开第一个专题，打开即有内容
     if (!this.data.expandedThemes[themes[0].id] && !this._themeTouched) {
       patch['expandedThemes.' + themes[0].id] = true;
@@ -92,6 +112,10 @@ Page({
 
   switchView: function (e) {
     this.setData({ view: e.currentTarget.dataset.view });
+  },
+
+  toggleBridge: function () {
+    this.setData({ bridgeOpen: !this.data.bridgeOpen });
   },
 
   toggleDomain: function (e) {

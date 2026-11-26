@@ -6,12 +6,13 @@
  *       忠实编译自唯一真源 + 组织配置」，保证 clone 后 build-data.js 可无损重建。
  *
  * 检查项：
- *   G1 六个模块可加载且导出名齐全
+ *   G1 七个模块可加载且导出名齐全
  *   G2 ALL_NODES 字段逐项等于真源 nodes/*.json 的映射结果（含 v2.1.0 补丁）
  *   G3 LECTURES 六段式逐字段等于真源 lessons/*.json（含补丁节点）
  *   G4 DOMAINS / THEMES / LECTURES 三视图覆盖同一 67 节点集
  *   G5 cards / topic_index / content_meta 等于组织配置
  *   G6 生成物头部含版本与来源标记，过渡态含未签核警告
+ *   G7 BRIDGES 的 from/to/kind 逐条等于 bridges.json，富化字段与反向索引正确
  *
  * 运行：node tests/check-app-build.js
  * 输出：RESULT= / VERDICT=PASSED|FAILED|BLOCKED
@@ -53,7 +54,8 @@ const EXPECT_KEYS = {
   cards: ['CARDS', 'cardCount'],
   themes: ['THEMES', 'THEME_OF', 'THEME_NAME', 'DOMAIN_SHORT'],
   topic_index: ['TOPIC_GROUPS', 'TOPIC_ITEMS', 'TOPICS_BY_NODE'],
-  content_meta: ['DOMAIN_SOURCE', 'R2_CHECKED', 'metaFor', 'EVIDENCE_LABEL', 'REVIEW_LABEL']
+  content_meta: ['DOMAIN_SOURCE', 'R2_CHECKED', 'metaFor', 'EVIDENCE_LABEL', 'REVIEW_LABEL'],
+  bridges: ['BRIDGES', 'BRIDGES_BY_NODE', 'BRIDGE_STATS']
 };
 for (const name of Object.keys(EXPECT_KEYS)) {
   const p = path.join(OUT, name + '.js');
@@ -143,18 +145,48 @@ if (MODS.content_meta) {
     'G5 证据元数据等于组织配置');
 }
 
+// G7 BRIDGES 忠实编译自 bridges.json + 富化字段/反向索引正确
+if (MODS.bridges) {
+  const bs = path.join(SRC, 'index/bridges.json');
+  const bridgeSrc = fs.existsSync(bs) ? readJson(bs) : null;
+  const srcEdges = bridgeSrc && Array.isArray(bridgeSrc.edges) ? bridgeSrc.edges : [];
+  const b = MODS.bridges.BRIDGES;
+  const coreOk = b.length === srcEdges.length && b.every((e, i) => e.from === srcEdges[i].from && e.to === srcEdges[i].to && e.kind === srcEdges[i].kind);
+  say(coreOk, 'G7 BRIDGES ' + b.length + ' 条 from/to/kind 逐条等于 bridges.json');
+  // 富化字段：fromName/toName/fromTheme/toTheme 与 ALL_NODES / THEME_OF 一致
+  const byId = {}; (MODS.nodes ? MODS.nodes.ALL_NODES : []).forEach(n => { byId[n.id] = n; });
+  const themeOf = MODS.themes ? MODS.themes.THEME_OF : {};
+  const richOk = b.every(e =>
+    e.fromName === (byId[e.from] ? byId[e.from].n : e.from) &&
+    e.toName === (byId[e.to] ? byId[e.to].n : e.to) &&
+    e.fromTheme === (themeOf[e.from] || '') && e.toTheme === (themeOf[e.to] || ''));
+  say(richOk, 'G7 BRIDGES 富化字段（名称/主题）与 ALL_NODES、THEME_OF 一致');
+  // 反向索引：按边重建后与 BRIDGES_BY_NODE 一致
+  const idx = {};
+  b.forEach((e, i) => {
+    (idx[e.from] = idx[e.from] || { out: [], in: [] }).out.push(i);
+    (idx[e.to] = idx[e.to] || { out: [], in: [] }).in.push(i);
+  });
+  say(eq(MODS.bridges.BRIDGES_BY_NODE, idx), 'G7 BRIDGES_BY_NODE 反向索引由边正确派生');
+  // 端点必须在真源内
+  const ghost = b.filter(e => !byId[e.from] || !byId[e.to]).map(e => e.from + '->' + e.to);
+  say(ghost.length === 0, 'G7 BRIDGES 两端节点均在真源内（悬空 ' + ghost.length + '）');
+}
+
 // G6 头部标记
-const headOk = ['nodes', 'lectures', 'cards', 'themes', 'topic_index', 'content_meta'].every(name => {
+const MODULE_NAMES = ['nodes', 'lectures', 'cards', 'themes', 'topic_index', 'content_meta', 'bridges'];
+const headOk = MODULE_NAMES.every(name => {
   const txt = fs.readFileSync(path.join(OUT, name + '.js'), 'utf8').split('\n').slice(0, 6).join('\n');
   return txt.indexOf('GENERATED FILE') >= 0 && txt.indexOf('version=' + manifest.version) >= 0;
 });
 say(headOk, 'G6 六个模块头部含 GENERATED FILE 与版本 ' + manifest.version);
 const pending = manifest.reviewStats && manifest.reviewStats.pending;
-const warnOk = pending > 0 ? ['nodes', 'lectures', 'cards', 'themes', 'topic_index', 'content_meta'].every(name => {
+const warnOk = pending > 0 ? MODULE_NAMES.every(name => {
   const txt = fs.readFileSync(path.join(OUT, name + '.js'), 'utf8').split('\n').slice(0, 6).join('\n');
   return txt.indexOf('未人工签核') >= 0;
 }) : true;
 say(warnOk, 'G6 过渡态警告头存在（pending=' + pending + '）');
+say(MODULE_NAMES.every(name => fs.existsSync(path.join(OUT, name + '.js'))), 'G6 七个模块全部入库');
 
 console.log('---');
 console.log('RESULT=' + pass + '/' + (pass + fail) + ' FAILED=' + fail);

@@ -20,7 +20,7 @@
 
   <view class="tip">
     <text wx:if="{{view === 'source'}}">点节点看三维卡片 · 长按节点切换掌握状态 · 切到主题视图可专题纵览</text>
-    <text wx:else>按专题纵览 · 节点后标签标注它来自小学/初中/高中/奥赛 · 长按切换掌握状态</text>
+    <text wx:else>按专题纵览 · 顶部「跨学段衔接链」看小学如何铺垫到进阶 · 长按切换掌握状态</text>
   </view>
 
   <!-- 视图一：按来源（进度轴） -->
@@ -63,6 +63,40 @@
 
   <!-- 视图二：按主题（专题轴，对齐集训队的小蓝本专题式授课） -->
   <view wx:else>
+    <!-- 跨学段衔接链：来源独立的 bridges.json 唯一声明处，编译后只读渲染 -->
+    <view class="bridge-card">
+      <view class="bridge-head" bindtap="toggleBridge">
+        <view class="bridge-headline">
+          <text class="bridge-icon">⇢</text>
+          <text class="bridge-title">跨学段衔接链</text>
+          <text class="bridge-count">{{bridgeStats.total}} 条</text>
+        </view>
+        <text class="bridge-sub">{{bridgeOpen ? '收起' : '展开看小学如何铺垫到课标 / 竞赛'}} · 点节点看详情</text>
+        <text class="bridge-arrow">{{bridgeOpen ? '▾' : '▸'}}</text>
+      </view>
+
+      <view class="bridge-body" wx:if="{{bridgeOpen}}">
+        <view class="bridge-kind" wx:for="{{bridgeGroups}}" wx:for-item="g" wx:key="kind">
+          <view class="bridge-kind-head">
+            <text class="bridge-kind-name">{{g.kind}}</text>
+            <text class="bridge-kind-count">{{g.count}} 条</text>
+          </view>
+          <view class="bridge-row" wx:for="{{g.rows}}" wx:for-item="b" wx:key="idx">
+            <view class="bridge-node" bindtap="goNode" data-id="{{b.from}}">
+              <text class="bridge-node-domain {{b.fromTheme === 't_primary' ? 'p' : ''}}">{{b.fromTheme === 't_primary' ? '小学' : '进阶'}}</text>
+              <text class="bridge-node-name">{{b.fromName}}</text>
+            </view>
+            <text class="bridge-arrow-mid">→</text>
+            <view class="bridge-node" bindtap="goNode" data-id="{{b.to}}">
+              <text class="bridge-node-domain">{{b.toTheme === 't_primary' ? '小学' : '进阶'}}</text>
+              <text class="bridge-node-name">{{b.toName}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="bridge-foot">衔接关系来自独立声明，不改写知识点卡片；仅作学习路径参考。</view>
+      </view>
+    </view>
+
     <view class="theme" wx:for="{{themes}}" wx:key="id">
       <view class="theme-head {{item.tone}}" bindtap="toggleTheme" data-id="{{item.id}}">
         <view class="theme-line">
@@ -82,6 +116,7 @@
             <view class="topic-line">
               <text class="topic-name">{{t.n}}</text>
               <text class="src-tag src-{{t.domainKey}}">{{t.domainShort}}</text>
+              <text wx:if="{{t.bridgeCount > 0}}" class="bridge-badge">⇢{{t.bridgeCount}}</text>
               <text wx:if="{{t.cardCount > 0}}" class="card-badge">{{t.cardCount}}卡</text>
             </view>
             <text class="topic-desc">{{t.d}}</text>

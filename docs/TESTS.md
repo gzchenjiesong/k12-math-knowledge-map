@@ -197,12 +197,12 @@
 ### TST-019: app 数据生成物一致性（生成物 ↔ 真源 ↔ 组织配置）
 
 - **归属**：`CNF-016` / `SPEC-008`
-- **前置**：`reliable-data/` v2.1.0 + `source/app_organization.json` 可读；`tools/build-data.js --allow-pending` 已生成 6 模块
-- **步骤**：`node tests/check-app-build.js` → G1 六模块导出齐全；G2 `ALL_NODES` 逐字段等于真源 nodes 映射；G3 `LECTURES.points` 六段式等于真源 lessons（含补丁）；G4 四视图覆盖同一 67 节点集；G5 组织层内容等于配置；G6 头部版本与未签核警告
-- **期望**：18/18 PASSED；删除 6 模块后重跑生成器字节级一致（可复现）
-- **证据**：`tests/evidence/APP_BUILD_V21.log`、`tests/evidence/BUILD_APP_V21.log`
-- **状态**：PASS（18/18；重建 6 模块 cmp 全 IDENTICAL）
-- **最近执行**：R11
+- **前置**：`reliable-data/` v2.1.0 + `source/app_organization.json` + `index/bridges.json` 可读；`tools/build-data.js --allow-pending` 已生成 7 模块
+- **步骤**：`node tests/check-app-build.js` → G1 七模块导出齐全；G2 `ALL_NODES` 逐字段等于真源 nodes 映射；G3 `LECTURES.points` 六段式等于真源 lessons（含补丁）；G4 四视图覆盖同一 67 节点集；G5 组织层内容等于配置；G6 头部版本与未签核警告；G7 BRIDGES 等于 bridges.json、富化字段/反向索引/端点正确
+- **期望**：24/24 PASSED；删除 7 模块后重跑生成器字节级一致（可复现）
+- **证据**：`tests/evidence/APP_BUILD_V21.log`、`tests/evidence/BUILD_APP_V21.log`、`tests/evidence/BRIDGES_V21.md`
+- **状态**：PASS（24/24；G7 为衔接边新增 4 项 + G1/G6 扩到 7 模块）
+- **最近执行**：R16
 - **边界**：一致性≠内容正确；真源仍 `pending=268`、`verified=0`，app 数据为带警告的过渡数据，人工闸门 VFY-005/006 不变（`SPEC-008`）
 
 ---

@@ -77,3 +77,29 @@
 .src-junior { color: #2f7de0; background: #e9f1ff; }
 .src-senior { color: #19967a; background: #e5f6f1; }
 .src-olympiad { color: #c8671c; background: #fdf0e4; }
+
+/* 节点上的衔接标记 */
+.bridge-badge { margin-left: 10rpx; padding: 2rpx 10rpx; border-radius: 14rpx; font-size: 20rpx; color: #b45309; background: #fef3c7; flex-shrink: 0; }
+
+/* 跨学段衔接链 */
+.bridge-card { margin-bottom: 22rpx; border-radius: 16rpx; overflow: hidden; background: #fff; box-shadow: 0 2rpx 10rpx rgba(31,45,61,.05); }
+.bridge-head { position: relative; padding: 24rpx 28rpx; background: linear-gradient(135deg, #0f766e, #14b8a6); color: #fff; }
+.bridge-headline { display: flex; align-items: center; }
+.bridge-icon { font-size: 34rpx; margin-right: 12rpx; }
+.bridge-title { font-size: 30rpx; font-weight: 700; flex: 1; }
+.bridge-count { font-size: 22rpx; background: rgba(255,255,255,.18); padding: 4rpx 16rpx; border-radius: 20rpx; }
+.bridge-sub { display: block; margin-top: 8rpx; margin-left: 46rpx; font-size: 22rpx; opacity: .88; }
+.bridge-arrow { position: absolute; right: 28rpx; bottom: 26rpx; font-size: 26rpx; opacity: .9; }
+.bridge-body { padding: 8rpx 20rpx 20rpx; }
+.bridge-kind { margin-top: 18rpx; }
+.bridge-kind-head { display: flex; align-items: center; justify-content: space-between; padding: 0 8rpx 10rpx; border-bottom: 2rpx solid #f0f2f6; }
+.bridge-kind-name { font-size: 25rpx; font-weight: 600; color: #33405a; }
+.bridge-kind-count { font-size: 20rpx; color: #9aa4b4; }
+.bridge-row { display: flex; align-items: center; padding: 14rpx 8rpx; border-bottom: 2rpx solid #f5f6f8; }
+.bridge-row:last-child { border-bottom: none; }
+.bridge-node { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.bridge-node-domain { font-size: 20rpx; color: #2f7de0; }
+.bridge-node-domain.p { color: #6f52c9; }
+.bridge-node-name { font-size: 25rpx; color: #1f2329; margin-top: 4rpx; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.bridge-arrow-mid { width: 48rpx; text-align: center; font-size: 28rpx; color: #0f766e; flex-shrink: 0; }
+.bridge-foot { margin-top: 16rpx; padding: 12rpx 8rpx; font-size: 20rpx; color: #9aa4b4; background: #f7f9fc; border-radius: 10rpx; }
