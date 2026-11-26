@@ -41,3 +41,4 @@
 ## 5. 关联改动
 
 - README 演示截图同步：投屏演示图从旧版 `IPAD13_present.png` 换为新版 16:9 PPT 实拍（从 `PPT16x9_*.jpg` 裁去上下黑边，得 888×499 纯画布 `README_present_{cover,essence,answer}.jpg`），README 由 4 图扩为 6 图。
+- **补充（R30）**：README 首屏 3 张 iPad 图（`IPAD13_lecture.png` / `IPAD13_lesson.png` / `IPAD13_graph.png`）此前仍是旧原生 tabBar 小字样式；在自定义 tabBar 生效后重截覆盖同名文件——首页「讲解」、图谱页「图谱」均显示蓝色胶囊高亮新样式，详情页用 `id=t_alg`（代数基础与变形）重截、内容完整。README 引用路径不变，GitHub 页面在推送后自动更新为新样式。
