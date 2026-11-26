@@ -1,109 +1,97 @@
-# k12-math-knowledge-map
+# 数海扶摇 · K12 数学竞赛知识图谱
 
-面向家庭使用的 K12 数学竞赛（奥赛）学习工具链：完整知识图谱、讲解优先的知识卡片应用，以及一套「先建立可靠数据源、再让程序直接信任」的内容生产流程。
+面向家庭的竞赛数学学习工具：按「专题讲透 → 建立框架 → 按题型验证」的路径，帮孩子从散点刷题转向有体系的学习。覆盖小学到奥赛四个学段，以微信小程序交付，内容内置、离线可用；另附 A3 挂图等可打印材料。
 
-小程序正式名称 **数海扶摇**（简称同名）；服务类目「教育服务 > 教育信息展示」。产品定位与发布现行口径见 `docs/CONFIG.md` 的 `CNF-019`、变更记录见 `docs/INDEX.md` 的 `R25`–`R27`、提审填写清单见 `tests/evidence/SUBMIT_V100_CHECKLIST.md`。
-
-> **内容边界声明**：本项目是辅助讲解工具，不是教科书替代品。所有讲解与例题为基于数学公共知识的原创编写，最终以孩子集训队学校讲义与授课老师口径为准。发现任何错误，请标记存疑并走修正流程（`RUL-009`）。
-
-## 一、核心架构：三段流水线
-
-```
-resource_data/           reliable-data/            apps/miniprogram/   views/
-  原始资料（不入库）  →   唯一真源（JSON+签核）  →     生成物（入库/不入库）
-  课标/大纲/教材/笔记      67 节点 × 四类卡片         小程序数据（入库）/ HTML（不入库）
-```
-
-> v2.1.0 起：小程序 7 个数据模块（`nodes` / `lectures` / `cards` / `themes` / `topic_index` / `content_meta` / `bridges`）由真源编译后**入库**，clone 后无需本地重编即可运行；
-> 但它们仍是生成物，禁止手工编辑，改动一律重跑 `node tools/build-data.js --allow-pending`。
-> 一致性由 `tests/check-app-build.js` 断言（app 数据逐字段等于真源 + 组织配置）。
-
-- **可靠数据源是独立任务建设的**（启动 Prompt 见 `docs/PROMPT.md` 的 `PRM-010`）：依据锚定 → 编制 → 三重检查 → 人工签核 → 版本发布。
-- **开发与运行时直接信任已发布数据**，不重复做内容校验；正确性在数据源出口一次性解决。
-- 校验没有取消，而是**前移并集中**：`tests/check-data.js` 是数据源发布闸门，`tests/validate.js` 与 `tests/verify_content.js` 只负责结构与可判定子集。
-
-## 二、目录职责
-
-| 目录 | 职责 | 入库 |
-|---|---|---|
-| `docs/` | 项目治理文档：契约 / 规则 / 配置 / 设计 / 缺陷墙 / 上下文 / 测试台账 | 是 |
-| `resource_data/` | 原始资料：官方课标、竞赛大纲、百科摘录、教材电子书 | **否** |
-| `reliable-data/` | 唯一内容真源：知识点 / 授课教案 / 易错考点 / 真题示范 四类卡片 + 依据锚点 + 签核记录 | 是 |
-| `apps/miniprogram/` | 微信小程序「数海扶摇」工程（8 页：讲解 / 图谱 / 题型 / 查漏 / 节点 / 三维卡 / 衔接链入口 / 投屏演示） | 是；`data/*.js` v2.1.0 起入库（生成物，禁手改） |
-| `tools/` | 生成脚本：`build-data.js`（真源→小程序数据）、`render-html.js`（真源→HTML 视图） | 是 |
-| `tests/` | 校验脚本 `validate.js` / `verify_content.js` / `check-data.js` 与证据 `evidence/` | 是 |
-| `deliverables/` | 静态交付物：A3 挂图两版（按学段 / 按主题，由 `tools/build-poster.js` 从 app 数据生成，不手工维护）、书单等 | 是 |
-| `views/` | 由真源渲染的 HTML 人读视图（供人工复核） | 否 |
-| `deploy/` | 部署脚本与配置样例；真实私有信息放 `deploy/config/` | 样例是，私有否 |
-| `deploy/server/` | 自建进度服务（**备选方案**，零依赖 Node，按用户隔离存几 KB 进度） | 代码是，`config.json`/`data/` 否 |
-
-## 三、本地开发引导
-
-小程序运行所需的 `apps/miniprogram/data/*.js` 是**生成物**；v2.1.0 起与真源一并入库以保证 clone 可运行，但禁止手工编辑。
-
-**当前状态：真源 v2.1.0 已发布，但人工签核未完成**（`reliable-data/manifest.json`：67 节点 × 四类卡 = 268 张全部 `pending`、`verified=0`，`VFY-005` 为 `BLOCKED_NO_EVIDENCE`）。app 数据为**过渡态**，头部带未签核警告。
-
-```bash
-node tools/build-reliable-data.js   # 从只读素材重新编制真源（可复现）
-node tests/check-data.js            # 发布资格闸门（结构，9/9）
-node tests/check-reliable-extra.js  # 扩展检查（哈希 / 覆盖 / 定理条件 / 异源复算，33/33）
-node tools/render-html.js           # 生成 views/*.html 供人读复核
-node tools/build-poster.js          # 渲染两版 A3 挂图（按学段 / 按主题，从 app 数据模块生成，可复现）
-node tools/build-data.js --allow-pending  # 编译 7 个 app 数据模块（含 bridges.js 衔接边）；无 --allow-pending 会因未签核而阻塞
-node tests/check-app-build.js       # 生成物一致性（app 数据 ↔ 真源 ↔ 组织配置，24/24）
-```
-
-- 真源唯一路径：`reliable-data/`；下游 `tools/build-data.js` 与 `tools/render-html.js` 只读取它，不重复做内容校验。
-- 人工签核记录：`tests/evidence/HUMAN_SIGNOFF_V1.md`；签字后须发新版本，不覆盖 v1.0.0。
-- 正确性是「依据充分 + 人工签核」的结果，不是 AI 自证；机械 `PASSED` 不表示内容无误。
-
-## 四、校验命令
-
-```bash
-node tests/validate.js          # 文档结构 + 小程序工程静态/数据校验
-node tests/verify_content.js    # 内容可判定子集（数值复算 / 定理条件 / 结论存在）机械断言
-node tests/check-data.js        # 可靠数据源发布闸门（真源未建时如实 BLOCKED）
-```
-
-所有脚本输出统一为 `RESULT=<通过>/<总数> FAILED=<失败>` 与 `VERDICT=PASSED|FAILED|BLOCKED`。
-
-**诚实边界**：机械校验 PASS 不等于内容正确。AI 不得自证内容正确（见 `docs/SPECS.md` 的 `SPEC-008`）；只有人对照讲义逐条核对并把 `review` 置为 `verified`、记录核对人与日期，才算真正核实。
-
-## 五、进度同步（微信云开发 · 当前方案）
-
-内容全部内置、离线可用；云端**只同步进度**。链路：
-
-```
-小程序 utils/sync.js  ⇄  微信云开发数据库 progress 集合
-   本地 store.js 仍是唯一状态源     按 _openid 自动隔离，每用户一条文档几 KB
-```
-
-- 配置在 `apps/miniprogram/utils/cloud-config.js`（环境 ID `k12-math-knowledge-map-dfac0f85a` + 集合名 `progress`）。环境 ID 不是凭证，官方文档即写在前端，故入库。
-- 集合 `progress` 已创建，权限必须为**「仅创建者可读写」**——云开发按 `_openid` 自动隔离，前端只读写自己的文档，不接触 openid 明文。
-- 本地优先：所有读写先落本地 `store.js`，UI 不等网络；拉取时只填补本地缺失的条目，不覆盖已有学习进度。
-- 离线 / 网络失败时静默降级为纯离线，不阻塞学习；有未推送标记时启动后自动补推。
-- 无需 AppSecret、HTTPS 域名、request 合法域名白名单。
-- **备选方案**：`deploy/server/` 保留自建服务器实现（零依赖 Node，按 openid 隔离），将来若需走出微信生态可切换。详见 `deploy/server/README.md`。
-
-## 六、安全规则
-
-- 云开发环境 ID 可入库（非凭证）；但**云数据库 access token、云账号 SecretId/SecretKey 绝不入库**。
-- `deploy/config/`、`deploy/server/config.json`（AppID/Secret/token 密钥）、`apps/miniprogram/utils/runtime-config.js`（自建服务器地址）**绝不入库**，只留本地。
-- `deploy/server/data/`（用户进度）**绝不入库**。
-- `resource_data/` 下的教材 PDF 等原始资料**绝不入库**，避免版权风险与仓库膨胀。
-- `.gitignore` 已为以上各类设置排除规则；任何提交前请复查 `git status`。
-
-## 七、发布与审核状态（2026-11-26）
-
-| 项 | 状态 |
+| 讲解首页 | 讲解详情 |
 |---|---|
-| 小程序名称 / 简称 | 数海扶摇（审核通过，CNF-019） |
-| 介绍 | 定稿 114/120 字符，后台已填（CNF-019） |
-| 服务类目 | 教育服务 > 教育信息展示（单一主营类目，CNF-017） |
-| 开发版本 | `1.0.0` 已重传（含衔接链 / 投屏 / A3 挂图 / 多屏适配），见 `UPLOAD_V100.md` |
-| 代码审核 | 2026-11-26 15:35 已提交，**审核中**（1–7 天），见 `SUBMIT_V100_CHECKLIST.md` |
-| 备案 | 已提交，平台审核中 → 管局审核 1–20 工作日；**全部完成前不可发布** |
-| 微信认证 | 未认证（无「被搜索 / 被分享」能力），取舍待人工决定 |
-| 内容签核 | `pending=268 / verified=0`，机械校验全绿不代表人工核准（SPEC-008） |
+| ![讲解首页](tests/evidence/simulator/IPAD13_lecture.png) | ![讲解详情](tests/evidence/simulator/IPAD13_lesson.png) |
 
-审核通过**不会自动上线**，须管理员后台手动点发布，且发布前备案必须全部完成。备案与认证由家长人工处理，工具不代劳。
+| 知识图谱 | 投屏演示 |
+|---|---|
+| ![知识图谱](tests/evidence/simulator/IPAD13_graph.png) | ![投屏演示](tests/evidence/simulator/IPAD13_present.png) |
+
+## 它解决什么问题
+
+竞赛学习常见的困境是知识散、进度快、没有框架：孩子做了很多题，却说不清某个专题的本质、方法和易错边界。本项目把内容拆成 **67 个知识点**（小学 10 / 初中 21 / 高中 15 / 奥赛 21），每个点配四类卡片（知识点、讲解教案、易错考点、真题示范），再用知识图谱、题型定位和查漏清单把点连成网，家长可以逐点讲、孩子可以按图自查。
+
+## 主要功能
+
+- **讲解卡片**：每个知识点按「本质 / 核心方法 / 讲解例题 / 易错点 / 知识连接 / 概念自检」六段式组织，便于逐点讲透。
+- **双视图知识图谱**：按知识来源看纵向脉络，按 11 个主题看横向联系；另有 12 条跨学段衔接桥，标出小学到初中、初中到高中/奥赛的过渡关系。
+- **题型定位**：从题目特征反查对应知识点，用来验证掌握程度。
+- **查漏清单**：按掌握状态汇总待复习节点，支持跨学段分组。
+- **投屏演示**：全屏大字幻灯片，适合在电视或平板上全家共学。
+- **离线优先**：内容全部内置，无网络也能用；学习进度先存本地，可选开启微信云开发做跨设备同步。
+- **多屏适配**：手机、平板、横屏均可使用。
+
+## 快速开始
+
+前置：Node.js 18+、[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)。
+
+```bash
+git clone https://github.com/gzchenjiesong/k12-math-knowledge-map.git
+```
+
+1. 打开微信开发者工具，选择「导入项目」，目录指向仓库的 `apps/miniprogram/`。
+2. AppID 请填**你自己的**小程序 AppID，或选择「测试号」体验。仓库内置的是作者 AppID，非本人使用时须替换。
+3. 无需构建：`apps/miniprogram/data/*.js` 已随仓库提供，导入后即可运行。
+4. 云端同步是可选功能；未配置云环境时，应用以纯离线方式正常工作。
+
+仓库还包含由数据生成的静态交付物：`deliverables/olympiad-poster-A3.html`（按学段）和 `deliverables/olympiad-poster-themes-A3.html`（按主题），浏览器打开即可打印成 A3 挂图。
+
+## 关于内容可信度
+
+所有讲解与例题均为**基于数学公共知识的原创编写**，不复制付费教材原文，也不内嵌盗版资料。内容已做结构、数值、定理条件等机械校验，但**尚未经人工对照学校讲义逐条核对**，不保证零错误，请以孩子集训队讲义与授课老师口径为准。发现错误欢迎提 issue 反馈（见文末）。
+
+## 数据生产流程
+
+内容真源在 `reliable-data/`，应用数据是从真源编译出的生成物，不是手工维护的副本：
+
+```
+resource_data/           reliable-data/            apps/miniprogram/
+  原始资料（不入库）  →   唯一真源（JSON）      →     生成物 data/*.js
+  课标 / 大纲 / 笔记      67 节点 × 四类卡片         小程序直接读取
+```
+
+生成物随仓库入库以保证 clone 即可运行；修改内容时改真源并重新生成，不要直接编辑 `apps/miniprogram/data/*.js`。
+
+```bash
+node tools/build-data.js --allow-pending  # 真源 → 7 个 app 数据模块
+node tools/build-poster.js                # 生成两版 A3 挂图
+node tools/render-html.js                 # 生成人读 HTML 视图（views/，不入库）
+```
+
+校验脚本（统一输出 `RESULT=通过/总数` 与 `VERDICT`）：
+
+```bash
+node tests/check-data.js            # 真源发布闸门
+node tests/check-reliable-extra.js  # 哈希 / 覆盖 / 定理条件 / 异源复算
+node tests/validate.js              # 文档结构与小程序工程静态校验
+node tests/verify_content.js        # 内容可判定子集的机械断言
+node tests/check-app-build.js       # 生成物与真源一致性
+```
+
+机械校验通过只说明结构和可判定部分无误，**不等于内容已被人工核准**。
+
+## 目录结构
+
+| 目录 | 说明 |
+|---|---|
+| `apps/miniprogram/` | 微信小程序工程；`data/*.js` 为生成物 |
+| `reliable-data/` | 内容唯一真源：四类卡片、依据锚点、版本快照与变更记录 |
+| `tools/` | 数据、HTML 视图、A3 挂图的生成脚本 |
+| `tests/` | 校验脚本与证据记录（含模拟器截图） |
+| `deliverables/` | A3 挂图、品牌素材等静态交付物 |
+| `docs/` | 项目治理文档：契约、规则、配置、设计与变更索引（维护者参考） |
+| `resource_data/` | 本地原始资料，不入库 |
+| `deploy/` | 可选的进度服务实现与配置样例 |
+
+## 参与和反馈
+
+- **发现内容错误**：请提 GitHub issue，注明知识点 ID、问题所在卡片和建议改法；错误讲解比缺失危害更大，优先处理。
+- **改进功能 / 修 bug**：欢迎 PR；改内容请改真源并重新生成，改工程请先阅读 `docs/` 下的契约与规则。
+- **维护者文档**：治理口径与变更索引见 `docs/INDEX.md`。
+
+## 许可
+
+MIT License，详见 [LICENSE](LICENSE)。内容原创编写，不含教材原文或第三方版权素材。
