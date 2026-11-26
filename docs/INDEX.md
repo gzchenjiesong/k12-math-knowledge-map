@@ -129,6 +129,8 @@
 
 | R22 | 2026-11-26 | iPad Pro 13 模拟器 CLI 截图实测（首轮真机级视觉验证，非纯静态）：家长在工具切 iPad Pro 13（1032×1376 竖屏，触发 768px 断点），CLI v0.3.11 `simulator_screenshot` 逐页取证 8 页。修 3 bug：①投屏页 `.canvas` 缺 `min-height:0` 致底部翻页栏被挤出屏幕（flex 子项按内容撑开）+ `.stage` 缺 `box-sizing:border-box`；②投屏封面标题 92→60rpx、正文 line-clamp 5 行（原拆行/溢出、一屏看不全）；③查漏页小学分组 id=primary 无背景色致白底白字（补紫色，graph 页同类问题当时漏改 gaps）。附带图谱副标题「4 大来源」→「4 大学段」。修复后逐页截图复验 PASS。CLI 截图能力已实测可用（更正此前"CLI 未接入"误记） | pages/present/present.wxss / pages/gaps/gaps.wxss / pages/graph/graph.wxml / tests/evidence/IPAD13_PREVIEW.md / tests/evidence/simulator/IPAD13_*.png / INDEX | 仅竖屏实测，横屏待家长旋转设备后验证；内容为 pending=268/verified=0 未变 |
 
+| R23 | 2026-11-26 | 横屏实测与修复（家长找不到旋转开关：手机模式本无该按钮、仅 iPad 设备下出现；CLI 亦无方向参数）：临时把 window.pageOrientation 改 landscape 触发模拟器横屏（iPhone 17 横屏 874×276 矮屏）逐页取证 6 页后恢复 auto。发现 present 投屏页在矮横屏封面标题被底部按钮栏完全遮挡（controls 约 126rpx + 顶部条约 60rpx 吃掉矮屏）→ 新增 `@media (min-width:768px) and (max-height:560px)` 矮横屏专用断点（顶部条/内容字号压缩、按钮栏 126→60rpx、封面矮屏隐藏 bullets），复验封面/正文页完整可见。其余 5 页横屏 PASS。证据 LANDSCAPE_PREVIEW.md + LAND_*.png | pages/present/present.wxss / tests/evidence/LANDSCAPE_PREVIEW.md / tests/evidence/simulator/LAND_*.png / INDEX | 仅 iPhone 矮横屏实测（比 iPad 横屏更严苛），iPad 真横屏仍建议家长确认；IDE 多平台文件仍未入库；内容 pending=268/verified=0 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。

@@ -102,6 +102,46 @@
 .ctl-next { flex: 1; background: #4fd1a5; color: #06251b; }
 .ctl.disabled { opacity: .35; }
 
+/* ===== 矮横屏（手机横屏镜像到电视的常见形态，如 874×276）=====
+   顶部条 + 按钮栏在矮屏会吃掉大半高度，必须整体压缩，把空间还给内容区。
+   命中条件：宽屏且高度 <= 560px；iPad 竖屏(1032×1376)、大屏横屏(高度>560)不受影响。 */
+@media (min-width: 768px) and (max-height: 560px) {
+  .topbar { padding: 4rpx 24rpx 2rpx; }
+  .brand { font-size: 20rpx; }
+  .sep { font-size: 18rpx; margin: 0 8rpx; }
+  .gname { font-size: 22rpx; }
+  .progress { font-size: 24rpx; margin-right: 14rpx; }
+  .quit { font-size: 20rpx; padding: 4rpx 12rpx; }
+  .bar-track { height: 4rpx; margin: 0 24rpx 4rpx; }
+
+  .slide { padding: 12rpx 40rpx 20rpx; }
+  .eyebrow { font-size: 20rpx; margin-bottom: 8rpx; letter-spacing: 2rpx; }
+  .title { font-size: 42rpx; margin-bottom: 12rpx; line-height: 1.25; }
+  .sub { font-size: 24rpx; margin-top: -8rpx; margin-bottom: 10rpx; }
+  .body { font-size: 26rpx; line-height: 1.45; }
+  .body.answer { border-left-width: 5rpx; padding-left: 20rpx; }
+  .bullets { margin-top: 6rpx; }
+  .bullet { margin-bottom: 8rpx; }
+  .bidx { width: 34rpx; height: 34rpx; line-height: 34rpx; font-size: 18rpx; margin-right: 14rpx; }
+  .btext { font-size: 24rpx; line-height: 1.4; }
+  .hint { margin-top: 12rpx; font-size: 20rpx; }
+
+  /* 封面/结束页在矮屏更激进地限行，确保标题与正文都完整可见 */
+  .slide-cover .title, .slide-end .title {
+    font-size: 40rpx; margin-top: 4rpx; margin-bottom: 10rpx;
+  }
+  .slide-cover .body, .slide-end .body {
+    font-size: 22rpx; line-height: 1.4; -webkit-line-clamp: 2;
+  }
+  /* 矮屏封面/结束页直接隐藏 bullets（本节目标等内容翻页可见），彻底避免被按钮栏压住 */
+  .slide-cover .bullets, .slide-end .bullets { display: none; }
+  .slide-cover .sub { font-size: 20rpx; }
+
+  /* 按钮栏瘦身：从约 126rpx 压到约 60rpx */
+  .controls { gap: 12rpx; padding: 8rpx 24rpx 12rpx; }
+  .ctl { padding: 12rpx 0; font-size: 26rpx; border-radius: 14rpx; }
+}
+
 /* 目录浮层 */
 .toc-mask { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(4, 8, 18, .88); z-index: 20; display: flex; align-items: center; justify-content: center; }
 .toc-panel { width: 86%; max-width: 900rpx; max-height: 76%; background: #101a30; border: 2rpx solid #2b3a5c; border-radius: 24rpx; display: flex; flex-direction: column; overflow: hidden; }
