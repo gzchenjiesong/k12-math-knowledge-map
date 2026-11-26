@@ -119,6 +119,8 @@
 
 | R17 | 2026-11-26 | A3 挂图刷新到 v2.1.0（改生成式，杜绝手工过时）：新增 `tools/build-poster.js` 从 app 数据模块渲染两版挂图——按学段版（⓪小学10/①初中21/②高中15/③奥赛21=67 节点）、按主题版（DSN-007 提案落地，11 主题网格 + 主题内学段深化链）；两版含 12 条衔接链与 15 类题目信号速查，保留 A3 横向打印样式；删除重建字节一致；README 交付物口径改「生成式」 | README / INDEX / tools/build-poster.js / deliverables/olympiad-poster-A3.html / deliverables/olympiad-poster-themes-A3.html / tests/evidence/POSTER_V21.md | 挂图为真源下游视图，仍 pending=268、verified=0，机械 PASS 不代表内容正确；未做纸质打样 |
 
+| R18 | 2026-11-26 | 用语调整：代码包内用户可见文案「授课」→「讲解」（tabBar 首项 / lecture.json + lesson.json 页面标题 / lecture 首页 5 处 / project.config.json description）；保留页面路径 `pages/lecture/`、数据字段 LECTURES、历史决策名（DSN-004/SPEC-007/TST-003）与版本证据原文（契约与可追溯性，非用户文案）；CNF-017 记录该调整并注明后台账号介绍仍为「授课卡片」、如需统一须家长人工改 | CONFIG（CNF-017）/ INDEX / apps/miniprogram/{app.json,project.config.json,pages/lecture/lecture.json,pages/lecture/lecture.wxml,pages/lesson/lesson.json} | 后台对外介绍字段未随代码改动（审批中）；内容仍 pending=268、verified=0 |
+
 ## IDX-007: 设计文档占用与生效说明
 
 - **编号占用 ≠ 内容生效**：提案、历史存档、已收口章节都占号。

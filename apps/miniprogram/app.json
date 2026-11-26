@@ -21,7 +21,7 @@
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
-      { "pagePath": "pages/lecture/lecture", "text": "授课" },
+      { "pagePath": "pages/lecture/lecture", "text": "讲解" },
       { "pagePath": "pages/graph/graph", "text": "图谱" },
       { "pagePath": "pages/locator/locator", "text": "题型" },
       { "pagePath": "pages/gaps/gaps", "text": "查漏" }
