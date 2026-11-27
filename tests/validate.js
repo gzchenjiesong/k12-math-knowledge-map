@@ -12,7 +12,7 @@ const Module = require('module');
 const ROOT = path.resolve(__dirname, '..');
 const DOC = path.join(ROOT, 'docs');
 const MINI = path.join(ROOT, 'apps/miniprogram');
-let pass = 0, fail = 0;
+let pass = 0, fail = 0, skipped = 0;
 function say(ok, msg) { console.log((ok ? 'OK   ' : 'FAIL ') + msg); ok ? pass++ : fail++; }
 
 // ============ 文档四类校验 ============
@@ -106,6 +106,58 @@ while ((tm = tableRe.exec(indexDoc))) {
 }
 say(forwardBad.length === 0, 'FWD   前瞻编号集合一致' + (forwardBad.length ? ' : ' + forwardBad.join(', ') : ' : 一致'));
 
+// ============ 工程入口与提交边界（TST-025） ============
+const { execFileSync } = require('child_process');
+const expectedChecks = [
+  'check-data.js', 'check-reliable-extra.js', 'validate.js', 'verify_content.js',
+  'check-app-build.js', 'check-sources.js --self-test', 'check-data-contract.js',
+  'check-sync.js', 'check-ui.js', 'check-reading-context.js', 'check-records.js'
+].map(file => 'node tests/' + file);
+let pkg;
+try { pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')); }
+catch (error) { console.error('PROJECT package.json: ' + error.message); }
+say(!!pkg && pkg.private === true && pkg.engines && pkg.engines.node === '>=18' &&
+  ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'].every(key =>
+    !pkg[key] || Object.keys(pkg[key]).length === 0) && pkg.scripts &&
+  Object.keys(pkg.scripts).every(key => ['test', 'check', 'build:data'].includes(key)),
+'PROJECT private / Node18+ / 零依赖，无安装或隐式测试钩子');
+const checkCommands = pkg && pkg.scripts && typeof pkg.scripts.test === 'string' ? pkg.scripts.test.split(' && ') : [];
+say(JSON.stringify(checkCommands) === JSON.stringify(expectedChecks) && expectedChecks.every(command =>
+  fs.existsSync(path.join(ROOT, command.split(' ')[1]))), 'PROJECT npm test完整串行11组检查，失败即停止');
+
+const ignoredPaths = [
+  'deploy/server/data/test-progress.json', 'deploy/server/data/nested/progress.json',
+  'deploy/server/config.json', 'deploy/config/test.json',
+  'resource_data/official/test.pdf', '.workbuddy/test-isolated/app.js',
+  'apps/miniprogram/project.private.config.json', 'apps/miniprogram/utils/runtime-config.js', '.env'
+];
+const allowedPaths = [
+  'deploy/server/data/.gitkeep', 'deploy/server/config.example.json',
+  'resource_data/README.md', 'apps/miniprogram/utils/sync-state.js',
+  'reliable-data/evidence/NODE_SOURCES.json', 'tests/check-records.js',
+  'tests/evidence/simulator-r34/runtime-evidence.json', 'tests/evidence/CHECKS_R35.log'
+];
+try {
+  // 不创建模拟个人数据；--no-index同时检查已跟踪文件的忽略规则。
+  const ignored = new Set(execFileSync('git', ['-C', ROOT, 'check-ignore', '--no-index', '--stdin'], {
+    input: ignoredPaths.concat(allowedPaths).join('\n') + '\n', encoding: 'utf8'
+  }).trim().split(/\r?\n/));
+  say(ignoredPaths.every(file => ignored.has(file)) && allowedPaths.every(file => !ignored.has(file)),
+    'PROJECT Git实际忽略运行数据/原件/私有配置/隔离副本，放行源码与证据');
+} catch (error) { say(false, 'PROJECT Git忽略检查失败：' + error.message); }
+
+const generatedFiles = ['bridges.js', 'cards.js', 'content_meta.js', 'lectures.js',
+  'manifest.generated.json', 'nodes.js', 'themes.js', 'topic_index.js']
+  .map(file => 'apps/miniprogram/data/' + file);
+try {
+  const attrs = execFileSync('git', ['-C', ROOT, 'check-attr', '--stdin', 'eol'], {
+    input: generatedFiles.join('\n') + '\n', encoding: 'utf8'
+  }).trim().split(/\r?\n/);
+  say(attrs.length === generatedFiles.length && generatedFiles.every(file =>
+    attrs.includes(file + ': eol: lf') && !fs.readFileSync(path.join(ROOT, file), 'utf8').includes('\r')),
+  'PROJECT 八个生成文件使用Git LF属性且工作树无CR，跨平台字节稳定');
+} catch (error) { say(false, 'PROJECT 生成物LF检查失败：' + error.message); }
+
 // ============ 小程序工程校验 ============
 function loadMod(p) {
   const a = path.resolve(p);
@@ -115,14 +167,18 @@ function loadMod(p) {
   m._compile(fs.readFileSync(a, 'utf8'), a);
   return m.exports;
 }
-const jsDir = [
-  'app.js', 'data/nodes.js', 'data/themes.js', 'data/topic_index.js', 'data/cards.js', 'data/lectures.js',
-  'data/content_meta.js', 'data/bridges.js', 'utils/store.js',
-  'pages/lecture/lecture.js', 'pages/lesson/lesson.js', 'pages/graph/graph.js', 'pages/node/node.js',
-  'pages/cards/cards.js', 'pages/locator/locator.js', 'pages/gaps/gaps.js'
-];
-// 校验侧脚本（与文档解耦，位于 tests/）
-const docScripts = [path.join(__dirname, 'validate.js'), path.join(__dirname, 'verify_content.js')];
+// 动态遍历自有源码，新增 sync/present/custom-tab-bar 不会因固定名单被漏检。
+function sourceFiles(dir, extension, base = dir) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+    if (entry.name.startsWith('.') || ['node_modules', 'miniprogram_npm', 'evidence'].includes(entry.name)) return [];
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) return sourceFiles(file, extension, base);
+    return entry.isFile() && entry.name.endsWith(extension) ? [path.relative(base, file)] : [];
+  }).sort();
+}
+const jsDir = sourceFiles(MINI, '.js');
+const docScripts = [path.join(ROOT, 'tests'), path.join(ROOT, 'tools')]
+  .flatMap(dir => sourceFiles(dir, '.js').map(file => path.join(dir, file)));
 let jsOk = 0;
 jsDir.forEach(f => {
   try { new Function('require', 'module', 'exports', 'Page', 'App', 'getApp', 'wx', fs.readFileSync(path.join(MINI, f), 'utf8')); jsOk++; }
@@ -141,9 +197,7 @@ docScripts.forEach(f => {
 if (docJsOk === docScripts.length) say(true, 'JS    ' + docJsOk + '/' + docScripts.length + ' 文档脚本语法通过');
 
 // JSON
-const jsonFiles = ['app.json', 'project.config.json', 'sitemap.json',
-  'pages/lecture/lecture.json', 'pages/lesson/lesson.json', 'pages/graph/graph.json',
-  'pages/node/node.json', 'pages/cards/cards.json', 'pages/locator/locator.json', 'pages/gaps/gaps.json'];
+const jsonFiles = sourceFiles(MINI, '.json');
 let jsonOk = 0;
 jsonFiles.forEach(f => {
   try { JSON.parse(fs.readFileSync(path.join(MINI, f), 'utf8')); jsonOk++; }
@@ -224,16 +278,12 @@ if (fs.existsSync(mfPath)) {
   say(hTot === 9 && hOk === 9, 'BASE  官方模板源哈希 ' + hOk + '/' + hTot + '（LF 规范化）');
 } else {
   console.log('SKIP  BASE 官方模板源不可读（换机/权限），BUG-001 防线改为证据快照：见 BUGWALL.md');
-  pass++; // SKIPPED 不计 fail，但显式声明
+  skipped++; // 未执行不计通过，单独报告。
 }
 
 // ============ 汇总 ============
 console.log('---');
-console.log('RESULT=' + pass + '/' + (pass + fail) + ' FAILED=' + fail);
+console.log('RESULT=' + pass + '/' + (pass + fail) + ' FAILED=' + fail + ' SKIPPED=' + skipped);
 console.log('VERDICT=' + (fail === 0 ? 'PASSED' : 'FAILED'));
-// 归档证据（证据目录在 tests/ 下，与文档解耦）
-try {
-  fs.mkdirSync(path.join(__dirname, 'evidence'), { recursive: true });
-  // 报告由调用方重定向保存；此处仅确保证据目录存在
-} catch (e) {}
+// 只读校验；证据由调用方记录，不创建目录或文件。
 process.exit(fail ? 1 : 0);

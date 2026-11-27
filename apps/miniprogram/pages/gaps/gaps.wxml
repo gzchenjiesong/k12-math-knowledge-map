@@ -1,32 +1,45 @@
-<view class="page">
+<view class="page tab-page">
+  <view class="reading-back" wx:if="{{readingCanBack}}" bindtap="goReadingBack">‹ {{readingBackLabel}}</view>
   <view class="head card">
     <text class="h1">查漏补缺</text>
-    <text class="sub">共 {{stat.total}} 个知识点 · 已掌握 {{stat.done}} · 学习中 {{stat.learning}} · 未开始 {{stat.todo}}</text>
-    <view class="bar"><view class="bar-in" style="width:{{stat.percent}}%"></view></view>
+    <view class="views">
+      <view class="view-tab {{view === 'progress' ? 'active' : ''}}" bindtap="setView" data-view="progress">进度</view>
+      <view class="view-tab {{view === 'notes' ? 'active' : ''}}" bindtap="setView" data-view="notes">笔记 {{noteCount}}</view>
+      <view class="view-tab {{view === 'disputed' ? 'active' : ''}}" bindtap="setView" data-view="disputed">存疑 {{disputedCount}}</view>
+    </view>
+    <block wx:if="{{view === 'progress'}}">
+      <text class="sub">已掌握 {{stat.done}} · 学习中 {{stat.learning}} · 未开始 {{stat.todo}}</text>
+      <view class="bar"><view class="bar-in" style="width:{{stat.percent}}%"></view></view>
+    </block>
+    <view class="note-search" wx:if="{{view === 'notes'}}">
+      <input class="query-input" placeholder="搜索笔记" value="{{noteQuery}}" bindinput="onNoteQuery" maxlength="200" />
+      <view class="clear-query" wx:if="{{noteQuery}}" bindtap="clearNoteQuery">清空</view>
+    </view>
   </view>
 
-  <view class="filters">
+  <view class="filters" wx:if="{{view === 'progress'}}">
     <view class="filter {{filter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">全部</view>
     <view class="filter {{filter === 'learning' ? 'active' : ''}}" bindtap="setFilter" data-filter="learning">学习中</view>
     <view class="filter {{filter === 'todo' ? 'active' : ''}}" bindtap="setFilter" data-filter="todo">未开始</view>
   </view>
+  <text class="result-count">{{resultCount}} 项</text>
 
   <view class="group" wx:for="{{groups}}" wx:key="id">
     <view class="group-head {{item.id}}">
-      <text>{{item.name}}</text>
-      <text class="group-count">{{item.count}}</text>
+      <text>{{item.name}}</text><text class="group-count">{{item.count}}</text>
     </view>
     <view class="card list">
       <view class="gap-item" wx:for="{{item.items}}" wx:for-item="t" wx:key="id" bindtap="goNode" data-id="{{t.id}}">
         <view class="dot s{{t.status}}"></view>
         <view class="gi-body">
           <text class="gi-name">{{t.n}}</text>
-          <text class="gi-desc">{{t.d}}</text>
+          <text class="gi-desc" wx:if="{{view === 'notes'}}">{{t.summary}}</text>
+          <text class="gi-desc" wx:else>{{t.d}}</text>
+          <text class="gi-meta">{{t.module}} · {{t.statusName}}</text>
         </view>
-        <text class="gi-module">{{t.module}}</text>
+        <text class="gi-arrow">›</text>
       </view>
     </view>
   </view>
-
-  <view class="empty" wx:if="{{groups.length === 0}}">这个分类下没有知识点了</view>
+  <view class="empty" wx:if="{{groups.length === 0}}">{{view === 'notes' ? (noteQuery ? '没有匹配的笔记' : '暂无笔记') : (view === 'disputed' ? '暂无存疑' : '没有符合条件的知识点')}}</view>
 </view>

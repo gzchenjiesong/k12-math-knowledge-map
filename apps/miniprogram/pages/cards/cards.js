@@ -2,12 +2,15 @@ const knowledge = require('../../data/nodes.js');
 const cardsData = require('../../data/cards.js');
 const store = require('../../utils/store.js');
 
-Page({
+const readingContext = require('../../utils/reading-context.js');
+
+Page(readingContext.attach('cards', {
   data: {
     list: [],
     keyword: '',
     filter: 'all',
-    count: 0
+    totalCardCount: 0,
+    resultCount: 0
   },
 
   onLoad: function () {
@@ -16,7 +19,16 @@ Page({
 
   onShow: function () {
     this.buildList();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+    this._stopSyncRefresh = store.onChange((state, source) => {
+      if (source === 'remote' && this._reading.active) this.buildList();
+    });
   },
+
+  onHide: function () { if (this._stopSyncRefresh) this._stopSyncRefresh(); },
+  onUnload: function () { if (this._stopSyncRefresh) this._stopSyncRefresh(); },
+
+  onReadingRestore: function () { this.buildList(); },
 
   buildList: function () {
     const kw = (this.data.keyword || '').trim().toLowerCase();
@@ -39,6 +51,7 @@ Page({
       };
     });
 
+    const totalCardCount = list.length;
     if (self.data.filter === 'unmastered') {
       list = list.filter(function (x) { return x.status !== 2; });
     }
@@ -54,7 +67,7 @@ Page({
       return da - db;
     });
 
-    self.setData({ list: list, count: list.length });
+    self.setData({ list: list, totalCardCount: totalCardCount, resultCount: list.length });
   },
 
   onSearch: function (e) {
@@ -66,6 +79,6 @@ Page({
   },
 
   goNode: function (e) {
-    wx.navigateTo({ url: '/pages/node/node?id=' + e.currentTarget.dataset.id });
+    readingContext.navigate(this, '/pages/node/node?id=' + encodeURIComponent(e.currentTarget.dataset.id));
   }
-});
+}));

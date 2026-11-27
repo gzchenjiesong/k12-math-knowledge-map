@@ -1,7 +1,19 @@
 {
   "sourceVersion": "2.1.0",
   "generatedAt": "2026-11-25T00:00:00+08:00",
-  "builtFrom": "reliable-data + source/app_organization.json + index/bridges.json",
+  "builtFrom": "reliable-data + source/app_organization.json + index/bridges.json + evidence/SOURCES.json + evidence/NODE_SOURCES.json",
+  "contentReview": {
+    "pending": 268,
+    "checked": 0,
+    "verified": 0,
+    "disputed": 0,
+    "scope": "四类真源卡，不含组织层补充内容",
+    "status": "NOT_FULLY_VERIFIED",
+    "note": "构建成功仅表示结构与来源绑定通过，不证明内容正确，也不代替人工或多模型核验。"
+  },
+  "sourceRegistryHash": "sha256:009d1a3bb9c7fa3995171c3f3ea3507296ef1b8740ce3597a6ea1f2f99f9e107",
+  "sourceMapHash": "sha256:f6cf570c5062020f291c4d821bc4ddb2b942cc19db6b75f50497bdeb586df2f1",
+  "organizationHash": "sha256:c2a1f8fd7cdd9f107ffe850c4a6742dfb59dac62d3e1019640329d50300a3c3c",
   "baseline": 67,
   "notVerified": 268,
   "allowPending": true,

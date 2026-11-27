@@ -1,0 +1,408 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-26",
+  "nodes": {
+    "j_alg": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·数与式；印刷54—55页 / PDF61—62页","verification":"section_checked","note":"正文列整式运算、乘法公式、提公因式法和公式法；仅范围依据。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_alg.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["分组分解、十字相乘、待定系数等拓展未由本节直接覆盖。", "定义、定理条件与自编例题未逐条对照外部正文；尚无独立多模型或人工签核。"]
+    },
+    "j_circle": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·圆；印刷67页 / PDF74页","verification":"section_checked","note":"核对圆周角、切线、正多边形、弧长扇形面积的范围；带星内容为选学。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_circle.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["切线等具体定理条件、证明与原创题答案尚未逐条核对，不能因课标提及就认定正确。"]
+    },
+    "j_cong": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·三角形；印刷65—66页 / PDF72—73页","verification":"section_checked","note":"印刷66页明确勾股定理及其逆定理，仅核实教学范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_cong.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["勾股数扩展、适用条件、原创例题数值及解答未逐条对照权威教材。"]
+    },
+    "j_eq": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·分式、方程与不等式；印刷56页 / PDF63页","verification":"section_checked","note":"正文列一次、二次方程、判别式、根与系数及分式方程；不是答案证据。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_eq.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["含参条件、分式方程验根、韦达使用条件及自编示范题未逐条核对；未读附录例67证明。"]
+    },
+    "j_frac": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·数与式；印刷54—55页 / PDF61—62页","verification":"section_checked","note":"二次根式范围限定根号下为数。"},
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·分式、方程与不等式；印刷56页 / PDF63页","verification":"section_checked","note":"分式、约分通分和四则运算、分式方程范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_frac.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["分母有理化拓展、定义域限制和原创例题解答尚未逐条外部核对。"]
+    },
+    "j_fun": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·函数；印刷57—58页 / PDF64—65页","verification":"section_checked","note":"已读函数概念、一次/二次/反比例函数与待定系数的范围要求。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_fun.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["本轮未单独核对图形与坐标小节；函数定义、各公式适用条件和示例未逐条比对。"]
+    },
+    "j_ineq": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·分式、方程与不等式；印刷56页 / PDF63页","verification":"section_checked","note":"本节仅支持一元一次不等式及不等式组的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_ineq.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["一元二次不等式与含参讨论不能归入本节的初中基础要求；需另补拓展依据。", "定义、变号条件和原创题解未逐条外部核对。"]
+    },
+    "j_num": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·数与式；印刷54—55页 / PDF61—62页","verification":"section_checked","note":"有理数、实数、绝对值、根式、科学记数法的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_num.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["各定义措辞、运算条件与原创示例仍未逐条比对；课标范围不等于正确性签核。"]
+    },
+    "j_prob": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·随机事件的概率；印刷75页 / PDF82页","verification":"section_checked","note":"列表、树状图、频率估计概率的范围；未核附录例88。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_prob.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["古典概型的等可能性条件与原创两骰子题答案未逐条外部核对，不能用本条代替复算。"]
+    },
+    "j_quad": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·函数；印刷57—58页 / PDF64—65页","verification":"section_checked","note":"正文列二次函数图象、对称轴、最大最小值及方程关系。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_quad.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["含参二次函数和指定区间最值的拓展程度需教材补充；未核对附录例71或原创最值题答案。"]
+    },
+    "j_quadg": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·四边形与中位线；印刷66—67页 / PDF73—74页","verification":"section_checked","note":"特殊四边形、梯形概念、三角形中位线的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_quadg.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["梯形专题不能由仅列梯形概念推出全部覆盖；各判定条件、证明与自编例题未逐条核对。"]
+    },
+    "j_simi": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·图形的相似；印刷69页 / PDF76页","verification":"section_checked","note":"相似判定、性质、平行线分线段成比例与位似的范围，带星证明属选学。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_simi.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["对应顶点次序、定理适用条件和原创例题解答未逐条对照教材。"]
+    },
+    "j_stats": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·抽样与数据分析；印刷74—75页 / PDF81—82页","verification":"section_checked","note":"平均数、中位数、众数、方差及频数分布的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_stats.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["统计量定义、样本总体区分与原创数据题计算尚未逐条外部核对。"]
+    },
+    "j_trans": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·图形的变化；印刷68页 / PDF75页","verification":"section_checked","note":"平移、旋转、轴对称和中心对称范围；不证明最短路径题答案。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_trans.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["图形与坐标小节未单独核对；原创新增坐标的最短路径题及解答未与外部来源逐条核对。"]
+    },
+    "j_tri": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·三角形；印刷65—66页 / PDF72—73页","verification":"section_checked","note":"内外角、三边关系、全等、等腰等边和直角三角形的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_tri.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["具体定理条件、证明措辞与原创示例未逐条外部核对。"]
+    },
+    "j_trig": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·图形的相似；印刷69页 / PDF76页","verification":"section_checked","note":"明确列锐角三角函数、30/45/60度及解直角三角形的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/j_trig.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["三角函数定义、角度取值和原创综合题解答未逐条外部核对。"]
+    },
+    "o_alg_skill": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·分式、方程与不等式；印刷56页 / PDF63页","verification":"section_checked","note":"仅支持配方法解一元二次方程这一基础部分；不是所有代数技巧的范围依据。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_alg_skill.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["拆项添项、对称式、轮换对称式及技巧化训练没有取得直接竞赛教材依据。", "定义、方法条件及原创例题未逐条核对。"]
+    },
+    "o_binom": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_binom.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["高中课标的普通排列组合和二项式定理不能覆盖圆排列、可重复组合及进阶组合恒等式；竞赛范围正文与具体教材页码待补。", "恒等式条件与原创例题未逐条外部核对。"]
+    },
+    "o_comb_adv": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_comb_adv.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["抽屉、容斥、极端、不变量与染色的竞赛拓展不由已读课标覆盖，缺具体大纲或教材正文定位。", "定理条件、方法边界与自编示例未逐条外部核对。"]
+    },
+    "o_comb_opt": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_comb_opt.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["极值构造、上下界估计及平均论证缺少已取得的竞赛专题正文依据。", "上界达到性与原创例题未逐条外部核对。"]
+    },
+    "o_complex": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_complex.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["高中课标的复数三角表示选学内容不覆盖欧拉公式、棣莫弗定理、单位根全部进阶要求；缺权威专题正文。", "公式条件及原创例题未逐条外部核对。"]
+    },
+    "o_cong": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_cong.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["欧几里得算法、同余、完全剩余系和高斯函数未获具体数学竞赛大纲或教材正文定位。", "同余运算条件、符号约定与原创题解未逐条外部核对。"]
+    },
+    "o_dio": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_dio.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["节点虽归junior，但整数解、非负整数解与一次不定方程不等于课标普通方程要求；缺拓展范围与教材定位。", "整除可解条件及原创例题未逐条核对。"]
+    },
+    "o_dio2": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_dio2.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["二次不定方程、Pell方程、无穷递降等不由已读基础课标覆盖，缺具体竞赛教材正文。", "解的完备性与原创示范题未逐条外部核对。"]
+    },
+    "o_div0": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_div0.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["第三学段只明确2/3/5倍数特征，不能为本节点4/8/9/11整除、同余周期及完全平方数技巧整体背书；缺专题正文定位。", "判定规则条件与原创末位数题未逐条外部核对。"]
+    },
+    "o_fermat": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_fermat.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["费马小定理、欧拉定理、中国剩余定理的范围与定理正文未取得具体教材锚点，不用泛化课标替代。", "素数、互素等适用条件及原创CRT例题未逐条权威核对。"]
+    },
+    "o_func_eq": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_func_eq.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["普通函数课标不覆盖函数方程、迭代与赋值法竞赛专题，缺可回查教材章节。", "定义域、解的唯一性和原创题解未逐条外部核对。"]
+    },
+    "o_geo_area": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_geo_area.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["小学面积和初中相似面积比仅是前置基础，不能替代共边定理、面积坐标及竞赛等积方法的直接依据。", "面积法适用条件与原创题解未逐条外部核对。"]
+    },
+    "o_geo_basic": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·三角形；印刷65—66页 / PDF72—73页","verification":"section_checked","note":"仅支持三边关系与重心等基础内容，不是五心全部性质。"},
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第四学段·圆；印刷67页 / PDF74页","verification":"section_checked","note":"内心外心和圆内接四边形对角互补仅为局部范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_geo_basic.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["五心、四点共圆判定与等积方法的进阶体系未获完整直接依据。", "各定理条件和自编例题未逐条核对。"]
+    },
+    "o_geo_ceva": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_geo_ceva.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["梅涅劳斯、塞瓦、托勒密、西姆松不由本轮已读课标覆盖，缺具体竞赛教材正文与页码。", "有向线段、共线共点和定理逆命题的条件与原创示例未逐条核对。"]
+    },
+    "o_geo_circle": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_geo_circle.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["初中圆的范围不能覆盖圆幂、根轴、极线及进阶共圆判定，缺竞赛专题正文。", "线段符号与定理适用条件、原创题解未逐条外部核对。"]
+    },
+    "o_geo_ineq": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_geo_ineq.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["费马点、等周和几何极值的竞赛拓展未获具体权威正文定位。", "极值存在和取等条件、原创题解未逐条外部核对。"]
+    },
+    "o_geo_trans": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_geo_trans.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["初中基本变换只是前置范围，反演与竞赛旋转链没有取得直接专题证据。", "历史135度问题和其他原创例题未按权威教材逐条核对；机械复算不替代签核。"]
+    },
+    "o_geo_vec": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_geo_vec.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["高中向量与复数的基本内容不能替代竞赛复数几何法专题，缺旋转表示与方法条件的直接教材定位。", "原创几何题解答未逐条外部核对。"]
+    },
+    "o_graph": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_graph.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["握手定理、树、欧拉路、哈密顿路和染色未在本轮已读课标章节中取得覆盖证据，需具体图论专题正文。", "图类型、连通性和存在条件、原创例题未逐条外部核对。"]
+    },
+    "o_induct": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·数列；PDF46页","verification":"section_checked","note":"仅普通数学归纳法证明简单数列命题，带星为选学；不是竞赛全范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_induct.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["第二数学归纳法、强归纳及竞赛证明技巧缺直接权威正文定位。", "归纳基、归纳假设与原创示例未逐条核对。"]
+    },
+    "o_ineq": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_ineq.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["高中基本不等式不能替代柯西、排序、切比雪夫、Jensen、Schur等证明体系的具体来源，缺竞赛教材正文。", "正性、凸性、同序与取等条件、原创题解未逐条外部核对。"]
+    },
+    "o_numfun": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_numfun.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["欧拉函数、高斯函数、格点及Pick定理没有取得具体专题正文与页码依据。", "数论函数条件、格点图形条件和原创例题未逐条核对。"]
+    },
+    "o_pigeon": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_pigeon.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["节点归junior不表示抽屉、极端原理属于基础课标；本轮缺直接范围及教材正文。", "抽屉构造合理性、极端对象存在性与原创示例未逐条核对。"]
+    },
+    "o_poly": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_poly.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["初中二次方程的根与系数不覆盖一般多项式、虚根成对和因式定理；缺专题正文依据。", "系数域、根的重数及原创例题未逐条外部核对。"]
+    },
+    "o_recur": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_recur.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["高中等差等比数列不能覆盖二阶递推、特征方程与不动点法，缺直接竞赛教材定位。", "重根、初始条件与原创例题未逐条外部核对。"]
+    },
+    "o_trig_id": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/o_trig_id.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["高中两角和差及倍角公式只是前置基础，三倍角、三角形恒等式和竞赛三角不等式未获专题正文定位。", "角度约束、取等条件和原创示例未逐条核对。"]
+    },
+    "p_alg": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第三学段·数与运算、数量关系；印刷23—24页 / PDF30—31页","verification":"section_checked","note":"只直接支持等式基本性质与用字母表示关系；不据此扩大为初中方程全部要求。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_alg.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["简易方程的具体教学深度需学校教材确认；定义、等量代换与原创示例未逐条比对。"]
+    },
+    "p_app": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第二学段·数与运算、数量关系；印刷20—22页 / PDF27—29页","verification":"section_checked","note":"仅常见数量关系、路程速度时间及简单实际问题的基础范围，不是题型清单。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_app.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["鸡兔同笼、盈亏、相遇追及、工程问题等专题缺具体教材正文依据。", "各模型条件与原创答案未逐条核对。"]
+    },
+    "p_count": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_count.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["小学有序枚举、搭配与计数的具体教材正文未取得；不能借初中概率树状图或高中计数原理声称小学课标直接覆盖。", "不重不漏条件、原创题解与教学年龄适合性待核对。"]
+    },
+    "p_div": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第三学段·数与运算、数量关系；印刷23—24页 / PDF30—31页","verification":"section_checked","note":"2/3/5倍数特征、质合数、公因数公倍数为已读基础范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_div.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["带余除法及拓展整除判据的本节点教学依据未逐条定位；定义与原创例题未外部核对。"]
+    },
+    "p_geo": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第二学段·图形的认识与测量；印刷29页 / PDF36页","verification":"section_checked","note":"长方形、正方形周长面积。"},
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第三学段·图形的认识与测量、位置与运动；印刷32—33页 / PDF39—40页","verification":"section_checked","note":"平行四边形、三角形、梯形及不规则图形面积范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_geo.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["公式适用条件、组合图形分割方法和自编示例解答尚未逐条比对。"]
+    },
+    "p_logic": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第二学段·数与运算、数量关系；印刷20—22页 / PDF27—29页","verification":"section_checked","note":"只直接支持探索简单规律与等量推理，不是真假话谜题的直接依据。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_logic.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["真假话判断、逆推及特定数列规律训练缺对应教材正文；规律唯一性与原创答案待核对。"]
+    },
+    "p_num": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第二学段·数与运算、数量关系；印刷20—22页 / PDF27—29页","verification":"section_checked","note":"混合运算、运算律及估算的基础范围。"},
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第三学段·数与运算、数量关系；印刷23—24页 / PDF30—31页","verification":"section_checked","note":"小数分数互化、运算与估算的基础范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_num.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["凑整拆数的具体技巧不是已核教材讲解；原创示例、运算步骤和答案未逐条外部核对。"]
+    },
+    "p_pigeon": {
+      "references": [{"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_pigeon.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}],
+      "gaps": ["小学抽屉原理、最不利原则未在本轮已读课标段落取得直接定位；需合法教材或教师口径。", "抽屉划分、至少数量及年龄适合性未作逐条外部核对。"]
+    },
+    "p_ratio": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第三学段·数与运算、数量关系；印刷23—24页 / PDF30—31页","verification":"section_checked","note":"比、比例、按比例分配与成正比的量属于已读范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_ratio.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["百分数在本轮登记的小节未单独核对，不能声称该定位覆盖百分数全文；比例性质与原创例题也未逐条比对。"]
+    },
+    "p_transform": {
+      "references": [
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第二学段·图形的位置与运动；印刷31页 / PDF38页","verification":"section_checked","note":"平移、旋转、轴对称的基础范围。"},
+        {"anchorId":"EV-A01","purpose":"scope","locator":"第三学段·图形的认识与测量、位置与运动；印刷32—33页 / PDF39—40页","verification":"section_checked","note":"面积计算与方格纸图形运动；不等于割补题已核对。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/p_transform.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["具体剪拼、折叠和等积证明方法缺教材正文定位；原创面积题答案未逐条核对。"]
+    },
+    "s_complex": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·复数；PDF34—35页","verification":"section_checked","note":"复数表示与运算；三角表示为带星选学。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_complex.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["欧拉公式不是本节直接范围依据，共轭、模等细节须补教材定位；公式与原创例题未逐条核对。"]
+    },
+    "s_conic": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·圆锥曲线与方程；PDF52页","verification":"section_checked","note":"椭圆、双曲线、抛物线及方程范围，不是弦长答案证据。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_conic.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["统一定义、直线与圆锥曲线综合的细节需教材补充；自编弦长题8√2/5及条件未据外部正文逐条核对。"]
+    },
+    "s_count": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·计数原理；PDF54—55页","verification":"section_checked","note":"分类加法、分步乘法、排列组合与二项式定理范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_count.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["计数对象、重复和顺序条件、公式证明及原创题解未逐条外部核对。"]
+    },
+    "s_deriv": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·一元函数导数及其应用；PDF47页","verification":"section_checked","note":"导数、运算、单调性、极值最值的范围；文中含复合函数和次数等限制。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_deriv.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["可导性、极值必要充分条件、切线与原创示例未逐条核对；提取公式有字形错位，不据此签核。"]
+    },
+    "s_exp": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·幂函数、指数函数、对数函数；PDF28—29页","verification":"section_checked","note":"指数对数函数与运算的范围。"},
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·函数应用；PDF30—31页","verification":"section_checked","note":"函数零点与方程解关系的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_exp.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["底数、真数、定义域条件与原创大小比较题未逐条对照教材。"]
+    },
+    "s_func": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·函数概念与性质；PDF27页","verification":"section_checked","note":"集合对应、定义域、图象、单调性、奇偶性和最值的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_func.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["函数定义的措辞、量词、定义域条件和自编例题未逐条外部核对。"]
+    },
+    "s_ineq": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·预备知识·相等不等关系、二次方程与不等式；PDF24—25页","verification":"section_checked","note":"基本不等式及一元二次不等式范围，不为取等结论背书。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_ineq.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["课标公式文本提取错位，未将公式当作已核定义；正性、定值、取等条件和原创最值题仍待逐条核对。"]
+    },
+    "s_line": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·直线与方程、圆与方程；PDF51—52页","verification":"section_checked","note":"方程、位置关系与距离的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_line.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["斜率存在条件、退化情形、距离公式和原创题解未逐条外部核对。"]
+    },
+    "s_prob": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·概率与统计；PDF39—41页","verification":"section_checked","note":"古典概率、独立性与抽样统计的基础范围。"},
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·概率、统计；PDF55—56页","verification":"section_checked","note":"条件概率、分布与期望、正态分布、回归和独立性检验的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_prob.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["概率前提、统计模型假设与原创示例的数字和推断未逐条外部核对。"]
+    },
+    "s_seq": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·数列；PDF46页","verification":"section_checked","note":"数列、等差等比、通项和前n项和的范围；不能推出全部递推技巧。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_seq.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["一般递推和复杂求和方法需补具体教材依据；数列条件、特殊公比及原创答案未逐条核对。"]
+    },
+    "s_set": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·预备知识·集合、常用逻辑用语；PDF23—24页","verification":"section_checked","note":"集合、充分必要条件和全称存在量词的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_set.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["四种命题作为独立教学单元未由已读小节直接确认；逻辑定义、否定形式与原创题解未逐条核对。"]
+    },
+    "s_solid": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·立体几何初步；PDF35—37页","verification":"section_checked","note":"空间点线面、平行垂直和体积表面积范围；正文采用斜二测直观图。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_solid.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["三视图不能据本高中小节自动宣称覆盖；平行垂直判定条件、体积公式与原创示例未逐条比对。"]
+    },
+    "s_trig": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·三角函数、恒等变换；PDF29—30页","verification":"section_checked","note":"任意角、弧度、图象性质及和差倍角的范围。"},
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·平面向量及其应用、解三角形；PDF33—34页","verification":"section_checked","note":"正弦定理、余弦定理与解三角形属于该节。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_trig.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["恒等式定义域、角度条件与原创题解未逐条权威核对；提取公式字形不能当作核验依据。"]
+    },
+    "s_vec": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"必修·平面向量及其应用、解三角形；PDF33—34页","verification":"section_checked","note":"向量运算、数量积、坐标及共线垂直的范围。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_vec.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["零向量、夹角定义、数量积条件与原创数值例题未逐条外部核对。"]
+    },
+    "s_vec3": {
+      "references": [
+        {"anchorId":"EV-A02","purpose":"scope","locator":"选择性必修·空间向量与立体几何；PDF50—51页","verification":"section_checked","note":"空间向量、法向量、夹角和距离的范围；不证明具体二面角答案。"},
+        {"anchorId":"EV-C01","purpose":"teaching","locator":"reliable-data/lessons/s_vec3.json","verification":"pending","note":"仅原创追溯，未作权威核对。"}
+      ],
+      "gaps": ["二面角锐钝、法向量方向和绝对值使用条件需逐条核对；历史机械复算不能替代原创例题的权威或人工核准。"]
+    }
+  }
+}

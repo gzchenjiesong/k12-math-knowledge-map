@@ -1,0 +1,83 @@
+{
+  "round": "R34",
+  "date": "2026-11-27",
+  "evidenceKind": "人工汇总本轮实际命令输出、截图观察及用户原生操作确认；不是完整原始运行日志",
+  "status": "PASS",
+  "statusScope": "B2/B4/B6自动化回归与手机竖屏代表性隔离交互，不是全设备矩阵、真机、真实云或性能通过",
+  "cases": {"TST-024": "PASS", "VFY-009": "PASS（代表性手机隔离范围）", "VFY-007": "BLOCKED_NO_EVIDENCE", "present": "SKIPPED（用户暂缓）"},
+  "environment": {
+    "project": ".workbuddy/simulator-r32/app",
+    "channel": "已安装微信开发者工具官方CLI",
+    "referenceVersion": "0.3.11",
+    "versionRelation": "equal",
+    "loginExpired": false,
+    "sdk": "3.18.0",
+    "device": "沿用用户切换的iPhone17模拟器",
+    "screen": [402,874],
+    "window": [402,776],
+    "safeAreaBottomInset": 34,
+    "orientation": "auto",
+    "cloudEnv": "",
+    "storageKeys": ["r32_simulator_only_state","r32_simulator_only_legacy_queue"],
+    "sourceComparison": {"files":65,"missing":[],"intentionalDifferences":["project.config.json","utils/cloud-config.js","utils/store.js"],"excluded":"本机project.private.config.json"}
+  },
+  "implementation": {
+    "reading": "reading-context.js统一七阅读页。会话20片段，UI白名单，跨tab业务链返回；普通原生返回复用实例，重建从当前store刷新业务数据。",
+    "draft": "draft-guard.js；可控制离开弹窗，导航成功后才放弃；原生卸载用最多20条会话草稿兜底，明确未保存，不持久化不同步。",
+    "records": "查漏进度/笔记/存疑；笔记正文子串查询，Unicode最多100字符摘要，空白不计；note锚点和详情存疑；个人存疑不覆盖真源reviewLabel。",
+    "copy": "七阅读页去掉家庭等限定和重复操作说明；直接状态/箭头，来源审核按需展开；保留失败、未保存和批量确认。"
+  },
+  "regressions": {
+    "check-reading-context.js": "36/36",
+    "check-records.js": "40/40，真实页面/真实store/真实sync-state，平台隔离",
+    "check-ui.js": "44/44",
+    "check-sync.js": "65/65",
+    "check-sources.js --self-test": "结构1/1，自测42/42，四原件HASH_OK",
+    "check-data-contract.js": "49/49，八生成文件逐字节重建一致",
+    "check-app-build.js": "29/29",
+    "check-reliable-extra.js": "33/33",
+    "verify_content.js": "23/23",
+    "check-data.js": "9/9",
+    "validate.js": "28/28，SKIPPED=0；自有JS27/27、脚本18/18、JSON18/18",
+    "gitDiffCheck": "exit0，生成文件LF/CRLF提示不是空白错误"
+  },
+  "nativeObservations": [
+    {"flow":"首页查找→一元二次方程搜索→j_eq详情→例题/提示→题型","result":"真实点击tp_quadroot后locator父子展开，存在返回知识点入口；首次屏外点击未跳转，滚动到可见入口后成功。"},
+    {"flow":"题型→返回知识点→原生返回知识卡","result":"完整重建lecture/cards/node，tab=example、hintFoldState[0]=true、scroll=601恢复；cards关键词一元二次方程、结果1保留；只读阶段outbox仍5。","limitation":"多步异步重建期间曾读到中间页；重新读取最终页栈确认，不用导航命令success代替完成。"},
+    {"flow":"详情讲解页签→图谱→返回","result":"图谱theme视图t_eq展开，有返回入口；返回node后tab=explain；未声称图谱自动滚动到t_eq。"},
+    {"flow":"保存合成笔记→查漏笔记查询→详情锚点","result":"noteCount=1，查询R34验收结果1，原节点顺序及摘要；进入详情后笔记在可见区；outbox5→6。"},
+    {"flow":"编辑草稿→原生navigateBack→重新进入","result":"noteDraftRestored=true、editingNote=true，草稿保留；存储仍为已存笔记，outbox保持6；取消编辑恢复已存笔记。","source":"原生运行时导航、真实页面输入与回读，不是物理系统手势验收。"},
+    {"flow":"详情存疑→查漏存疑→取消存疑","result":"数量0→1→0，store.disputed.j_eq为1再0，独立于笔记；outbox6→7→8；来源仍pending。"},
+    {"flow":"未保存笔记离开确认","result":"截图实际捕获笔记未保存对话框，含继续编辑/放弃。","source":"原生截图"},
+    {"flow":"首次继续编辑","result":"用户确认正常留页，但回读发现额外补字且已保存，outbox8→9；用户明确确认自己又补字并保存。此次不能作为取消离开零写入的独立证据。"},
+    {"flow":"放弃独立草稿","result":"用户只点放弃并确认正常返回；回读gaps，已存笔记保持R34弹窗验收草稿啊、outbox仍9；重新进入editingNote=false、noteDraftRestored=false，已放弃草稿未复活。","source":"用户原生操作确认＋运行时回读"},
+    {"flow":"再次继续编辑，仅取消离开","result":"用户明确只点继续编辑；回读仍node，prompt=false，editingNote=true，草稿为继续编辑取消离开验证；已存笔记不变、outbox仍9。","source":"用户原生操作确认＋独立前后回读"},
+    {"flow":"清空笔记→保存→返回聚合","result":"取消编辑后重新打开，受控调用onNoteInput写入空草稿，再真实点击保存；store.notes.j_eq为空，outbox9→10；返回gaps笔记数0、结果0、空态可见。","limitation":"清空输入采用页面真实输入处理函数，不冒充键盘逐字删除；保存按钮和返回为原生操作。"},
+    {"flow":"来源与文案","result":"详情及专题来源默认折叠，展开后审核、范围、缺口可读；专题存疑操作独立于真源审核；首页、三视图及短状态控件代表截图无观察到的横向溢出。"}
+  ],
+  "performanceFollowup": {
+    "observedWarnings": "查漏onLoad64ms及onShow56–93ms；图谱onLoad52ms/onShow56ms。日志快照无返回应用异常，不是全历史零错误。",
+    "change": "查漏聚合改为每次build读取一次当前store快照，统计沿用store.stats，消除67节点逐字段重复读取；不改store或协议。",
+    "verification": "新增第40条记录回归；40/40、36/36、44/44、65/65复跑通过。同步新副本并重新编译，实读notes=0/disputed=0/total=67/outbox=10。没有做性能基准或宣称耗时已达标。"
+  },
+  "screenshots": [
+    {"file":"phone-topic-return.jpg","role":"诊断：首次屏外题型点击未跳转，仍为详情页，不作题型成功证据"},
+    {"file":"phone-topic-focused.jpg","role":"实际题型目标展开"},
+    {"file":"phone-node-restored.jpg","role":"诊断：异步重建中间画面，不作最终恢复证据"},
+    {"file":"phone-restored-final.jpg","role":"最终详情滚动601及提示恢复"},
+    {"file":"phone-notes-search.jpg","role":"笔记查询与摘要"},
+    {"file":"phone-note-anchor.jpg","role":"笔记锚点进入可见区"},
+    {"file":"phone-draft-restored.jpg","role":"未保存草稿兜底提示"},
+    {"file":"phone-source-expanded.jpg","role":"详情来源、审核与缺口可达"},
+    {"file":"phone-disputed.jpg","role":"存疑聚合1项"},
+    {"file":"phone-disputed-cleared.jpg","role":"取消存疑后0项"},
+    {"file":"phone-draft-prompt.jpg","role":"真实未保存笔记确认弹窗"},
+    {"file":"phone-notes-cleared.jpg","role":"清空笔记后0项"},
+    {"file":"phone-graph-return.jpg","role":"图谱返回入口与短状态；不是t_eq滚动定位证据"},
+    {"file":"phone-home.jpg","role":"简洁首页"},
+    {"file":"phone-lesson-source.jpg","role":"专题来源展开及独立存疑操作"}
+  ],
+  "finalIsolatedState": {"j_eqStatus":2,"j_eqNote":"","j_eqDisputed":0,"outbox":10,"note":"保留合成编辑产生的操作历史，未清队列；收尾停查漏笔记空态"},
+  "debuggingLimits": ["Windows参数内双引号被吞，改外层双引号/JS单引号后成功，未写业务数据。","两次waitForSelector绑定到正在切换的旧Page而超时，读取实际最终页栈后继续，未记为应用失败。","截图包含两个诊断帧，文件名不作为通过依据。"],
+  "unchangedBoundaries": ["数学真源268卡、manifest、组织真源、历史快照、present、生产app.json相对HEAD无改动","八生成物本轮未改，字节重建一致","同步协议未改","B1/B3/B5未实施","没有commit/push/部署/上传/提审/发布","真实云、账号storage隔离、双设备真机、包体和性能VFY-007仍缺证","本轮未重复iPad/横屏矩阵或状态选择原生菜单；不继承R33证据冒充本轮测试","进程结束不保留阅读片段或草稿，不承诺所有系统离开均可弹确认"]
+}

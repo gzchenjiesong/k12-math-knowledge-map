@@ -3,12 +3,24 @@ const themeData = require('../../data/themes.js');
 const topicIdx = require('../../data/topic_index.js');
 const cardsData = require('../../data/cards.js');
 const store = require('../../utils/store.js');
+const statusPicker = require('../../utils/status-picker.js');
+const contentSummary = require('../../utils/content-summary.js');
 
-Page({
+function exampleIndex(page, event) {
+  const raw = event && event.currentTarget && event.currentTarget.dataset && event.currentTarget.dataset.idx;
+  const idx = typeof raw === 'string' && /^(0|[1-9][0-9]*)$/.test(raw) ? Number(raw) : raw;
+  const examples = page.data.card && page.data.card.examples;
+  return Number.isInteger(idx) && idx >= 0 && Array.isArray(examples) && idx < examples.length ? idx : -1;
+}
+
+const readingContext = require('../../utils/reading-context.js');
+
+Page(readingContext.attach('node', {
   data: {
     node: null,
     card: null,
     status: 0,
+    disputed: 0,
     statusName: '未开始',
     preNodes: [],
     relNodes: [],
@@ -16,6 +28,9 @@ Page({
     editingNote: false,
     tab: 'concept',
     foldState: {},
+    hintFoldState: {},
+    sourceSummary: null,
+    sourceExpanded: false,
     themeId: '',
     themeName: '',
     topicList: []
@@ -37,7 +52,8 @@ Page({
 
     this.setData({
       node: node,
-      card: cardsData.CARDS[id] || null,
+      card: contentSummary.decorateCard(cardsData.CARDS[id]),
+      sourceSummary: contentSummary.build(id, node.domain, cardsData.CARDS[id], 'concept'),
       preNodes: pre,
       relNodes: rel,
       status: store.getStatus(id),
@@ -54,13 +70,37 @@ Page({
   },
 
   onShow: function () {
+    statusPicker.onShow(this);
+    this.refreshProgress();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+    this._stopSyncRefresh = store.onChange((state, source) => {
+      if (source === 'remote' && this._reading.active) this.refreshProgress();
+    });
+  },
+
+  onHide: function () {
+    statusPicker.onHide(this);
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+  },
+  onUnload: function () { this.onHide(); },
+
+  readingSavedNote: function () { return this.data.node ? store.getNote(this.data.node.id) : ''; },
+
+  onReadingRestore: function () {
+    this.refreshProgress();
+    if (this.data.node) this.setData({
+      sourceSummary: contentSummary.build(this.data.node.id, this.data.node.domain, this.data.card, this.data.tab)
+    });
+  },
+
+  refreshProgress: function () {
     if (!this.data.node) return;
     const id = this.data.node.id;
-    this.setData({
-      status: store.getStatus(id),
-      note: store.getNote(id)
-    });
-    this.refreshStatusName(store.getStatus(id));
+    const patch = { status: store.getStatus(id), disputed: store.getDisputed(id) };
+    // 云端拉取不得覆盖尚未保存的笔记草稿。
+    if (!this.data.editingNote) patch.note = store.getNote(id);
+    this.setData(patch);
+    this.refreshStatusName(patch.status);
   },
 
   refreshStatusName: function (s) {
@@ -68,45 +108,70 @@ Page({
   },
 
   switchTab: function (e) {
-    this.setData({ tab: e.currentTarget.dataset.tab });
+    const tab = e.currentTarget.dataset.tab;
+    if (!this.data.node || ['concept', 'explain', 'example'].indexOf(tab) < 0) return;
+    this.setData({
+      tab: tab,
+      sourceSummary: contentSummary.build(this.data.node.id, this.data.node.domain, this.data.card, tab)
+    });
   },
 
-  cycleStatus: function () {
+  toggleSource: function () {
+    this.setData({ sourceExpanded: !this.data.sourceExpanded });
+  },
+
+  chooseStatus: function () {
+    if (!this.data.node) return;
+    statusPicker.choose(this, this.data.node.id, this.refreshProgress);
+  },
+
+  toggleDisputed: function () {
+    if (!this.data.node) return;
     const id = this.data.node.id;
-    const next = (this.data.status + 1) % 3;
-    store.setStatus(id, next);
-    this.setData({ status: next });
-    this.refreshStatusName(next);
-    wx.showToast({ title: '已标记：' + ['未开始', '学习中', '已掌握'][next], icon: 'none' });
+    const next = store.getDisputed(id) ? 0 : 1;
+    if (!store.setDisputed(id, next)) {
+      wx.showToast({ title: '本地保存失败，请重试', icon: 'none' });
+      return;
+    }
+    this.setData({ disputed: next });
+    wx.showToast({ title: next ? '已标记存疑' : '已取消存疑', icon: 'none' });
   },
 
   goNode: function (e) {
-    wx.navigateTo({ url: '/pages/node/node?id=' + e.currentTarget.dataset.id });
+    readingContext.navigate(this, '/pages/node/node?id=' + encodeURIComponent(e.currentTarget.dataset.id));
   },
 
   goTheme: function () {
     if (!this.data.themeId) return;
-    const app = getApp();
-    app.globalData = app.globalData || {};
-    app.globalData.focusTheme = this.data.themeId;
-    wx.switchTab({ url: '/pages/graph/graph' });
+    readingContext.navigate(this, '/pages/graph/graph', { focus: { theme: this.data.themeId } });
   },
 
   goTopic: function (e) {
-    const app = getApp();
-    app.globalData = app.globalData || {};
-    app.globalData.focusTopic = e.currentTarget.dataset.id;
-    wx.switchTab({ url: '/pages/locator/locator' });
+    readingContext.navigate(this, '/pages/locator/locator', { focus: { topic: e.currentTarget.dataset.id } });
   },
 
   toggleFold: function (e) {
-    const idx = e.currentTarget.dataset.idx;
+    const idx = exampleIndex(this, e);
+    if (idx < 0) return;
     const key = 'foldState.' + idx;
     this.setData({ [key]: !this.data.foldState[idx] });
   },
 
+  toggleHint: function (e) {
+    const idx = exampleIndex(this, e);
+    if (idx < 0 || !this.data.card.examples[idx].hasHint) return;
+    this.setData({ ['hintFoldState.' + idx]: !this.data.hintFoldState[idx] });
+  },
+
   toggleNote: function () {
-    this.setData({ editingNote: !this.data.editingNote });
+    if (!this.data.node) return;
+    readingContext.clearDraft(this);
+    // 取消只丢弃草稿，恢复当前已存版本（编辑期间可能已合并远端笔记）。
+    // 不调用 setter，避免取消被误记成一次本地编辑或同步操作。
+    this.setData({
+      editingNote: !this.data.editingNote,
+      note: store.getNote(this.data.node.id)
+    });
   },
 
   onNoteInput: function (e) {
@@ -114,8 +179,12 @@ Page({
   },
 
   saveNote: function () {
-    store.setNote(this.data.node.id, this.data.note);
+    if (!store.setNote(this.data.node.id, this.data.note)) {
+      wx.showToast({ title: '保存失败，草稿已保留', icon: 'none' });
+      return;
+    }
+    readingContext.clearDraft(this);
     this.setData({ editingNote: false });
     wx.showToast({ title: '笔记已保存', icon: 'success' });
   }
-});
+}));

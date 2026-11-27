@@ -1,3 +1,5 @@
+const readingContext = require('../utils/reading-context.js');
+
 Component({
   data: {
     selected: 0,
@@ -12,7 +14,7 @@ Component({
     switchTab: function (e) {
       const { path, index } = e.currentTarget.dataset;
       if (index === this.data.selected) return;
-      wx.switchTab({ url: path });
+      readingContext.switchTab(path);
     }
   }
 });

@@ -1,0 +1,1020 @@
+
+> test
+> node tests/check-data.js && node tests/check-reliable-extra.js && node tests/validate.js && node tests/verify_content.js && node tests/check-app-build.js && node tests/check-sources.js --self-test && node tests/check-data-contract.js && node tests/check-sync.js && node tests/check-ui.js && node tests/check-reading-context.js && node tests/check-records.js
+
+OK   D1 manifest.version 非空（2.1.0）
+OK   D2 nodes 卡片数 = 67（实际 67）
+OK   D2 lessons 卡片数 = 67（实际 67）
+OK   D2 pitfalls 卡片数 = 67（实际 67）
+OK   D2 examples 卡片数 = 67（实际 67）
+OK   D3 必备字段齐全（缺失条目 0）
+OK   D4a review 取值合法（异常 0）
+OK   D4b verified 均有 reviewer + date（缺失签字 0）
+OK   D5 evidence 取值合法（异常 0）
+---
+RESULT=9/9 FAILED=0
+VERDICT=PASSED
+注意：本脚本只检查结构，不证明数学内容正确；功能交付与内容核验分开，现行边界见 SPEC-009 / RUL-010。
+=== E1 内容哈希一致性（manifest ↔ 文件，check-data.js 不校验）===
+OK   E1a 268 张卡 content_hash 与内容重算一致（异常 0）
+OK   E1b manifest.entries 与卡片哈希一致（异常 0）
+OK   E1c manifest.entries 条目数 = 268（实际 268）
+OK   E1d manifest.counts 与产物一致（基线 67）
+=== E3 覆盖度与条目数 ===
+OK   E3a 知识点卡 nodeId 覆盖 67（实际 67）
+OK   E3b lessons nodeId 集合与知识点卡完全一致
+OK   E3b pitfalls nodeId 集合与知识点卡完全一致
+OK   E3b examples nodeId 集合与知识点卡完全一致
+OK   E3c 每节点易错条目 ≥ 2（异常 0）
+OK   E3d 每节点示范题 ≥ 1（异常 0）
+OK   E3e 教案卡 RUL-002 六段齐全（异常 0）
+=== E4 结论存在性（问「求 X」必须给明确结论）===
+OK   E4a 67 题全部带非空 conclusion（异常 0）
+OK   E4b 求/证明类题目结论非纯方法描述（异常 0）
+OK   E4c BUG-009 回归：o_geo_trans 答案与结论均含 135°
+OK   E4d BUG-010 回归：s_vec3 二面角锐钝说明存在
+=== E5 定理条件完整性（在新教案卡上重查）===
+OK   E5 8 条关键定理条件完整（异常 0）
+=== E6 异源交叉：脱离生成路径，对已发布卡片独立复算 ===
+OK   E6 17 条明确题设的复算与当前发布文本一致（异常 0）
+=== E7 不自证与依据锚点 ===
+OK   E7a 当前卡片状态合法，verified 必须有签核字段（异常 0；不强制永久 pending）
+OK   E7b manifest 审核统计与当前卡一致（签核字段存在不等于机器证明其真实性）
+OK   E7c 全部卡有 source_ref（异常 0）
+OK   E7d 定向结构、哈希与镜像契约通过（无数学正确性自证）
+OK   E7e 来源登记结构合法、anchorId 唯一、获取状态明确（不固定历史 8/7 计数）
+OK   E7f 全节点来源引用与缺口结构有效；不自动升级 review
+=== E8 版本可追溯：快照保留 + 补丁作用域精确 ===
+OK   E8a v1.0.0 快照 228 卡完整保留（实际 228，历史版本不被内容修正覆盖）
+OK   E8b v2.0.0 曾新增 40 张小学卡（相对 v1.0.0，实际 40）
+OK   E8c v2.0.0 快照哈希完整，当前变更作用域等于补丁清单（变更 36 卡 / 9 节点 / 越界 0 / 损坏 0）
+OK   E8d 内容修正走新版本 2.1.0，未覆盖 v2.0.0 发布版（version=2.1.0）
+=== E9 小学段结构与当前状态（历史缺依据状态不锁死后续复核）===
+OK   E9a 小学节点数与 manifest 基线一致（实际 10）
+OK   E9b 小学 evidence/review 合法、verified 有签核字段（异常 0）
+OK   E9c 小学来源说明非空；详细缺口由 NODE_SOURCES 声明（异常 0）
+OK   E9d 跨学段映射：5 条归属重划 + 12 条衔接边（不回写旧卡）
+=== E2 追溯矩阵 UNCOVERED ===
+OK   E2a 文档编号引用失效数 = 0（UNCOVERED 来源：）
+OK   E2b 本任务新增用例 TST-016/TST-017/VFY-005 均已登记（UNCOVERED=0）
+---
+RESULT=33/33 FAILED=0
+UNCOVERED=0
+VERDICT=PASSED
+注意：本脚本校验结构、哈希、可判定数值与追溯关系，不证明数学讲解正确；现行边界见 SPEC-009，VFY-005 缺人工证据状态不变。
+OK   SEQ   SPEC- 编号连续 001..009 共 9 条
+OK   SEQ   CNF- 编号连续 001..025 共 25 条
+OK   SEQ   RUL- 编号连续 001..012 共 12 条
+OK   SEQ   DSN- 编号连续 001..012 共 12 条
+OK   SEQ   BUG- 编号连续 001..012 共 12 条
+OK   SEQ   PRM- 编号连续 001..010 共 10 条
+OK   SEQ   IDX- 编号连续 001..007 共 7 条
+OK   SEQ   TST- 编号连续 001..025 共 25 条
+OK   SEQ   VFY- 编号连续 001..009 共 9 条
+OK   REF   失效引用检查 : 无
+OK   PATH  路径存在性检查（71 个声明路径） : 全部存在
+OK   FWD   前瞻编号集合一致 : 一致
+OK   PROJECT private / Node18+ / 零依赖，无安装或隐式测试钩子
+OK   PROJECT npm test完整串行11组检查，失败即停止
+OK   PROJECT Git实际忽略运行数据/原件/私有配置/隔离副本，放行源码与证据
+OK   PROJECT 八个生成文件使用Git LF属性且工作树无CR，跨平台字节稳定
+OK   JS    27/27 语法通过
+OK   JS    18/18 文档脚本语法通过
+OK   JSON  18/18 严格校验通过
+OK   PAGE  8 页面四件套 32/32
+OK   NAV   授课为 tabBar 首项
+OK   TAB   pages/lecture/lecture
+OK   TAB   pages/graph/graph
+OK   TAB   pages/locator/locator
+OK   TAB   pages/gaps/gaps
+OK   DATA  67 节点授课全覆盖（67/67）
+OK   DATA  讲解六要素完整
+OK   DATA  11 专题节点与主题映射一致
+OK   DATA  ID 引用无悬空
+OK   DATA  题型 34 / 分组 10
+OK   DATA  TOPICS_BY_NODE 结构可解析
+OK   BASE  官方模板源哈希 9/9（LF 规范化）
+---
+RESULT=32/32 FAILED=0 SKIPPED=0
+VERDICT=PASSED
+=== C1 数值例题复算（独立计算 vs 讲解答案）===
+OK   C1 j_quad 复算=true 当前答案匹配=true | 最大值6 | 实算=6
+OK   C1 s_ineq 复算=true 当前答案匹配=true | 最小值4 | 实算=4
+OK   C1 s_exp 复算=true 当前答案匹配=true | 2^0.3>0.3² | 实算=true
+OK   C1 s_vec 复算=true 当前答案匹配=true | 点积=1 | 实算=1.0000000000000002
+OK   C1 o_numfun 复算=true 当前答案匹配=true | φ(12)=4 | 实算=4
+OK   C1 j_prob 复算=true 当前答案匹配=true | 概率1/6 | 实算=6
+OK   C1 o_div0 复算=true 当前答案匹配=true | 末位6 | 实算=6
+OK   C1 s_complex 复算=true 当前答案匹配=true | z=1−i | 实算=true
+OK   C1 o_fermat 复算=true 当前答案匹配=true | CRT最小正解8 | 实算=8
+OK   C1 j_alg 复算=true 当前答案匹配=true | x⁴+x²+1分解 | 实算=true
+OK   C1 o_geo_trans 复算=true 当前答案匹配=true | ∠APB=135° | 实算=135
+=== C2 定理条件完整性（关键定理必须带适用条件）===
+OK   C2 o_cong 「费马」条件完整 | 费马小定理需 p∤a
+OK   C2 o_cong 「欧拉定理」条件完整 | 欧拉定理需 gcd(a,n)=1
+OK   C2 o_cong 「中国剩余」条件完整 | CRT 需模数两两互素
+OK   C2 o_fermat 「费马」条件完整 | 费马小定理需 p∤a
+OK   C2 o_fermat 「欧拉定理」条件完整 | 欧拉定理需互素
+OK   C2 o_fermat 「中国剩余」条件完整 | CRT 需互素
+OK   C2 s_ineq 「基本不等式」条件完整 | 基本不等式需各项为正
+OK   C2 j_eq 「韦达」条件完整 | 韦达求实根需验Δ
+=== C3 结论存在性（问"求X"必须给结论，不能只讲方法）===
+OK   C3 结论存在性扫描完成（0 条待人工确认，非自动失败）
+=== C4 跨文件一致性（同一知识点不同载体不得矛盾）===
+OK   C4 o_geo_trans 讲解已补 135° 结论（BUG-009 回归）
+OK   C4 s_vec3 二面角锐钝说明已补（BUG-010 回归）
+OK   C4 o_cong 费马条件已补全（不再是无条件表述）
+---
+内容校验统计：断言 23 通过 / 0 失败；人工提示 0 条
+RESULT=23/23 FAILED=0
+VERDICT=PASSED
+注意：本脚本只覆盖可机械判定的子集，PASS 不等于"内容全部正确"；资料、多模型与人工复核分开记录，现行边界见 SPEC-009 / RUL-010。
+OK   G1 nodes.js 导出齐全（缺 ）
+OK   G1 lectures.js 导出齐全（缺 ）
+OK   G1 cards.js 导出齐全（缺 ）
+OK   G1 themes.js 导出齐全（缺 ）
+OK   G1 topic_index.js 导出齐全（缺 ）
+OK   G1 content_meta.js 导出齐全（缺 ）
+OK   G1 bridges.js 导出齐全（缺 ）
+OK   G2 ALL_NODES 67 节点逐字段等于真源（不符 0）
+OK   G2 SIGNAL_RULES 等于组织配置
+OK   G3 LECTURES 六段式 67 点等于真源 lessons（不符 0）
+OK   G3 LECTURES 专题外壳等于组织配置
+OK   G4 ALL_NODES / LECTURES / DOMAINS / THEMES 四视图覆盖同一 67 节点集
+OK   G4 THEMES 等于组织配置
+OK   G5 CARDS 全节点四类卡字段与来源映射正确（异常 ）
+OK   G5 组织层原六节点内容完整保留，与四类卡镜像明确分离
+OK   G5 题型索引 items/groups 等于组织配置
+OK   G5 TOPICS_BY_NODE 由 items 正确派生
+OK   G5 历史范围/复算名单仅保留供追溯
+OK   G5 metaFor 状态/证据及 legacySourceRef 绑定当前卡片，不继承 R2 名单
+OK   G5 source 展示已核来源位置，无已核正文时明示缺口，不展示旧 source_ref
+OK   G5 全节点来源映射与当前内容哈希绑定，CONTENT_REVIEW 独立输出
+OK   G5 生成清单绑定当前来源版本与审核统计
+OK   G7 BRIDGES 12 条 from/to/kind 逐条等于 bridges.json
+OK   G7 BRIDGES 富化字段（名称/主题）与 ALL_NODES、THEME_OF 一致
+OK   G7 BRIDGES_BY_NODE 反向索引由边正确派生
+OK   G7 BRIDGES 两端节点均在真源内（悬空 0）
+OK   G6 七个模块头部含 GENERATED FILE 与版本 2.1.0
+OK   G6 过渡态警告头存在（pending=268）
+OK   G6 七个模块全部入库
+---
+RESULT=29/29 FAILED=0
+VERDICT=PASSED
+HASH_OK {"label":"EV-A01","path":"resource_data/official/moe-math-2022.pdf","status":"HASH_OK","bytes":40123943,"sha256":"1183b95c58a65eaac4c456f2d2b329bbe42f65a6482993edb537e3eaf8baa144"}
+HASH_OK {"label":"EV-A01/alternate-1","path":"resource_data/official/moe-math-2022-alt.pdf","status":"HASH_OK","bytes":40136464,"sha256":"2adddf52cbc2a359ae265e82b30b8d5ae314dfe8b5a95583bdc9516b08700d5d"}
+HASH_OK {"label":"EV-A02","path":"resource_data/official/ictr-math-2017-2020.pdf","status":"HASH_OK","bytes":10450629,"sha256":"cc4d3a20daa09f5185037e93fbacd58f7df1147392e3dae4bf261c3700ba4195"}
+HASH_OK {"label":"EV-A05","path":"resource_data/official/gsms-2026-notice.pdf","status":"HASH_OK","bytes":682551,"sha256":"5d38f53fecc75cd77ae9db1b65387367c1b9aabfb04a4536f0ea8c4ade51f45a"}
+COVERAGE=67/67 REFERENCES=117 SCOPE_SECTION_CHECKED=42/67
+GAP_NODES=67/67 GAP_ENTRIES=98 DEFINITION_CHECKED=0 EXAMPLE_CHECKED=0
+ORIGINALS_EXPECTED=4 HASH_CHECKED=4 NOT_PRESENT=0
+OK SELF_TEST 换机器缺原件时按当前登记报告NOT_PRESENT，不固定文件数或伪造哈希成功
+OK SELF_TEST 允许后续更新日期、跨年及有效闰日，不锁死创建日期
+OK SELF_TEST mapping 拒绝无效updatedAt：null
+OK SELF_TEST mapping 拒绝无效updatedAt：undefined
+OK SELF_TEST mapping 拒绝无效updatedAt：
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-11-27T00:00:00Z
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-2-3
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-02-30
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-13-01
+OK SELF_TEST mapping 拒绝无效updatedAt：2025-02-29
+OK SELF_TEST registry 拒绝无效updatedAt：null
+OK SELF_TEST registry 拒绝无效updatedAt：undefined
+OK SELF_TEST registry 拒绝无效updatedAt：
+OK SELF_TEST registry 拒绝无效updatedAt：2026-11-27T00:00:00Z
+OK SELF_TEST registry 拒绝无效updatedAt：2026-2-3
+OK SELF_TEST registry 拒绝无效updatedAt：2026-02-30
+OK SELF_TEST registry 拒绝无效updatedAt：2026-13-01
+OK SELF_TEST registry 拒绝无效updatedAt：2025-02-29
+OK SELF_TEST 新增备用原件不被历史原件数量阻塞
+OK SELF_TEST 漏节点
+OK SELF_TEST 悬空节点
+OK SELF_TEST 未注册source
+OK SELF_TEST purpose枚举
+OK SELF_TEST verification枚举
+OK SELF_TEST 空获取标题
+OK SELF_TEST 空获取URL
+OK SELF_TEST 空获取日期
+OK SELF_TEST 重复anchor
+OK SELF_TEST 正文定位造假
+OK SELF_TEST 目录不得升级正文
+OK SELF_TEST 范围不得当例题依据
+OK SELF_TEST 原创不得自证
+OK SELF_TEST 缺口不得抹去
+OK SELF_TEST 文件路径逃逸
+OK SELF_TEST PDF页码越界
+OK SELF_TEST 独立节点定位
+OK SELF_TEST 保留旧anchor
+OK SELF_TEST 备用原件元数据
+OK SELF_TEST 存在原件同时核对bytes和sha256
+OK SELF_TEST 哈希篡改必失败
+OK SELF_TEST 字节数篡改必失败
+OK SELF_TEST 读取错误不能伪装文件不存在
+SELF_TEST=42/42
+RESULT=1/1 FAILED=0 SELF_TEST_PASSED=42
+VERDICT=PASSED
+边界：PASSED仅指追溯结构与已存在原件的哈希；NOT_PRESENT不是哈希成功。范围定位、目录核对、数学正确性、多模型复核和人工签核彼此不同。
+OK   真实构建器接受当前真源，生成八文件，状态与来源绑定
+OK   来源展示独立断言：已核定位纠正学段，历史原文单独保留
+OK   只有待核或目录引用时不伪装为已核正文，不回退旧教案来源
+OK   日期更新和有效闰日可编译，无效日历日期在写入前拒绝
+OK   已核来源必须取得正文且匹配登记级别，目录不得升级
+OUTPUT_BYTES={"files":{"nodes.js":111324,"lectures.js":102516,"cards.js":564227,"themes.js":6054,"topic_index.js":79260,"content_meta.js":351109,"bridges.js":6361,"manifest.generated.json":1047},"total":1221898}
+OK   生成体积按 UTF-8 字节如实报告，不含外部原件或历史快照
+OK   字节级复现：内存重建两次且生成物不作为种子
+OK   工作区八个生成文件逐字节等于真实输入的内存重建
+OK   check-app-build 实际脚本验证内存生成物忠实呈现
+OK   缺来源 sidecar 时 exit2 且零写入
+OK   默认保守策略不把未签核判为内容错误，也不写文件
+OK   错误来源 fail-fast：未知来源
+OK   错误来源 fail-fast：错误来源用途
+OK   错误来源 fail-fast：错误来源状态
+OK   错误来源 fail-fast：缺少节点
+OK   错误来源 fail-fast：悬空节点
+OK   错误来源 fail-fast：空来源与缺口
+OK   错误来源 fail-fast：已定位却无位置
+OK   错误来源 fail-fast：伪造已核位置
+OK   来源重复 anchorId 与畸形状态 fail-fast
+OK   范围来源不能被错误引用为题目答案依据
+OK   新增来源与获取状态变化不受历史 8/7 固定计数限制
+OK   更新 hash 仍须通过内容契约：单改示范题目
+OK   更新 hash 仍须通过内容契约：单改示范答案
+OK   更新 hash 仍须通过内容契约：单改易错镜像
+OK   更新 hash 仍须通过内容契约：非法审核状态
+OK   更新 hash 仍须通过内容契约：伪 verified 缺签核
+OK   更新 hash 仍须通过内容契约：错误结构
+OK   更新 hash 仍须通过内容契约：重复条目
+OK   更新 hash 仍须通过内容契约：错误 nodeId
+OK   组织层悬空引用 fail-fast，不能被 filter 静默丢弃
+OK   未知构建参数和无效JSON均零写入
+OK   旧 hash 与 manifest 错配分别阻止写入
+OK   独立教学扩展不是镜像：修改纠正字段可进入 CARDS
+OK   同步修改镜像后独立卡输出进入讲解与 CARDS，元数据重新绑定
+OK   六节点补充内容全部保留，9 道不同例题不被误判或覆盖
+OK   当前 checked 与带签核字段的 verified 不被 E7 永久 pending 假设阻塞
+OK   来源升级不提升 card review，已登记定位改动使展示与绑定变化
+OK   真实 E6 基线读取当前发布内容且通过
+OK   E6 所有17个 expectation 均读取发布答案，不只验证脚本内常数
+OK   真实 E6 抓到更新 hash 的发布内容变异：all99
+OK   真实 E6 抓到更新 hash 的发布内容变异：lesson99
+OK   真实 E6 抓到更新 hash 的发布内容变异：example99
+OK   真实 E6 抓到更新 hash 的发布内容变异：conclusion99
+OK   真实 E6 抓到更新 hash 的发布内容变异：question
+OK   合理公式规范化：ASCII 减号与空白不误报
+OK   verify_content 实际脚本只读可靠真源并阻止错误99
+OK   E8 检查历史快照内容哈希，不只是文件存在
+OK   退役旧 seed：无参数、force、旧 seed 参数均 exit2，零读取零写入
+RESULT=49/49 FAILED=0
+VERDICT=PASSED
+CONTENT_REVIEW=未作人工或多模型验收；所有合成来源与签核字段只存在于内存测试夹具。
+OK   新安装空状态不上传默认值；远端合并不回推
+OK   显式 0、空笔记、取消存疑不会被旧值复活
+OK   删除保留 tombstone，反复拉取历史操作不复活
+OK   A 未修改的字段不覆盖 B 新值；旧 load 快照只保存自身 diff
+OK   同时编辑不同字段，两个设备都只写自己的改动
+OK   同时编辑相同字段有确定胜者；不取状态最大值
+OK   纯合并满足交换/结合/幂等；同版本异常内容也固定收敛
+OK   发送中有新修改，旧 ack 仅确认所发操作；并发 push 串行
+OK   写入失败 + 重启重试保持设备和文档 ID
+OK   已落库但响应丢失，重启重试不会产生重复文档
+OK   超时旧请求在重启和新写入后才落库，也不能回滚新值
+OK   首次 init/push 重入合并；不通过 add 自动生成 ID
+OK   首次拉取失败不会发送、清队列或当作空库
+OK   成功回调但 stats 为零不确认队列
+OK   ack 落盘失败保留操作；下次安全重试
+OK   分页拉取超过 20 条并合并全部旧文档，不只读取第一份
+OK   整页倍数会继续读末尾空页；分页中途失败不提交半份状态
+OK   旧云显式零值/空值保留；全部旧记录只读、不删除、不回推
+OK   旧 sync_queue 保留为历史基线并幂等发送；不会升级成用户新编辑
+OK   旧队列/旧客户端时间戳不能覆盖新协议字段；历史内容留在备份
+OK   旧格式无字段时间和缺失删除只作确定性迁移，不编造 tombstone
+OK   无旧 dirty 标记的本地记录也会迁移；已有云字段优先且重启不重发
+OK   误用自定义 owner 规则时查询失败即停止，不当空库或更改权限
+OK   恶意原型键、坏 state/字段/元数据整份拒绝，不污染本地或原型
+OK   合法单文档的并集超限时拒绝落盘，原本地状态仍可读取
+OK   三设备多轮离线编辑、交错拉推与重启后收敛且停止重传
+OK   坏本地 state/元数据不被重置或误发；非法 setter/save 返回 false
+OK   存储写入失败返回 false，不发通知、不丢旧值、不生成待发送操作
+OK   初始化身份持久化失败、读取失败、远端合并落盘失败均不误报成功
+OK   DB 桩按创建者隔离账号；设备 ID 不是读取授权
+OK   失败重试有上限；前台与网络恢复能重新拉取/推送
+OK   超过单批 50 操作有界续传，拉取通知不会造成回推循环
+OK   所有进度页在远端合并后刷新；隐藏/卸载解除订阅
+OK   节点笔记草稿不被远端刷新覆盖；保存后按观察到的版本继续编辑
+OK   取消笔记编辑恢复已存笔记和空值，不新增待发送操作
+OK   编辑期间远端笔记更新后取消，显示最新已存版本而非旧草稿
+OK   页面保存失败不显示成功、不篡改状态，笔记草稿继续保留
+OK   后台网络恢复不擅自启动同步，回前台再恢复
+OK   回调异常不阻断其他回调或遗留发送锁
+OK   node 任意选择三态，菜单标当前记录，成功才反馈
+OK   node 取消、同值、非法返回不调 setter、不落盘、不假成功
+OK   node 保存失败保持最新记录，允许重试且无成功反馈
+OK   node 菜单打开后远端更新，按最新 store 比较而非旧快照
+OK   node 防重复菜单、隐藏或卸载后迟到回调，旧完成不清新菜单
+OK   lesson 任意选择三态，菜单标当前记录，成功才反馈
+OK   lesson 取消、同值、非法返回不调 setter、不落盘、不假成功
+OK   lesson 保存失败保持最新记录，允许重试且无成功反馈
+OK   lesson 菜单打开后远端更新，按最新 store 比较而非旧快照
+OK   lesson 防重复菜单、隐藏或卸载后迟到回调，旧完成不清新菜单
+OK   graph 任意选择三态，菜单标当前记录，成功才反馈
+OK   graph 取消、同值、非法返回不调 setter、不落盘、不假成功
+OK   graph 保存失败保持最新记录，允许重试且无成功反馈
+OK   graph 菜单打开后远端更新，按最新 store 比较而非旧快照
+OK   graph 防重复菜单、隐藏或卸载后迟到回调，旧完成不清新菜单
+OK   lesson 批量确认取消及迟到回调无写入，确认后仅一次原子保存且措辞为标记
+OK   graph 两视图正文详情与独立 catchtap 状态入口分离，状态显示文字
+OK   node 提示与解答默认隐藏、各自切换且不写存储或同步
+OK   node 无提示不显示入口，坏索引不污染折叠状态，字符串整数索引可用
+OK   node 全67节点四学段实际页签按真源卡类显示审核，来源折叠只读
+OK   node 全67元数据故意设置不同卡类审核，组合卡不能沿用教案 review 或历史 note
+OK   node 讲解按实际 origin 路径判定，跨卡类和缺失来源不按页签猜测
+OK   node 六个组织补充节点独立待核，九道补充例题不继承示范审核
+OK   来源摘要 scope 与 section_checked 双条件计数，不把目录或待核当作已核
+OK   来源缺失异常字段谨慎回退未提供，无默认 verified，不读取旧 note
+OK   首页两个真实导航及阅读返回零 storage/outbox 写入，不保留旧建议状态或 handler
+RESULT=65/65 FAILED=0
+VERDICT=PASSED
+REAL_CLOUD=NOT_TESTED HOST_ACCOUNT_STORAGE_ISOLATION=NOT_TESTED
+OK   定位非默认父组：展开父子、消费焦点，不能提前滚动
+OK   全部真实题型均可安全唯一定位，不能只支持默认组
+OK   高亮从渲染完成起保持 2000ms，之后清理
+OK   onHide 取消未渲染定位，迟到回调不得滚动或重建计时器
+OK   onHide 清已运行高亮定时器，已出队的迟到回调也无效
+OK   onHide 后新焦点不被旧渲染回调复活或覆盖
+OK   onUnload 取消未渲染定位，迟到回调不得滚动或重建计时器
+OK   onUnload 清已运行高亮定时器，已出队的迟到回调也无效
+OK   onUnload 后新焦点不被旧渲染回调复活或覆盖
+OK   onHide 后无新焦点再次显示，旧渲染与定时回调仍失效
+OK   onUnload 后无新焦点再次显示，旧渲染与定时回调仍失效
+OK   渲染前 switchMode 隐藏目标，取消待执行定位和高亮
+OK   渲染前 toggleGroup 隐藏目标，取消待执行定位和高亮
+OK   渲染前 toggleItem 隐藏目标，取消待执行定位和高亮
+OK   连续不同焦点：渲染回调逆序也只定位最后一个
+OK   重复相同焦点：旧高亮回调不能提前清掉新高亮
+OK   第二次 onShow 无新焦点不重复滚动，也不延长高亮
+OK   未知、选择器注入、对象及空焦点均消费但不展开或谎报成功
+OK   非法新焦点取消旧的待执行定位
+OK   缺少 globalData 或无 focusTopic 时正常显示，不创建定位任务
+OK   定位器空字符串及纯空白仅提示输入，不执行搜索或改变展开状态
+OK   定位器输入无匹配词返回空结果，清空只重置搜索而不改变展开状态
+OK   定位器快捷搜索等待输入更新，保留原题型和知识域匹配
+OK   滚动失败不报成功、不无限重试
+OK   两种模式共用模板传入 focusId，稳定 ID 无冲突且高亮有样式
+OK   tab-page 只用于 tab 页：locator 有，cards 无
+OK   实际展示绑定：筛为 1/0 条时总收录文案仍显示原总数
+OK   卡片总数从数据派生，与全量列表一致
+OK   唯一关键词筛为 1 条，总收录数不改变
+OK   零结果仍保留总数，清空搜索恢复全部
+OK   空白搜索清除关键词条件但保留未掌握筛选，总数始终不变
+OK   空卡片数据的总数及结果数均为零，搜索和筛选不抛错
+OK   页面再次显示及远端刷新保留关键词与筛选，仅更新结果数
+OK   卡片保留小学、初中、高中、奥赛的原来源排序
+OK   替换为数据子集仍派生总数，不能写死当前节点基线
+OK   未掌握保留状态 0/1，排除 2，并与关键词取交集
+OK   保留原搜索范围、去空白与忽略大小写，不扩展例题全文
+OK   卡片展示分离总数/结果数，零结果提示及三态文字绑定正确
+OK   locator 保留 R31 远端刷新及隐藏/卸载退订
+OK   locator 保留知识点详情导航
+OK   cards 保留 R31 远端刷新及隐藏/卸载退订
+OK   cards 保留知识点详情导航
+OK   阅读页模板标签完整、事件处理存在、tab底部占位仅应用到四主导航
+OK   七个阅读页样式使用物理字号与44px触控高度，保留原宽屏列数
+DATA_TOTAL=67
+RESULT=44/44 FAILED=0
+VERDICT=PASSED
+PASS cards搜索→node→题型→重建完整链，原生返回cards且读取最新store
+PASS 连续两次跨tab仍保留完整cards→node→题型→node→图谱相关阅读链
+PASS 普通自定义返回只navigateBack并复用实例，状态和笔记来自最新store
+PASS 同节点多个实例的页签/展开/滚动互不串用
+PASS node→自身根tab图谱不会形成环，返回仍重建原链
+PASS lesson跨tab恢复展开/页签，reviewLabel不受个人disputed覆盖
+PASS 导航失败不新增/消费片段、不污染全局focus，允许重试
+PASS 重建第1步失败保留返回片段，部分页面可重试完整链
+PASS 重建第2步失败保留返回片段，部分页面可重试完整链
+PASS 重建第3步失败保留返回片段，部分页面可重试完整链
+PASS navigateBack失败不消费片段，第二次成功返回复用实例
+PASS 隐藏目标页后的迟到导航成功不设置focus、滚动或消费记录
+PASS 重建滚动渲染回调迟到不滚动隐藏页
+PASS 重建中间页渲染迟到，原生返回时补恢复该页真实滚动位置
+PASS 导航success先于onShow也完成恢复；重复成功回调不重复消费
+PASS 返回片段最多20个，白名单不含业务字段、笔记、焦点与持久化
+PASS 普通底部tab导航不扩展为持久阅读历史
+PASS 可控制返回取消不离开、不写store、不丢草稿
+PASS 可控制跨tab取消不设置focus；确认后导航失败仍保留草稿
+PASS 确认放弃只在成功后生效，返回旧实例不会复活已放弃草稿
+PASS 放弃后跨tab卸载不能再次把草稿放回会话池
+PASS 原生返回卸载保留会话草稿，再进入恢复但不伪称已保存
+PASS 多实例同节点草稿不串，系统返回到仍存活编辑器保留其原草稿
+PASS 保存失败继续编辑；成功仅显式保存一次；取消读最新store
+PASS 隐藏后的迟到确认不会导航、丢草稿或写store
+PASS 会话草稿有界20条，重启会话不恢复；不覆盖其他节点
+PASS note锚点只在渲染后定位，隐藏后的迟到渲染无效
+PASS R33题型非默认父子展开与隐藏迟到防护保持
+PASS locator重建按原查询重算结果，不把尚未提交输入误当查询
+PASS 取消订阅后已经出队的remote回调不写隐藏页面
+PASS 目标已显示但返回回调失败，仍能从目标重试，不消费原片段
+PASS 新跨tab焦点废弃该tab以前尚未完成的滚动恢复
+PASS 导航抛错保留草稿和返回记录，后续导航可重试
+PASS 过期导航回调不能消费新一轮记录或清掉新事务
+PASS 重建同节点原实例，不误领另一实例的卸载草稿
+PASS lesson批量确认取消不保存，确认单次save，失败不伪称成功
+SUITE=R34_B2
+RESULT=36/36 FAILED=0
+VERDICT=PASSED
+NATIVE_EVIDENCE=BLOCKED_NO_EVIDENCE（隔离测试不是微信原生验收）
+PASS 隔离 VM 确实加载真实 store/协议，remote 无 outbox，不同用例互不污染
+PASS gaps progress/all/todo/learning 按原节点顺序，统计与真实 store 一致
+PASS gaps notes 空白/空串不计、计数独立于查询、跨领域原顺序且不按写入或状态排序
+PASS gaps disputed 与有无笔记无关、按原顺序、保留空白笔记节点
+PASS gaps notes 不受旧 progress filter 影响
+PASS gaps disputed 不受旧 progress filter 影响
+PASS notes 查询仅正文连续子串，大小写/首尾空格处理，不扩展标题/描述/卡片全文
+PASS 摘要 99/100/101 字符边界、Unicode 码点及空白归一化，正文绝不截断或回写
+PASS 详情显式保存空串后 gaps onShow 移除笔记且不额外写入
+PASS 详情显式保存空白后 gaps onShow 移除笔记且不额外写入
+PASS 详情取消存疑后 gaps onShow 移除，保留独立笔记
+PASS gaps remote 实时更新 notes，保留原 query/view/filter 且不反向产生操作
+PASS gaps remote 实时更新 disputed，保留原 query/view/filter 且不反向产生操作
+PASS lecture 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS graph 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS locator 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS gaps 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS cards 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS node 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS lesson 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS notes 详情真实带 note anchor，渲染后才定位；进度/存疑详情不附加锚点
+PASS note anchor 隐藏后迟到渲染回调不再滚动
+PASS gaps→node→题型→返回重建链，再原生返回恢复 notes 查询且读取最新 store
+PASS node 存疑成功/取消仅修改个人 disputed，真实 outbox 每次一个操作
+PASS node disputed=0 真实 storage 失败不改 UI/业务/outbox，允许重试
+PASS node 不按陈旧 data.disputed=0 取反，必须读取最新 store
+PASS node disputed=1 真实 storage 失败不改 UI/业务/outbox，允许重试
+PASS node 不按陈旧 data.disputed=1 取反，必须读取最新 store
+PASS lesson 不按陈旧 points.disputed=0 取反，必须读取最新 store
+PASS lesson 陈旧 points.disputed=0 遇真实 storage 失败保持原状，重试仍读取最新 store
+PASS lesson 不按陈旧 points.disputed=1 取反，必须读取最新 store
+PASS lesson 陈旧 points.disputed=1 遇真实 storage 失败保持原状，重试仍读取最新 store
+PASS lesson 存疑缺失事件 不抛错、不读取存疑、不改 UI/storage/outbox、不报成功
+PASS lesson 存疑无效节点 不抛错、不读取存疑、不改 UI/storage/outbox、不报成功
+PASS lesson reviewLabel 始终来自内容元数据，不被本地/远端个人 disputed 覆盖
+PASS lesson 来源默认折叠且经真实 WXML 控件可达，各知识点独立，展开/收起仅只读
+PASS node 来源/审核/缺口/补充来源展开可达，页签切换和折叠只读
+PASS gaps每次重建只取一次当前业务快照，不按节点反复读三个字段
+PASS handler 校验不把注释/字符串/继承方法当定义，不误判 template 的合理数据作用域
+PASS lecture WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS graph WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS locator WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS gaps WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS cards WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS node WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS lesson WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+SUITE=R34_B4_B6_RECORDS
+HARNESS=REAL_PAGES_REAL_STORE_REAL_SYNC_STATE_ISOLATED_VM
+RESULT=46/46 FAILED=0
+VERDICT=PASSED
+NATIVE_EVIDENCE=BLOCKED_NO_EVIDENCE（隔离 VM/WXML 契约检查不是微信原生验收）
+OK   SEQ   SPEC- 编号连续 001..009 共 9 条
+OK   SEQ   CNF- 编号连续 001..025 共 25 条
+OK   SEQ   RUL- 编号连续 001..012 共 12 条
+OK   SEQ   DSN- 编号连续 001..012 共 12 条
+OK   SEQ   BUG- 编号连续 001..012 共 12 条
+OK   SEQ   PRM- 编号连续 001..010 共 10 条
+OK   SEQ   IDX- 编号连续 001..007 共 7 条
+OK   SEQ   TST- 编号连续 001..025 共 25 条
+OK   SEQ   VFY- 编号连续 001..009 共 9 条
+OK   REF   失效引用检查 : 无
+OK   PATH  路径存在性检查（73 个声明路径） : 全部存在
+OK   FWD   前瞻编号集合一致 : 一致
+OK   PROJECT private / Node18+ / 零依赖，无安装或隐式测试钩子
+OK   PROJECT npm test完整串行11组检查，失败即停止
+OK   PROJECT Git实际忽略运行数据/原件/私有配置/隔离副本，放行源码与证据
+OK   PROJECT 八个生成文件使用Git LF属性且工作树无CR，跨平台字节稳定
+OK   JS    27/27 语法通过
+OK   JS    18/18 文档脚本语法通过
+OK   JSON  18/18 严格校验通过
+OK   PAGE  8 页面四件套 32/32
+OK   NAV   授课为 tabBar 首项
+OK   TAB   pages/lecture/lecture
+OK   TAB   pages/graph/graph
+OK   TAB   pages/locator/locator
+OK   TAB   pages/gaps/gaps
+OK   DATA  67 节点授课全覆盖（67/67）
+OK   DATA  讲解六要素完整
+OK   DATA  11 专题节点与主题映射一致
+OK   DATA  ID 引用无悬空
+OK   DATA  题型 34 / 分组 10
+OK   DATA  TOPICS_BY_NODE 结构可解析
+OK   BASE  官方模板源哈希 9/9（LF 规范化）
+---
+RESULT=32/32 FAILED=0 SKIPPED=0
+VERDICT=PASSED
+
+> test
+> node tests/check-data.js && node tests/check-reliable-extra.js && node tests/validate.js && node tests/verify_content.js && node tests/check-app-build.js && node tests/check-sources.js --self-test && node tests/check-data-contract.js && node tests/check-sync.js && node tests/check-ui.js && node tests/check-reading-context.js && node tests/check-records.js
+
+OK   D1 manifest.version 非空（2.1.0）
+OK   D2 nodes 卡片数 = 67（实际 67）
+OK   D2 lessons 卡片数 = 67（实际 67）
+OK   D2 pitfalls 卡片数 = 67（实际 67）
+OK   D2 examples 卡片数 = 67（实际 67）
+OK   D3 必备字段齐全（缺失条目 0）
+OK   D4a review 取值合法（异常 0）
+OK   D4b verified 均有 reviewer + date（缺失签字 0）
+OK   D5 evidence 取值合法（异常 0）
+---
+RESULT=9/9 FAILED=0
+VERDICT=PASSED
+注意：本脚本只检查结构，不证明数学内容正确；功能交付与内容核验分开，现行边界见 SPEC-009 / RUL-010。
+=== E1 内容哈希一致性（manifest ↔ 文件，check-data.js 不校验）===
+OK   E1a 268 张卡 content_hash 与内容重算一致（异常 0）
+OK   E1b manifest.entries 与卡片哈希一致（异常 0）
+OK   E1c manifest.entries 条目数 = 268（实际 268）
+OK   E1d manifest.counts 与产物一致（基线 67）
+=== E3 覆盖度与条目数 ===
+OK   E3a 知识点卡 nodeId 覆盖 67（实际 67）
+OK   E3b lessons nodeId 集合与知识点卡完全一致
+OK   E3b pitfalls nodeId 集合与知识点卡完全一致
+OK   E3b examples nodeId 集合与知识点卡完全一致
+OK   E3c 每节点易错条目 ≥ 2（异常 0）
+OK   E3d 每节点示范题 ≥ 1（异常 0）
+OK   E3e 教案卡 RUL-002 六段齐全（异常 0）
+=== E4 结论存在性（问「求 X」必须给明确结论）===
+OK   E4a 67 题全部带非空 conclusion（异常 0）
+OK   E4b 求/证明类题目结论非纯方法描述（异常 0）
+OK   E4c BUG-009 回归：o_geo_trans 答案与结论均含 135°
+OK   E4d BUG-010 回归：s_vec3 二面角锐钝说明存在
+=== E5 定理条件完整性（在新教案卡上重查）===
+OK   E5 8 条关键定理条件完整（异常 0）
+=== E6 异源交叉：脱离生成路径，对已发布卡片独立复算 ===
+OK   E6 17 条明确题设的复算与当前发布文本一致（异常 0）
+=== E7 不自证与依据锚点 ===
+OK   E7a 当前卡片状态合法，verified 必须有签核字段（异常 0；不强制永久 pending）
+OK   E7b manifest 审核统计与当前卡一致（签核字段存在不等于机器证明其真实性）
+OK   E7c 全部卡有 source_ref（异常 0）
+OK   E7d 定向结构、哈希与镜像契约通过（无数学正确性自证）
+OK   E7e 来源登记结构合法、anchorId 唯一、获取状态明确（不固定历史 8/7 计数）
+OK   E7f 全节点来源引用与缺口结构有效；不自动升级 review
+=== E8 版本可追溯：快照保留 + 补丁作用域精确 ===
+OK   E8a v1.0.0 快照 228 卡完整保留（实际 228，历史版本不被内容修正覆盖）
+OK   E8b v2.0.0 曾新增 40 张小学卡（相对 v1.0.0，实际 40）
+OK   E8c v2.0.0 快照哈希完整，当前变更作用域等于补丁清单（变更 36 卡 / 9 节点 / 越界 0 / 损坏 0）
+OK   E8d 内容修正走新版本 2.1.0，未覆盖 v2.0.0 发布版（version=2.1.0）
+=== E9 小学段结构与当前状态（历史缺依据状态不锁死后续复核）===
+OK   E9a 小学节点数与 manifest 基线一致（实际 10）
+OK   E9b 小学 evidence/review 合法、verified 有签核字段（异常 0）
+OK   E9c 小学来源说明非空；详细缺口由 NODE_SOURCES 声明（异常 0）
+OK   E9d 跨学段映射：5 条归属重划 + 12 条衔接边（不回写旧卡）
+=== E2 追溯矩阵 UNCOVERED ===
+OK   E2a 文档编号引用失效数 = 0（UNCOVERED 来源：）
+OK   E2b 本任务新增用例 TST-016/TST-017/VFY-005 均已登记（UNCOVERED=0）
+---
+RESULT=33/33 FAILED=0
+UNCOVERED=0
+VERDICT=PASSED
+注意：本脚本校验结构、哈希、可判定数值与追溯关系，不证明数学讲解正确；现行边界见 SPEC-009，VFY-005 缺人工证据状态不变。
+OK   SEQ   SPEC- 编号连续 001..009 共 9 条
+OK   SEQ   CNF- 编号连续 001..025 共 25 条
+OK   SEQ   RUL- 编号连续 001..012 共 12 条
+OK   SEQ   DSN- 编号连续 001..012 共 12 条
+OK   SEQ   BUG- 编号连续 001..012 共 12 条
+OK   SEQ   PRM- 编号连续 001..010 共 10 条
+OK   SEQ   IDX- 编号连续 001..007 共 7 条
+OK   SEQ   TST- 编号连续 001..025 共 25 条
+OK   SEQ   VFY- 编号连续 001..009 共 9 条
+OK   REF   失效引用检查 : 无
+OK   PATH  路径存在性检查（73 个声明路径） : 全部存在
+OK   FWD   前瞻编号集合一致 : 一致
+OK   PROJECT private / Node18+ / 零依赖，无安装或隐式测试钩子
+OK   PROJECT npm test完整串行11组检查，失败即停止
+OK   PROJECT Git实际忽略运行数据/原件/私有配置/隔离副本，放行源码与证据
+OK   PROJECT 八个生成文件使用Git LF属性且工作树无CR，跨平台字节稳定
+OK   JS    27/27 语法通过
+OK   JS    18/18 文档脚本语法通过
+OK   JSON  18/18 严格校验通过
+OK   PAGE  8 页面四件套 32/32
+OK   NAV   授课为 tabBar 首项
+OK   TAB   pages/lecture/lecture
+OK   TAB   pages/graph/graph
+OK   TAB   pages/locator/locator
+OK   TAB   pages/gaps/gaps
+OK   DATA  67 节点授课全覆盖（67/67）
+OK   DATA  讲解六要素完整
+OK   DATA  11 专题节点与主题映射一致
+OK   DATA  ID 引用无悬空
+OK   DATA  题型 34 / 分组 10
+OK   DATA  TOPICS_BY_NODE 结构可解析
+OK   BASE  官方模板源哈希 9/9（LF 规范化）
+---
+RESULT=32/32 FAILED=0 SKIPPED=0
+VERDICT=PASSED
+=== C1 数值例题复算（独立计算 vs 讲解答案）===
+OK   C1 j_quad 复算=true 当前答案匹配=true | 最大值6 | 实算=6
+OK   C1 s_ineq 复算=true 当前答案匹配=true | 最小值4 | 实算=4
+OK   C1 s_exp 复算=true 当前答案匹配=true | 2^0.3>0.3² | 实算=true
+OK   C1 s_vec 复算=true 当前答案匹配=true | 点积=1 | 实算=1.0000000000000002
+OK   C1 o_numfun 复算=true 当前答案匹配=true | φ(12)=4 | 实算=4
+OK   C1 j_prob 复算=true 当前答案匹配=true | 概率1/6 | 实算=6
+OK   C1 o_div0 复算=true 当前答案匹配=true | 末位6 | 实算=6
+OK   C1 s_complex 复算=true 当前答案匹配=true | z=1−i | 实算=true
+OK   C1 o_fermat 复算=true 当前答案匹配=true | CRT最小正解8 | 实算=8
+OK   C1 j_alg 复算=true 当前答案匹配=true | x⁴+x²+1分解 | 实算=true
+OK   C1 o_geo_trans 复算=true 当前答案匹配=true | ∠APB=135° | 实算=135
+=== C2 定理条件完整性（关键定理必须带适用条件）===
+OK   C2 o_cong 「费马」条件完整 | 费马小定理需 p∤a
+OK   C2 o_cong 「欧拉定理」条件完整 | 欧拉定理需 gcd(a,n)=1
+OK   C2 o_cong 「中国剩余」条件完整 | CRT 需模数两两互素
+OK   C2 o_fermat 「费马」条件完整 | 费马小定理需 p∤a
+OK   C2 o_fermat 「欧拉定理」条件完整 | 欧拉定理需互素
+OK   C2 o_fermat 「中国剩余」条件完整 | CRT 需互素
+OK   C2 s_ineq 「基本不等式」条件完整 | 基本不等式需各项为正
+OK   C2 j_eq 「韦达」条件完整 | 韦达求实根需验Δ
+=== C3 结论存在性（问"求X"必须给结论，不能只讲方法）===
+OK   C3 结论存在性扫描完成（0 条待人工确认，非自动失败）
+=== C4 跨文件一致性（同一知识点不同载体不得矛盾）===
+OK   C4 o_geo_trans 讲解已补 135° 结论（BUG-009 回归）
+OK   C4 s_vec3 二面角锐钝说明已补（BUG-010 回归）
+OK   C4 o_cong 费马条件已补全（不再是无条件表述）
+---
+内容校验统计：断言 23 通过 / 0 失败；人工提示 0 条
+RESULT=23/23 FAILED=0
+VERDICT=PASSED
+注意：本脚本只覆盖可机械判定的子集，PASS 不等于"内容全部正确"；资料、多模型与人工复核分开记录，现行边界见 SPEC-009 / RUL-010。
+OK   G1 nodes.js 导出齐全（缺 ）
+OK   G1 lectures.js 导出齐全（缺 ）
+OK   G1 cards.js 导出齐全（缺 ）
+OK   G1 themes.js 导出齐全（缺 ）
+OK   G1 topic_index.js 导出齐全（缺 ）
+OK   G1 content_meta.js 导出齐全（缺 ）
+OK   G1 bridges.js 导出齐全（缺 ）
+OK   G2 ALL_NODES 67 节点逐字段等于真源（不符 0）
+OK   G2 SIGNAL_RULES 等于组织配置
+OK   G3 LECTURES 六段式 67 点等于真源 lessons（不符 0）
+OK   G3 LECTURES 专题外壳等于组织配置
+OK   G4 ALL_NODES / LECTURES / DOMAINS / THEMES 四视图覆盖同一 67 节点集
+OK   G4 THEMES 等于组织配置
+OK   G5 CARDS 全节点四类卡字段与来源映射正确（异常 ）
+OK   G5 组织层原六节点内容完整保留，与四类卡镜像明确分离
+OK   G5 题型索引 items/groups 等于组织配置
+OK   G5 TOPICS_BY_NODE 由 items 正确派生
+OK   G5 历史范围/复算名单仅保留供追溯
+OK   G5 metaFor 状态/证据及 legacySourceRef 绑定当前卡片，不继承 R2 名单
+OK   G5 source 展示已核来源位置，无已核正文时明示缺口，不展示旧 source_ref
+OK   G5 全节点来源映射与当前内容哈希绑定，CONTENT_REVIEW 独立输出
+OK   G5 生成清单绑定当前来源版本与审核统计
+OK   G7 BRIDGES 12 条 from/to/kind 逐条等于 bridges.json
+OK   G7 BRIDGES 富化字段（名称/主题）与 ALL_NODES、THEME_OF 一致
+OK   G7 BRIDGES_BY_NODE 反向索引由边正确派生
+OK   G7 BRIDGES 两端节点均在真源内（悬空 0）
+OK   G6 七个模块头部含 GENERATED FILE 与版本 2.1.0
+OK   G6 过渡态警告头存在（pending=268）
+OK   G6 七个模块全部入库
+---
+RESULT=29/29 FAILED=0
+VERDICT=PASSED
+HASH_OK {"label":"EV-A01","path":"resource_data/official/moe-math-2022.pdf","status":"HASH_OK","bytes":40123943,"sha256":"1183b95c58a65eaac4c456f2d2b329bbe42f65a6482993edb537e3eaf8baa144"}
+HASH_OK {"label":"EV-A01/alternate-1","path":"resource_data/official/moe-math-2022-alt.pdf","status":"HASH_OK","bytes":40136464,"sha256":"2adddf52cbc2a359ae265e82b30b8d5ae314dfe8b5a95583bdc9516b08700d5d"}
+HASH_OK {"label":"EV-A02","path":"resource_data/official/ictr-math-2017-2020.pdf","status":"HASH_OK","bytes":10450629,"sha256":"cc4d3a20daa09f5185037e93fbacd58f7df1147392e3dae4bf261c3700ba4195"}
+HASH_OK {"label":"EV-A05","path":"resource_data/official/gsms-2026-notice.pdf","status":"HASH_OK","bytes":682551,"sha256":"5d38f53fecc75cd77ae9db1b65387367c1b9aabfb04a4536f0ea8c4ade51f45a"}
+COVERAGE=67/67 REFERENCES=117 SCOPE_SECTION_CHECKED=42/67
+GAP_NODES=67/67 GAP_ENTRIES=98 DEFINITION_CHECKED=0 EXAMPLE_CHECKED=0
+ORIGINALS_EXPECTED=4 HASH_CHECKED=4 NOT_PRESENT=0
+OK SELF_TEST 换机器缺原件时按当前登记报告NOT_PRESENT，不固定文件数或伪造哈希成功
+OK SELF_TEST 允许后续更新日期、跨年及有效闰日，不锁死创建日期
+OK SELF_TEST mapping 拒绝无效updatedAt：null
+OK SELF_TEST mapping 拒绝无效updatedAt：undefined
+OK SELF_TEST mapping 拒绝无效updatedAt：
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-11-27T00:00:00Z
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-2-3
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-02-30
+OK SELF_TEST mapping 拒绝无效updatedAt：2026-13-01
+OK SELF_TEST mapping 拒绝无效updatedAt：2025-02-29
+OK SELF_TEST registry 拒绝无效updatedAt：null
+OK SELF_TEST registry 拒绝无效updatedAt：undefined
+OK SELF_TEST registry 拒绝无效updatedAt：
+OK SELF_TEST registry 拒绝无效updatedAt：2026-11-27T00:00:00Z
+OK SELF_TEST registry 拒绝无效updatedAt：2026-2-3
+OK SELF_TEST registry 拒绝无效updatedAt：2026-02-30
+OK SELF_TEST registry 拒绝无效updatedAt：2026-13-01
+OK SELF_TEST registry 拒绝无效updatedAt：2025-02-29
+OK SELF_TEST 新增备用原件不被历史原件数量阻塞
+OK SELF_TEST 漏节点
+OK SELF_TEST 悬空节点
+OK SELF_TEST 未注册source
+OK SELF_TEST purpose枚举
+OK SELF_TEST verification枚举
+OK SELF_TEST 空获取标题
+OK SELF_TEST 空获取URL
+OK SELF_TEST 空获取日期
+OK SELF_TEST 重复anchor
+OK SELF_TEST 正文定位造假
+OK SELF_TEST 目录不得升级正文
+OK SELF_TEST 范围不得当例题依据
+OK SELF_TEST 原创不得自证
+OK SELF_TEST 缺口不得抹去
+OK SELF_TEST 文件路径逃逸
+OK SELF_TEST PDF页码越界
+OK SELF_TEST 独立节点定位
+OK SELF_TEST 保留旧anchor
+OK SELF_TEST 备用原件元数据
+OK SELF_TEST 存在原件同时核对bytes和sha256
+OK SELF_TEST 哈希篡改必失败
+OK SELF_TEST 字节数篡改必失败
+OK SELF_TEST 读取错误不能伪装文件不存在
+SELF_TEST=42/42
+RESULT=1/1 FAILED=0 SELF_TEST_PASSED=42
+VERDICT=PASSED
+边界：PASSED仅指追溯结构与已存在原件的哈希；NOT_PRESENT不是哈希成功。范围定位、目录核对、数学正确性、多模型复核和人工签核彼此不同。
+OK   真实构建器接受当前真源，生成八文件，状态与来源绑定
+OK   来源展示独立断言：已核定位纠正学段，历史原文单独保留
+OK   只有待核或目录引用时不伪装为已核正文，不回退旧教案来源
+OK   日期更新和有效闰日可编译，无效日历日期在写入前拒绝
+OK   已核来源必须取得正文且匹配登记级别，目录不得升级
+OUTPUT_BYTES={"files":{"nodes.js":111324,"lectures.js":102516,"cards.js":564227,"themes.js":6054,"topic_index.js":79260,"content_meta.js":351109,"bridges.js":6361,"manifest.generated.json":1047},"total":1221898}
+OK   生成体积按 UTF-8 字节如实报告，不含外部原件或历史快照
+OK   字节级复现：内存重建两次且生成物不作为种子
+OK   工作区八个生成文件逐字节等于真实输入的内存重建
+OK   check-app-build 实际脚本验证内存生成物忠实呈现
+OK   缺来源 sidecar 时 exit2 且零写入
+OK   默认保守策略不把未签核判为内容错误，也不写文件
+OK   错误来源 fail-fast：未知来源
+OK   错误来源 fail-fast：错误来源用途
+OK   错误来源 fail-fast：错误来源状态
+OK   错误来源 fail-fast：缺少节点
+OK   错误来源 fail-fast：悬空节点
+OK   错误来源 fail-fast：空来源与缺口
+OK   错误来源 fail-fast：已定位却无位置
+OK   错误来源 fail-fast：伪造已核位置
+OK   来源重复 anchorId 与畸形状态 fail-fast
+OK   范围来源不能被错误引用为题目答案依据
+OK   新增来源与获取状态变化不受历史 8/7 固定计数限制
+OK   更新 hash 仍须通过内容契约：单改示范题目
+OK   更新 hash 仍须通过内容契约：单改示范答案
+OK   更新 hash 仍须通过内容契约：单改易错镜像
+OK   更新 hash 仍须通过内容契约：非法审核状态
+OK   更新 hash 仍须通过内容契约：伪 verified 缺签核
+OK   更新 hash 仍须通过内容契约：错误结构
+OK   更新 hash 仍须通过内容契约：重复条目
+OK   更新 hash 仍须通过内容契约：错误 nodeId
+OK   组织层悬空引用 fail-fast，不能被 filter 静默丢弃
+OK   未知构建参数和无效JSON均零写入
+OK   旧 hash 与 manifest 错配分别阻止写入
+OK   独立教学扩展不是镜像：修改纠正字段可进入 CARDS
+OK   同步修改镜像后独立卡输出进入讲解与 CARDS，元数据重新绑定
+OK   六节点补充内容全部保留，9 道不同例题不被误判或覆盖
+OK   当前 checked 与带签核字段的 verified 不被 E7 永久 pending 假设阻塞
+OK   来源升级不提升 card review，已登记定位改动使展示与绑定变化
+OK   真实 E6 基线读取当前发布内容且通过
+OK   E6 所有17个 expectation 均读取发布答案，不只验证脚本内常数
+OK   真实 E6 抓到更新 hash 的发布内容变异：all99
+OK   真实 E6 抓到更新 hash 的发布内容变异：lesson99
+OK   真实 E6 抓到更新 hash 的发布内容变异：example99
+OK   真实 E6 抓到更新 hash 的发布内容变异：conclusion99
+OK   真实 E6 抓到更新 hash 的发布内容变异：question
+OK   合理公式规范化：ASCII 减号与空白不误报
+OK   verify_content 实际脚本只读可靠真源并阻止错误99
+OK   E8 检查历史快照内容哈希，不只是文件存在
+OK   退役旧 seed：无参数、force、旧 seed 参数均 exit2，零读取零写入
+RESULT=49/49 FAILED=0
+VERDICT=PASSED
+CONTENT_REVIEW=未作人工或多模型验收；所有合成来源与签核字段只存在于内存测试夹具。
+OK   新安装空状态不上传默认值；远端合并不回推
+OK   显式 0、空笔记、取消存疑不会被旧值复活
+OK   删除保留 tombstone，反复拉取历史操作不复活
+OK   A 未修改的字段不覆盖 B 新值；旧 load 快照只保存自身 diff
+OK   同时编辑不同字段，两个设备都只写自己的改动
+OK   同时编辑相同字段有确定胜者；不取状态最大值
+OK   纯合并满足交换/结合/幂等；同版本异常内容也固定收敛
+OK   发送中有新修改，旧 ack 仅确认所发操作；并发 push 串行
+OK   写入失败 + 重启重试保持设备和文档 ID
+OK   已落库但响应丢失，重启重试不会产生重复文档
+OK   超时旧请求在重启和新写入后才落库，也不能回滚新值
+OK   首次 init/push 重入合并；不通过 add 自动生成 ID
+OK   首次拉取失败不会发送、清队列或当作空库
+OK   成功回调但 stats 为零不确认队列
+OK   ack 落盘失败保留操作；下次安全重试
+OK   分页拉取超过 20 条并合并全部旧文档，不只读取第一份
+OK   整页倍数会继续读末尾空页；分页中途失败不提交半份状态
+OK   旧云显式零值/空值保留；全部旧记录只读、不删除、不回推
+OK   旧 sync_queue 保留为历史基线并幂等发送；不会升级成用户新编辑
+OK   旧队列/旧客户端时间戳不能覆盖新协议字段；历史内容留在备份
+OK   旧格式无字段时间和缺失删除只作确定性迁移，不编造 tombstone
+OK   无旧 dirty 标记的本地记录也会迁移；已有云字段优先且重启不重发
+OK   误用自定义 owner 规则时查询失败即停止，不当空库或更改权限
+OK   恶意原型键、坏 state/字段/元数据整份拒绝，不污染本地或原型
+OK   合法单文档的并集超限时拒绝落盘，原本地状态仍可读取
+OK   三设备多轮离线编辑、交错拉推与重启后收敛且停止重传
+OK   坏本地 state/元数据不被重置或误发；非法 setter/save 返回 false
+OK   存储写入失败返回 false，不发通知、不丢旧值、不生成待发送操作
+OK   初始化身份持久化失败、读取失败、远端合并落盘失败均不误报成功
+OK   DB 桩按创建者隔离账号；设备 ID 不是读取授权
+OK   失败重试有上限；前台与网络恢复能重新拉取/推送
+OK   超过单批 50 操作有界续传，拉取通知不会造成回推循环
+OK   所有进度页在远端合并后刷新；隐藏/卸载解除订阅
+OK   节点笔记草稿不被远端刷新覆盖；保存后按观察到的版本继续编辑
+OK   取消笔记编辑恢复已存笔记和空值，不新增待发送操作
+OK   编辑期间远端笔记更新后取消，显示最新已存版本而非旧草稿
+OK   页面保存失败不显示成功、不篡改状态，笔记草稿继续保留
+OK   后台网络恢复不擅自启动同步，回前台再恢复
+OK   回调异常不阻断其他回调或遗留发送锁
+OK   node 任意选择三态，菜单标当前记录，成功才反馈
+OK   node 取消、同值、非法返回不调 setter、不落盘、不假成功
+OK   node 保存失败保持最新记录，允许重试且无成功反馈
+OK   node 菜单打开后远端更新，按最新 store 比较而非旧快照
+OK   node 防重复菜单、隐藏或卸载后迟到回调，旧完成不清新菜单
+OK   lesson 任意选择三态，菜单标当前记录，成功才反馈
+OK   lesson 取消、同值、非法返回不调 setter、不落盘、不假成功
+OK   lesson 保存失败保持最新记录，允许重试且无成功反馈
+OK   lesson 菜单打开后远端更新，按最新 store 比较而非旧快照
+OK   lesson 防重复菜单、隐藏或卸载后迟到回调，旧完成不清新菜单
+OK   graph 任意选择三态，菜单标当前记录，成功才反馈
+OK   graph 取消、同值、非法返回不调 setter、不落盘、不假成功
+OK   graph 保存失败保持最新记录，允许重试且无成功反馈
+OK   graph 菜单打开后远端更新，按最新 store 比较而非旧快照
+OK   graph 防重复菜单、隐藏或卸载后迟到回调，旧完成不清新菜单
+OK   lesson 批量确认取消及迟到回调无写入，确认后仅一次原子保存且措辞为标记
+OK   graph 两视图正文详情与独立 catchtap 状态入口分离，状态显示文字
+OK   node 提示与解答默认隐藏、各自切换且不写存储或同步
+OK   node 无提示不显示入口，坏索引不污染折叠状态，字符串整数索引可用
+OK   node 全67节点四学段实际页签按真源卡类显示审核，来源折叠只读
+OK   node 全67元数据故意设置不同卡类审核，组合卡不能沿用教案 review 或历史 note
+OK   node 讲解按实际 origin 路径判定，跨卡类和缺失来源不按页签猜测
+OK   node 六个组织补充节点独立待核，九道补充例题不继承示范审核
+OK   来源摘要 scope 与 section_checked 双条件计数，不把目录或待核当作已核
+OK   来源缺失异常字段谨慎回退未提供，无默认 verified，不读取旧 note
+OK   首页两个真实导航及阅读返回零 storage/outbox 写入，不保留旧建议状态或 handler
+RESULT=65/65 FAILED=0
+VERDICT=PASSED
+REAL_CLOUD=NOT_TESTED HOST_ACCOUNT_STORAGE_ISOLATION=NOT_TESTED
+OK   定位非默认父组：展开父子、消费焦点，不能提前滚动
+OK   全部真实题型均可安全唯一定位，不能只支持默认组
+OK   高亮从渲染完成起保持 2000ms，之后清理
+OK   onHide 取消未渲染定位，迟到回调不得滚动或重建计时器
+OK   onHide 清已运行高亮定时器，已出队的迟到回调也无效
+OK   onHide 后新焦点不被旧渲染回调复活或覆盖
+OK   onUnload 取消未渲染定位，迟到回调不得滚动或重建计时器
+OK   onUnload 清已运行高亮定时器，已出队的迟到回调也无效
+OK   onUnload 后新焦点不被旧渲染回调复活或覆盖
+OK   onHide 后无新焦点再次显示，旧渲染与定时回调仍失效
+OK   onUnload 后无新焦点再次显示，旧渲染与定时回调仍失效
+OK   渲染前 switchMode 隐藏目标，取消待执行定位和高亮
+OK   渲染前 toggleGroup 隐藏目标，取消待执行定位和高亮
+OK   渲染前 toggleItem 隐藏目标，取消待执行定位和高亮
+OK   连续不同焦点：渲染回调逆序也只定位最后一个
+OK   重复相同焦点：旧高亮回调不能提前清掉新高亮
+OK   第二次 onShow 无新焦点不重复滚动，也不延长高亮
+OK   未知、选择器注入、对象及空焦点均消费但不展开或谎报成功
+OK   非法新焦点取消旧的待执行定位
+OK   缺少 globalData 或无 focusTopic 时正常显示，不创建定位任务
+OK   定位器空字符串及纯空白仅提示输入，不执行搜索或改变展开状态
+OK   定位器输入无匹配词返回空结果，清空只重置搜索而不改变展开状态
+OK   定位器快捷搜索等待输入更新，保留原题型和知识域匹配
+OK   滚动失败不报成功、不无限重试
+OK   两种模式共用模板传入 focusId，稳定 ID 无冲突且高亮有样式
+OK   tab-page 只用于 tab 页：locator 有，cards 无
+OK   实际展示绑定：筛为 1/0 条时总收录文案仍显示原总数
+OK   卡片总数从数据派生，与全量列表一致
+OK   唯一关键词筛为 1 条，总收录数不改变
+OK   零结果仍保留总数，清空搜索恢复全部
+OK   空白搜索清除关键词条件但保留未掌握筛选，总数始终不变
+OK   空卡片数据的总数及结果数均为零，搜索和筛选不抛错
+OK   页面再次显示及远端刷新保留关键词与筛选，仅更新结果数
+OK   卡片保留小学、初中、高中、奥赛的原来源排序
+OK   替换为数据子集仍派生总数，不能写死当前节点基线
+OK   未掌握保留状态 0/1，排除 2，并与关键词取交集
+OK   保留原搜索范围、去空白与忽略大小写，不扩展例题全文
+OK   卡片展示分离总数/结果数，零结果提示及三态文字绑定正确
+OK   locator 保留 R31 远端刷新及隐藏/卸载退订
+OK   locator 保留知识点详情导航
+OK   cards 保留 R31 远端刷新及隐藏/卸载退订
+OK   cards 保留知识点详情导航
+OK   阅读页模板标签完整、事件处理存在、tab底部占位仅应用到四主导航
+OK   七个阅读页样式使用物理字号与44px触控高度，保留原宽屏列数
+DATA_TOTAL=67
+RESULT=44/44 FAILED=0
+VERDICT=PASSED
+PASS cards搜索→node→题型→重建完整链，原生返回cards且读取最新store
+PASS 连续两次跨tab仍保留完整cards→node→题型→node→图谱相关阅读链
+PASS 普通自定义返回只navigateBack并复用实例，状态和笔记来自最新store
+PASS 同节点多个实例的页签/展开/滚动互不串用
+PASS node→自身根tab图谱不会形成环，返回仍重建原链
+PASS lesson跨tab恢复展开/页签，reviewLabel不受个人disputed覆盖
+PASS 导航失败不新增/消费片段、不污染全局focus，允许重试
+PASS 重建第1步失败保留返回片段，部分页面可重试完整链
+PASS 重建第2步失败保留返回片段，部分页面可重试完整链
+PASS 重建第3步失败保留返回片段，部分页面可重试完整链
+PASS navigateBack失败不消费片段，第二次成功返回复用实例
+PASS 隐藏目标页后的迟到导航成功不设置focus、滚动或消费记录
+PASS 重建滚动渲染回调迟到不滚动隐藏页
+PASS 重建中间页渲染迟到，原生返回时补恢复该页真实滚动位置
+PASS 导航success先于onShow也完成恢复；重复成功回调不重复消费
+PASS 返回片段最多20个，白名单不含业务字段、笔记、焦点与持久化
+PASS 普通底部tab导航不扩展为持久阅读历史
+PASS 可控制返回取消不离开、不写store、不丢草稿
+PASS 可控制跨tab取消不设置focus；确认后导航失败仍保留草稿
+PASS 确认放弃只在成功后生效，返回旧实例不会复活已放弃草稿
+PASS 放弃后跨tab卸载不能再次把草稿放回会话池
+PASS 原生返回卸载保留会话草稿，再进入恢复但不伪称已保存
+PASS 多实例同节点草稿不串，系统返回到仍存活编辑器保留其原草稿
+PASS 保存失败继续编辑；成功仅显式保存一次；取消读最新store
+PASS 隐藏后的迟到确认不会导航、丢草稿或写store
+PASS 会话草稿有界20条，重启会话不恢复；不覆盖其他节点
+PASS note锚点只在渲染后定位，隐藏后的迟到渲染无效
+PASS R33题型非默认父子展开与隐藏迟到防护保持
+PASS locator重建按原查询重算结果，不把尚未提交输入误当查询
+PASS 取消订阅后已经出队的remote回调不写隐藏页面
+PASS 目标已显示但返回回调失败，仍能从目标重试，不消费原片段
+PASS 新跨tab焦点废弃该tab以前尚未完成的滚动恢复
+PASS 导航抛错保留草稿和返回记录，后续导航可重试
+PASS 过期导航回调不能消费新一轮记录或清掉新事务
+PASS 重建同节点原实例，不误领另一实例的卸载草稿
+PASS lesson批量确认取消不保存，确认单次save，失败不伪称成功
+SUITE=R34_B2
+RESULT=36/36 FAILED=0
+VERDICT=PASSED
+NATIVE_EVIDENCE=BLOCKED_NO_EVIDENCE（隔离测试不是微信原生验收）
+PASS 隔离 VM 确实加载真实 store/协议，remote 无 outbox，不同用例互不污染
+PASS gaps progress/all/todo/learning 按原节点顺序，统计与真实 store 一致
+PASS gaps notes 空白/空串不计、计数独立于查询、跨领域原顺序且不按写入或状态排序
+PASS gaps disputed 与有无笔记无关、按原顺序、保留空白笔记节点
+PASS gaps notes 不受旧 progress filter 影响
+PASS gaps disputed 不受旧 progress filter 影响
+PASS notes 查询仅正文连续子串，大小写/首尾空格处理，不扩展标题/描述/卡片全文
+PASS 摘要 99/100/101 字符边界、Unicode 码点及空白归一化，正文绝不截断或回写
+PASS 详情显式保存空串后 gaps onShow 移除笔记且不额外写入
+PASS 详情显式保存空白后 gaps onShow 移除笔记且不额外写入
+PASS 详情取消存疑后 gaps onShow 移除，保留独立笔记
+PASS gaps remote 实时更新 notes，保留原 query/view/filter 且不反向产生操作
+PASS gaps remote 实时更新 disputed，保留原 query/view/filter 且不反向产生操作
+PASS lecture 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS graph 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS locator 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS gaps 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS cards 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS node 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS lesson 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS notes 详情真实带 note anchor，渲染后才定位；进度/存疑详情不附加锚点
+PASS note anchor 隐藏后迟到渲染回调不再滚动
+PASS gaps→node→题型→返回重建链，再原生返回恢复 notes 查询且读取最新 store
+PASS node 存疑成功/取消仅修改个人 disputed，真实 outbox 每次一个操作
+PASS node disputed=0 真实 storage 失败不改 UI/业务/outbox，允许重试
+PASS node 不按陈旧 data.disputed=0 取反，必须读取最新 store
+PASS node disputed=1 真实 storage 失败不改 UI/业务/outbox，允许重试
+PASS node 不按陈旧 data.disputed=1 取反，必须读取最新 store
+PASS lesson 不按陈旧 points.disputed=0 取反，必须读取最新 store
+PASS lesson 陈旧 points.disputed=0 遇真实 storage 失败保持原状，重试仍读取最新 store
+PASS lesson 不按陈旧 points.disputed=1 取反，必须读取最新 store
+PASS lesson 陈旧 points.disputed=1 遇真实 storage 失败保持原状，重试仍读取最新 store
+PASS lesson 存疑缺失事件 不抛错、不读取存疑、不改 UI/storage/outbox、不报成功
+PASS lesson 存疑无效节点 不抛错、不读取存疑、不改 UI/storage/outbox、不报成功
+PASS lesson reviewLabel 始终来自内容元数据，不被本地/远端个人 disputed 覆盖
+PASS lesson 来源默认折叠且经真实 WXML 控件可达，各知识点独立，展开/收起仅只读
+PASS node 来源/审核/缺口/补充来源展开可达，页签切换和折叠只读
+PASS gaps每次重建只取一次当前业务快照，不按节点反复读三个字段
+PASS handler 校验不把注释/字符串/继承方法当定义，不误判 template 的合理数据作用域
+PASS lecture WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS graph WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS locator WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS gaps WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS cards WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS node WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS lesson WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+SUITE=R34_B4_B6_RECORDS
+HARNESS=REAL_PAGES_REAL_STORE_REAL_SYNC_STATE_ISOLATED_VM
+RESULT=46/46 FAILED=0
+VERDICT=PASSED
+NATIVE_EVIDENCE=BLOCKED_NO_EVIDENCE（隔离 VM/WXML 契约检查不是微信原生验收）
+OK   SEQ   SPEC- 编号连续 001..009 共 9 条
+OK   SEQ   CNF- 编号连续 001..025 共 25 条
+OK   SEQ   RUL- 编号连续 001..012 共 12 条
+OK   SEQ   DSN- 编号连续 001..012 共 12 条
+OK   SEQ   BUG- 编号连续 001..012 共 12 条
+OK   SEQ   PRM- 编号连续 001..010 共 10 条
+OK   SEQ   IDX- 编号连续 001..007 共 7 条
+OK   SEQ   TST- 编号连续 001..025 共 25 条
+OK   SEQ   VFY- 编号连续 001..009 共 9 条
+OK   REF   失效引用检查 : 无
+OK   PATH  路径存在性检查（73 个声明路径） : 全部存在
+OK   FWD   前瞻编号集合一致 : 一致
+OK   PROJECT private / Node18+ / 零依赖，无安装或隐式测试钩子
+OK   PROJECT npm test完整串行11组检查，失败即停止
+OK   PROJECT Git实际忽略运行数据/原件/私有配置/隔离副本，放行源码与证据
+OK   PROJECT 八个生成文件使用Git LF属性且工作树无CR，跨平台字节稳定
+OK   JS    27/27 语法通过
+OK   JS    18/18 文档脚本语法通过
+OK   JSON  18/18 严格校验通过
+OK   PAGE  8 页面四件套 32/32
+OK   NAV   授课为 tabBar 首项
+OK   TAB   pages/lecture/lecture
+OK   TAB   pages/graph/graph
+OK   TAB   pages/locator/locator
+OK   TAB   pages/gaps/gaps
+OK   DATA  67 节点授课全覆盖（67/67）
+OK   DATA  讲解六要素完整
+OK   DATA  11 专题节点与主题映射一致
+OK   DATA  ID 引用无悬空
+OK   DATA  题型 34 / 分组 10
+OK   DATA  TOPICS_BY_NODE 结构可解析
+OK   BASE  官方模板源哈希 9/9（LF 规范化）
+---
+RESULT=32/32 FAILED=0 SKIPPED=0
+VERDICT=PASSED

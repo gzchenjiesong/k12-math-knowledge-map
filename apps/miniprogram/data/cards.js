@@ -1,8 +1,9 @@
 // GENERATED FILE — 由 tools/build-data.js 从唯一真源生成，请勿手工编辑。
 // source=reliable-data version=2.1.0 generatedAt=2026-11-25T00:00:00+08:00
-// ⚠ 过渡数据：268 条未人工签核（review=pending），禁止用于交付判断（SPEC-008）
+// 注意：带状态开发数据：268 条未人工签核为 verified；详见 CONTENT_REVIEW，构建成功不代表内容正确（SPEC-009）。
 
-const CARDS = {
+// CARDS 从四类真源派生；SUPPLEMENTAL_CARDS 独立补充，非 268 卡镜像，无签核升级。
+const SUPPLEMENTAL_CARDS = {
   "o_geo_ceva": {
     "concept": {
       "title": "梅涅劳斯定理与塞瓦定理",
@@ -247,6 +248,7987 @@ const CARDS = {
     ]
   }
 };
+const CARDS = {
+  "j_alg": {
+    "concept": {
+      "title": "整式与因式分解",
+      "body": "因式分解是把\"和的形式\"变成\"积的形式\"。为什么要做这件事？因为积的形式能暴露式子的结构——哪些值让它为零、能不能约分、能否套用整除性质。竞赛里绝大多数的代数技巧，第一步都是分解。",
+      "points": [
+        "整式加减与幂运算",
+        "乘法公式",
+        "提公因式法",
+        "公式法",
+        "分组分解",
+        "十字相乘",
+        "待定系数法"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_alg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:ed87daa963a4ca02b62c1500758367f09db8f8a868de49aa76ad73e2ea5b68cc"
+        },
+        {
+          "path": "reliable-data/lessons/j_alg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ef36e83ed0163e2ef391458a81092a86766300e3d428dafb5ee2ea2e5b3d54e7"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "因式分解是把\"和的形式\"变成\"积的形式\"。为什么要做这件事？因为积的形式能暴露式子的结构——哪些值让它为零、能不能约分、能否套用整除性质。竞赛里绝大多数的代数技巧，第一步都是分解。",
+        "points": [
+          "顺序：先提公因式，再看公式（平方差、完全平方、立方和差），最后十字相乘或分组",
+          "分解要彻底，检查每个因式能否再分",
+          "求值时先化简到最简再代入，不要一上来代数"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_alg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ef36e83ed0163e2ef391458a81092a86766300e3d428dafb5ee2ea2e5b3d54e7"
+        }
+      },
+      {
+        "title": "易错 · PF-j_alg-01",
+        "body": "分解不彻底，如 x⁴−1 只分到 (x²+1)(x²−1) 就停",
+        "points": [
+          "题目落在「整式与因式分解」考点，或出现「因式分解、化简求值、待定系数」类识别信号时；参照本节点示范题「分解 x⁴+x²+1」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）顺序：先提公因式，再看公式（平方差、完全平方、立方和差），最后十字相乘或分组；（2）分解要彻底，检查每个因式能否再分；（3）求值时先化简到最简再代入，不要一上来代数；完成后回看结论是否满足题设条件。",
+          "为什么\"积的形式\"比\"和的形式\"更有用？举一个需要分解才能看出结论的例子。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_alg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:163c1b5f3489ae9941c0a7d030c56a13ceb2f300ad17d66bdb4a32141c888e5f"
+        }
+      },
+      {
+        "title": "易错 · PF-j_alg-02",
+        "body": "十字相乘试不出就放弃，忽略分组分解和补项配方",
+        "points": [
+          "题目落在「整式与因式分解」考点，或出现「因式分解、化简求值、待定系数」类识别信号时；参照本节点示范题「分解 x⁴+x²+1」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）顺序：先提公因式，再看公式（平方差、完全平方、立方和差），最后十字相乘或分组；（2）分解要彻底，检查每个因式能否再分；（3）求值时先化简到最简再代入，不要一上来代数；完成后回看结论是否满足题设条件。",
+          "x⁴+x²+1 为什么要补 2x² 而不是别的项？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_alg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:163c1b5f3489ae9941c0a7d030c56a13ceb2f300ad17d66bdb4a32141c888e5f"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "因式分解是方程求解、分式约分、多项式整除、数论因式分解法的共同前置工具，是整个代数使用频率最高的动作。",
+        "points": [
+          "为什么\"积的形式\"比\"和的形式\"更有用？举一个需要分解才能看出结论的例子。",
+          "x⁴+x²+1 为什么要补 2x² 而不是别的项？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_alg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ef36e83ed0163e2ef391458a81092a86766300e3d428dafb5ee2ea2e5b3d54e7"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_alg-01",
+        "level": "待人工复核",
+        "question": "分解 x⁴+x²+1",
+        "hint": "顺序：先提公因式，再看公式（平方差、完全平方、立方和差），最后十字相乘或分组",
+        "solution": "直接套公式看不出来。补项配方：x⁴+2x²+1−x²=(x²+1)²−x²=(x²+x+1)(x²−x+1)。关键动作是\"补一项配成平方差\"——这是竞赛因式分解最常见的构造。",
+        "answer": "(x²+x+1)(x²−x+1)",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_alg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·整式与因式分解｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:67a306f60d7561c43828d3caaa114a63d84f4aad17dbd533d7f22e1f3f565147"
+        }
+      }
+    ]
+  },
+  "j_circle": {
+    "concept": {
+      "title": "圆",
+      "body": "圆的性质围绕\"圆心角、圆周角、切线\"展开。圆周角定理（同弧所对圆周角相等、直径所对圆周角是直角）是解决圆问题的核心结论，四点共圆则是竞赛几何的重要工具。",
+      "points": [
+        "圆的性质",
+        "圆周角定理",
+        "切线判定与性质",
+        "正多边形与圆",
+        "弧长扇形面积"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_circle.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:6719845092e8816c8d61be2905d4b5a1fe4f7fec2d2a9c97b4034e8fa1444c3c"
+        },
+        {
+          "path": "reliable-data/lessons/j_circle.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1fdeaacade5f6a43045df332b8416ee8a86751b20514a1777910730ad04915d3"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "圆的性质围绕\"圆心角、圆周角、切线\"展开。圆周角定理（同弧所对圆周角相等、直径所对圆周角是直角）是解决圆问题的核心结论，四点共圆则是竞赛几何的重要工具。",
+        "points": [
+          "同弧所对圆周角相等，直径所对圆周角是直角",
+          "切线垂直于过切点的半径",
+          "证明四点共圆：对角互补、同侧等角、相交弦逆定理"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_circle.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1fdeaacade5f6a43045df332b8416ee8a86751b20514a1777910730ad04915d3"
+        }
+      },
+      {
+        "title": "易错 · PF-j_circle-01",
+        "body": "圆周角与圆心角的关系搞混（圆周角是圆心角的一半）",
+        "points": [
+          "题目落在「圆」考点，或出现「四点共圆、切线证明、圆周角」类识别信号时；参照本节点示范题「AB 是直径，C 在圆上，求 ∠ACB」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）同弧所对圆周角相等，直径所对圆周角是直角；（2）切线垂直于过切点的半径；（3）证明四点共圆：对角互补、同侧等角、相交弦逆定理；完成后回看结论是否满足题设条件。",
+          "为什么直径所对的圆周角是直角？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_circle.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:138463299592abf0827bff693240a4998321901b8de44ff912e9051d9a35db76"
+        }
+      },
+      {
+        "title": "易错 · PF-j_circle-02",
+        "body": "共圆判定条件用错",
+        "points": [
+          "题目落在「圆」考点，或出现「四点共圆、切线证明、圆周角」类识别信号时；参照本节点示范题「AB 是直径，C 在圆上，求 ∠ACB」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）同弧所对圆周角相等，直径所对圆周角是直角；（2）切线垂直于过切点的半径；（3）证明四点共圆：对角互补、同侧等角、相交弦逆定理；完成后回看结论是否满足题设条件。",
+          "判定四点共圆有哪几种方法？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_circle.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:138463299592abf0827bff693240a4998321901b8de44ff912e9051d9a35db76"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "圆连接相似、圆幂根轴（o_geo_circle）、几何变换，是二试几何的主战场。",
+        "points": [
+          "为什么直径所对的圆周角是直角？",
+          "判定四点共圆有哪几种方法？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_circle.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1fdeaacade5f6a43045df332b8416ee8a86751b20514a1777910730ad04915d3"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_circle-01",
+        "level": "待人工复核",
+        "question": "AB 是直径，C 在圆上，求 ∠ACB",
+        "hint": "同弧所对圆周角相等，直径所对圆周角是直角",
+        "solution": "直径所对圆周角是直角，故 ∠ACB=90°。这是一个高频基本结论，竞赛中常作为中间步骤。",
+        "answer": "∠ACB=90°",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_circle.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7070bea67d92fc651ef095c32d68a9a5e504ce5847193220ef50bbd0df78ecb5"
+        }
+      }
+    ]
+  },
+  "j_cong": {
+    "concept": {
+      "title": "勾股定理与逆定理",
+      "body": "勾股定理建立了直角三角形三边的数量关系 a²+b²=c²，是\"几何问题代数化\"的第一座桥。逆定理则让我们能通过边长关系反推直角——这种\"数形互转\"是竞赛几何的核心能力。",
+      "points": [
+        "勾股定理",
+        "逆定理",
+        "勾股数",
+        "实际应用"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_cong.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:a35d36d85cf527c0c00250ae82b60c5f742c4f75e4ec79d836cfa8fa397e15f1"
+        },
+        {
+          "path": "reliable-data/lessons/j_cong.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0b3872c9d0c64a5563cb34189e0ad74f152e6e814c11ab2ed4bc50e1e2808ff5"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "勾股定理建立了直角三角形三边的数量关系 a²+b²=c²，是\"几何问题代数化\"的第一座桥。逆定理则让我们能通过边长关系反推直角——这种\"数形互转\"是竞赛几何的核心能力。",
+        "points": [
+          "求线段长时构造直角三角形，用勾股定理列方程",
+          "证明垂直可用勾股逆定理：验证 a²+b²=c²",
+          "常见勾股数（3,4,5）（5,12,13）要熟记"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_cong.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0b3872c9d0c64a5563cb34189e0ad74f152e6e814c11ab2ed4bc50e1e2808ff5"
+        }
+      },
+      {
+        "title": "易错 · PF-j_cong-01",
+        "body": "把勾股定理用在非直角三角形",
+        "points": [
+          "题目落在「勾股定理与逆定理」考点，或出现「求线段长、判定直角」类识别信号时；参照本节点示范题「边长为 3、4、5 的三角形是什么三角形？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）求线段长时构造直角三角形，用勾股定理列方程；（2）证明垂直可用勾股逆定理：验证 a²+b²=c²；（3）常见勾股数（3,4,5）（5,12,13）要熟记；完成后回看结论是否满足题设条件。",
+          "勾股定理和它的逆定理分别解决什么问题？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_cong.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bc9455aa071e1816be1af8ca2f02e9a1cfa73c8dbdbfe393bf4c6dea3ef24956"
+        }
+      },
+      {
+        "title": "易错 · PF-j_cong-02",
+        "body": "逆定理使用时未确认 c 是最长边",
+        "points": [
+          "题目落在「勾股定理与逆定理」考点，或出现「求线段长、判定直角」类识别信号时；参照本节点示范题「边长为 3、4、5 的三角形是什么三角形？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）求线段长时构造直角三角形，用勾股定理列方程；（2）证明垂直可用勾股逆定理：验证 a²+b²=c²；（3）常见勾股数（3,4,5）（5,12,13）要熟记；完成后回看结论是否满足题设条件。",
+          "为什么说勾股定理是\"数形互转\"的桥？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_cong.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bc9455aa071e1816be1af8ca2f02e9a1cfa73c8dbdbfe393bf4c6dea3ef24956"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "勾股连接相似（j_simi）、解直角三角形（j_trig）、复数模与距离（o_complex）。",
+        "points": [
+          "勾股定理和它的逆定理分别解决什么问题？",
+          "为什么说勾股定理是\"数形互转\"的桥？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_cong.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0b3872c9d0c64a5563cb34189e0ad74f152e6e814c11ab2ed4bc50e1e2808ff5"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_cong-01",
+        "level": "待人工复核",
+        "question": "边长为 3、4、5 的三角形是什么三角形？",
+        "hint": "求线段长时构造直角三角形，用勾股定理列方程",
+        "solution": "3²+4²=9+16=25=5²，由勾股逆定理，是直角三角形。核心是\"用数量关系判定几何性质\"。",
+        "answer": "该三角形是直角三角形",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_cong.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·勾股定理与逆定理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1e1e119f6c81ea388de06044858577e8c8c67f227605c5d805cb72f68ebd4fb4"
+        }
+      }
+    ]
+  },
+  "j_eq": {
+    "concept": {
+      "title": "方程与方程组",
+      "body": "方程的本质是\"未知与已知的桥梁\"：通过等量关系，用已知量表达未知量。二次方程尤其重要，因为它是代数结构第一次变得丰富——有两个根、有判别式、有根与系数的关系。",
+      "points": [
+        "一元一次方程",
+        "二元一次方程组",
+        "一元二次方程",
+        "根的判别式",
+        "韦达定理",
+        "分式方程"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_eq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:0b8af546a1c42dc0667c406d38972b0f8f1bc49ea4a8b94d502d4c56ab94b0f2"
+        },
+        {
+          "path": "reliable-data/lessons/j_eq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:214f6fa085506f5025c2e92cc6d73a2f333fb1d6c6ed9f066fb6239a2b426c02"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "方程的本质是\"未知与已知的桥梁\"：通过等量关系，用已知量表达未知量。二次方程尤其重要，因为它是代数结构第一次变得丰富——有两个根、有判别式、有根与系数的关系。",
+        "points": [
+          "一元二次方程先看判别式 Δ，判断根的情况",
+          "韦达定理：x₁+x₂=−b/a，x₁x₂=c/a，把根的问题转成系数问题",
+          "方程组用消元思想：代入消元或加减消元"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_eq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:214f6fa085506f5025c2e92cc6d73a2f333fb1d6c6ed9f066fb6239a2b426c02"
+        }
+      },
+      {
+        "title": "易错 · PF-j_eq-01",
+        "body": "用韦达定理忘记验证 Δ≥0（题目要求实根时）",
+        "points": [
+          "题目落在「方程与方程组」考点，或出现「求根、整数根、根的分布」类识别信号时；参照本节点示范题「方程 x²−(k+1)x+k=0 两根之和为 3，求 k」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）一元二次方程先看判别式 Δ，判断根的情况；（2）韦达定理：x₁+x₂=−b/a，x₁x₂=c/a，把根的问题转成系数问题；（3）方程组用消元思想：代入消元或加减消元；完成后回看结论是否满足题设条件。",
+          "韦达定理在复数根时还成立吗？为什么题目要求实根时必须验证 Δ？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_eq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9d7e0c41bdfa92350a1f5d50d3f015f83ceeb0c85b8a5412f6b28faef1b34383"
+        }
+      },
+      {
+        "title": "易错 · PF-j_eq-02",
+        "body": "二次项系数含参数时忘记讨论它为零的情况",
+        "points": [
+          "题目落在「方程与方程组」考点，或出现「求根、整数根、根的分布」类识别信号时；参照本节点示范题「方程 x²−(k+1)x+k=0 两根之和为 3，求 k」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）一元二次方程先看判别式 Δ，判断根的情况；（2）韦达定理：x₁+x₂=−b/a，x₁x₂=c/a，把根的问题转成系数问题；（3）方程组用消元思想：代入消元或加减消元；完成后回看结论是否满足题设条件。",
+          "为什么说二次方程是\"代数结构变丰富\"的开始？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_eq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9d7e0c41bdfa92350a1f5d50d3f015f83ceeb0c85b8a5412f6b28faef1b34383"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "方程是函数零点（s_func）、多项式因式（o_poly）、不定方程（o_dio）的共同基础。",
+        "points": [
+          "韦达定理在复数根时还成立吗？为什么题目要求实根时必须验证 Δ？",
+          "为什么说二次方程是\"代数结构变丰富\"的开始？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_eq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:214f6fa085506f5025c2e92cc6d73a2f333fb1d6c6ed9f066fb6239a2b426c02"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_eq-01",
+        "level": "待人工复核",
+        "question": "方程 x²−(k+1)x+k=0 两根之和为 3，求 k",
+        "hint": "一元二次方程先看判别式 Δ，判断根的情况",
+        "solution": "由韦达定理 x₁+x₂=k+1=3，故 k=2。再用 Δ=(k+1)²−4k=(k−1)²=1>0 验证有两实根。核心是\"把根的条件翻译成系数条件\"，且别忘验证 Δ。",
+        "answer": "k=2，且 Δ=(k−1)²=1>0 有两实根",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_eq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·方程与方程组｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:46a1754d93c36d90fac7f8c1c3d5330e2fecb47e96fc2e61fcb15f1493480535"
+        }
+      }
+    ]
+  },
+  "j_frac": {
+    "concept": {
+      "title": "分式与二次根式",
+      "body": "分式和根式引入的核心问题是\"定义域限制\"。分母不能为零、根号内不能为负——所有变形都必须在这个前提下进行。竞赛里的分式题，难点往往不在运算而在条件的严谨处理。",
+      "points": [
+        "分式性质与约分",
+        "分式四则运算",
+        "分式方程",
+        "二次根式化简",
+        "分母有理化"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_frac.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:b9a4e9abe9dd93cd35312f2a0637db78bf8192b8100aa5539143284402e8a015"
+        },
+        {
+          "path": "reliable-data/lessons/j_frac.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7ad2fb43da109798ddb8cf69f49a0c5ec8ba886c1c31b88ec37ddfc71501986b"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "分式和根式引入的核心问题是\"定义域限制\"。分母不能为零、根号内不能为负——所有变形都必须在这个前提下进行。竞赛里的分式题，难点往往不在运算而在条件的严谨处理。",
+        "points": [
+          "分式先找非零条件，通分时注意不要引入增根",
+          "分母有理化：乘共轭式，把根号从分母移到分子",
+          "根式化简先配方，√(a²)=|a| 判断符号"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_frac.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7ad2fb43da109798ddb8cf69f49a0c5ec8ba886c1c31b88ec37ddfc71501986b"
+        }
+      },
+      {
+        "title": "易错 · PF-j_frac-01",
+        "body": "通分或约分时忘记分母不为零的前提",
+        "points": [
+          "题目落在「分式与二次根式」考点，或出现「分式化简、根式化简、增根」类识别信号时；参照本节点示范题「化简 1/(√3−√2)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）分式先找非零条件，通分时注意不要引入增根；（2）分母有理化：乘共轭式，把根号从分母移到分子；（3）根式化简先配方，√(a²)=|a| 判断符号；完成后回看结论是否满足题设条件。",
+          "为什么分子分母同乘一个式子，分式的值不变？乘零可以吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_frac.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:b4414d03d17fe8436262ebfda287b2ff7fd5e80b87c81fd7b7f4843693d153cd"
+        }
+      },
+      {
+        "title": "易错 · PF-j_frac-02",
+        "body": "有理化后忘记验证变形合法性",
+        "points": [
+          "题目落在「分式与二次根式」考点，或出现「分式化简、根式化简、增根」类识别信号时；参照本节点示范题「化简 1/(√3−√2)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）分式先找非零条件，通分时注意不要引入增根；（2）分母有理化：乘共轭式，把根号从分母移到分子；（3）根式化简先配方，√(a²)=|a| 判断符号；完成后回看结论是否满足题设条件。",
+          "√(a²)=|a| 在 a 为任意实数时都成立吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_frac.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:b4414d03d17fe8436262ebfda287b2ff7fd5e80b87c81fd7b7f4843693d153cd"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "分式承接因式分解（约分），下接函数定义域（s_func）与不等式（o_ineq）中的分式变形。",
+        "points": [
+          "为什么分子分母同乘一个式子，分式的值不变？乘零可以吗？",
+          "√(a²)=|a| 在 a 为任意实数时都成立吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_frac.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7ad2fb43da109798ddb8cf69f49a0c5ec8ba886c1c31b88ec37ddfc71501986b"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_frac-01",
+        "level": "待人工复核",
+        "question": "化简 1/(√3−√2)",
+        "hint": "分式先找非零条件，通分时注意不要引入增根",
+        "solution": "分子分母同乘共轭式 (√3+√2)：原式=(√3+√2)/[(√3)²−(√2)²]=(√3+√2)/(3−2)=√3+√2。本质是用平方差公式把无理分母有理化。",
+        "answer": "√3+√2",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_frac.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·分式与二次根式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:596a42c705d9237d0ff4291f62b3b6f00f6e06385a69635cdb3f6d511ee0207f"
+        }
+      }
+    ]
+  },
+  "j_fun": {
+    "concept": {
+      "title": "函数基础",
+      "body": "函数描述的是\"一个量如何依赖另一个量\"。定义域、值域、对应关系三者构成一个函数。初中的重点是会用图像理解函数——图像不是辅助，而是函数性质的直观载体。",
+      "points": [
+        "平面直角坐标系",
+        "一次函数",
+        "反比例函数",
+        "二次函数图像与性质",
+        "待定系数求解析式"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_fun.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:4dfab07ef39dd2dd1e14c65720a0568e56ea50a2b6b27f75b3111eba7b4b0cea"
+        },
+        {
+          "path": "reliable-data/lessons/j_fun.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c8eae5b1e93f45edfd0aa0b0253e7e72a9c4daf634d55ca4a2855faf8cda03ec"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "函数描述的是\"一个量如何依赖另一个量\"。定义域、值域、对应关系三者构成一个函数。初中的重点是会用图像理解函数——图像不是辅助，而是函数性质的直观载体。",
+        "points": [
+          "判断函数看\"唯一确定\"：每个自变量只能对应一个函数值",
+          "定义域优先考虑：分母非零、根号非负、对数真数为正",
+          "图像是理解函数性质的核心工具，学会看图说话"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_fun.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c8eae5b1e93f45edfd0aa0b0253e7e72a9c4daf634d55ca4a2855faf8cda03ec"
+        }
+      },
+      {
+        "title": "易错 · PF-j_fun-01",
+        "body": "求定义域忘记考虑实际问题的限制",
+        "points": [
+          "题目落在「函数基础」考点，或出现「求解析式、函数图像交点、最值问题」类识别信号时；参照本节点示范题「求 f(x)=1/(x−2) 的定义域」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）判断函数看\"唯一确定\"：每个自变量只能对应一个函数值；（2）定义域优先考虑：分母非零、根号非负、对数真数为正；（3）图像是理解函数性质的核心工具，学会看图说话；完成后回看结论是否满足题设条件。",
+          "函数的三要素是什么？两个函数相同需要满足什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_fun.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2c848d986beb5a4dd38b2deff7c811a9831c5bb728e9b3abbdd9000eefb1a993"
+        }
+      },
+      {
+        "title": "易错 · PF-j_fun-02",
+        "body": "把\"对应\"理解成必须有公式——图像、表格也是函数",
+        "points": [
+          "题目落在「函数基础」考点，或出现「求解析式、函数图像交点、最值问题」类识别信号时；参照本节点示范题「求 f(x)=1/(x−2) 的定义域」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）判断函数看\"唯一确定\"：每个自变量只能对应一个函数值；（2）定义域优先考虑：分母非零、根号非负、对数真数为正；（3）图像是理解函数性质的核心工具，学会看图说话；完成后回看结论是否满足题设条件。",
+          "为什么定义域是函数的\"第一顺位\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_fun.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2c848d986beb5a4dd38b2deff7c811a9831c5bb728e9b3abbdd9000eefb1a993"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "函数基础是二次函数、高中函数性质、导数、函数方程的共同起点。",
+        "points": [
+          "函数的三要素是什么？两个函数相同需要满足什么？",
+          "为什么定义域是函数的\"第一顺位\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_fun.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c8eae5b1e93f45edfd0aa0b0253e7e72a9c4daf634d55ca4a2855faf8cda03ec"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_fun-01",
+        "level": "待人工复核",
+        "question": "求 f(x)=1/(x−2) 的定义域",
+        "hint": "判断函数看\"唯一确定\"：每个自变量只能对应一个函数值",
+        "solution": "分母不能为零，故 x−2≠0，即 x≠2。定义域是 {x | x≠2}。核心习惯：拿到函数先找限制条件。",
+        "answer": "定义域为 {x | x≠2}",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_fun.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·函数基础｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:dee3073225e3b4b8363fb2d28be3f71b25f6f1a4237c55611065b9edc4a55bbb"
+        }
+      }
+    ]
+  },
+  "j_ineq": {
+    "concept": {
+      "title": "不等式",
+      "body": "不等式描述的是\"范围\"而非\"一个点\"。初中阶段的核心是掌握不等式的性质和一元一次不等式的解法，尤其是\"两边同乘负数要变号\"这条——它是所有不等式变形最容易出错的地方。",
+      "points": [
+        "一元一次不等式(组)",
+        "不等式性质",
+        "一元二次不等式初步",
+        "含参不等式"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_ineq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:d0f0fbb62663d9bb88b2cbb50233d4e5b2b0dc44545e54171ea1da78e6efea41"
+        },
+        {
+          "path": "reliable-data/lessons/j_ineq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bbeaf4d40d21fac0839a9af305e3dddbc8cf20a04233ce1ed1ae48f4d5d8eeaa"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "不等式描述的是\"范围\"而非\"一个点\"。初中阶段的核心是掌握不等式的性质和一元一次不等式的解法，尤其是\"两边同乘负数要变号\"这条——它是所有不等式变形最容易出错的地方。",
+        "points": [
+          "不等式性质：加减不变号，乘除正数不变号，乘除负数变号",
+          "解集在数轴上表示，注意空心/实心点",
+          "应用题先设未知数、找不等关系，再求解并检验"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_ineq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bbeaf4d40d21fac0839a9af305e3dddbc8cf20a04233ce1ed1ae48f4d5d8eeaa"
+        }
+      },
+      {
+        "title": "易错 · PF-j_ineq-01",
+        "body": "两边乘除负数忘记变号",
+        "points": [
+          "题目落在「不等式」考点，或出现「解不等式、含参讨论、求取值范围」类识别信号时；参照本节点示范题「解不等式 −2x+3 > 7」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）不等式性质：加减不变号，乘除正数不变号，乘除负数变号；（2）解集在数轴上表示，注意空心/实心点；（3）应用题先设未知数、找不等关系，再求解并检验；完成后回看结论是否满足题设条件。",
+          "为什么不等式两边乘负数要变号？用数轴解释。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_ineq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:211e9ae30028cd0d7b63cea537cf0a3a229f7232d88632a6adc79e061e6ce33c"
+        }
+      },
+      {
+        "title": "易错 · PF-j_ineq-02",
+        "body": "解集端点是否取到判断错误",
+        "points": [
+          "题目落在「不等式」考点，或出现「解不等式、含参讨论、求取值范围」类识别信号时；参照本节点示范题「解不等式 −2x+3 > 7」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）不等式性质：加减不变号，乘除正数不变号，乘除负数变号；（2）解集在数轴上表示，注意空心/实心点；（3）应用题先设未知数、找不等关系，再求解并检验；完成后回看结论是否满足题设条件。",
+          "x>2 和 x≥2 的解集在数轴上有什么区别？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_ineq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:211e9ae30028cd0d7b63cea537cf0a3a229f7232d88632a6adc79e061e6ce33c"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "不等式性质是高中不等式（s_ineq）、不等式证明（o_ineq）、函数定义域值域的基础。",
+        "points": [
+          "为什么不等式两边乘负数要变号？用数轴解释。",
+          "x>2 和 x≥2 的解集在数轴上有什么区别？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_ineq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bbeaf4d40d21fac0839a9af305e3dddbc8cf20a04233ce1ed1ae48f4d5d8eeaa"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_ineq-01",
+        "level": "待人工复核",
+        "question": "解不等式 −2x+3 > 7",
+        "hint": "不等式性质：加减不变号，乘除正数不变号，乘除负数变号",
+        "solution": "−2x>4，两边除以 −2 要变号：x<−2。这题的唯一考点就是\"除以负数变号\"，这是最高频错误。",
+        "answer": "x<−2",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_ineq.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:995ca8c5325765c7adf58236ef2983e5abddfd319b4a2c2ae3e506f7753b875b"
+        }
+      }
+    ]
+  },
+  "j_num": {
+    "concept": {
+      "title": "实数与运算",
+      "body": "实数是代数体系的地基。数系从自然数扩展到有理数、无理数，核心不是\"多了几种数\"，而是运算律能否继续成立。绝对值、平方根定义里那些看似繁琐的限制，本质都是为了保证运算自洽。",
+      "points": [
+        "数轴与相反数",
+        "绝对值",
+        "有理数四则运算",
+        "乘方与科学记数法",
+        "平方根与立方根",
+        "无理数与实数"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_num.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:8bced946895e85c2e9ab3b2a2f2d3c2d21a85092c0fe83a7934e213baa511630"
+        },
+        {
+          "path": "reliable-data/lessons/j_num.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e33600ab2b6f7e2f511217ca18ee9c2dcbc4801fa71a8a3906a6f7ad8f4ff746"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "实数是代数体系的地基。数系从自然数扩展到有理数、无理数，核心不是\"多了几种数\"，而是运算律能否继续成立。绝对值、平方根定义里那些看似繁琐的限制，本质都是为了保证运算自洽。",
+        "points": [
+          "数轴是理解实数的核心工具：绝对值=到原点的距离，比较大小=数轴上的左右位置",
+          "去绝对值必须先判符号，符号来自数轴位置或题目条件",
+          "√(a²)=|a|，化简前先判断 a 的符号"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_num.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e33600ab2b6f7e2f511217ca18ee9c2dcbc4801fa71a8a3906a6f7ad8f4ff746"
+        }
+      },
+      {
+        "title": "易错 · PF-j_num-01",
+        "body": "默认 √a²=a，忽略 a<0 的情况（最高频错误）",
+        "points": [
+          "题目落在「实数与运算」考点，或出现「绝对值化简、实数比较大小、数轴上的点」类识别信号时；参照本节点示范题「已知 a<b<0，化简 |a−b| + √(b²)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）数轴是理解实数的核心工具：绝对值=到原点的距离，比较大小=数轴上的左右位置；（2）去绝对值必须先判符号，符号来自数轴位置或题目条件；（3）√(a²)=|a|，化简前先判断 a 的符号；完成后回看结论是否满足题设条件。",
+          "为什么 √a² 要写成 |a| 而不是直接写成 a？什么情况下两者相等？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_num.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:019f32ba494a500039fef061ea2b19bcd4f9f12e2381e50b86fd4380ce29036a"
+        }
+      },
+      {
+        "title": "易错 · PF-j_num-02",
+        "body": "去绝对值凭感觉写正负，不用数轴或条件严格判定",
+        "points": [
+          "题目落在「实数与运算」考点，或出现「绝对值化简、实数比较大小、数轴上的点」类识别信号时；参照本节点示范题「已知 a<b<0，化简 |a−b| + √(b²)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）数轴是理解实数的核心工具：绝对值=到原点的距离，比较大小=数轴上的左右位置；（2）去绝对值必须先判符号，符号来自数轴位置或题目条件；（3）√(a²)=|a|，化简前先判断 a 的符号；完成后回看结论是否满足题设条件。",
+          "a 是有理数、b 是无理数，a+b 一定是无理数吗？说出理由。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_num.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:019f32ba494a500039fef061ea2b19bcd4f9f12e2381e50b86fd4380ce29036a"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "符号判断是后面不等式分类讨论、二次函数最值讨论的基础；绝对值的几何意义会延伸到数论的距离问题。",
+        "points": [
+          "为什么 √a² 要写成 |a| 而不是直接写成 a？什么情况下两者相等？",
+          "a 是有理数、b 是无理数，a+b 一定是无理数吗？说出理由。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_num.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e33600ab2b6f7e2f511217ca18ee9c2dcbc4801fa71a8a3906a6f7ad8f4ff746"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_num-01",
+        "level": "待人工复核",
+        "question": "已知 a<b<0，化简 |a−b| + √(b²)",
+        "hint": "数轴是理解实数的核心工具：绝对值=到原点的距离，比较大小=数轴上的左右位置",
+        "solution": "先判符号：a−b<0，故 |a−b|=b−a；b<0，故 √(b²)=|b|=−b。原式=(b−a)+(−b)=−a。这题考的不是计算，是\"先定符号再变形\"的思维习惯。",
+        "answer": "−a",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_num.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·实数与运算｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bffe8241908f89f746f86e713c4baabfff5e604fbf90dac28c8c9c7d4c2d2cd8"
+        }
+      }
+    ]
+  },
+  "j_prob": {
+    "concept": {
+      "title": "概率初步",
+      "body": "概率描述随机事件发生的可能性。初中阶段核心是古典概型——当所有结果等可能时，概率=有利结果数/总结果数。树状图和列表法是枚举结果的基本工具。",
+      "points": [
+        "随机事件",
+        "古典概型",
+        "列表法与树状图"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_prob.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:20939b46d1978c2359ad309c4162175e4eb5bb884f78268753a9763efc5783f6"
+        },
+        {
+          "path": "reliable-data/lessons/j_prob.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:52deaf460f5e4def4621f016655cd13be0d8b9bf7c024bc9be82fea7c926ba8d"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "概率描述随机事件发生的可能性。初中阶段核心是古典概型——当所有结果等可能时，概率=有利结果数/总结果数。树状图和列表法是枚举结果的基本工具。",
+        "points": [
+          "古典概型：P=有利结果/总结果（等可能前提）",
+          "树状图或列表法枚举所有结果",
+          "频率随试验次数增加趋近概率"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_prob.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:52deaf460f5e4def4621f016655cd13be0d8b9bf7c024bc9be82fea7c926ba8d"
+        }
+      },
+      {
+        "title": "易错 · PF-j_prob-01",
+        "body": "枚举遗漏或重复",
+        "points": [
+          "题目落在「概率初步」考点，或出现「求概率、列举等可能结果」类识别信号时；参照本节点示范题「掷两枚骰子，点数和为 7 的概率」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）古典概型：P=有利结果/总结果（等可能前提）；（2）树状图或列表法枚举所有结果；（3）频率随试验次数增加趋近概率；完成后回看结论是否满足题设条件。",
+          "古典概型的公式成立需要什么前提？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_prob.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8ca6f07a32437b90cf7990dcf5322107a52fe5eb8bcf096fc1d2bea9bdf5fe07"
+        }
+      },
+      {
+        "title": "易错 · PF-j_prob-02",
+        "body": "忽略\"等可能\"这个前提",
+        "points": [
+          "题目落在「概率初步」考点，或出现「求概率、列举等可能结果」类识别信号时；参照本节点示范题「掷两枚骰子，点数和为 7 的概率」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）古典概型：P=有利结果/总结果（等可能前提）；（2）树状图或列表法枚举所有结果；（3）频率随试验次数增加趋近概率；完成后回看结论是否满足题设条件。",
+          "为什么枚举时不能遗漏或重复？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_prob.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8ca6f07a32437b90cf7990dcf5322107a52fe5eb8bcf096fc1d2bea9bdf5fe07"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "概率初步是概率统计（s_prob）的基础。",
+        "points": [
+          "古典概型的公式成立需要什么前提？",
+          "为什么枚举时不能遗漏或重复？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_prob.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:52deaf460f5e4def4621f016655cd13be0d8b9bf7c024bc9be82fea7c926ba8d"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_prob-01",
+        "level": "待人工复核",
+        "question": "掷两枚骰子，点数和为 7 的概率",
+        "hint": "古典概型：P=有利结果/总结果（等可能前提）",
+        "solution": "总结果 6×6=36 种，和为 7 的有 (1,6)(2,5)(3,4)(4,3)(5,2)(6,1) 共 6 种，P=6/36=1/6。核心是\"完整枚举且每种等可能\"。",
+        "answer": "P=1/6",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_prob.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·概率初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a65387398a08df3cc9a9662bb7d6dbf9169ce23c2f3fd4d36b77651b605b2033"
+        }
+      }
+    ]
+  },
+  "j_quad": {
+    "concept": {
+      "title": "二次函数专题",
+      "body": "二次函数是竞赛与高考交汇处最重要的模型。它的核心结构是\"开口方向 + 对称轴 + 顶点\"，所有最值、根的分布、区间问题都从这三个要素推导出来。",
+      "points": [
+        "图像与对称轴",
+        "顶点与最值",
+        "与方程/不等式的关系",
+        "区间最值",
+        "含参二次函数"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_quad.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:319a82f69d6cae01861f09a9e898bead1602526c241b7929890d75c44937c346"
+        },
+        {
+          "path": "reliable-data/lessons/j_quad.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7c396035bbbf1b12a79f1eb8d032d23444282a9fda013ab2246d8ad94f067d81"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "二次函数是竞赛与高考交汇处最重要的模型。它的核心结构是\"开口方向 + 对称轴 + 顶点\"，所有最值、根的分布、区间问题都从这三个要素推导出来。",
+        "points": [
+          "化为顶点式 y=a(x−h)²+k，读出开口与顶点",
+          "区间最值要比较对称轴与区间的位置关系",
+          "根的分布问题用\"三个条件\"：Δ、对称轴位置、端点函数值符号"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_quad.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7c396035bbbf1b12a79f1eb8d032d23444282a9fda013ab2246d8ad94f067d81"
+        }
+      },
+      {
+        "title": "易错 · PF-j_quad-01",
+        "body": "默认最值在顶点取得，忽略区间限制",
+        "points": [
+          "题目落在「二次函数专题」考点，或出现「区间最值、恒成立问题、根的分布」类识别信号时；参照本节点示范题「f(x)=x²−2x+3 在 [0,3] 上的最值」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）化为顶点式 y=a(x−h)²+k，读出开口与顶点；（2）区间最值要比较对称轴与区间的位置关系；（3）根的分布问题用\"三个条件\"：Δ、对称轴位置、端点函数值符号；完成后回看结论是否满足题设条件。",
+          "为什么区间最值要看对称轴和区间的位置关系？举一个顶点不在区间内的例子。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_quad.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d58db9bd3e8ae724d91588acbad099828208863a21eab17b79db1d61d6ee4894"
+        }
+      },
+      {
+        "title": "易错 · PF-j_quad-02",
+        "body": "开口向上时把最大值也算在顶点",
+        "points": [
+          "题目落在「二次函数专题」考点，或出现「区间最值、恒成立问题、根的分布」类识别信号时；参照本节点示范题「f(x)=x²−2x+3 在 [0,3] 上的最值」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）化为顶点式 y=a(x−h)²+k，读出开口与顶点；（2）区间最值要比较对称轴与区间的位置关系；（3）根的分布问题用\"三个条件\"：Δ、对称轴位置、端点函数值符号；完成后回看结论是否满足题设条件。",
+          "二次函数的三个核心结构要素是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_quad.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d58db9bd3e8ae724d91588acbad099828208863a21eab17b79db1d61d6ee4894"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "二次函数连接因式分解（求根）、不等式（正负区间）、导数（s_deriv 的一般化）。",
+        "points": [
+          "为什么区间最值要看对称轴和区间的位置关系？举一个顶点不在区间内的例子。",
+          "二次函数的三个核心结构要素是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_quad.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7c396035bbbf1b12a79f1eb8d032d23444282a9fda013ab2246d8ad94f067d81"
+        }
+      },
+      {
+        "title": "二次函数专题",
+        "body": "初高中衔接与竞赛代数的高频交汇点。核心是「配方 → 顶点式 → 数形结合」，把最值、根的分布、恒成立问题统一到图像上处理。",
+        "points": [
+          "一般式 y = ax² + bx + c，对称轴 x = −b/(2a)，顶点 ( −b/(2a), (4ac−b²)/(4a) )。",
+          "顶点式 y = a(x−h)² + k，直接读出顶点与最值。",
+          "a > 0 开口向上有最小值，a < 0 开口向下有最大值。"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.j_quad",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:ddf8b8105c8afbdd6e656408ed2b74e950924a059f65002e048c5707bf60d0b3"
+        }
+      },
+      {
+        "title": "区间最值：对称轴与区间的位置关系",
+        "body": "求 f(x) 在 [m, n] 上的最值，先算对称轴 x₀，再分三种情形：x₀ < m（单调）、m ≤ x₀ ≤ n（顶点在区间内）、x₀ > n（单调）。含参问题就是对这些情形分类讨论。",
+        "points": [
+          "先定位对称轴",
+          "比较对称轴与区间端点",
+          "顶点与端点都要检验"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.j_quad",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:ddf8b8105c8afbdd6e656408ed2b74e950924a059f65002e048c5707bf60d0b3"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_quad-01",
+        "level": "待人工复核",
+        "question": "f(x)=x²−2x+3 在 [0,3] 上的最值",
+        "hint": "化为顶点式 y=a(x−h)²+k，读出开口与顶点",
+        "solution": "配方 f(x)=(x−1)²+2，对称轴 x=1 在区间内，顶点 f(1)=2 是最小值；端点 f(0)=3、f(3)=6，故最大值 6。核心是\"顶点是否在区间内\"决定最小值的位置。",
+        "answer": "最小值 2（x=1），最大值 6（x=3）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_quad.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·数与代数·二次函数专题｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4eb9ffce6765527a4255ff64743611cd3fb0fc6ce12ffec86388f85957390bbf"
+        }
+      },
+      {
+        "title": "闭区间上的最值",
+        "level": "基础",
+        "question": "求 f(x) = x² − 4x + 3 在区间 [0, 3] 上的最大值与最小值。",
+        "hint": "先配方找到顶点，再与端点比较。",
+        "solution": "配方 f(x) = (x−2)² − 1，对称轴 x = 2 在 [0,3] 内，故最小值为 f(2) = −1。端点 f(0) = 3，f(3) = 0，故最大值为 3。",
+        "answer": "最小值 −1（x=2），最大值 3（x=0）",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.j_quad",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:ddf8b8105c8afbdd6e656408ed2b74e950924a059f65002e048c5707bf60d0b3"
+        }
+      }
+    ]
+  },
+  "j_quadg": {
+    "concept": {
+      "title": "四边形",
+      "body": "四边形的核心是\"转化为三角形\"——通过连对角线，把四边形问题化归为已经掌握的三角形问题。特殊四边形（平行四边形、矩形、菱形、正方形）各有充要条件，是证明的常用结论。",
+      "points": [
+        "平行四边形",
+        "矩形/菱形/正方形",
+        "梯形",
+        "中位线"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_quadg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:5c83804c54d62bd8539850ae3d6f7788e24e358ee587b55493991a51584f3fca"
+        },
+        {
+          "path": "reliable-data/lessons/j_quadg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e907d44075f195f688b1ecedfd07a3b7c553ec3af6e3d9d6cae483ec728b3516"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "四边形的核心是\"转化为三角形\"——通过连对角线，把四边形问题化归为已经掌握的三角形问题。特殊四边形（平行四边形、矩形、菱形、正方形）各有充要条件，是证明的常用结论。",
+        "points": [
+          "连对角线把四边形分成三角形",
+          "平行四边形的判定：两组对边平行/相等、对角线互相平分等",
+          "菱形对角线垂直、矩形对角线相等、正方形兼具"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_quadg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e907d44075f195f688b1ecedfd07a3b7c553ec3af6e3d9d6cae483ec728b3516"
+        }
+      },
+      {
+        "title": "易错 · PF-j_quadg-01",
+        "body": "特殊四边形的判定条件混淆",
+        "points": [
+          "题目落在「四边形」考点，或出现「证明平行四边形、求角度边长」类识别信号时；参照本节点示范题「证明平行四边形对角线互相平分」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）连对角线把四边形分成三角形；（2）平行四边形的判定：两组对边平行/相等、对角线互相平分等；（3）菱形对角线垂直、矩形对角线相等、正方形兼具；完成后回看结论是否满足题设条件。",
+          "为什么说四边形问题的核心是\"转化为三角形\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_quadg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c0852a20251143419868d77671562f88bc3eae402e1b4a80e9fb1a29571ff74a"
+        }
+      },
+      {
+        "title": "易错 · PF-j_quadg-02",
+        "body": "忘记四边形可以通过对角线化归为三角形",
+        "points": [
+          "题目落在「四边形」考点，或出现「证明平行四边形、求角度边长」类识别信号时；参照本节点示范题「证明平行四边形对角线互相平分」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）连对角线把四边形分成三角形；（2）平行四边形的判定：两组对边平行/相等、对角线互相平分等；（3）菱形对角线垂直、矩形对角线相等、正方形兼具；完成后回看结论是否满足题设条件。",
+          "平行四边形和矩形的判定条件有何区别？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_quadg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c0852a20251143419868d77671562f88bc3eae402e1b4a80e9fb1a29571ff74a"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "四边形连接全等、相似、面积法（o_geo_area），是复杂图形的积木。",
+        "points": [
+          "为什么说四边形问题的核心是\"转化为三角形\"？",
+          "平行四边形和矩形的判定条件有何区别？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_quadg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e907d44075f195f688b1ecedfd07a3b7c553ec3af6e3d9d6cae483ec728b3516"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_quadg-01",
+        "level": "待人工复核",
+        "question": "证明平行四边形对角线互相平分",
+        "hint": "连对角线把四边形分成三角形",
+        "solution": "连对角线交于 O，由 AB∥CD 得内错角相等，结合对边相等用 ASA 证两个三角形全等，得 AO=CO、BO=DO。核心是\"连对角线 + 全等\"。",
+        "answer": "AO=CO、BO=DO，即对角线互相平分",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_quadg.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·四边形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f8f525a413cfe1dd148a992f6e02376ebbca1764600888e9646a1278ade43948"
+        }
+      }
+    ]
+  },
+  "j_simi": {
+    "concept": {
+      "title": "相似三角形",
+      "body": "相似是\"形状相同、大小不同\"。它的核心价值是把\"角的关系\"转成\"边的比例\"——一旦证明相似，就能得到一系列比例式，从而计算长度、证明比例关系。这是几何中最常用的定量工具。",
+      "points": [
+        "相似判定与性质",
+        "平行线分线段成比例",
+        "位似"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_simi.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:48beae36991f0b026796f35ad24a77bf4565e3bbfc7f0639ebc8087053f72d97"
+        },
+        {
+          "path": "reliable-data/lessons/j_simi.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ed6f1bc990a9ab3b70cef96d0b7ed928f32e38555fada3717e9ebd4edbf0a840"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "相似是\"形状相同、大小不同\"。它的核心价值是把\"角的关系\"转成\"边的比例\"——一旦证明相似，就能得到一系列比例式，从而计算长度、证明比例关系。这是几何中最常用的定量工具。",
+        "points": [
+          "判定：两角对应相等（AA）最常用，还有 SAS、SSS 成比例",
+          "证明比例线段、求线段长优先考虑相似",
+          "常见模型：A 字型、8 字型、母子型（直角三角形斜高）"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_simi.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ed6f1bc990a9ab3b70cef96d0b7ed928f32e38555fada3717e9ebd4edbf0a840"
+        }
+      },
+      {
+        "title": "易错 · PF-j_simi-01",
+        "body": "对应边找错导致比例式列反",
+        "points": [
+          "题目落在「相似三角形」考点，或出现「证明成比例、求线段比、相似构造」类识别信号时；参照本节点示范题「直角三角形斜边上的高把斜边分成 4 和 9，求高」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）判定：两角对应相等（AA）最常用，还有 SAS、SSS 成比例；（2）证明比例线段、求线段长优先考虑相似；（3）常见模型：A 字型、8 字型、母子型（直角三角形斜高）；完成后回看结论是否满足题设条件。",
+          "相似三角形的价值是什么？为什么它能给出比例式？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_simi.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:40c6912faa8508913f376db7b90c91378661212c708652144b90e12b9ff1045d"
+        }
+      },
+      {
+        "title": "易错 · PF-j_simi-02",
+        "body": "相似与全等的条件混淆",
+        "points": [
+          "题目落在「相似三角形」考点，或出现「证明成比例、求线段比、相似构造」类识别信号时；参照本节点示范题「直角三角形斜边上的高把斜边分成 4 和 9，求高」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）判定：两角对应相等（AA）最常用，还有 SAS、SSS 成比例；（2）证明比例线段、求线段长优先考虑相似；（3）常见模型：A 字型、8 字型、母子型（直角三角形斜高）；完成后回看结论是否满足题设条件。",
+          "AA 判定为什么只需两个角？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_simi.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:40c6912faa8508913f376db7b90c91378661212c708652144b90e12b9ff1045d"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "相似是梅涅劳斯/塞瓦（o_geo_ceva）、面积法、圆幂定理的基础。",
+        "points": [
+          "相似三角形的价值是什么？为什么它能给出比例式？",
+          "AA 判定为什么只需两个角？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_simi.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ed6f1bc990a9ab3b70cef96d0b7ed928f32e38555fada3717e9ebd4edbf0a840"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_simi-01",
+        "level": "待人工复核",
+        "question": "直角三角形斜边上的高把斜边分成 4 和 9，求高",
+        "hint": "判定：两角对应相等（AA）最常用，还有 SAS、SSS 成比例",
+        "solution": "由射影定理（母子相似）h²=4×9=36，h=6。核心是识别出\"母子型相似\"这个常见模型。",
+        "answer": "斜边上的高 h=6",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_simi.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·相似三角形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ad8af37ad59c73001a863cfb8712c60a48d0dfd2ab6f1cfe23b6323ecce0547e"
+        }
+      }
+    ]
+  },
+  "j_stats": {
+    "concept": {
+      "title": "统计初步",
+      "body": "统计研究数据的收集、整理与分析。核心是几个\"代表值\"：平均数反映平均水平，中位数反映中间位置，众数反映最常见值，方差反映波动大小。",
+      "points": [
+        "数据收集与图表",
+        "平均数/中位数/众数",
+        "方差",
+        "频数分布"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_stats.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:1daee5610bfd452dae5327eba28a5460d3b586efe29869f3b24379544632c166"
+        },
+        {
+          "path": "reliable-data/lessons/j_stats.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d7763a3448719c8f6d761ac552c9d1846217e35db54e148da98674491a84c3fc"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "统计研究数据的收集、整理与分析。核心是几个\"代表值\"：平均数反映平均水平，中位数反映中间位置，众数反映最常见值，方差反映波动大小。",
+        "points": [
+          "平均数、中位数、众数的计算与适用场景",
+          "方差反映数据的离散程度",
+          "会读频数分布表与统计图"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_stats.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d7763a3448719c8f6d761ac552c9d1846217e35db54e148da98674491a84c3fc"
+        }
+      },
+      {
+        "title": "易错 · PF-j_stats-01",
+        "body": "混淆平均数、中位数、众数",
+        "points": [
+          "题目落在「统计初步」考点，或出现「求平均数方差、读统计图」类识别信号时；参照本节点示范题「一组数据 1,2,2,3,100，哪个代表值更能反映\"典型水平\"？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）平均数、中位数、众数的计算与适用场景；（2）方差反映数据的离散程度；（3）会读频数分布表与统计图；完成后回看结论是否满足题设条件。",
+          "平均数、中位数、众数各反映数据的什么方面？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_stats.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:25cc45b4e9c5c5855aeb8c0348c5260417db115b2f7eeefa374ac43852ea5fab"
+        }
+      },
+      {
+        "title": "易错 · PF-j_stats-02",
+        "body": "忽略极端值对平均数的影响",
+        "points": [
+          "题目落在「统计初步」考点，或出现「求平均数方差、读统计图」类识别信号时；参照本节点示范题「一组数据 1,2,2,3,100，哪个代表值更能反映\"典型水平\"？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）平均数、中位数、众数的计算与适用场景；（2）方差反映数据的离散程度；（3）会读频数分布表与统计图；完成后回看结论是否满足题设条件。",
+          "为什么极端值对平均数影响大？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_stats.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:25cc45b4e9c5c5855aeb8c0348c5260417db115b2f7eeefa374ac43852ea5fab"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "统计初步是概率统计（s_prob）的基础。",
+        "points": [
+          "平均数、中位数、众数各反映数据的什么方面？",
+          "为什么极端值对平均数影响大？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_stats.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d7763a3448719c8f6d761ac552c9d1846217e35db54e148da98674491a84c3fc"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_stats-01",
+        "level": "待人工复核",
+        "question": "一组数据 1,2,2,3,100，哪个代表值更能反映\"典型水平\"？",
+        "hint": "平均数、中位数、众数的计算与适用场景",
+        "solution": "平均数 21.6 被极端值 100 拉高，中位数 2 更能反映典型水平。核心是\"极端值对平均数影响大，对中位数影响小\"。",
+        "answer": "中位数 2 更能反映典型水平",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_stats.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·统计与概率·统计初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0e558b93cf16cebd0e5220843940428f850463647f1d97252f3d6fbc84f64bda"
+        }
+      }
+    ]
+  },
+  "j_trans": {
+    "concept": {
+      "title": "图形变换",
+      "body": "平移、旋转、轴对称是三种基本全等变换——它们保持图形的形状和大小。用变换的观点看几何，很多\"添加辅助线\"的技巧本质就是把分散的条件\"搬\"到一起。",
+      "points": [
+        "平移",
+        "轴对称",
+        "旋转",
+        "中心对称",
+        "坐标与变换"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:dc015872997fb51e4dfd0e6360282d44161688c7d82eb3b8a4380f7eced36598"
+        },
+        {
+          "path": "reliable-data/lessons/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d0e9b2e19cdd19f83a62149bd52d60e2fc9f9af7bd5a4c77b2acec99efaf0a3e"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "平移、旋转、轴对称是三种基本全等变换——它们保持图形的形状和大小。用变换的观点看几何，很多\"添加辅助线\"的技巧本质就是把分散的条件\"搬\"到一起。",
+        "points": [
+          "轴对称把折线拉直：作 A 关于直线的对称点 A′，则 PA=PA′",
+          "PA+PB = PA′+PB ≥ A′B，等号当 A′、P、B 共线（两点之间线段最短）",
+          "求 P：连 A′B 与对称轴的交点；求最小值：算 |A′B|",
+          "注意 A、B 需在对称轴同侧；异侧时直接连 AB 即为最短"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d0e9b2e19cdd19f83a62149bd52d60e2fc9f9af7bd5a4c77b2acec99efaf0a3e"
+        }
+      },
+      {
+        "title": "易错 · PF-j_trans-01",
+        "body": "把对称点作错（应对称到异侧，且保持到轴距离相等）",
+        "points": [
+          "题目落在「图形变换」考点，或出现「最短路径、对称求最值、旋转构造」类识别信号时；参照本节点示范题「点 A(0, 2)、B(4, 3) 在 x 轴同侧，在 x 轴上求一点 P，使 PA + PB 最小，并求这个最小值。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）轴对称把折线拉直：作 A 关于直线的对称点 A′，则 PA=PA′；（2）PA+PB = PA′+PB ≥ A′B，等号当 A′、P、B 共线（两点之间线段最短）；（3）求 P：连 A′B 与对称轴的交点；求最小值：算 |A′B|；（4）注意 A、B 需在对称轴同侧；异侧时直接连 AB 即为最短；完成后回看结论是否满足题设条件。",
+          "为什么 PA=PA′？对称轴在这里起什么作用？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2cc2e90bd24c2cda1c86a4712432cf4f19de6ffa96c6205753f63bd486c1d447"
+        }
+      },
+      {
+        "title": "易错 · PF-j_trans-02",
+        "body": "只说\"对称点连线即最短\"却不给最小值数值，题目问最小值时答非所问",
+        "points": [
+          "题目落在「图形变换」考点，或出现「最短路径、对称求最值、旋转构造」类识别信号时；参照本节点示范题「点 A(0, 2)、B(4, 3) 在 x 轴同侧，在 x 轴上求一点 P，使 PA + PB 最小，并求这个最小值。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）轴对称把折线拉直：作 A 关于直线的对称点 A′，则 PA=PA′；（2）PA+PB = PA′+PB ≥ A′B，等号当 A′、P、B 共线（两点之间线段最短）；（3）求 P：连 A′B 与对称轴的交点；求最小值：算 |A′B|；（4）注意 A、B 需在对称轴同侧；异侧时直接连 AB 即为最短；完成后回看结论是否满足题设条件。",
+          "若 A 改到 (0, −2)（与 B 异侧），最短路径还用作对称点吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2cc2e90bd24c2cda1c86a4712432cf4f19de6ffa96c6205753f63bd486c1d447"
+        }
+      },
+      {
+        "title": "易错 · PF-j_trans-03",
+        "body": "A、B 异侧时仍作对称，反而绕远",
+        "points": [
+          "题目落在「图形变换」考点，或出现「最短路径、对称求最值、旋转构造」类识别信号时；参照本节点示范题「点 A(0, 2)、B(4, 3) 在 x 轴同侧，在 x 轴上求一点 P，使 PA + PB 最小，并求这个最小值。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）轴对称把折线拉直：作 A 关于直线的对称点 A′，则 PA=PA′；（2）PA+PB = PA′+PB ≥ A′B，等号当 A′、P、B 共线（两点之间线段最短）；（3）求 P：连 A′B 与对称轴的交点；求最小值：算 |A′B|；（4）注意 A、B 需在对称轴同侧；异侧时直接连 AB 即为最短；完成后回看结论是否满足题设条件。",
+          "为什么 PA=PA′？对称轴在这里起什么作用？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2cc2e90bd24c2cda1c86a4712432cf4f19de6ffa96c6205753f63bd486c1d447"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "图形变换是几何变换进阶（o_geo_trans）、复数法解几何（o_geo_vec）的基础。",
+        "points": [
+          "为什么 PA=PA′？对称轴在这里起什么作用？",
+          "若 A 改到 (0, −2)（与 B 异侧），最短路径还用作对称点吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d0e9b2e19cdd19f83a62149bd52d60e2fc9f9af7bd5a4c77b2acec99efaf0a3e"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_trans-01",
+        "level": "待人工复核",
+        "question": "点 A(0, 2)、B(4, 3) 在 x 轴同侧，在 x 轴上求一点 P，使 PA + PB 最小，并求这个最小值。",
+        "hint": "轴对称把折线拉直：作 A 关于直线的对称点 A′，则 PA=PA′",
+        "solution": "作 A 关于 x 轴的对称点 A′(0, −2)，则 PA=PA′，故 PA+PB=PA′+PB ≥ A′B（三角不等式），等号当 P 在 A′B 与 x 轴交点时成立。A′B=√[(4−0)²+(3−(−2))²]=√41。交点 P：直线 A′B 上 y=−2+5t，令 y=0 得 t=2/5，x=4×(2/5)=8/5，即 P(8/5, 0)。故最短距离为 √41，此时 P(8/5, 0)。核心是\"对称化折为直\"。",
+        "answer": "最小值为 √41，此时 P(8/5, 0)（A(0,2)、B(4,3)，P 在 x 轴）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_trans.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·图形变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a4d4cbb081c40e1288067275118effa6c3b377cad380423e26b7a5246272ee4d"
+        }
+      }
+    ]
+  },
+  "j_tri": {
+    "concept": {
+      "title": "三角形与全等",
+      "body": "三角形是平面几何最基本的对象，全等是证明\"两个图形一模一样\"的工具。全等三角形的四种判定（SSS、SAS、ASA、AAS）是几何推理的第一个完整闭环——从条件到结论的严格链条。",
+      "points": [
+        "内角和与外角",
+        "三边关系",
+        "全等三角形判定",
+        "等腰/等边三角形",
+        "直角三角形性质"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_tri.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:a33b3c24e3efed36038cd090c7d34e142936bd6984798e061f1e9420674c1b8a"
+        },
+        {
+          "path": "reliable-data/lessons/j_tri.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:551da04e1ae01e9d89fa2f468f3da0dfb1cd937af526a06ffb095831e26208d1"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "三角形是平面几何最基本的对象，全等是证明\"两个图形一模一样\"的工具。全等三角形的四种判定（SSS、SAS、ASA、AAS）是几何推理的第一个完整闭环——从条件到结论的严格链条。",
+        "points": [
+          "证明角相等、边相等，先想能否凑全等",
+          "找公共边、平行线形成的等角作为已知条件",
+          "等腰三角形的\"三线合一\"是常用结论"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_tri.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:551da04e1ae01e9d89fa2f468f3da0dfb1cd937af526a06ffb095831e26208d1"
+        }
+      },
+      {
+        "title": "易错 · PF-j_tri-01",
+        "body": "SSA 不能判定全等（这是经典陷阱）",
+        "points": [
+          "题目落在「三角形与全等」考点，或出现「证明角相等、证明边相等、全等判定」类识别信号时；参照本节点示范题「证明等腰三角形底角相等」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）证明角相等、边相等，先想能否凑全等；（2）找公共边、平行线形成的等角作为已知条件；（3）等腰三角形的\"三线合一\"是常用结论；完成后回看结论是否满足题设条件。",
+          "为什么 SSA 不能判定三角形全等？举一个反例。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_tri.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5350c47237aab93c28e4044b647046339911454e489ec5592e4c7c4a92f2b63a"
+        }
+      },
+      {
+        "title": "易错 · PF-j_tri-02",
+        "body": "证明跳步，没有明确指出用的是哪个判定",
+        "points": [
+          "题目落在「三角形与全等」考点，或出现「证明角相等、证明边相等、全等判定」类识别信号时；参照本节点示范题「证明等腰三角形底角相等」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）证明角相等、边相等，先想能否凑全等；（2）找公共边、平行线形成的等角作为已知条件；（3）等腰三角形的\"三线合一\"是常用结论；完成后回看结论是否满足题设条件。",
+          "证明线段相等时，为什么要先想到全等？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_tri.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5350c47237aab93c28e4044b647046339911454e489ec5592e4c7c4a92f2b63a"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "全等是相似、圆、几何变换、梅涅劳斯定理的基础。",
+        "points": [
+          "为什么 SSA 不能判定三角形全等？举一个反例。",
+          "证明线段相等时，为什么要先想到全等？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_tri.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:551da04e1ae01e9d89fa2f468f3da0dfb1cd937af526a06ffb095831e26208d1"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_tri-01",
+        "level": "待人工复核",
+        "question": "证明等腰三角形底角相等",
+        "hint": "证明角相等、边相等，先想能否凑全等",
+        "solution": "作顶角平分线，把原三角形分成两个小三角形，由 SAS（两腰相等、顶角被平分、公共边）判定全等，故两底角相等。核心是\"作辅助线构造全等\"。",
+        "answer": "等腰三角形两底角相等",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_tri.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·三角形与全等｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:295912e6851349a2fc3b988828edbf38a577dabc5e85709185f1e69c1645c5b7"
+        }
+      }
+    ]
+  },
+  "j_trig": {
+    "concept": {
+      "title": "解直角三角形",
+      "body": "锐角三角函数本质上是\"直角三角形的边角关系\"——正弦、余弦、正切是两组边的比值。它们只依赖于角的大小，与三角形的具体尺寸无关，这正是\"函数\"的思想。",
+      "points": [
+        "锐角三角函数",
+        "特殊角",
+        "勾股与三角函数综合"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/j_trig.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:61ef0b65bf1b02b603253a6466a443947cdc6fe3e0860197a335787791776997"
+        },
+        {
+          "path": "reliable-data/lessons/j_trig.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5d724110638ee0c1db706b74f7a94b524c7c8eb338962570bf36a16575dbeace"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "锐角三角函数本质上是\"直角三角形的边角关系\"——正弦、余弦、正切是两组边的比值。它们只依赖于角的大小，与三角形的具体尺寸无关，这正是\"函数\"的思想。",
+        "points": [
+          "牢记 sin=对/斜、cos=邻/斜、tan=对/邻",
+          "特殊角（30°、45°、60°）的三角函数值要熟记",
+          "实际问题先构造直角三角形，再选合适的三角函数"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_trig.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5d724110638ee0c1db706b74f7a94b524c7c8eb338962570bf36a16575dbeace"
+        }
+      },
+      {
+        "title": "易错 · PF-j_trig-01",
+        "body": "sin/cos/tan 的边的对应关系搞混",
+        "points": [
+          "题目落在「解直角三角形」考点，或出现「求角求边、测高问题」类识别信号时；参照本节点示范题「斜坡长 10 米，与地面夹角 30°，求高度」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）牢记 sin=对/斜、cos=邻/斜、tan=对/邻；（2）特殊角（30°、45°、60°）的三角函数值要熟记；（3）实际问题先构造直角三角形，再选合适的三角函数；完成后回看结论是否满足题设条件。",
+          "为什么三角函数值只和角有关、和三角形大小无关？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_trig.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:6c339a8811e8c97616ff17132f3bac554432d5236d8e66d1c94c5eb65c30b3c8"
+        }
+      },
+      {
+        "title": "易错 · PF-j_trig-02",
+        "body": "忘记角度单位（弧度与角度）",
+        "points": [
+          "题目落在「解直角三角形」考点，或出现「求角求边、测高问题」类识别信号时；参照本节点示范题「斜坡长 10 米，与地面夹角 30°，求高度」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）牢记 sin=对/斜、cos=邻/斜、tan=对/邻；（2）特殊角（30°、45°、60°）的三角函数值要熟记；（3）实际问题先构造直角三角形，再选合适的三角函数；完成后回看结论是否满足题设条件。",
+          "sin 和 cos 分别对应哪两条边的比？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/j_trig.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:6c339a8811e8c97616ff17132f3bac554432d5236d8e66d1c94c5eb65c30b3c8"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "解直角三角形是三角函数（s_trig）、向量（s_vec）、几何计算的基础。",
+        "points": [
+          "为什么三角函数值只和角有关、和三角形大小无关？",
+          "sin 和 cos 分别对应哪两条边的比？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/j_trig.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5d724110638ee0c1db706b74f7a94b524c7c8eb338962570bf36a16575dbeace"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-j_trig-01",
+        "level": "待人工复核",
+        "question": "斜坡长 10 米，与地面夹角 30°，求高度",
+        "hint": "牢记 sin=对/斜、cos=邻/斜、tan=对/邻",
+        "solution": "构造直角三角形，斜边 10，高度是 30° 的对边：h=10·sin30°=10×½=5 米。核心是\"把实际问题翻译成直角三角形，再选对三角函数\"。",
+        "answer": "h=10·sin30°=5 米",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/j_trig.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·图形与几何·解直角三角形｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d6351cef58e636c62995439aaddc60e982781b1c372c118e18921e4019b12ae6"
+        }
+      }
+    ]
+  },
+  "o_alg_skill": {
+    "concept": {
+      "title": "代数变形技巧",
+      "body": "这一节讲的是\"技巧背后的动机\"。换元、配方、整体代换、对称式处理——这些不是招式，而是对式子的结构做出判断后的选择。掌握的关键是能回答\"我为什么要这样变形\"。",
+      "points": [
+        "拆项添项",
+        "配方",
+        "待定系数",
+        "对称式与轮换对称式"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_alg_skill.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:495503d4574329ee5aa0468d90b76726084f1d6b6372fe1a0e022d3fdd0dec80"
+        },
+        {
+          "path": "reliable-data/lessons/o_alg_skill.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:926ef6b32e57c5fc76a086b47d7c4a016717423e667853585c7b7fa7aadcfb5e"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这一节讲的是\"技巧背后的动机\"。换元、配方、整体代换、对称式处理——这些不是招式，而是对式子的结构做出判断后的选择。掌握的关键是能回答\"我为什么要这样变形\"。",
+        "points": [
+          "换元：式子中反复出现的同一结构用一个字母代替",
+          "配方：把二次式写成 (x+a)²+b，暴露非负性或最值",
+          "整体代换：不求单个量，直接求整体的值"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_alg_skill.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:926ef6b32e57c5fc76a086b47d7c4a016717423e667853585c7b7fa7aadcfb5e"
+        }
+      },
+      {
+        "title": "易错 · PF-o_alg_skill-01",
+        "body": "看到未知数就急着解方程，忽略整体代换",
+        "points": [
+          "题目落在「代数变形技巧」考点，或出现「恒等式证明、因式分解技巧」类识别信号时；参照本节点示范题「已知 x+1/x=3，求 x²+1/x²」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）换元：式子中反复出现的同一结构用一个字母代替；（2）配方：把二次式写成 (x+a)²+b，暴露非负性或最值；（3）整体代换：不求单个量，直接求整体的值；完成后回看结论是否满足题设条件。",
+          "x+1/x=3 为什么不必解出 x 就能求 x²+1/x²？这种\"不求而求\"什么时候可用？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_alg_skill.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:64f549619e2f8aaa88b6c0f840f4e4cb70cae4d822894ff7c93d0fe82047a988"
+        }
+      },
+      {
+        "title": "易错 · PF-o_alg_skill-02",
+        "body": "换元后忘记回代或忘记新变量的取值范围",
+        "points": [
+          "题目落在「代数变形技巧」考点，或出现「恒等式证明、因式分解技巧」类识别信号时；参照本节点示范题「已知 x+1/x=3，求 x²+1/x²」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）换元：式子中反复出现的同一结构用一个字母代替；（2）配方：把二次式写成 (x+a)²+b，暴露非负性或最值；（3）整体代换：不求单个量，直接求整体的值；完成后回看结论是否满足题设条件。",
+          "换元可能带来什么风险？举例说明。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_alg_skill.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:64f549619e2f8aaa88b6c0f840f4e4cb70cae4d822894ff7c93d0fe82047a988"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "变形技巧贯穿函数方程（o_func_eq）、不等式证明（o_ineq）、递推数列（o_recur），是竞赛代数的通用语言。",
+        "points": [
+          "x+1/x=3 为什么不必解出 x 就能求 x²+1/x²？这种\"不求而求\"什么时候可用？",
+          "换元可能带来什么风险？举例说明。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_alg_skill.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:926ef6b32e57c5fc76a086b47d7c4a016717423e667853585c7b7fa7aadcfb5e"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_alg_skill-01",
+        "level": "待人工复核",
+        "question": "已知 x+1/x=3，求 x²+1/x²",
+        "hint": "换元：式子中反复出现的同一结构用一个字母代替",
+        "solution": "不要去解 x。整体平方：(x+1/x)²=x²+2+1/x²=9，所以 x²+1/x²=7。核心是\"把所求式看作已知式的整体变形\"，而非逐个求未知量。",
+        "answer": "x²+1/x²=7",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_alg_skill.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·代数变形技巧｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a97d2019b5ec6d86b08a454dbbee944b0b46b15efbb836f407e0d6c20a90f1c2"
+        }
+      }
+    ]
+  },
+  "o_binom": {
+    "concept": {
+      "title": "组合恒等式与进阶计数",
+      "body": "组合恒等式研究二项式系数 C(n,k) 的各种关系。核心方法有三种：代数证明（用公式）、组合证明（两边数同一件事）、生成函数。组合证明最能体现\"对应\"思想。",
+      "points": [
+        "组合恒等式",
+        "圆排列",
+        "可重复组合",
+        "二项式系数性质"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_binom.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:122ca2521c4eda20f517e4eb55eff2605bb4caab04d4c1bf4587e7c86c29233b"
+        },
+        {
+          "path": "reliable-data/lessons/o_binom.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:035b40cee71c952182355812e385ea445fb73d824016f4706cfaa5f2ddbd79ca"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "组合恒等式研究二项式系数 C(n,k) 的各种关系。核心方法有三种：代数证明（用公式）、组合证明（两边数同一件事）、生成函数。组合证明最能体现\"对应\"思想。",
+        "points": [
+          "二项式定理 (a+b)ⁿ=Σ C(n,k)aⁿ⁻ᵏbᵏ，通项 Tₖ₊₁=C(n,k)aⁿ⁻ᵏbᵏ",
+          "赋值法求系数和：令 a=b=1 得 ΣC(n,k)=2ⁿ（本节点例题）",
+          "帕斯卡恒等式 C(n+1,k)=C(n,k)+C(n,k−1) 与范德蒙德恒等式 ΣC(r,k)C(s,n−k)=C(r+s,n)",
+          "生成函数初步：用 (1+x)ⁿ 的系数读取组合计数"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_binom.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:035b40cee71c952182355812e385ea445fb73d824016f4706cfaa5f2ddbd79ca"
+        }
+      },
+      {
+        "title": "易错 · PF-o_binom-01",
+        "body": "代数变形出错",
+        "points": [
+          "题目落在「组合恒等式与进阶计数」考点，或出现「证明恒等式、复杂计数」类识别信号时；参照本节点示范题「证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）二项式定理 (a+b)ⁿ=Σ C(n,k)aⁿ⁻ᵏbᵏ，通项 Tₖ₊₁=C(n,k)aⁿ⁻ᵏbᵏ；（2）赋值法求系数和：令 a=b=1 得 ΣC(n,k)=2ⁿ（本节点例题）；（3）帕斯卡恒等式 C(n+1,k)=C(n,k)+C(n,k−1) 与范德蒙德恒等式 ΣC(r,k)C(s,n−k)=C(r+s,n)；（4）生成函数初步：用 (1+x)ⁿ 的系数读取组合计数；完成后回看结论是否满足题设条件。",
+          "组合证明为什么能证明恒等式？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_binom.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:efd130f0add98f91dcc5da54e778b5ba2abef04501e8e092070018b022c589da"
+        }
+      },
+      {
+        "title": "易错 · PF-o_binom-02",
+        "body": "组合证明时两边数的不是同一件事",
+        "points": [
+          "题目落在「组合恒等式与进阶计数」考点，或出现「证明恒等式、复杂计数」类识别信号时；参照本节点示范题「证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）二项式定理 (a+b)ⁿ=Σ C(n,k)aⁿ⁻ᵏbᵏ，通项 Tₖ₊₁=C(n,k)aⁿ⁻ᵏbᵏ；（2）赋值法求系数和：令 a=b=1 得 ΣC(n,k)=2ⁿ（本节点例题）；（3）帕斯卡恒等式 C(n+1,k)=C(n,k)+C(n,k−1) 与范德蒙德恒等式 ΣC(r,k)C(s,n−k)=C(r+s,n)；（4）生成函数初步：用 (1+x)ⁿ 的系数读取组合计数；完成后回看结论是否满足题设条件。",
+          "二项式定理和 C(n,k) 有什么关系？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_binom.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:efd130f0add98f91dcc5da54e778b5ba2abef04501e8e092070018b022c589da"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "组合恒等式连接计数原理、概率、归纳法。",
+        "points": [
+          "组合证明为什么能证明恒等式？",
+          "二项式定理和 C(n,k) 有什么关系？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_binom.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:035b40cee71c952182355812e385ea445fb73d824016f4706cfaa5f2ddbd79ca"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_binom-01",
+        "level": "待人工复核",
+        "question": "证明 C(n,0)+C(n,1)+…+C(n,n)=2ⁿ",
+        "hint": "二项式定理 (a+b)ⁿ=Σ C(n,k)aⁿ⁻ᵏbᵏ，通项 Tₖ₊₁=C(n,k)aⁿ⁻ᵏbᵏ",
+        "solution": "组合证明：左边是 n 元集合所有子集个数（按大小分类求和），右边是 2ⁿ（每个元素选或不选）。两边数同一件事，故相等。核心是\"组合恒等式可以靠数集合来证明\"。",
+        "answer": "C(n,0)+C(n,1)+…+C(n,n)=2ⁿ",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_binom.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合恒等式与进阶计数｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7b81df100ddbd0880d570bc71f59db5610cb073fab3f63972e52e2cdc0ac6a35"
+        }
+      }
+    ]
+  },
+  "o_comb_adv": {
+    "concept": {
+      "title": "抽屉 · 容斥 · 极端 · 不变量",
+      "body": "这是组合存在性问题的工具箱。抽屉原理证\"至少\"，容斥原理证\"恰好的计数\"，极端原理取最值分析，不变量证明\"不可能\"——四类工具对应四类问题。",
+      "points": [
+        "抽屉原理进阶",
+        "容斥原理",
+        "极端原理",
+        "不变量与染色"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_comb_adv.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:c6ebdcbd95dc17fbfdf4336611a752590f8747d288f97375751e7787a13f6594"
+        },
+        {
+          "path": "reliable-data/lessons/o_comb_adv.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5c5b93c6f546a854e5476a35c69f52886a0ac308b4bf528aa8691133e97505b6"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这是组合存在性问题的工具箱。抽屉原理证\"至少\"，容斥原理证\"恰好的计数\"，极端原理取最值分析，不变量证明\"不可能\"——四类工具对应四类问题。",
+        "points": [
+          "容斥原理：|A∪B|=|A|+|B|−|A∩B|",
+          "不变量：找操作前后不变的量证明\"不可能达到\"",
+          "极端原理：考察最大/最小元素推出结论"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_comb_adv.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5c5b93c6f546a854e5476a35c69f52886a0ac308b4bf528aa8691133e97505b6"
+        }
+      },
+      {
+        "title": "易错 · PF-o_comb_adv-01",
+        "body": "容斥时重叠项加减错误",
+        "points": [
+          "题目落在「抽屉 · 容斥 · 极端 · 不变量」考点，或出现「至少存在、方案计数、染色」类识别信号时；参照本节点示范题「1…100 中能被 2 或 3 整除的数有多少？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）容斥原理：|A∪B|=|A|+|B|−|A∩B|；（2）不变量：找操作前后不变的量证明\"不可能达到\"；（3）极端原理：考察最大/最小元素推出结论；完成后回看结论是否满足题设条件。",
+          "容斥原理为什么能避免重复计数？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_comb_adv.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:b2570fd26ab7353f449897e91dba1a85edc92cc84a5630a7a2f31a7afbfb3ced"
+        }
+      },
+      {
+        "title": "易错 · PF-o_comb_adv-02",
+        "body": "不变量找错（其实会变）",
+        "points": [
+          "题目落在「抽屉 · 容斥 · 极端 · 不变量」考点，或出现「至少存在、方案计数、染色」类识别信号时；参照本节点示范题「1…100 中能被 2 或 3 整除的数有多少？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）容斥原理：|A∪B|=|A|+|B|−|A∩B|；（2）不变量：找操作前后不变的量证明\"不可能达到\"；（3）极端原理：考察最大/最小元素推出结论；完成后回看结论是否满足题设条件。",
+          "不变量法为什么能证明\"不可能\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_comb_adv.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:b2570fd26ab7353f449897e91dba1a85edc92cc84a5630a7a2f31a7afbfb3ced"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "这些工具是图论（o_graph）、组合极值（o_comb_opt）的基础。",
+        "points": [
+          "容斥原理为什么能避免重复计数？",
+          "不变量法为什么能证明\"不可能\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_comb_adv.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5c5b93c6f546a854e5476a35c69f52886a0ac308b4bf528aa8691133e97505b6"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_comb_adv-01",
+        "level": "待人工复核",
+        "question": "1…100 中能被 2 或 3 整除的数有多少？",
+        "hint": "容斥原理：|A∪B|=|A|+|B|−|A∩B|",
+        "solution": "|2 的倍数|=50，|3 的倍数|=33，|6 的倍数|=16，容斥得 50+33−16=67。核心是\"重叠部分被算了两次要减去一次\"。",
+        "answer": "能被 2 或 3 整除的数共 67 个",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_comb_adv.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·抽屉 · 容斥 · 极端 · 不变量｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5174fab642dceb1d39e77a5b214cc12985112ea71bdb39811c5232ff9d526e53"
+        }
+      }
+    ]
+  },
+  "o_comb_opt": {
+    "concept": {
+      "title": "组合极值",
+      "body": "组合极值研究\"最多/最少\"的问题：满足条件的结构最大能有多大。核心方法是\"上下夹逼\"——构造一个达到某值的例子（下界），再证明不可能超过（上界），两者相等即得答案。",
+      "points": [
+        "极值构造",
+        "上界下界估计",
+        "平均论证"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_comb_opt.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:bccc83a9cd9ae30aa090db516b4b1ec1202cc547120f2a586855430c47dc6934"
+        },
+        {
+          "path": "reliable-data/lessons/o_comb_opt.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7ffed4f62b0af20d5f03af105fce7bc8b6792621a2775a7d3d2631937fd66bda"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "组合极值研究\"最多/最少\"的问题：满足条件的结构最大能有多大。核心方法是\"上下夹逼\"——构造一个达到某值的例子（下界），再证明不可能超过（上界），两者相等即得答案。",
+        "points": [
+          "构造法给出下界（举例说明可达），放缩法证明上界，两者相等即得最优值",
+          "抽屉原理、不变量、双计数常用于上界证明",
+          "调整法 / 凸凹性初步：在离散约束下比较相邻情形确定极值位置",
+          "注意整数离散性：连续最优解未必是合法整数解，需取整核验"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_comb_opt.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7ffed4f62b0af20d5f03af105fce7bc8b6792621a2775a7d3d2631937fd66bda"
+        }
+      },
+      {
+        "title": "易错 · PF-o_comb_opt-01",
+        "body": "只给构造不证上界（或反之）",
+        "points": [
+          "题目落在「组合极值」考点，或出现「最大值最小值、最优方案」类识别信号时；参照本节点示范题「n 边形最多有多少条不相交的对角线？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）构造法给出下界（举例说明可达），放缩法证明上界，两者相等即得最优值；（2）抽屉原理、不变量、双计数常用于上界证明；（3）调整法 / 凸凹性初步：在离散约束下比较相邻情形确定极值位置；（4）注意整数离散性：连续最优解未必是合法整数解，需取整核验；完成后回看结论是否满足题设条件。",
+          "为什么组合极值要\"上下夹逼\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_comb_opt.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:98ba6dc63abee3cb23c2010436de7e640bb48c441bd925c06eb6745d853715b1"
+        }
+      },
+      {
+        "title": "易错 · PF-o_comb_opt-02",
+        "body": "构造的例子不满足全部条件",
+        "points": [
+          "题目落在「组合极值」考点，或出现「最大值最小值、最优方案」类识别信号时；参照本节点示范题「n 边形最多有多少条不相交的对角线？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）构造法给出下界（举例说明可达），放缩法证明上界，两者相等即得最优值；（2）抽屉原理、不变量、双计数常用于上界证明；（3）调整法 / 凸凹性初步：在离散约束下比较相邻情形确定极值位置；（4）注意整数离散性：连续最优解未必是合法整数解，需取整核验；完成后回看结论是否满足题设条件。",
+          "构造和上界证明分别解决什么问题？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_comb_opt.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:98ba6dc63abee3cb23c2010436de7e640bb48c441bd925c06eb6745d853715b1"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "组合极值是组合数学的压轴，综合抽屉、图论、不变量。",
+        "points": [
+          "为什么组合极值要\"上下夹逼\"？",
+          "构造和上界证明分别解决什么问题？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_comb_opt.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7ffed4f62b0af20d5f03af105fce7bc8b6792621a2775a7d3d2631937fd66bda"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_comb_opt-01",
+        "level": "待人工复核",
+        "question": "n 边形最多有多少条不相交的对角线？",
+        "hint": "构造法给出下界（举例说明可达），放缩法证明上界，两者相等即得最优值",
+        "solution": "通过构造（三角剖分）得 n−3 条，再证明更多必然相交。核心是\"构造 + 证明最优\"两步缺一不可。",
+        "answer": "最多 n−3 条互不相交的对角线",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_comb_opt.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·组合极值｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:73bfa318ba109852144476fd1d665ff039936af7326bbc3f862048e8e6837d20"
+        }
+      }
+    ]
+  },
+  "o_complex": {
+    "concept": {
+      "title": "复数进阶",
+      "body": "竞赛中的复数进阶，核心是用复数的代数运算解决几何与数列问题。单位根（尤其三次单位根 ω）是处理对称性问题的 powerful 工具，能把\"角和与积\"变成简单等式。",
+      "points": [
+        "指数形式",
+        "欧拉公式",
+        "棣莫弗定理",
+        "单位根及应用"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_complex.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:0e7b422ce7adc145e756541de56ca5bc0a70ef46dea6bebfd22bd628db80aec8"
+        },
+        {
+          "path": "reliable-data/lessons/o_complex.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:025e84c235aba7dcfc480b33649d55197fabb7ddf597e8e781da685721cde399"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "竞赛中的复数进阶，核心是用复数的代数运算解决几何与数列问题。单位根（尤其三次单位根 ω）是处理对称性问题的 powerful 工具，能把\"角和与积\"变成简单等式。",
+        "points": [
+          "单位根 ω³=1 且 1+ω+ω²=0，用于处理三次对称",
+          "复数的几何意义：|z₁−z₂| 是两点距离",
+          "旋转用乘 e^{iθ} 表示，中点用 (z₁+z₂)/2"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_complex.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:025e84c235aba7dcfc480b33649d55197fabb7ddf597e8e781da685721cde399"
+        }
+      },
+      {
+        "title": "易错 · PF-o_complex-01",
+        "body": "忽略复数的几何对应，只做纯代数运算",
+        "points": [
+          "题目落在「复数进阶」考点，或出现「单位根求和、证明三角恒等式」类识别信号时；参照本节点示范题「用复数证明：平行四边形对角线平方和等于四边平方和」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）单位根 ω³=1 且 1+ω+ω²=0，用于处理三次对称；（2）复数的几何意义：|z₁−z₂| 是两点距离；（3）旋转用乘 e^{iθ} 表示，中点用 (z₁+z₂)/2；完成后回看结论是否满足题设条件。",
+          "三次单位根满足 1+ω+ω²=0，为什么这个式子这么有用？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_complex.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f4b4d6ec67b70cce22abc505b0a731af4ca4ab3785fabdd965230b8d7f6aa049"
+        }
+      },
+      {
+        "title": "易错 · PF-o_complex-02",
+        "body": "单位根性质记错",
+        "points": [
+          "题目落在「复数进阶」考点，或出现「单位根求和、证明三角恒等式」类识别信号时；参照本节点示范题「用复数证明：平行四边形对角线平方和等于四边平方和」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）单位根 ω³=1 且 1+ω+ω²=0，用于处理三次对称；（2）复数的几何意义：|z₁−z₂| 是两点距离；（3）旋转用乘 e^{iθ} 表示，中点用 (z₁+z₂)/2；完成后回看结论是否满足题设条件。",
+          "用复数解几何题的\"翻译\"步骤是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_complex.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f4b4d6ec67b70cce22abc505b0a731af4ca4ab3785fabdd965230b8d7f6aa049"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "复数进阶连接多项式（o_poly）、几何变换（o_geo_vec）、三角恒等式（o_trig_id）。",
+        "points": [
+          "三次单位根满足 1+ω+ω²=0，为什么这个式子这么有用？",
+          "用复数解几何题的\"翻译\"步骤是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_complex.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:025e84c235aba7dcfc480b33649d55197fabb7ddf597e8e781da685721cde399"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_complex-01",
+        "level": "待人工复核",
+        "question": "用复数证明：平行四边形对角线平方和等于四边平方和",
+        "hint": "单位根 ω³=1 且 1+ω+ω²=0，用于处理三次对称",
+        "solution": "设顶点对应复数 a,b,c,d，用 |z|²=z·z̄ 展开对角线向量，交叉项会相消，化简即得。核心是把几何长度转成复数模的代数运算。",
+        "answer": "平行四边形对角线平方和等于四边平方和",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_complex.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·复数进阶｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:791e04e5864dbc1f7d67ab283cb1409da126e4e06ce485381540ebc0c028785f"
+        }
+      }
+    ]
+  },
+  "o_cong": {
+    "concept": {
+      "title": "整除与同余",
+      "body": "这是同余的系统学习。核心工具是费马小定理、欧拉定理、中国剩余定理——它们让大数的高次幂计算、同余方程组求解变得可行。同余是数论竞赛使用频率最高的语言。",
+      "points": [
+        "欧几里得算法",
+        "同余性质",
+        "完全剩余系",
+        "高斯函数"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_cong.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:0fd9a54ddaf2ae3ec8589f703e34960026dd9a7392f324073219d855a6405102"
+        },
+        {
+          "path": "reliable-data/lessons/o_cong.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:6b3e82467e923369681e2277330df2b6830926cf199f1107196a7cb47a6a2cf3"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这是同余的系统学习。核心工具是费马小定理、欧拉定理、中国剩余定理——它们让大数的高次幂计算、同余方程组求解变得可行。同余是数论竞赛使用频率最高的语言。",
+        "points": [
+          "费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）",
+          "欧拉定理：a^φ(n)≡1 (mod n)（a,n 互素）",
+          "中国剩余定理：解模数两两互素的一次同余方程组"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_cong.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:6b3e82467e923369681e2277330df2b6830926cf199f1107196a7cb47a6a2cf3"
+        }
+      },
+      {
+        "title": "易错 · PF-o_cong-01",
+        "body": "费马定理的素数条件忘记验证",
+        "points": [
+          "题目落在「整除与同余」考点，或出现「整除、余数、同余方程」类识别信号时；参照本节点示范题「求 3²⁰⁰ mod 7」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）；（2）欧拉定理：a^φ(n)≡1 (mod n)（a,n 互素）；（3）中国剩余定理：解模数两两互素的一次同余方程组；完成后回看结论是否满足题设条件。",
+          "费马小定理为什么能把大指数化简？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_cong.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:902ba44bba24d5a41ce15022c34198b1a75519b733d453ce3c620aea31e7feb2"
+        }
+      },
+      {
+        "title": "易错 · PF-o_cong-02",
+        "body": "欧拉函数中 φ(n) 计算错误",
+        "points": [
+          "题目落在「整除与同余」考点，或出现「整除、余数、同余方程」类识别信号时；参照本节点示范题「求 3²⁰⁰ mod 7」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）；（2）欧拉定理：a^φ(n)≡1 (mod n)（a,n 互素）；（3）中国剩余定理：解模数两两互素的一次同余方程组；完成后回看结论是否满足题设条件。",
+          "欧拉定理和费马定理是什么关系？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_cong.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:902ba44bba24d5a41ce15022c34198b1a75519b733d453ce3c620aea31e7feb2"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "同余是费马欧拉定理（o_fermat）、不定方程（o_dio2）、数论函数（o_numfun）的核心工具。",
+        "points": [
+          "费马小定理为什么能把大指数化简？",
+          "欧拉定理和费马定理是什么关系？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_cong.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:6b3e82467e923369681e2277330df2b6830926cf199f1107196a7cb47a6a2cf3"
+        }
+      },
+      {
+        "title": "整除与同余",
+        "body": "同余把「整除」升级为一套可运算的代数系统：a ≡ b (mod m) 表示 m | (a − b)。它是数论最核心的语言。",
+        "points": [
+          "定义：a ≡ b (mod m) ⟺ m 整除 a − b。",
+          "性质：同余关系对加、减、乘封闭；若 a ≡ b，则 aⁿ ≡ bⁿ。",
+          "带余除法：任意整数 a 除以 m 有唯一 a = qm + r，0 ≤ r < m。"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_cong",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:fce89a107f9a395f535de1a6b1253524689ca93a57da46435eb3a6fbff41f065"
+        }
+      },
+      {
+        "title": "「取合适的模」是关键第一步",
+        "body": "数论题的突破口往往是选对模数。常用选择：题目出现奇偶 → 模 2；出现平方数 → 模 4 或模 8；出现 3、9 的倍数 → 模 3 或模 9；末位数 → 模 10。选模的目标是让高次幂快速循环、把未知量压缩到有限种余数。",
+        "points": [
+          "先扫描题目中的「固定数字」",
+          "优先让底数与模互素以便用周期",
+          "余数类越少越好"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_cong",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:fce89a107f9a395f535de1a6b1253524689ca93a57da46435eb3a6fbff41f065"
+        }
+      },
+      {
+        "title": "费马小定理与欧拉定理（预告）",
+        "body": "若 p 为素数且 (a,p)=1，则 a^(p−1) ≡ 1 (mod p)，可把巨大的指数降下来。这是后续「费马小定理·欧拉定理·孙子定理」节点的重点，此处先建立「指数可以约化」的直觉。",
+        "points": [
+          "降幂是处理大指数的通法",
+          "注意互素前提",
+          "与二项式展开配合"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_cong",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:fce89a107f9a395f535de1a6b1253524689ca93a57da46435eb3a6fbff41f065"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_cong-01",
+        "level": "待人工复核",
+        "question": "求 3²⁰⁰ mod 7",
+        "hint": "费马小定理：素数 p 且 p∤a 时 a^(p−1)≡1 (mod p)（a 是 p 的倍数时不成立）",
+        "solution": "由费马小定理 3⁶≡1 (mod 7)。200=6×33+2，故 3²⁰⁰≡3²=9≡2 (mod 7)。核心是\"用费马定理把大指数降到小指数\"。",
+        "answer": "3²⁰⁰≡2 (mod 7)",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_cong.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·整除与同余｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3895eea6e09574bedc556bb3d3403d3c73fa12a0c2eb48c32cf4319712226a4a"
+        }
+      },
+      {
+        "title": "大指数求余数",
+        "level": "基础",
+        "question": "求 2^100 除以 7 的余数。",
+        "hint": "先找 2 的幂模 7 的循环节。",
+        "solution": "2³ = 8 ≡ 1 (mod 7)，故周期为 3。100 = 3×33 + 1，于是 2^100 = (2³)^33 · 2 ≡ 1^33 · 2 = 2 (mod 7)。",
+        "answer": "余数为 2",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_cong",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:fce89a107f9a395f535de1a6b1253524689ca93a57da46435eb3a6fbff41f065"
+        }
+      },
+      {
+        "title": "用模排除无解",
+        "level": "提高",
+        "question": "证明：方程 x² + 1 = 3y 无整数解。",
+        "hint": "对等式两边取模 3，考察平方数模 3 的可能取值。",
+        "solution": "模 3 下，平方数只可能为 0 或 1（0²=0, 1²=1, 2²=4≡1）。左边 x²+1 ≡ 1 或 2 (mod 3)，永远不为 0；而右边 3y ≡ 0 (mod 3)。矛盾，故无整数解。",
+        "answer": "无整数解",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_cong",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:fce89a107f9a395f535de1a6b1253524689ca93a57da46435eb3a6fbff41f065"
+        }
+      }
+    ]
+  },
+  "o_dio": {
+    "concept": {
+      "title": "不定方程初步",
+      "body": "不定方程是未知数个数多于方程个数、要求整数解的方程。核心思路是\"加限制\"——通过因式分解、同余分析、放缩范围，把无限的可能压缩到有限的可枚举情形。",
+      "points": [
+        "一次不定方程",
+        "整数解",
+        "非负整数解"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_dio.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:72e4a587890b82961b236963b88b517126a74a9deccf1201066c78610c43450f"
+        },
+        {
+          "path": "reliable-data/lessons/o_dio.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:de589a2a1d28f301b6401579371f08e190360a1f8fa9c1c8b18abb532027cb47"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "不定方程是未知数个数多于方程个数、要求整数解的方程。核心思路是\"加限制\"——通过因式分解、同余分析、放缩范围，把无限的可能压缩到有限的可枚举情形。",
+        "points": [
+          "因式分解法：把方程化为两个因式乘积等于常数",
+          "同余法：对方程取模，排除不可能的情形",
+          "不等式放缩：界定变量范围后枚举"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_dio.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:de589a2a1d28f301b6401579371f08e190360a1f8fa9c1c8b18abb532027cb47"
+        }
+      },
+      {
+        "title": "易错 · PF-o_dio-01",
+        "body": "忘记题目要求（正整数、非负整数还是任意整数）",
+        "points": [
+          "题目落在「不定方程初步」考点，或出现「整数解、正整数解」类识别信号时；参照本节点示范题「求 x+y=5 的正整数解」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）因式分解法：把方程化为两个因式乘积等于常数；（2）同余法：对方程取模，排除不可能的情形；（3）不等式放缩：界定变量范围后枚举；完成后回看结论是否满足题设条件。",
+          "不定方程为什么\"不定\"？如何把它变\"定\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_dio.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8dbead41add4758a4c30a415c69ddf4740de2dc1b375a6127c13963dd34df6dd"
+        }
+      },
+      {
+        "title": "易错 · PF-o_dio-02",
+        "body": "枚举不全或有重复",
+        "points": [
+          "题目落在「不定方程初步」考点，或出现「整数解、正整数解」类识别信号时；参照本节点示范题「求 x+y=5 的正整数解」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）因式分解法：把方程化为两个因式乘积等于常数；（2）同余法：对方程取模，排除不可能的情形；（3）不等式放缩：界定变量范围后枚举；完成后回看结论是否满足题设条件。",
+          "因式分解法解不定方程的原理是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_dio.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8dbead41add4758a4c30a415c69ddf4740de2dc1b375a6127c13963dd34df6dd"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "不定方程初步是 o_dio2 的基础，连接整除同余。",
+        "points": [
+          "不定方程为什么\"不定\"？如何把它变\"定\"？",
+          "因式分解法解不定方程的原理是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_dio.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:de589a2a1d28f301b6401579371f08e190360a1f8fa9c1c8b18abb532027cb47"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_dio-01",
+        "level": "待人工复核",
+        "question": "求 x+y=5 的正整数解",
+        "hint": "因式分解法：把方程化为两个因式乘积等于常数",
+        "solution": "x 可取 1,2,3,4，对应 y=4,3,2,1，共 4 组。核心是\"用正整数的范围限制把无限变有限\"。",
+        "answer": "正整数解共 4 组",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_dio.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·不定方程初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:97534465d810cec5d2ca4ded36abfbf0649455287201b778e8ff63708e55599f"
+        }
+      }
+    ]
+  },
+  "o_dio2": {
+    "concept": {
+      "title": "不定方程",
+      "body": "竞赛级的不定方程比初步更难，典型如丢番图方程、勾股数、佩尔方程。核心仍是\"限制\"，但工具更高级：模运算排除、因式分解、无穷递降法。",
+      "points": [
+        "一次不定方程",
+        "二次不定方程",
+        "Pell方程",
+        "无穷递降"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_dio2.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:b97360a3746630626d69130bcd71cba8c742d59949660ae8a25f350a2fee1f49"
+        },
+        {
+          "path": "reliable-data/lessons/o_dio2.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:238cfd9cfa129605217135f01cef66c5a634e73271003f026e435c1a5b4054b0"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "竞赛级的不定方程比初步更难，典型如丢番图方程、勾股数、佩尔方程。核心仍是\"限制\"，但工具更高级：模运算排除、因式分解、无穷递降法。",
+        "points": [
+          "模运算排除不可能情形（如模 4 分析平方数）",
+          "因式分解把方程化为乘积形式",
+          "无穷递降法证明无解"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_dio2.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:238cfd9cfa129605217135f01cef66c5a634e73271003f026e435c1a5b4054b0"
+        }
+      },
+      {
+        "title": "易错 · PF-o_dio2-01",
+        "body": "构造的解不满足方程",
+        "points": [
+          "题目落在「不定方程」考点，或出现「整数解、无解证明」类识别信号时；参照本节点示范题「证明 x²+y²=z² 有无穷多组正整数解」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）模运算排除不可能情形（如模 4 分析平方数）；（2）因式分解把方程化为乘积形式；（3）无穷递降法证明无解；完成后回看结论是否满足题设条件。",
+          "模运算为什么能排除某些不定方程的解？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_dio2.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:00e549e515eff23061a6f2adf946b5cbe716d5501b872b7b31cbfdf85ce62afa"
+        }
+      },
+      {
+        "title": "易错 · PF-o_dio2-02",
+        "body": "无穷递降法的逻辑链条不完整",
+        "points": [
+          "题目落在「不定方程」考点，或出现「整数解、无解证明」类识别信号时；参照本节点示范题「证明 x²+y²=z² 有无穷多组正整数解」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）模运算排除不可能情形（如模 4 分析平方数）；（2）因式分解把方程化为乘积形式；（3）无穷递降法证明无解；完成后回看结论是否满足题设条件。",
+          "无穷递降法的思想是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_dio2.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:00e549e515eff23061a6f2adf946b5cbe716d5501b872b7b31cbfdf85ce62afa"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "不定方程连接同余（o_cong）、费马定理（o_fermat）、勾股数（j_cong）。",
+        "points": [
+          "模运算为什么能排除某些不定方程的解？",
+          "无穷递降法的思想是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_dio2.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:238cfd9cfa129605217135f01cef66c5a634e73271003f026e435c1a5b4054b0"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_dio2-01",
+        "level": "待人工复核",
+        "question": "证明 x²+y²=z² 有无穷多组正整数解",
+        "hint": "模运算排除不可能情形（如模 4 分析平方数）",
+        "solution": "用参数化公式 x=m²−n²，y=2mn，z=m²+n²（m>n>0）。任意满足条件的 m、n 给出一组解，故有无穷多。核心是\"找到通解的参数表示\"。",
+        "answer": "x=m²−n², y=2mn, z=m²+n²（m>n>0）给出无穷多组正整数解",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_dio2.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·不定方程｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8bd74587d0cbd3abea46d3c0305c5b2b1f374da2b60f8e495923ccc318e94843"
+        }
+      }
+    ]
+  },
+  "o_div0": {
+    "concept": {
+      "title": "整除与同余初步",
+      "body": "整除是数论的起点：a|b 表示 b 能被 a 整除。同余是整除的语言升级：a≡b (mod m) 表示 a−b 能被 m 整除。引入同余的好处是，加减乘运算可以像等式一样在模意义下进行。",
+      "points": [
+        "被2/3/4/5/8/9/11整除",
+        "奇偶性分析",
+        "带余除法",
+        "完全平方数"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_div0.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:eac430dcb6597f7e9c8fbb7cce6b3c66cfb800233cedf6478d75132a06711a9d"
+        },
+        {
+          "path": "reliable-data/lessons/o_div0.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e3c9346e1a6930f2a327921a47c445037ddae3e402e2d173a2689a09bb1574d1"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "整除是数论的起点：a|b 表示 b 能被 a 整除。同余是整除的语言升级：a≡b (mod m) 表示 a−b 能被 m 整除。引入同余的好处是，加减乘运算可以像等式一样在模意义下进行。",
+        "points": [
+          "整除的基本性质与整除判别法（被 2、3、9、11 整除的规律）",
+          "同余的加减乘保持，但除法要小心（需互素条件）",
+          "带余除法：任何整数除以 m 都有唯一余数 0…m−1"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_div0.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e3c9346e1a6930f2a327921a47c445037ddae3e402e2d173a2689a09bb1574d1"
+        }
+      },
+      {
+        "title": "易错 · PF-o_div0-01",
+        "body": "同余两边随意约分（需与模互素）",
+        "points": [
+          "题目落在「整除与同余初步」考点，或出现「整除证明、奇偶性、尾数」类识别信号时；参照本节点示范题「求 2¹⁰⁰ 的末位数字」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）整除的基本性质与整除判别法（被 2、3、9、11 整除的规律）；（2）同余的加减乘保持，但除法要小心（需互素条件）；（3）带余除法：任何整数除以 m 都有唯一余数 0…m−1；完成后回看结论是否满足题设条件。",
+          "同余为什么能像等式一样做加减乘？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_div0.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3119b452c47b57b383ca39027a38e6fc824fa0972c7f2a847130c6b7ea4edaed"
+        }
+      },
+      {
+        "title": "易错 · PF-o_div0-02",
+        "body": "忽略除数为零",
+        "points": [
+          "题目落在「整除与同余初步」考点，或出现「整除证明、奇偶性、尾数」类识别信号时；参照本节点示范题「求 2¹⁰⁰ 的末位数字」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）整除的基本性质与整除判别法（被 2、3、9、11 整除的规律）；（2）同余的加减乘保持，但除法要小心（需互素条件）；（3）带余除法：任何整数除以 m 都有唯一余数 0…m−1；完成后回看结论是否满足题设条件。",
+          "同余除法为什么要\"互素\"条件？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_div0.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3119b452c47b57b383ca39027a38e6fc824fa0972c7f2a847130c6b7ea4edaed"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "整除同余初步是同余（o_cong）、不定方程（o_dio）、费马定理（o_fermat）的基础。",
+        "points": [
+          "同余为什么能像等式一样做加减乘？",
+          "同余除法为什么要\"互素\"条件？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_div0.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e3c9346e1a6930f2a327921a47c445037ddae3e402e2d173a2689a09bb1574d1"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_div0-01",
+        "level": "待人工复核",
+        "question": "求 2¹⁰⁰ 的末位数字",
+        "hint": "整除的基本性质与整除判别法（被 2、3、9、11 整除的规律）",
+        "solution": "末位即 mod 10。2¹=2,2²=4,2³=8,2⁴=16≡6,2⁵≡12≡2，周期为 4。100 是 4 的倍数，故 2¹⁰⁰≡2⁴≡6，末位是 6。核心是\"同余下的周期规律\"。",
+        "answer": "2¹⁰⁰ 末位是 6",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_div0.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·整除与同余初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:81e0368f182d4d60ab7008ec3be25b88abfa95b92728860192687af4cb659fd7"
+        }
+      }
+    ]
+  },
+  "o_fermat": {
+    "concept": {
+      "title": "费马小定理 · 欧拉定理 · 孙子定理",
+      "body": "这三大定理是数论竞赛的核心武器库。费马与欧拉处理\"幂的模\"，孙子定理（中国剩余定理）处理\"同余方程组\"。掌握它们，绝大多数数论计算题都有了系统解法。",
+      "points": [
+        "费马小定理",
+        "欧拉定理与欧拉函数",
+        "中国剩余定理"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_fermat.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:b3f51a58655a7445525133db4fe9b0ae55b834af85374f29425bd0a050a4db1a"
+        },
+        {
+          "path": "reliable-data/lessons/o_fermat.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d012b58775ec24db84ae1b76b8f58af13499f3ca24dfdb66a24569aeb132aea0"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这三大定理是数论竞赛的核心武器库。费马与欧拉处理\"幂的模\"，孙子定理（中国剩余定理）处理\"同余方程组\"。掌握它们，绝大多数数论计算题都有了系统解法。",
+        "points": [
+          "费马小定理用于素数模的降幂（前提 p 为素数且 p∤a）",
+          "欧拉定理推广到合数模，关键是算 φ(n)（前提 gcd(a,n)=1）",
+          "中国剩余定理逐次代入解同余方程组（前提模数两两互素）"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_fermat.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d012b58775ec24db84ae1b76b8f58af13499f3ca24dfdb66a24569aeb132aea0"
+        }
+      },
+      {
+        "title": "易错 · PF-o_fermat-01",
+        "body": "同余方程组的模数不互素时直接套定理",
+        "points": [
+          "题目落在「费马小定理 · 欧拉定理 · 孙子定理」考点，或出现「求余数、解同余方程组」类识别信号时；参照本节点示范题「求满足 x≡2(mod 3)、x≡3(mod 5) 的最小正整数」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）费马小定理用于素数模的降幂（前提 p 为素数且 p∤a）；（2）欧拉定理推广到合数模，关键是算 φ(n)（前提 gcd(a,n)=1）；（3）中国剩余定理逐次代入解同余方程组（前提模数两两互素）；完成后回看结论是否满足题设条件。",
+          "中国剩余定理为什么要模数互素？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_fermat.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0e785b1a743fbc55c59fd080c68fbccbc87425bd43248ef1af5c114b33a496e7"
+        }
+      },
+      {
+        "title": "易错 · PF-o_fermat-02",
+        "body": "逆元求错",
+        "points": [
+          "题目落在「费马小定理 · 欧拉定理 · 孙子定理」考点，或出现「求余数、解同余方程组」类识别信号时；参照本节点示范题「求满足 x≡2(mod 3)、x≡3(mod 5) 的最小正整数」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）费马小定理用于素数模的降幂（前提 p 为素数且 p∤a）；（2）欧拉定理推广到合数模，关键是算 φ(n)（前提 gcd(a,n)=1）；（3）中国剩余定理逐次代入解同余方程组（前提模数两两互素）；完成后回看结论是否满足题设条件。",
+          "欧拉定理如何退化为费马小定理？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_fermat.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0e785b1a743fbc55c59fd080c68fbccbc87425bd43248ef1af5c114b33a496e7"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "三大定理是数论函数（o_numfun）、同余应用的基础。",
+        "points": [
+          "中国剩余定理为什么要模数互素？",
+          "欧拉定理如何退化为费马小定理？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_fermat.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d012b58775ec24db84ae1b76b8f58af13499f3ca24dfdb66a24569aeb132aea0"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_fermat-01",
+        "level": "待人工复核",
+        "question": "求满足 x≡2(mod 3)、x≡3(mod 5) 的最小正整数",
+        "hint": "费马小定理用于素数模的降幂（前提 p 为素数且 p∤a）",
+        "solution": "设 x=3k+2，代入第二式：3k+2≡3(mod 5)，3k≡1(mod 5)，k≡2(mod 5)，k=5t+2，x=15t+8，最小正整数是 8。核心是\"逐次代入消元\"。",
+        "answer": "最小正整数解 x=8",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_fermat.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·费马小定理 · 欧拉定理 · 孙子定理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:78321c8a3fceb423616e168f653b1c4e1167fad2fbc48077b35bab1496fdeff8"
+        }
+      }
+    ]
+  },
+  "o_func_eq": {
+    "concept": {
+      "title": "函数迭代与函数方程",
+      "body": "函数方程是二试代数的 flagship 题型：不给函数表达式，只给满足的条件，要你求出函数。它的核心方法是\"赋值\"——通过取特殊值逐步逼近函数在这些点上的行为，最后猜出形式并证明。",
+      "points": [
+        "函数迭代",
+        "n次迭代",
+        "函数方程",
+        "赋值法"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_func_eq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:54726e95c990412691c84d7cbdb913d11cf09a40e6f7f4f5d26b1c69326da61f"
+        },
+        {
+          "path": "reliable-data/lessons/o_func_eq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:63f552537694b44ff59f64354ba7180b47c55f2f6790890862aef9e2db4fc020"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "函数方程是二试代数的 flagship 题型：不给函数表达式，只给满足的条件，要你求出函数。它的核心方法是\"赋值\"——通过取特殊值逐步逼近函数在这些点上的行为，最后猜出形式并证明。",
+        "points": [
+          "赋值法：依次取 0、1、−1、y=x 等特殊值",
+          "换元法：把表达式中的量换成新变量构造方程",
+          "先猜后证：算出几个值归纳出形式，再严格验证"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_func_eq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:63f552537694b44ff59f64354ba7180b47c55f2f6790890862aef9e2db4fc020"
+        }
+      },
+      {
+        "title": "易错 · PF-o_func_eq-01",
+        "body": "只猜出函数形式就结束，没有证明",
+        "points": [
+          "题目落在「函数迭代与函数方程」考点，或出现「求f(x)、求迭代式」类识别信号时；参照本节点示范题「已知 f(x+y)=f(x)+f(y)，求 f(0)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）赋值法：依次取 0、1、−1、y=x 等特殊值；（2）换元法：把表达式中的量换成新变量构造方程；（3）先猜后证：算出几个值归纳出形式，再严格验证；完成后回看结论是否满足题设条件。",
+          "为什么函数方程的第一步往往是赋值？赋值能告诉你什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_func_eq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:45cdd169a528431199b9bf5f197ab806933ac91c591eba3206acce7e8da89e9e"
+        }
+      },
+      {
+        "title": "易错 · PF-o_func_eq-02",
+        "body": "赋值时忽略定义域限制",
+        "points": [
+          "题目落在「函数迭代与函数方程」考点，或出现「求f(x)、求迭代式」类识别信号时；参照本节点示范题「已知 f(x+y)=f(x)+f(y)，求 f(0)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）赋值法：依次取 0、1、−1、y=x 等特殊值；（2）换元法：把表达式中的量换成新变量构造方程；（3）先猜后证：算出几个值归纳出形式，再严格验证；完成后回看结论是否满足题设条件。",
+          "猜出函数形式后为什么还必须证明？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_func_eq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:45cdd169a528431199b9bf5f197ab806933ac91c591eba3206acce7e8da89e9e"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "函数方程综合了函数性质、代数变形、数学归纳法，是代数能力的集中体现。",
+        "points": [
+          "为什么函数方程的第一步往往是赋值？赋值能告诉你什么？",
+          "猜出函数形式后为什么还必须证明？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_func_eq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:63f552537694b44ff59f64354ba7180b47c55f2f6790890862aef9e2db4fc020"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_func_eq-01",
+        "level": "待人工复核",
+        "question": "已知 f(x+y)=f(x)+f(y)，求 f(0)",
+        "hint": "赋值法：依次取 0、1、−1、y=x 等特殊值",
+        "solution": "令 x=y=0：f(0)=f(0)+f(0)，故 f(0)=0。这是函数方程最典型的起手式——用特殊值锁定关键点。",
+        "answer": "f(0)=0",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_func_eq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·函数迭代与函数方程｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:39bd10bcfb168def32448968766b85c1092c47618c41ab157e0ae2e83175bafa"
+        }
+      }
+    ]
+  },
+  "o_geo_area": {
+    "concept": {
+      "title": "面积法与等积变换",
+      "body": "面积法是一种\"降维\"思想：把长度关系、比例关系转化为面积关系来处理。它的威力在于——等高三角形的面积比等于底边比，这把\"比例\"变成了\"面积\"，而面积往往更容易计算或比较。",
+      "points": [
+        "面积比与线段比",
+        "共边定理",
+        "等积变形",
+        "面积坐标"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_geo_area.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:a6820e836485d4a7e09ecaca95f6d401cc181e7248871342a57bbc7b8f7daf2f"
+        },
+        {
+          "path": "reliable-data/lessons/o_geo_area.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2181d7ebd35260aaaa4bb2ed0ddcdf57605e239b73c65db527a257f5f71bcef7"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "面积法是一种\"降维\"思想：把长度关系、比例关系转化为面积关系来处理。它的威力在于——等高三角形的面积比等于底边比，这把\"比例\"变成了\"面积\"，而面积往往更容易计算或比较。",
+        "points": [
+          "等高三角形面积比 = 底边比",
+          "共角三角形面积比 = 两边乘积之比",
+          "燕尾定理处理三角形内部一点分割的面积关系"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_area.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2181d7ebd35260aaaa4bb2ed0ddcdf57605e239b73c65db527a257f5f71bcef7"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_area-01",
+        "body": "等高条件没确认就用面积比=底边比",
+        "points": [
+          "题目落在「面积法与等积变换」考点，或出现「求比值、证明共线、面积关系」类识别信号时；参照本节点示范题「证明三角形角平分线分对边成比例（角平分线定理）」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）等高三角形面积比 = 底边比；（2）共角三角形面积比 = 两边乘积之比；（3）燕尾定理处理三角形内部一点分割的面积关系；完成后回看结论是否满足题设条件。",
+          "为什么说面积法是\"降维\"思想？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_area.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:71d7557a36a0f41dac09c804efe252f26259acf87a96b40314416a24438a56da"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_area-02",
+        "body": "面积法列式后忘记化简",
+        "points": [
+          "题目落在「面积法与等积变换」考点，或出现「求比值、证明共线、面积关系」类识别信号时；参照本节点示范题「证明三角形角平分线分对边成比例（角平分线定理）」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）等高三角形面积比 = 底边比；（2）共角三角形面积比 = 两边乘积之比；（3）燕尾定理处理三角形内部一点分割的面积关系；完成后回看结论是否满足题设条件。",
+          "等高三角形的面积比为什么等于底边比？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_area.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:71d7557a36a0f41dac09c804efe252f26259acf87a96b40314416a24438a56da"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "面积法连接相似、梅涅劳斯、几何不等式，是一种通用的\"翻译器\"。",
+        "points": [
+          "为什么说面积法是\"降维\"思想？",
+          "等高三角形的面积比为什么等于底边比？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_area.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2181d7ebd35260aaaa4bb2ed0ddcdf57605e239b73c65db527a257f5f71bcef7"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_geo_area-01",
+        "level": "待人工复核",
+        "question": "证明三角形角平分线分对边成比例（角平分线定理）",
+        "hint": "等高三角形面积比 = 底边比",
+        "solution": "用面积法：BD/DC = S△ABD/S△ACD（等高）= (AB·sin∠BAD)/(AC·sin∠CAD)=AB/AC。核心是用面积作为\"桥梁\"连接底边比与边长比。",
+        "answer": "BD/DC=AB/AC",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_geo_area.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·面积法与等积变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:895e1a561c26f3d551fa323e0d20dc6d679a76612e6a5e16ad6afeef8b28a57a"
+        }
+      }
+    ]
+  },
+  "o_geo_basic": {
+    "concept": {
+      "title": "几何定理进阶(初中部分)",
+      "body": "这一节把初中几何的核心定理系统化，重点掌握它们的\"适用场景\"。竞赛几何的第二难不是不会定理，而是面对图形想不起该用哪个——所以要建立\"图形特征 → 定理\"的索引。",
+      "points": [
+        "三角形不等关系",
+        "面积与等积变换",
+        "四点共圆初步",
+        "三角形五心初步"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_geo_basic.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:0eed38628e407e3b9f529b77730a90c00f9c6cb2b969cad025425413a9eccadb"
+        },
+        {
+          "path": "reliable-data/lessons/o_geo_basic.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a0b76a13b64c6596735cbdaf8681c2802f28e74d12f065227d630ba48b4e4e16"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这一节把初中几何的核心定理系统化，重点掌握它们的\"适用场景\"。竞赛几何的第二难不是不会定理，而是面对图形想不起该用哪个——所以要建立\"图形特征 → 定理\"的索引。",
+        "points": [
+          "见中点想中位线、见角平分线想到角平分线定理",
+          "见高线想到面积、见直角想到勾股与共圆",
+          "建立\"特征 → 工具\"的条件反射"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_basic.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a0b76a13b64c6596735cbdaf8681c2802f28e74d12f065227d630ba48b4e4e16"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_basic-01",
+        "body": "定理记了但不会主动调用",
+        "points": [
+          "题目落在「几何定理进阶(初中部分)」考点，或出现「共线共点、五心性质、面积比」类识别信号时；参照本节点示范题「三角形中，D 是 AB 中点，E 是 AC 中点，DE 与 BC 的关系？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）见中点想中位线、见角平分线想到角平分线定理；（2）见高线想到面积、见直角想到勾股与共圆；（3）建立\"特征 → 工具\"的条件反射；完成后回看结论是否满足题设条件。",
+          "看到\"中点\"应该想到哪些定理？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_basic.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5ba4bd650080f09768b688bade9c5b071a7b89c3ce8cc443e444e653cabb1752"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_basic-02",
+        "body": "辅助线添加没有目的",
+        "points": [
+          "题目落在「几何定理进阶(初中部分)」考点，或出现「共线共点、五心性质、面积比」类识别信号时；参照本节点示范题「三角形中，D 是 AB 中点，E 是 AC 中点，DE 与 BC 的关系？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）见中点想中位线、见角平分线想到角平分线定理；（2）见高线想到面积、见直角想到勾股与共圆；（3）建立\"特征 → 工具\"的条件反射；完成后回看结论是否满足题设条件。",
+          "为什么说竞赛几何的难点是\"想不起该用哪个定理\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_basic.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5ba4bd650080f09768b688bade9c5b071a7b89c3ce8cc443e444e653cabb1752"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "这一节是梅涅劳斯/塞瓦、面积法等竞赛工具的前置。",
+        "points": [
+          "看到\"中点\"应该想到哪些定理？",
+          "为什么说竞赛几何的难点是\"想不起该用哪个定理\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_basic.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a0b76a13b64c6596735cbdaf8681c2802f28e74d12f065227d630ba48b4e4e16"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_geo_basic-01",
+        "level": "待人工复核",
+        "question": "三角形中，D 是 AB 中点，E 是 AC 中点，DE 与 BC 的关系？",
+        "hint": "见中点想中位线、见角平分线想到角平分线定理",
+        "solution": "由中位线定理 DE∥BC 且 DE=BC/2。核心是\"见两个中点立即想到中位线\"。",
+        "answer": "DE∥BC 且 DE=BC/2",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_geo_basic.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·几何定理进阶(初中部分)｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:23cf4c8aa83674e0f3242fcb07e24bb709580ec037b6c7ae4d8ef85535fb34be"
+        }
+      }
+    ]
+  },
+  "o_geo_ceva": {
+    "concept": {
+      "title": "梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松",
+      "body": "这四个定理是竞赛几何的\"重型武器\"：梅涅劳斯处理共线，塞瓦处理共点，托勒密处理圆内接四边形，西姆松处理垂足共线。它们的共同特点是——把\"位置关系\"转化为\"比例乘积等于 1\"。",
+      "points": [
+        "梅涅劳斯定理及逆",
+        "塞瓦定理及逆",
+        "托勒密定理",
+        "西姆松定理"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_geo_ceva.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:44a6ffbf72cadc04278dad0a138f0d25b4c5d077c17981cff318fd33b757294f"
+        },
+        {
+          "path": "reliable-data/lessons/o_geo_ceva.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c6f34873e4e121ccc3bf36111290b0ae1c6f8a72ef8becb8d8874be7f6af601c"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这四个定理是竞赛几何的\"重型武器\"：梅涅劳斯处理共线，塞瓦处理共点，托勒密处理圆内接四边形，西姆松处理垂足共线。它们的共同特点是——把\"位置关系\"转化为\"比例乘积等于 1\"。",
+        "points": [
+          "梅涅劳斯：一条直线截三角形三边，三段比例乘积=1（用于证共线）",
+          "塞瓦：三条线共点，三段比例乘积=1（用于证共点）",
+          "托勒密：圆内接四边形对角线乘积=对边乘积之和"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_ceva.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c6f34873e4e121ccc3bf36111290b0ae1c6f8a72ef8becb8d8874be7f6af601c"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_ceva-01",
+        "body": "有向线段与无向线段混淆",
+        "points": [
+          "题目落在「梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松」考点，或出现「证明三点共线、证明三线共点、四点共圆」类识别信号时；参照本节点示范题「D、E、F 分别在三角形 ABC 三边上，求证 AD、BE、CF 共点的条件」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）梅涅劳斯：一条直线截三角形三边，三段比例乘积=1（用于证共线）；（2）塞瓦：三条线共点，三段比例乘积=1（用于证共点）；（3）托勒密：圆内接四边形对角线乘积=对边乘积之和；完成后回看结论是否满足题设条件。",
+          "梅涅劳斯和塞瓦分别解决什么问题？它们的结论形式有什么共同点？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_ceva.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a72832eb2e9910eb12ead65d7f1f0be515c29370cfa29022102c361ba4d157ab"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_ceva-02",
+        "body": "定理的适用图形没看清就套用",
+        "points": [
+          "题目落在「梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松」考点，或出现「证明三点共线、证明三线共点、四点共圆」类识别信号时；参照本节点示范题「D、E、F 分别在三角形 ABC 三边上，求证 AD、BE、CF 共点的条件」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）梅涅劳斯：一条直线截三角形三边，三段比例乘积=1（用于证共线）；（2）塞瓦：三条线共点，三段比例乘积=1（用于证共点）；（3）托勒密：圆内接四边形对角线乘积=对边乘积之和；完成后回看结论是否满足题设条件。",
+          "为什么比例乘积=1 能刻画共线/共点？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_ceva.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a72832eb2e9910eb12ead65d7f1f0be515c29370cfa29022102c361ba4d157ab"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "这四个定理连接相似、面积法、圆，是二试几何一试二试的分水岭。",
+        "points": [
+          "梅涅劳斯和塞瓦分别解决什么问题？它们的结论形式有什么共同点？",
+          "为什么比例乘积=1 能刻画共线/共点？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_ceva.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c6f34873e4e121ccc3bf36111290b0ae1c6f8a72ef8becb8d8874be7f6af601c"
+        }
+      },
+      {
+        "title": "梅涅劳斯定理与塞瓦定理",
+        "body": "两个定理都用「三条边上的比值乘积等于 1」来刻画共线与共点，是竞赛几何处理共线、共点问题的核心工具。",
+        "points": [
+          "梅涅劳斯（共线）：点 D、E、F 分别在 △ABC 的边 BC、CA、AB（或其延长线）上，则 D、E、F 共线 ⟺ (BD/DC)·(CE/EA)·(AF/FB) = 1（有向线段）。",
+          "塞瓦（共点）：AD、BE、CF 分别是三条 cevian，则三线共点 ⟺ (BD/DC)·(CE/EA)·(AF/FB) = 1。",
+          "记忆：乘积式相同，一个判共线、一个判共点；都用逆定理来「证明」。"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_geo_ceva",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:1592cf346b5376f6485183915217f31e69442907464dd376819b59434f61946b"
+        }
+      },
+      {
+        "title": "有向线段与符号规则",
+        "body": "用无向长度时，只要截线穿过三角形的边（而非延长线），三个比值都为正，乘积恒为 1。若有一点在延长线上，需带负号：内分点为正、外分点为负，三个比值中负号个数为偶数（0 或 2），乘积仍为 +1。",
+        "points": [
+          "先判断每个分点是内分还是外分",
+          "按「顶点→分点→顶点」的固定顺序写比值",
+          "证明共线/共点时优先用逆定理"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_geo_ceva",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:1592cf346b5376f6485183915217f31e69442907464dd376819b59434f61946b"
+        }
+      },
+      {
+        "title": "与面积法的联系",
+        "body": "梅涅劳斯定理本质上是面积比连乘：同高三角形的面积比等于底边比，把 (BD/DC)(CE/EA)(AF/FB) 写成六个三角形的面积比，连乘后全部约掉即得 1。理解这一点后，很多比例题既可用梅氏、也可用面积法。",
+        "points": [
+          "同高比 = 底比",
+          "面积比连乘是通法",
+          "两条路径可互相验证"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_geo_ceva",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:1592cf346b5376f6485183915217f31e69442907464dd376819b59434f61946b"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_geo_ceva-01",
+        "level": "待人工复核",
+        "question": "D、E、F 分别在三角形 ABC 三边上，求证 AD、BE、CF 共点的条件",
+        "hint": "梅涅劳斯：一条直线截三角形三边，三段比例乘积=1（用于证共线）",
+        "solution": "用塞瓦定理：(BD/DC)(CE/EA)(AF/FB)=1 即共点。核心是把\"共点\"这个几何关系转成比例乘积的代数条件。",
+        "answer": "共点条件为 (BD/DC)(CE/EA)(AF/FB)=1",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_geo_ceva.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·梅涅劳斯 / 塞瓦 / 托勒密 / 西姆松｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f9abe5a08882492a5bcfb28dcbf3633e068e7d08634dee5ae773bf78d7367d47"
+        }
+      },
+      {
+        "title": "梅涅劳斯求线段比",
+        "level": "基础",
+        "question": "在 △ABC 中，D 是 BC 的中点，E 在 AC 上且 AE:EC = 1:2，直线 DE 交 BA 的延长线于 F。求 AF:FB。",
+        "hint": "对 △ABC 与截线 F-D-E 使用梅涅劳斯定理，注意 F 是外分点。",
+        "solution": "由梅涅劳斯：(AF/FB)·(BD/DC)·(CE/EA) = 1。D 为中点得 BD/DC = 1；AE:EC = 1:2 得 CE/EA = 2。代入：(AF/FB)·1·2 = 1，故 AF/FB = 1/2，即 AF:FB = 1:2。",
+        "answer": "AF : FB = 1 : 2",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_geo_ceva",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:1592cf346b5376f6485183915217f31e69442907464dd376819b59434f61946b"
+        }
+      },
+      {
+        "title": "塞瓦逆定理证三线共点",
+        "level": "基础",
+        "question": "证明：三角形三条中线交于一点。",
+        "hint": "设 D、E、F 分别为三边中点，计算比值乘积。",
+        "solution": "D、E、F 为 BC、CA、AB 中点，故 BD/DC = CE/EA = AF/FB = 1，乘积为 1。由塞瓦逆定理，AD、BE、CF 三线共点（该点即重心）。",
+        "answer": "三线共点，即重心",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_geo_ceva",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:1592cf346b5376f6485183915217f31e69442907464dd376819b59434f61946b"
+        }
+      }
+    ]
+  },
+  "o_geo_circle": {
+    "concept": {
+      "title": "圆幂 · 根轴 · 四点共圆",
+      "body": "圆幂定理统一了相交弦、割线、切线长定理：从一点引出的两条线与圆的交点，线段乘积是定值（圆幂）。根轴则是到两圆幂相等的点的轨迹——这些都是把圆的问题代数化的工具。",
+      "points": [
+        "相交弦/切割线(圆幂)",
+        "根轴",
+        "四点共圆判定",
+        "切线与极线初步"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_geo_circle.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:b3704989454f564e1b36c627346851ab81154b7d484f01d94e3f2b2b61caadcb"
+        },
+        {
+          "path": "reliable-data/lessons/o_geo_circle.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d62cb644170e25eab22047f3076619d695971122bc519eac588920eaaf43a5e3"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "圆幂定理统一了相交弦、割线、切线长定理：从一点引出的两条线与圆的交点，线段乘积是定值（圆幂）。根轴则是到两圆幂相等的点的轨迹——这些都是把圆的问题代数化的工具。",
+        "points": [
+          "相交弦/割线：PA·PB=定值（圆幂）",
+          "证明四点共圆：幂相等、对角互补、同侧张角相等",
+          "根轴是两圆的等幂点轨迹，常用于证明共线"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_circle.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d62cb644170e25eab22047f3076619d695971122bc519eac588920eaaf43a5e3"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_circle-01",
+        "body": "圆幂的正负号（点在圆内为负、圆外为正）",
+        "points": [
+          "题目落在「圆幂 · 根轴 · 四点共圆」考点，或出现「四点共圆、幂相等、共圆证明」类识别信号时；参照本节点示范题「两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）相交弦/割线：PA·PB=定值（圆幂）；（2）证明四点共圆：幂相等、对角互补、同侧张角相等；（3）根轴是两圆的等幂点轨迹，常用于证明共线；完成后回看结论是否满足题设条件。",
+          "圆幂定理统一了哪几个定理？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_circle.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:075fbc0aa5d4b61fad6acda690cc137abfbd6ddf03359a338221a1dd510bad02"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_circle-02",
+        "body": "四点共圆判定条件混用",
+        "points": [
+          "题目落在「圆幂 · 根轴 · 四点共圆」考点，或出现「四点共圆、幂相等、共圆证明」类识别信号时；参照本节点示范题「两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）相交弦/割线：PA·PB=定值（圆幂）；（2）证明四点共圆：幂相等、对角互补、同侧张角相等；（3）根轴是两圆的等幂点轨迹，常用于证明共线；完成后回看结论是否满足题设条件。",
+          "为什么根轴是等幂点的轨迹？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_circle.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:075fbc0aa5d4b61fad6acda690cc137abfbd6ddf03359a338221a1dd510bad02"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "圆幂根轴是圆（j_circle）、几何变换（o_geo_trans）、复数法（o_geo_vec）的综合。",
+        "points": [
+          "圆幂定理统一了哪几个定理？",
+          "为什么根轴是等幂点的轨迹？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_circle.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d62cb644170e25eab22047f3076619d695971122bc519eac588920eaaf43a5e3"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_geo_circle-01",
+        "level": "待人工复核",
+        "question": "两圆相交于 A、B，公共弦 AB 延长线上一点 P，作两圆切线 PT₁、PT₂，比较切线长",
+        "hint": "相交弦/割线：PA·PB=定值（圆幂）",
+        "solution": "P 对两圆的幂相等（都在根轴上），故 PT₁²=PT₂²，PT₁=PT₂。核心是用\"圆幂\"这个统一概念处理切线长。",
+        "answer": "PT₁=PT₂",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_geo_circle.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·圆幂 · 根轴 · 四点共圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:22d45e916a5a576f601821ab30cf54ba43ff206f167da0ec7d3521fc65729f74"
+        }
+      }
+    ]
+  },
+  "o_geo_ineq": {
+    "concept": {
+      "title": "几何不等式与等周",
+      "body": "几何不等式研究的是几何量的大小关系：两边之和大于第三边、等周问题（固定周长时圆面积最大）等。核心是把几何直观转化为可证明的不等式，常与代数不等式工具结合。",
+      "points": [
+        "几何不等式",
+        "费马点",
+        "等周问题",
+        "极值点性质"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_geo_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:1f0636f7569013f1b5df125318a57b595bd459ef5025922fc5a9dd226359b803"
+        },
+        {
+          "path": "reliable-data/lessons/o_geo_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:52563cb32c3cf543ca1b016ef50ada1119a4167e385f9d6108f1b340353090b7"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "几何不等式研究的是几何量的大小关系：两边之和大于第三边、等周问题（固定周长时圆面积最大）等。核心是把几何直观转化为可证明的不等式，常与代数不等式工具结合。",
+        "points": [
+          "三角形不等式：两边之和大于第三边，用于求范围",
+          "等周不等式：固定周长，圆面积最大",
+          "几何不等式常配合代数基本不等式使用"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:52563cb32c3cf543ca1b016ef50ada1119a4167e385f9d6108f1b340353090b7"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_ineq-01",
+        "body": "几何不等式只凭直观，缺乏严格证明",
+        "points": [
+          "题目落在「几何不等式与等周」考点，或出现「最小最大、周长面积极值」类识别信号时；参照本节点示范题「周长固定的三角形，何时面积最大？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）三角形不等式：两边之和大于第三边，用于求范围；（2）等周不等式：固定周长，圆面积最大；（3）几何不等式常配合代数基本不等式使用；完成后回看结论是否满足题设条件。",
+          "等周问题的结论是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2a52ef6d50a91c0320210d39a3e7747b4d61035c49b3aad8e791cbc972938bc0"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_ineq-02",
+        "body": "忽略等号成立的条件",
+        "points": [
+          "题目落在「几何不等式与等周」考点，或出现「最小最大、周长面积极值」类识别信号时；参照本节点示范题「周长固定的三角形，何时面积最大？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）三角形不等式：两边之和大于第三边，用于求范围；（2）等周不等式：固定周长，圆面积最大；（3）几何不等式常配合代数基本不等式使用；完成后回看结论是否满足题设条件。",
+          "为什么说几何不等式要和代数工具结合？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2a52ef6d50a91c0320210d39a3e7747b4d61035c49b3aad8e791cbc972938bc0"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "几何不等式连接代数不等式（o_ineq）、面积法（o_geo_area）。",
+        "points": [
+          "等周问题的结论是什么？",
+          "为什么说几何不等式要和代数工具结合？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:52563cb32c3cf543ca1b016ef50ada1119a4167e385f9d6108f1b340353090b7"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_geo_ineq-01",
+        "level": "待人工复核",
+        "question": "周长固定的三角形，何时面积最大？",
+        "hint": "三角形不等式：两边之和大于第三边，用于求范围",
+        "solution": "由等周不等式，等边三角形面积最大。这可以用海伦公式配合基本不等式证明。核心是\"几何问题代数化 + 不等式工具\"。",
+        "answer": "周长固定时等边三角形面积最大",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_geo_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何不等式与等周｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:605dda5461b94a0982fd45e5090f48d57f9860778be72493e8a2265916c7f154"
+        }
+      }
+    ]
+  },
+  "o_geo_trans": {
+    "concept": {
+      "title": "几何变换",
+      "body": "竞赛中的几何变换比初中更进一步：重点是旋转、位似、反演。变换的思想是\"不直接证明结论，而是把图形变成一个更容易处理的位置\"，很多难题通过一次恰当的变换迎刃而解。",
+      "points": [
+        "反射",
+        "平移",
+        "旋转",
+        "位似",
+        "反演初步"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_geo_trans.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:d350c0368a64ff000a815651428d9871357019ecf92033dcb260c8b940d8f284"
+        },
+        {
+          "path": "reliable-data/lessons/o_geo_trans.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c24d148989c26971f53504a1590dedb5cfc180655134c13fafcf0b9c81cd2aa4"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "竞赛中的几何变换比初中更进一步：重点是旋转、位似、反演。变换的思想是\"不直接证明结论，而是把图形变成一个更容易处理的位置\"，很多难题通过一次恰当的变换迎刃而解。",
+        "points": [
+          "旋转：处理等腰、等边、正方形中的角度与长度",
+          "位似：处理相似图形的缩放与共线",
+          "反演：把圆变成直线，处理圆与圆的相切问题"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_trans.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c24d148989c26971f53504a1590dedb5cfc180655134c13fafcf0b9c81cd2aa4"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_trans-01",
+        "body": "旋转中心和角度选错",
+        "points": [
+          "题目落在「几何变换」考点，或出现「最短路径、旋转构造、反演化简」类识别信号时；参照本节点示范题「正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）旋转：处理等腰、等边、正方形中的角度与长度；（2）位似：处理相似图形的缩放与共线；（3）反演：把圆变成直线，处理圆与圆的相切问题；完成后回看结论是否满足题设条件。",
+          "为什么说变换是\"把图形搬到更好处理的位置\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_trans.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:88fd105b06235eae965c2c81eabae1e8705134e122ab98cc15b5bc0220a1da42"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_trans-02",
+        "body": "变换后的对应关系没有理顺",
+        "points": [
+          "题目落在「几何变换」考点，或出现「最短路径、旋转构造、反演化简」类识别信号时；参照本节点示范题「正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）旋转：处理等腰、等边、正方形中的角度与长度；（2）位似：处理相似图形的缩放与共线；（3）反演：把圆变成直线，处理圆与圆的相切问题；完成后回看结论是否满足题设条件。",
+          "旋转适合处理什么特征的题目？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_trans.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:88fd105b06235eae965c2c81eabae1e8705134e122ab98cc15b5bc0220a1da42"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "几何变换连接复数法（o_geo_vec）、圆幂（o_geo_circle）、图形变换（j_trans）。",
+        "points": [
+          "为什么说变换是\"把图形搬到更好处理的位置\"？",
+          "旋转适合处理什么特征的题目？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_trans.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c24d148989c26971f53504a1590dedb5cfc180655134c13fafcf0b9c81cd2aa4"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_geo_trans-01",
+        "level": "待人工复核",
+        "question": "正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB",
+        "hint": "旋转：处理等腰、等边、正方形中的角度与长度",
+        "solution": "把 △APB 绕 B 顺时针旋转 90°，使 A 落到 C，P 落到 P′。则 BP′=BP=2 且 ∠PBP′=90°，故 △PBP′ 是等腰直角三角形，PP′=2√2；又 P′C=PA=1。在 △PP′C 中，PP′²+P′C²=8+1=9=PC²，由勾股逆定理得 ∠PP′C=90°。于是 ∠BP′C=∠BP′P+∠PP′C=45°+90°=135°；旋转保持角度，故 ∠APB=∠CP′B=135°。核心是\"用旋转把分散的三条线段集中到一个三角形中，再用勾股逆定理判定直角\"。",
+        "answer": "∠APB=135°",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_geo_trans.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·几何变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:569f5a62a7fd26354c1c0dd8dd7e2b641d7af1d98b6791896a164d9a6d762bb7"
+        }
+      }
+    ]
+  },
+  "o_geo_vec": {
+    "concept": {
+      "title": "复数法与向量法解几何",
+      "body": "这是平面几何的\"代数终结者\"：把点表示为复数或向量，把几何关系翻译成代数方程，用计算代替巧妙的辅助线。它的优势是思路直接、无需灵感，缺点是计算量可能较大。",
+      "points": [
+        "复数表示点",
+        "旋转的复数形式",
+        "向量法",
+        "解析法"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_geo_vec.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:afebf41b95a2ebc5691fbd3af50f3e97bba2e8dfc1e0a42dd81ad99077a3c280"
+        },
+        {
+          "path": "reliable-data/lessons/o_geo_vec.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7649c1d9ce0850180f766a61020e7bd97260541c5bea8c66b809430167afe0d4"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这是平面几何的\"代数终结者\"：把点表示为复数或向量，把几何关系翻译成代数方程，用计算代替巧妙的辅助线。它的优势是思路直接、无需灵感，缺点是计算量可能较大。",
+        "points": [
+          "向量法：用数量积证垂直、用共线条件证平行",
+          "复数法：|z₁−z₂| 表距离，乘 e^{iθ} 表旋转",
+          "建系后把几何条件写成坐标/复数方程"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_vec.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7649c1d9ce0850180f766a61020e7bd97260541c5bea8c66b809430167afe0d4"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_vec-01",
+        "body": "建系不当导致计算复杂",
+        "points": [
+          "题目落在「复数法与向量法解几何」考点，或出现「几何证明一轮、求轨迹」类识别信号时；参照本节点示范题「证明三角形三条高交于一点」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）向量法：用数量积证垂直、用共线条件证平行；（2）复数法：|z₁−z₂| 表距离，乘 e^{iθ} 表旋转；（3）建系后把几何条件写成坐标/复数方程；完成后回看结论是否满足题设条件。",
+          "向量法和复数法各自的优势是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_vec.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2bf1f6892f0b038cc5bce6cbc57ffe32033461a4b7ce3c900ab48cde0f6f8847"
+        }
+      },
+      {
+        "title": "易错 · PF-o_geo_vec-02",
+        "body": "忘记复数/向量与几何意义的对应",
+        "points": [
+          "题目落在「复数法与向量法解几何」考点，或出现「几何证明一轮、求轨迹」类识别信号时；参照本节点示范题「证明三角形三条高交于一点」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）向量法：用数量积证垂直、用共线条件证平行；（2）复数法：|z₁−z₂| 表距离，乘 e^{iθ} 表旋转；（3）建系后把几何条件写成坐标/复数方程；完成后回看结论是否满足题设条件。",
+          "为什么说代数法\"无需灵感但计算量大\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_geo_vec.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2bf1f6892f0b038cc5bce6cbc57ffe32033461a4b7ce3c900ab48cde0f6f8847"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "复数向量法是复数进阶（o_complex）、空间向量（s_vec3）在平面的应用。",
+        "points": [
+          "向量法和复数法各自的优势是什么？",
+          "为什么说代数法\"无需灵感但计算量大\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_geo_vec.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7649c1d9ce0850180f766a61020e7bd97260541c5bea8c66b809430167afe0d4"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_geo_vec-01",
+        "level": "待人工复核",
+        "question": "证明三角形三条高交于一点",
+        "hint": "向量法：用数量积证垂直、用共线条件证平行",
+        "solution": "建系设顶点坐标，写出高的方程，解方程验证交点同时满足三条高方程。核心是\"把几何证明变成代数计算\"。",
+        "answer": "三角形三条高交于一点",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_geo_vec.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·平面几何·复数法与向量法解几何｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e77737d63ec5d600336157b29ee417d2640a3708c3dc56bbd2838024cf8cded3"
+        }
+      }
+    ]
+  },
+  "o_graph": {
+    "concept": {
+      "title": "图论初步",
+      "body": "图论用\"点\"和\"边\"建模对象及其关系。核心概念是度数、连通、路径。竞赛图论题常围绕\"度数之和=边数的两倍\"这条握手定理展开。",
+      "points": [
+        "度与握手定理",
+        "树",
+        "欧拉路",
+        "哈密顿路",
+        "染色"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_graph.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:b1f5672979935280daf741ba823681193943f27b49e5fa569f6f7a1baddbcf15"
+        },
+        {
+          "path": "reliable-data/lessons/o_graph.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8361e903ffc4d9f705e5f95231abbf984e981640114f7b85df68cfbb5b39e630"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "图论用\"点\"和\"边\"建模对象及其关系。核心概念是度数、连通、路径。竞赛图论题常围绕\"度数之和=边数的两倍\"这条握手定理展开。",
+        "points": [
+          "握手定理 Σdeg=2E；树有 n−1 条边且连通无环",
+          "欧拉回路：连通且各顶点偶度；欧拉通路：连通且恰 0 或 2 个奇度点",
+          "哈密顿回路经过每顶点恰一次，与欧拉回路条件不同，勿混用",
+          "染色与二部图：二部图 ⇔ 无奇圈；Ramsey R(3,3)=6（本节点例题）"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_graph.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8361e903ffc4d9f705e5f95231abbf984e981640114f7b85df68cfbb5b39e630"
+        }
+      },
+      {
+        "title": "易错 · PF-o_graph-01",
+        "body": "混淆欧拉（经过每条边）与哈密顿（经过每个顶点）的条件",
+        "points": [
+          "题目落在「图论初步」考点，或出现「连通性、一笔画、染色存在」类识别信号时；参照本节点示范题「证明：任意 6 人中，要么有 3 人互相认识，要么有 3 人互相不认识」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）握手定理 Σdeg=2E；树有 n−1 条边且连通无环；（2）欧拉回路：连通且各顶点偶度；欧拉通路：连通且恰 0 或 2 个奇度点；（3）哈密顿回路经过每顶点恰一次，与欧拉回路条件不同，勿混用；（4）染色与二部图：二部图 ⇔ 无奇圈；Ramsey R(3,3)=6（本节点例题）；完成后回看结论是否满足题设条件。",
+          "握手定理为什么成立？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_graph.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:80555ecc4a44973774485b86126e749143f21cf98d72819491791908ac6f83c2"
+        }
+      },
+      {
+        "title": "易错 · PF-o_graph-02",
+        "body": "忽略\"连通\"前提就套欧拉回路判定",
+        "points": [
+          "题目落在「图论初步」考点，或出现「连通性、一笔画、染色存在」类识别信号时；参照本节点示范题「证明：任意 6 人中，要么有 3 人互相认识，要么有 3 人互相不认识」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）握手定理 Σdeg=2E；树有 n−1 条边且连通无环；（2）欧拉回路：连通且各顶点偶度；欧拉通路：连通且恰 0 或 2 个奇度点；（3）哈密顿回路经过每顶点恰一次，与欧拉回路条件不同，勿混用；（4）染色与二部图：二部图 ⇔ 无奇圈；Ramsey R(3,3)=6（本节点例题）；完成后回看结论是否满足题设条件。",
+          "图论为什么适合建模\"关系\"问题？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_graph.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:80555ecc4a44973774485b86126e749143f21cf98d72819491791908ac6f83c2"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "图论连接抽屉原理、组合极值、染色与不变量。",
+        "points": [
+          "握手定理为什么成立？",
+          "图论为什么适合建模\"关系\"问题？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_graph.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8361e903ffc4d9f705e5f95231abbf984e981640114f7b85df68cfbb5b39e630"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_graph-01",
+        "level": "待人工复核",
+        "question": "证明：任意 6 人中，要么有 3 人互相认识，要么有 3 人互相不认识",
+        "hint": "握手定理 Σdeg=2E；树有 n−1 条边且连通无环",
+        "solution": "这是拉姆齐定理 R(3,3)=6。用一人与其他 5 人的关系染色（认识/不认识），由抽屉原理必有 3 条同色边，再分析即得。核心是\"把关系转化为图的染色\"。",
+        "answer": "任意 6 人中必有 3 人互相认识或 3 人互相不认识（R(3,3)=6）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_graph.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·组合数学·图论初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:71f2198e4a47f9ab09c21f2c0cd6afba65cbdd2e5c1a2a39e9ee6cb39280e8a9"
+        }
+      }
+    ]
+  },
+  "o_induct": {
+    "concept": {
+      "title": "数学归纳法",
+      "body": "数学归纳法是证明\"对所有正整数成立\"的严格方法。它的逻辑像多米诺骨牌：证明第一块倒（奠基），再证明\"任意一块倒了会导致下一块倒\"（递推），于是全部倒下。",
+      "points": [
+        "第一数学归纳法",
+        "第二数学归纳法",
+        "强归纳",
+        "归纳猜想"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_induct.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:ed03e21e7ed819633aa4c7e5bd07c2f3c21966d7d88a140dd862759a62d338f9"
+        },
+        {
+          "path": "reliable-data/lessons/o_induct.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1359b87cc4ead4cb58c7dc37d1c80057a96848564deaf8a32adc14fc8bee644a"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "数学归纳法是证明\"对所有正整数成立\"的严格方法。它的逻辑像多米诺骨牌：证明第一块倒（奠基），再证明\"任意一块倒了会导致下一块倒\"（递推），于是全部倒下。",
+        "points": [
+          "第一步：验证 n=1（或命题的最小值）成立",
+          "第二步：假设 n=k 成立，证明 n=k+1 也成立",
+          "递推步的关键是把 n=k+1 的情形\"拆出\" n=k 的形式以便用假设"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_induct.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1359b87cc4ead4cb58c7dc37d1c80057a96848564deaf8a32adc14fc8bee644a"
+        }
+      },
+      {
+        "title": "易错 · PF-o_induct-01",
+        "body": "只做第一步或只做第二步",
+        "points": [
+          "题目落在「数学归纳法」考点，或出现「证明对所有n成立、先猜后证」类识别信号时；参照本节点示范题「证明 1+2+…+n=n(n+1)/2」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）第一步：验证 n=1（或命题的最小值）成立；（2）第二步：假设 n=k 成立，证明 n=k+1 也成立；（3）递推步的关键是把 n=k+1 的情形\"拆出\" n=k 的形式以便用假设；完成后回看结论是否满足题设条件。",
+          "归纳法的两步分别对应多米诺的什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_induct.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:66dc7b651ca90389bdda7a3c6654eaa17af4817865ac1a4f1558713f8dcb5cfb"
+        }
+      },
+      {
+        "title": "易错 · PF-o_induct-02",
+        "body": "递推步没有真正用上归纳假设",
+        "points": [
+          "题目落在「数学归纳法」考点，或出现「证明对所有n成立、先猜后证」类识别信号时；参照本节点示范题「证明 1+2+…+n=n(n+1)/2」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）第一步：验证 n=1（或命题的最小值）成立；（2）第二步：假设 n=k 成立，证明 n=k+1 也成立；（3）递推步的关键是把 n=k+1 的情形\"拆出\" n=k 的形式以便用假设；完成后回看结论是否满足题设条件。",
+          "为什么递推步必须显式使用归纳假设？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_induct.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:66dc7b651ca90389bdda7a3c6654eaa17af4817865ac1a4f1558713f8dcb5cfb"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "归纳法贯穿数列、整除证明、函数方程（o_func_eq）、组合恒等式（o_binom）。",
+        "points": [
+          "归纳法的两步分别对应多米诺的什么？",
+          "为什么递推步必须显式使用归纳假设？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_induct.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1359b87cc4ead4cb58c7dc37d1c80057a96848564deaf8a32adc14fc8bee644a"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_induct-01",
+        "level": "待人工复核",
+        "question": "证明 1+2+…+n=n(n+1)/2",
+        "hint": "第一步：验证 n=1（或命题的最小值）成立",
+        "solution": "n=1 时 1=1·2/2 成立。假设 n=k 成立，则 n=k+1 时：1+…+k+(k+1)=k(k+1)/2+(k+1)=(k+1)(k+2)/2，成立。核心是\"主动凑出归纳假设的形式\"。",
+        "answer": "1+2+…+n=n(n+1)/2 对一切正整数 n 成立",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_induct.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·数学归纳法｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f0544cb04f0351a212c765bf83c827c2c62fbc96094887030f659cee32790f5c"
+        }
+      }
+    ]
+  },
+  "o_ineq": {
+    "concept": {
+      "title": "不等式证明体系",
+      "body": "这一节把不等式从\"求范围\"提升到\"证结论\"。核心不是记住多少不等式，而是建立工具选择的标准：看到什么结构，调用什么工具。竞赛中的不等式题，胜负往往在\"选对工具\"这一步。",
+      "points": [
+        "均值AM-GM",
+        "柯西Cauchy",
+        "排序不等式",
+        "切比雪夫",
+        "琴生Jensen",
+        "Schur"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:f6c024198c5549f5135a81f1ddc8320b078d1d69337d836442f5ef4a7c426fed"
+        },
+        {
+          "path": "reliable-data/lessons/o_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bf7f48d2d1fe827fb97c3bde369696d1286a1b2138bac62f51dfe1a32b04578a"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "这一节把不等式从\"求范围\"提升到\"证结论\"。核心不是记住多少不等式，而是建立工具选择的标准：看到什么结构，调用什么工具。竞赛中的不等式题，胜负往往在\"选对工具\"这一步。",
+        "points": [
+          "结构决定工具：平方和想到柯西，和积结构想到基本不等式，二次式想到配方",
+          "柯西不等式：(Σaᵢbᵢ)² ≤ (Σaᵢ²)(Σbᵢ²)",
+          "放缩要有方向感和目标，不能盲目放"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bf7f48d2d1fe827fb97c3bde369696d1286a1b2138bac62f51dfe1a32b04578a"
+        }
+      },
+      {
+        "title": "易错 · PF-o_ineq-01",
+        "body": "放缩过度，放完再也回不到要证的结论",
+        "points": [
+          "题目落在「不等式证明体系」考点，或出现「证明不等式、求最值」类识别信号时；参照本节点示范题「证明 a²+b² ≥ 2ab」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）结构决定工具：平方和想到柯西，和积结构想到基本不等式，二次式想到配方；（2）柯西不等式：(Σaᵢbᵢ)² ≤ (Σaᵢ²)(Σbᵢ²)；（3）放缩要有方向感和目标，不能盲目放；完成后回看结论是否满足题设条件。",
+          "为什么说\"结构决定工具\"？看到平方和应该想到什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f7e2b2012bde65d80659bfed21a43746d042592bf2175c2aaeb2ce71e661cb98"
+        }
+      },
+      {
+        "title": "易错 · PF-o_ineq-02",
+        "body": "忽略等号成立条件，导致\"证明\"的结论并不是最值",
+        "points": [
+          "题目落在「不等式证明体系」考点，或出现「证明不等式、求最值」类识别信号时；参照本节点示范题「证明 a²+b² ≥ 2ab」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）结构决定工具：平方和想到柯西，和积结构想到基本不等式，二次式想到配方；（2）柯西不等式：(Σaᵢbᵢ)² ≤ (Σaᵢ²)(Σbᵢ²)；（3）放缩要有方向感和目标，不能盲目放；完成后回看结论是否满足题设条件。",
+          "放缩法和基本不等式有什么区别？各适合什么场景？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f7e2b2012bde65d80659bfed21a43746d042592bf2175c2aaeb2ce71e661cb98"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "不等式证明连接代数变形技巧、几何不等式（o_geo_ineq）、导数最值（s_deriv），是二试代数的高频板块。",
+        "points": [
+          "为什么说\"结构决定工具\"？看到平方和应该想到什么？",
+          "放缩法和基本不等式有什么区别？各适合什么场景？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bf7f48d2d1fe827fb97c3bde369696d1286a1b2138bac62f51dfe1a32b04578a"
+        }
+      },
+      {
+        "title": "不等式证明体系",
+        "body": "竞赛代数中使用频率最高的工具集合。核心思路：先猜等号成立条件，再通过配方、凑系数、齐次化把问题化成已知不等式。",
+        "points": [
+          "均值不等式 AM-GM：正数 a₁,…,aₙ 满足 (a₁+…+aₙ)/n ≥ (a₁a₂…aₙ)^(1/n)，等号当且仅当全相等。",
+          "柯西不等式：(Σa_i²)(Σb_i²) ≥ (Σa_i b_i)²。",
+          "排序、切比雪夫、琴生、Schur 用于处理更复杂的对称结构。"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_ineq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:85c6f35c4e30e7f1f372b17e1252a6ea31cd73747677aef460a40507724f8fa7"
+        }
+      },
+      {
+        "title": "「先定等号条件」的解题习惯",
+        "body": "拿到最值题先观察取等时变量的关系（如两项相等、成比例），再倒推用什么不等式。若 AM-GM 的各项无法同时取等，需要拆项或凑系数，让各部分取等条件一致。",
+        "points": [
+          "猜等号 → 选工具 → 验证取等",
+          "拆项凑系数是常用技巧",
+          "齐次化后可 Normalize"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_ineq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:85c6f35c4e30e7f1f372b17e1252a6ea31cd73747677aef460a40507724f8fa7"
+        }
+      },
+      {
+        "title": "柯西不等式的常见形态",
+        "body": "分式形式：Σ(a_i²/b_i) ≥ (Σa_i)²/(Σb_i)（b_i > 0），常用于分式求和的最小值；向量形式直接对应内积与模长。关键是构造出「平方和 × 平方和 ≥ 和的平方」的结构。",
+        "points": [
+          "分式和下界用 Titu 引理",
+          "注意等号条件 a_i/b_i 相等",
+          "与 AM-GM 常配合"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_ineq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:85c6f35c4e30e7f1f372b17e1252a6ea31cd73747677aef460a40507724f8fa7"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_ineq-01",
+        "level": "待人工复核",
+        "question": "证明 a²+b² ≥ 2ab",
+        "hint": "结构决定工具：平方和想到柯西，和积结构想到基本不等式，二次式想到配方",
+        "solution": "配方：(a−b)²≥0 ⟹ a²−2ab+b²≥0 ⟹ a²+b²≥2ab。这是最基础的\"从显然成立的事实出发\"的证明范式——非负数平方≥0 是不等式证明最常用的起点。",
+        "answer": "a²+b²≥2ab，等号当且仅当 a=b",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_ineq.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·不等式证明体系｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:598fedf66e8393b0220dcc16fe9e234a92753697b6654af386ee8ec810514399"
+        }
+      },
+      {
+        "title": "AM-GM 求最小值",
+        "level": "基础",
+        "question": "设 x > 0，求 f(x) = x + 4/x 的最小值。",
+        "hint": "两项乘积为常数，考虑 AM-GM。",
+        "solution": "由 AM-GM：x + 4/x ≥ 2√(x·4/x) = 2√4 = 4。等号当 x = 4/x，即 x = 2 时取得。故最小值为 4。",
+        "answer": "最小值 4（x = 2）",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_ineq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:85c6f35c4e30e7f1f372b17e1252a6ea31cd73747677aef460a40507724f8fa7"
+        }
+      },
+      {
+        "title": "凑系数让等号条件一致",
+        "level": "提高",
+        "question": "设 x > 0，求 x + 1/x² 的最小值。",
+        "hint": "直接 AM-GM 取等条件不一致，需把 x 拆成两项。",
+        "solution": "拆 x = x/2 + x/2，则 x + 1/x² = x/2 + x/2 + 1/x² ≥ 3·³√((x/2)(x/2)(1/x²)) = 3·³√(1/4) = 3/³√4。等号当 x/2 = 1/x²，即 x³ = 2，x = ³√2 时取得。",
+        "answer": "最小值 3/∛4（x = ∛2）",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_ineq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:85c6f35c4e30e7f1f372b17e1252a6ea31cd73747677aef460a40507724f8fa7"
+        }
+      }
+    ]
+  },
+  "o_numfun": {
+    "concept": {
+      "title": "数论函数与格点",
+      "body": "数论函数是定义在正整数上的函数，如欧拉函数 φ(n)、约数个数函数。竞赛中它们常与格点计数、组合问题结合。核心是理解函数的乘性——互素时函数值可以分解计算。",
+      "points": [
+        "欧拉函数性质",
+        "高斯函数[x]",
+        "格点性质",
+        "Pick定理"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_numfun.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:398056a322dacea3397016c65067d418f8fe794cd98eaa8142a89ffb66804558"
+        },
+        {
+          "path": "reliable-data/lessons/o_numfun.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:29c909c030b1accb99f6e38f7b3545b8e9dd7fd68fd73c14f0010255c2382cde"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "数论函数是定义在正整数上的函数，如欧拉函数 φ(n)、约数个数函数。竞赛中它们常与格点计数、组合问题结合。核心是理解函数的乘性——互素时函数值可以分解计算。",
+        "points": [
+          "欧拉函数 φ(n)=n·∏(1−1/p)（p 遍历 n 的素因子）",
+          "积性函数：gcd(m,n)=1 时 f(mn)=f(m)f(n)",
+          "格点问题常用皮克定理或对称性"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_numfun.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:29c909c030b1accb99f6e38f7b3545b8e9dd7fd68fd73c14f0010255c2382cde"
+        }
+      },
+      {
+        "title": "易错 · PF-o_numfun-01",
+        "body": "忘记分解质因数直接套公式",
+        "points": [
+          "题目落在「数论函数与格点」考点，或出现「取整求和、格点计数」类识别信号时；参照本节点示范题「求 φ(12)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）欧拉函数 φ(n)=n·∏(1−1/p)（p 遍历 n 的素因子）；（2）积性函数：gcd(m,n)=1 时 f(mn)=f(m)f(n)；（3）格点问题常用皮克定理或对称性；完成后回看结论是否满足题设条件。",
+          "为什么积性函数要求互素？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_numfun.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c1caf8624615e398d9174dd239ecbc63930498dc379dead806c3f70fd827e624"
+        }
+      },
+      {
+        "title": "易错 · PF-o_numfun-02",
+        "body": "积性函数用在非互素的情形",
+        "points": [
+          "题目落在「数论函数与格点」考点，或出现「取整求和、格点计数」类识别信号时；参照本节点示范题「求 φ(12)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）欧拉函数 φ(n)=n·∏(1−1/p)（p 遍历 n 的素因子）；（2）积性函数：gcd(m,n)=1 时 f(mn)=f(m)f(n)；（3）格点问题常用皮克定理或对称性；完成后回看结论是否满足题设条件。",
+          "欧拉函数 φ(n) 计数的是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_numfun.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c1caf8624615e398d9174dd239ecbc63930498dc379dead806c3f70fd827e624"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "数论函数连接欧拉定理（o_fermat）、组合计数（o_binom）。",
+        "points": [
+          "为什么积性函数要求互素？",
+          "欧拉函数 φ(n) 计数的是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_numfun.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:29c909c030b1accb99f6e38f7b3545b8e9dd7fd68fd73c14f0010255c2382cde"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_numfun-01",
+        "level": "待人工复核",
+        "question": "求 φ(12)",
+        "hint": "欧拉函数 φ(n)=n·∏(1−1/p)（p 遍历 n 的素因子）",
+        "solution": "12=2²×3，φ(12)=12×(1−1/2)×(1−1/3)=12×½×2/3=4。即 1,5,7,11 与 12 互素。核心是\"先分解质因数再套公式\"。",
+        "answer": "φ(12)=4",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_numfun.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·数论·数论函数与格点｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:b897ca16be695fc636500adf358b424d43075f3b81e453d4f2797c957ff0ada1"
+        }
+      }
+    ]
+  },
+  "o_pigeon": {
+    "concept": {
+      "title": "抽屉原理与极端原理",
+      "body": "抽屉原理（鸽巢原理）说：把 n+1 个物体放进 n 个抽屉，必有一个抽屉至少放两个。它看似显然，却是证明\"至少存在\"类问题的强大工具。极端原理则是考察最大/最小元素来推出矛盾或结论。",
+      "points": [
+        "抽屉原理",
+        "构造抽屉",
+        "极端原理",
+        "枚举法"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_pigeon.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:f040a361d24e91f291f71639ffc3f6c4e7209bc11bc810496ebfc589548c9c19"
+        },
+        {
+          "path": "reliable-data/lessons/o_pigeon.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d300fbdb62cd304d42a410494cda06850c69bd3c1f19e78711f91ac81f05eafc"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "抽屉原理（鸽巢原理）说：把 n+1 个物体放进 n 个抽屉，必有一个抽屉至少放两个。它看似显然，却是证明\"至少存在\"类问题的强大工具。极端原理则是考察最大/最小元素来推出矛盾或结论。",
+        "points": [
+          "抽屉原理：n+1 个物体放 n 个抽屉，至少一个抽屉≥2",
+          "加强形式：kn+1 个物体放 n 个抽屉，至少一个≥k+1",
+          "极端原理：取最大/最小者分析其性质"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_pigeon.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d300fbdb62cd304d42a410494cda06850c69bd3c1f19e78711f91ac81f05eafc"
+        }
+      },
+      {
+        "title": "易错 · PF-o_pigeon-01",
+        "body": "抽屉和物体识别错误",
+        "points": [
+          "题目落在「抽屉原理与极端原理」考点，或出现「至少存在、最值构造、染色问题」类识别信号时；参照本节点示范题「13 个人中至少有两人生日在同一个月」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）抽屉原理：n+1 个物体放 n 个抽屉，至少一个抽屉≥2；（2）加强形式：kn+1 个物体放 n 个抽屉，至少一个≥k+1；（3）极端原理：取最大/最小者分析其性质；完成后回看结论是否满足题设条件。",
+          "抽屉原理为什么能证明\"至少存在\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_pigeon.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:04374d26c244a9135f4bbb8f6fa7a686229f332c99d9caee40a86059badf6203"
+        }
+      },
+      {
+        "title": "易错 · PF-o_pigeon-02",
+        "body": "\"至少\"与\"恰好\"混淆",
+        "points": [
+          "题目落在「抽屉原理与极端原理」考点，或出现「至少存在、最值构造、染色问题」类识别信号时；参照本节点示范题「13 个人中至少有两人生日在同一个月」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）抽屉原理：n+1 个物体放 n 个抽屉，至少一个抽屉≥2；（2）加强形式：kn+1 个物体放 n 个抽屉，至少一个≥k+1；（3）极端原理：取最大/最小者分析其性质；完成后回看结论是否满足题设条件。",
+          "在这类问题里，如何判断谁是\"抽屉\"谁是\"物体\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_pigeon.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:04374d26c244a9135f4bbb8f6fa7a686229f332c99d9caee40a86059badf6203"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "抽屉原理是抽屉容斥进阶（o_comb_adv）、图论（o_graph）的基础。",
+        "points": [
+          "抽屉原理为什么能证明\"至少存在\"？",
+          "在这类问题里，如何判断谁是\"抽屉\"谁是\"物体\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_pigeon.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d300fbdb62cd304d42a410494cda06850c69bd3c1f19e78711f91ac81f05eafc"
+        }
+      },
+      {
+        "title": "抽屉原理与极端原理",
+        "body": "组合证明的入门武器：把「物品」放进「抽屉」，若物品多于抽屉，必有一个抽屉装了不止一个。它的力量在于「构造」——如何定义抽屉才是关键。",
+        "points": [
+          "第一抽屉原理：n+1 个物品放入 n 个抽屉，至少一个抽屉有 ≥2 个。",
+          "第二抽屉原理：kn+1 个物品放入 n 个抽屉，至少一个抽屉有 ≥ k+1 个。",
+          "极端原理：考察最大/最小元，常能一步切入。"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_pigeon",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:00ddb98735136b27e2612670889972650f3bced977906f58338d8e7e4f04f72c"
+        }
+      },
+      {
+        "title": "构造抽屉的三种常见方式",
+        "body": "① 按余数分类（模 n 的剩余类）；② 按区间分段（把取值范围切成若干段）；③ 按配对分组（如把和为定值的两数配成一个抽屉）。选择哪种，取决于题目要证明的「存在什么」。",
+        "points": [
+          "先明确要证明的「存在」是什么",
+          "让抽屉数比物品数少 1",
+          "必要时用最值构造极端抽屉"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_pigeon",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:00ddb98735136b27e2612670889972650f3bced977906f58338d8e7e4f04f72c"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_pigeon-01",
+        "level": "待人工复核",
+        "question": "13 个人中至少有两人生日在同一个月",
+        "hint": "抽屉原理：n+1 个物体放 n 个抽屉，至少一个抽屉≥2",
+        "solution": "一年 12 个月是 12 个抽屉，13 个人是物体，13>12，由抽屉原理至少两人在同月。核心是\"识别出什么是抽屉、什么是物体\"。",
+        "answer": "至少两人生日在同一个月",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_pigeon.json",
+          "source_ref": "教育部《义务教育数学课程标准》｜学校现行课标文本（版本待人工确认）｜第三学段（7—9年级）对应领域·初中竞赛衔接（课标外 · 初中三年压缩完成）·抽屉原理与极端原理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:557cf72f2a0f6b6d15c0a64d7ac2b15da3f5a18d419fc16b3dcd4239aac12dfb"
+        }
+      },
+      {
+        "title": "经典的月份问题",
+        "level": "基础",
+        "question": "证明：任意 13 人中，至少有 2 人生日在同一个月。",
+        "hint": "把 12 个月看作 12 个抽屉。",
+        "solution": "把 12 个月作为 12 个抽屉，13 个人作为 13 个物品。由抽屉原理，至少有一个抽屉含 ≥2 人，即至少有 2 人生日在同一个月。",
+        "answer": "成立",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.o_pigeon",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:00ddb98735136b27e2612670889972650f3bced977906f58338d8e7e4f04f72c"
+        }
+      }
+    ]
+  },
+  "o_poly": {
+    "concept": {
+      "title": "多项式",
+      "body": "多项式是\"代数版的整数\"——整除、余数、因式分解这些概念在这里一一对应。竞赛里多项式的核心工具是因式定理：f(a)=0 等价于 (x−a) 整除 f(x)，它把\"根\"和\"因式\"翻译成了同一件事。",
+      "points": [
+        "根与系数",
+        "虚根成对",
+        "因式定理",
+        "多项式恒等"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_poly.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:6f80843b202bd67a80d92f647a77ca5634b3a678014e483be2b29ff9f4b720ca"
+        },
+        {
+          "path": "reliable-data/lessons/o_poly.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3958f1e403095b8b05962b6613957d19d10ab2bf2ca6bd0aeae8ac68b597ab4b"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "多项式是\"代数版的整数\"——整除、余数、因式分解这些概念在这里一一对应。竞赛里多项式的核心工具是因式定理：f(a)=0 等价于 (x−a) 整除 f(x)，它把\"根\"和\"因式\"翻译成了同一件事。",
+        "points": [
+          "因式定理 (x−a)|f(x) ⇔ f(a)=0；余式定理：除以 (x−a) 余 f(a)",
+          "韦达定理联系根与系数；有理根定理：有理根 p/q 需 p|常数项、q|首项系数",
+          "待定系数法与赋值法设未知系数、取特殊 x 值求关系",
+          "多项式恒等原理与插值初步：n 次多项式由 n+1 个点确定"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_poly.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3958f1e403095b8b05962b6613957d19d10ab2bf2ca6bd0aeae8ac68b597ab4b"
+        }
+      },
+      {
+        "title": "易错 · PF-o_poly-01",
+        "body": "余式次数没设对（必须低于除式次数）",
+        "points": [
+          "题目落在「多项式」考点，或出现「求根、整数根、恒等式」类识别信号时；参照本节点示范题「已知多项式 f(x) 除以 (x−1) 余 2，除以 (x−2) 余 3，求除以 (x−1)(x−2) 的余式」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）因式定理 (x−a)|f(x) ⇔ f(a)=0；余式定理：除以 (x−a) 余 f(a)；（2）韦达定理联系根与系数；有理根定理：有理根 p/q 需 p|常数项、q|首项系数；（3）待定系数法与赋值法设未知系数、取特殊 x 值求关系；（4）多项式恒等原理与插值初步：n 次多项式由 n+1 个点确定；完成后回看结论是否满足题设条件。",
+          "为什么余式的次数必须低于除式？如果等于会怎样？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_poly.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:766dade4df961a6e1e7953298b3162dfce6e545da45c5fd1893791f5ec2a6b7c"
+        }
+      },
+      {
+        "title": "易错 · PF-o_poly-02",
+        "body": "把因式定理用反：f(a)=0 才能推出 (x−a) 是因式",
+        "points": [
+          "题目落在「多项式」考点，或出现「求根、整数根、恒等式」类识别信号时；参照本节点示范题「已知多项式 f(x) 除以 (x−1) 余 2，除以 (x−2) 余 3，求除以 (x−1)(x−2) 的余式」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）因式定理 (x−a)|f(x) ⇔ f(a)=0；余式定理：除以 (x−a) 余 f(a)；（2）韦达定理联系根与系数；有理根定理：有理根 p/q 需 p|常数项、q|首项系数；（3）待定系数法与赋值法设未知系数、取特殊 x 值求关系；（4）多项式恒等原理与插值初步：n 次多项式由 n+1 个点确定；完成后回看结论是否满足题设条件。",
+          "f(a)=0 和 (x−a)|f(x) 为什么等价？说出推理过程。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_poly.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:766dade4df961a6e1e7953298b3162dfce6e545da45c5fd1893791f5ec2a6b7c"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "多项式向上承接因式分解，向下连接方程根与系数（j_eq）、复数（o_complex）、递推数列特征方程（o_recur）。",
+        "points": [
+          "为什么余式的次数必须低于除式？如果等于会怎样？",
+          "f(a)=0 和 (x−a)|f(x) 为什么等价？说出推理过程。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_poly.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3958f1e403095b8b05962b6613957d19d10ab2bf2ca6bd0aeae8ac68b597ab4b"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_poly-01",
+        "level": "待人工复核",
+        "question": "已知多项式 f(x) 除以 (x−1) 余 2，除以 (x−2) 余 3，求除以 (x−1)(x−2) 的余式",
+        "hint": "因式定理 (x−a)|f(x) ⇔ f(a)=0；余式定理：除以 (x−a) 余 f(a)",
+        "solution": "设余式为 ax+b（次数低于除式）。由余式定理 f(1)=2、f(2)=3，代入：a+b=2，2a+b=3，解得 a=1,b=1，余式 x+1。核心是先判断余式的次数，再转化为方程组。",
+        "answer": "余式为 x+1",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_poly.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·多项式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:e7d797cf6a7ad166eeacb678efdd5d533d4402b80f50ca99fc3f6e1120bdb6d4"
+        }
+      }
+    ]
+  },
+  "o_recur": {
+    "concept": {
+      "title": "递推数列与特征方程",
+      "body": "递推数列给的是\"相邻项的关系\"，目标是求通项。核心方法是\"构造\"——通过加减适当的量，把一般递推转化为等差或等比。特征方程法则是处理线性递推的系统化工具。",
+      "points": [
+        "一阶递推",
+        "二阶线性递推",
+        "特征方程法",
+        "不动点法"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_recur.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:eba06fae3f9e411f53ea2da59acfcab2e9589bdedfcc08fc5a2a04a88f0e1ff7"
+        },
+        {
+          "path": "reliable-data/lessons/o_recur.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:17d1c35303ad1da1f13da2495de2db649de97495b9f04e0e1b2fb588529999ae"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "递推数列给的是\"相邻项的关系\"，目标是求通项。核心方法是\"构造\"——通过加减适当的量，把一般递推转化为等差或等比。特征方程法则是处理线性递推的系统化工具。",
+        "points": [
+          "形如 aₙ₊₁=paₙ+q：待定常数 c 使 aₙ₊₁+c=p(aₙ+c)，构造等比",
+          "取倒数、取对数可把非线性递推线性化",
+          "二阶线性递推用特征方程 r²=pr+q 求通项形式"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_recur.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:17d1c35303ad1da1f13da2495de2db649de97495b9f04e0e1b2fb588529999ae"
+        }
+      },
+      {
+        "title": "易错 · PF-o_recur-01",
+        "body": "构造时常数算错",
+        "points": [
+          "题目落在「递推数列与特征方程」考点，或出现「求通项、证明有界/单调」类识别信号时；参照本节点示范题「a₁=1，aₙ₊₁=2aₙ+1，求通项」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）形如 aₙ₊₁=paₙ+q：待定常数 c 使 aₙ₊₁+c=p(aₙ+c)，构造等比；（2）取倒数、取对数可把非线性递推线性化；（3）二阶线性递推用特征方程 r²=pr+q 求通项形式；完成后回看结论是否满足题设条件。",
+          "为什么要\"加一个常数\"构造等比数列？这个常数怎么定？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_recur.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:344fddac2318698af5ad322d8b1dcf75feffba0418de6b63fb85fa701c9f85b3"
+        }
+      },
+      {
+        "title": "易错 · PF-o_recur-02",
+        "body": "忽略初值的验证",
+        "points": [
+          "题目落在「递推数列与特征方程」考点，或出现「求通项、证明有界/单调」类识别信号时；参照本节点示范题「a₁=1，aₙ₊₁=2aₙ+1，求通项」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）形如 aₙ₊₁=paₙ+q：待定常数 c 使 aₙ₊₁+c=p(aₙ+c)，构造等比；（2）取倒数、取对数可把非线性递推线性化；（3）二阶线性递推用特征方程 r²=pr+q 求通项形式；完成后回看结论是否满足题设条件。",
+          "特征方程法解决的是什么类型的递推？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_recur.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:344fddac2318698af5ad322d8b1dcf75feffba0418de6b63fb85fa701c9f85b3"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "递推数列连接多项式特征方程（o_poly）、归纳法（o_induct）、函数迭代（o_func_eq）。",
+        "points": [
+          "为什么要\"加一个常数\"构造等比数列？这个常数怎么定？",
+          "特征方程法解决的是什么类型的递推？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_recur.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:17d1c35303ad1da1f13da2495de2db649de97495b9f04e0e1b2fb588529999ae"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_recur-01",
+        "level": "待人工复核",
+        "question": "a₁=1，aₙ₊₁=2aₙ+1，求通项",
+        "hint": "形如 aₙ₊₁=paₙ+q：待定常数 c 使 aₙ₊₁+c=p(aₙ+c)，构造等比",
+        "solution": "构造：设 aₙ₊₁+1=2(aₙ+1)，令 bₙ=aₙ+1，则 bₙ₊₁=2bₙ，b₁=2，故 bₙ=2ⁿ，aₙ=2ⁿ−1。核心是\"加一个常数凑成等比\"。",
+        "answer": "aₙ=2ⁿ−1",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_recur.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·递推数列与特征方程｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3018333c10c9fc4cf4fad9b42e0c9347881ebf1d1b4c54007edc9afbd6d92af9"
+        }
+      }
+    ]
+  },
+  "o_trig_id": {
+    "concept": {
+      "title": "三角恒等式与三角不等式",
+      "body": "竞赛中的三角恒等式是恒等变换的高阶应用，重点是\"条件等式\"的证明与\"三角形式的不等式\"。核心思想仍是把三角问题代数化——万能代换 t=tan(x/2) 能把三角式变成有理式。",
+      "points": [
+        "三倍角公式",
+        "三角形恒等式",
+        "三角不等式"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/o_trig_id.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:1dcda7526601c28d2de7321623a1d6e53d1867159d2a93b349b09f46b4f327e7"
+        },
+        {
+          "path": "reliable-data/lessons/o_trig_id.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c07de40e3402d78a3bd78ced04b32b996c15f0e230bd0b52581a9f0c901e5ee2"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "竞赛中的三角恒等式是恒等变换的高阶应用，重点是\"条件等式\"的证明与\"三角形式的不等式\"。核心思想仍是把三角问题代数化——万能代换 t=tan(x/2) 能把三角式变成有理式。",
+        "points": [
+          "万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)",
+          "对称结构考虑和差化积、积化和差",
+          "三角不等式常结合基本不等式与有界性 |sin x|≤1"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_trig_id.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c07de40e3402d78a3bd78ced04b32b996c15f0e230bd0b52581a9f0c901e5ee2"
+        }
+      },
+      {
+        "title": "易错 · PF-o_trig_id-01",
+        "body": "交叉相乘时忽略分母为零的情况",
+        "points": [
+          "题目落在「三角恒等式与三角不等式」考点，或出现「证明三角恒等式、求角范围」类识别信号时；参照本节点示范题「证明 (1+sin x)/cos x = cos x/(1−sin x)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)；（2）对称结构考虑和差化积、积化和差；（3）三角不等式常结合基本不等式与有界性 |sin x|≤1；完成后回看结论是否满足题设条件。",
+          "证明分式恒等式时交叉相乘合法的前提是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_trig_id.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f64d70ad3c027604583e3d75b894a5110cdd1fcd0531a14fc032cfd5f1e6a9f9"
+        }
+      },
+      {
+        "title": "易错 · PF-o_trig_id-02",
+        "body": "万能代换后式子变得过于复杂",
+        "points": [
+          "题目落在「三角恒等式与三角不等式」考点，或出现「证明三角恒等式、求角范围」类识别信号时；参照本节点示范题「证明 (1+sin x)/cos x = cos x/(1−sin x)」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)；（2）对称结构考虑和差化积、积化和差；（3）三角不等式常结合基本不等式与有界性 |sin x|≤1；完成后回看结论是否满足题设条件。",
+          "万能代换的价值在哪里？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/o_trig_id.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f64d70ad3c027604583e3d75b894a5110cdd1fcd0531a14fc032cfd5f1e6a9f9"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "三角恒等式连接复数（o_complex）、不等式（o_ineq）、几何求角。",
+        "points": [
+          "证明分式恒等式时交叉相乘合法的前提是什么？",
+          "万能代换的价值在哪里？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/o_trig_id.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c07de40e3402d78a3bd78ced04b32b996c15f0e230bd0b52581a9f0c901e5ee2"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-o_trig_id-01",
+        "level": "待人工复核",
+        "question": "证明 (1+sin x)/cos x = cos x/(1−sin x)",
+        "hint": "万能代换：sin x=2t/(1+t²)，cos x=(1−t²)/(1+t²)",
+        "solution": "左边分子分母同乘 (1+sin x)？更直接：交叉相乘验证 (1+sin x)(1−sin x)=cos²x，即 1−sin²x=cos²x，成立。核心是\"证明分式恒等式可交叉相乘化为基本恒等式\"。",
+        "answer": "原式成立（cos x≠0、sin x≠1 时）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/o_trig_id.json",
+          "source_ref": "全国中学生数学奥林匹克竞赛大纲（四大板块通行要求）｜按联赛通知口径（CNF-008）｜二试四大板块：平面几何 / 代数 / 数论 / 组合·代数·三角恒等式与三角不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9d89da7388add3e5724be756f9586e721e0fb2a54d5167ae1fd990c1334d043a"
+        }
+      }
+    ]
+  },
+  "p_alg": {
+    "concept": {
+      "title": "用字母表示数与简易方程",
+      "body": "以前我们算\"一个数是多少\"，现在试着用字母 x 先把这个数\"占住\"，再根据题目里的相等关系列出式子。这是从算术走向代数的一大步——不是变难了，是变通用了。",
+      "points": [
+        "用字母表示数量关系",
+        "等式性质",
+        "解一元一次方程",
+        "等量代换"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_alg.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:fdf8ac43d5968dbc8ea0718311f1b0c0e39a63d5b4929b89f3bd932aa7a03b08"
+        },
+        {
+          "path": "reliable-data/lessons/p_alg.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:392444c9f6366003ebed07b6b8dd86a418938e1dbe81cd26686b88aadadd13fa"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "以前我们算\"一个数是多少\"，现在试着用字母 x 先把这个数\"占住\"，再根据题目里的相等关系列出式子。这是从算术走向代数的一大步——不是变难了，是变通用了。",
+        "points": [
+          "先找题目里\"谁和谁相等\"，这句话就是等号",
+          "等式像跷跷板：两边同时加、减、乘、除同一个数（除数不为 0），仍然平衡",
+          "解出 x 后一定代回原题检验，这一步能帮你抓住大部分小错误"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_alg.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:392444c9f6366003ebed07b6b8dd86a418938e1dbe81cd26686b88aadadd13fa"
+        }
+      },
+      {
+        "title": "易错 · PF-p_alg-01",
+        "body": "移项时忘记变号（x − 5 = 12 写成 x = 12 − 5）",
+        "points": [
+          "题目落在「用字母表示数与简易方程」考点，或出现「求未知数、用式子表示、等量关系」类识别信号时；参照本节点示范题「小明有一些糖果，给了妹妹 5 颗后还剩 12 颗。小明原来有多少颗？用方程解。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）先找题目里\"谁和谁相等\"，这句话就是等号；（2）等式像跷跷板：两边同时加、减、乘、除同一个数（除数不为 0），仍然平衡；（3）解出 x 后一定代回原题检验，这一步能帮你抓住大部分小错误；完成后回看结论是否满足题设条件。",
+          "为什么等式两边可以同时加同一个数？能用天平打比方说明吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_alg.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:70276f4f3e657e333316437c2bb64bad406554eb0f9ee659a5da1a3fb2c25960"
+        }
+      },
+      {
+        "title": "易错 · PF-p_alg-02",
+        "body": "解完不代回检验，看不出\"原来有多少\"被误当成\"剩下多少\"",
+        "points": [
+          "题目落在「用字母表示数与简易方程」考点，或出现「求未知数、用式子表示、等量关系」类识别信号时；参照本节点示范题「小明有一些糖果，给了妹妹 5 颗后还剩 12 颗。小明原来有多少颗？用方程解。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）先找题目里\"谁和谁相等\"，这句话就是等号；（2）等式像跷跷板：两边同时加、减、乘、除同一个数（除数不为 0），仍然平衡；（3）解出 x 后一定代回原题检验，这一步能帮你抓住大部分小错误；完成后回看结论是否满足题设条件。",
+          "如果题目改成\"给了妹妹 5 颗后，妹妹的糖是小明的 2 倍\"，你该先找哪个相等关系？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_alg.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:70276f4f3e657e333316437c2bb64bad406554eb0f9ee659a5da1a3fb2c25960"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "等式性质是初中解方程、不等式的共同基础；等量代换的思想会贯穿整个代数学习。",
+        "points": [
+          "为什么等式两边可以同时加同一个数？能用天平打比方说明吗？",
+          "如果题目改成\"给了妹妹 5 颗后，妹妹的糖是小明的 2 倍\"，你该先找哪个相等关系？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_alg.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:392444c9f6366003ebed07b6b8dd86a418938e1dbe81cd26686b88aadadd13fa"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_alg-01",
+        "level": "待人工复核",
+        "question": "小明有一些糖果，给了妹妹 5 颗后还剩 12 颗。小明原来有多少颗？用方程解。",
+        "hint": "先找题目里\"谁和谁相等\"，这句话就是等号",
+        "solution": "设小明原来有 x 颗。根据\"原有 − 给出 = 剩下\"列方程：x − 5 = 12。两边同时加 5：x = 17。**结论：小明原来有 17 颗糖。**检验：17 − 5 = 12，正好符合题意。",
+        "answer": "小明原来有 17 颗糖（x−5=12）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_alg.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3c3479bb5788d427f76446954ecdb31fd52d19975ffe77d2f787198cb8830211"
+        }
+      }
+    ]
+  },
+  "p_app": {
+    "concept": {
+      "title": "典型应用题",
+      "body": "应用题难往往不是难在算，而是难在\"读不懂在说什么\"。画一张线段图、做一个假设，文字就变成了看得见的关系。你不需要一下想出答案，先想办法把题目画出来就已经成功了一半。",
+      "points": [
+        "和差倍问题",
+        "鸡兔同笼",
+        "盈亏问题",
+        "行程问题（相遇/追及）",
+        "工程问题初步"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_app.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a6aafbc3eea39ae5e3fa77c1d989c15e65417da189a5e62ba1cdc56664369e88"
+        },
+        {
+          "path": "reliable-data/lessons/p_app.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3c3ebdd7bd8cf970ce866400145ec48ef9a9b1d9f00c18ecae17b1877b31157a"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "应用题难往往不是难在算，而是难在\"读不懂在说什么\"。画一张线段图、做一个假设，文字就变成了看得见的关系。你不需要一下想出答案，先想办法把题目画出来就已经成功了一半。",
+        "points": [
+          "和差倍问题画线段图：短的画一段，长的按倍数画几段",
+          "鸡兔同笼用假设法：假设全是鸡，数一数少了多少条腿，再一只一只换",
+          "行程问题先分清是\"相向而行\"还是\"同向追赶\"，再决定用和还是用差"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_app.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3c3ebdd7bd8cf970ce866400145ec48ef9a9b1d9f00c18ecae17b1877b31157a"
+        }
+      },
+      {
+        "title": "易错 · PF-p_app-01",
+        "body": "假设全是鸡后，把\"少的腿数\"直接当成兔的只数（忘了每换一只只多 2 条腿）",
+        "points": [
+          "题目落在「典型应用题」考点，或出现「鸡兔同笼、和倍差倍、相遇追及」类识别信号时；参照本节点示范题「鸡兔同笼，共有 8 个头、22 条腿。鸡和兔各有多少只？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）和差倍问题画线段图：短的画一段，长的按倍数画几段；（2）鸡兔同笼用假设法：假设全是鸡，数一数少了多少条腿，再一只一只换；（3）行程问题先分清是\"相向而行\"还是\"同向追赶\"，再决定用和还是用差；完成后回看结论是否满足题设条件。",
+          "为什么每把一只鸡换成兔，腿数只多 2 条而不是 4 条？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_app.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7058aaf0b3efc9768462d3e721f48aa64736052e0d38c7aa10d22ae1ca28a520"
+        }
+      },
+      {
+        "title": "易错 · PF-p_app-02",
+        "body": "相遇问题把速度和写成速度差，追及问题又反过来",
+        "points": [
+          "题目落在「典型应用题」考点，或出现「鸡兔同笼、和倍差倍、相遇追及」类识别信号时；参照本节点示范题「鸡兔同笼，共有 8 个头、22 条腿。鸡和兔各有多少只？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）和差倍问题画线段图：短的画一段，长的按倍数画几段；（2）鸡兔同笼用假设法：假设全是鸡，数一数少了多少条腿，再一只一只换；（3）行程问题先分清是\"相向而行\"还是\"同向追赶\"，再决定用和还是用差；完成后回看结论是否满足题设条件。",
+          "相遇和追及，什么时候用速度和、什么时候用速度差？各编一道小题试试。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_app.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7058aaf0b3efc9768462d3e721f48aa64736052e0d38c7aa10d22ae1ca28a520"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "假设法和线段图是初中列方程解应用题的得力助手，先把图养熟，以后列方程会顺很多。",
+        "points": [
+          "为什么每把一只鸡换成兔，腿数只多 2 条而不是 4 条？",
+          "相遇和追及，什么时候用速度和、什么时候用速度差？各编一道小题试试。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_app.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:3c3ebdd7bd8cf970ce866400145ec48ef9a9b1d9f00c18ecae17b1877b31157a"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_app-01",
+        "level": "待人工复核",
+        "question": "鸡兔同笼，共有 8 个头、22 条腿。鸡和兔各有多少只？",
+        "hint": "和差倍问题画线段图：短的画一段，长的按倍数画几段",
+        "solution": "假设 8 只全是鸡，腿数 = 8 × 2 = 16 条，比实际少了 22 − 16 = 6 条。每把一只鸡换成兔，腿就多 2 条，所以兔有 6 ÷ 2 = 3 只，鸡有 8 − 3 = 5 只。**结论：鸡 5 只，兔 3 只。**检验：头 5+3=8，腿 5×2+3×4=22，正确。",
+        "answer": "鸡 5 只、兔 3 只（假设全鸡少 6 条腿，每换一只多 2 条）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_app.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:40e37bcd55f481fafca102d5874de33b4cfb81dde012b02435768ad6d2b8a641"
+        }
+      }
+    ]
+  },
+  "p_count": {
+    "concept": {
+      "title": "枚举与计数初步",
+      "body": "数\"一共有多少种\"最怕两件事：漏掉一种，或者数重复。解决办法只有一个——按顺序来。有顺序地数，比又快又乱地数更可靠，也更省力。",
+      "points": [
+        "有序枚举",
+        "树状图",
+        "搭配问题",
+        "加法与乘法原理雏形"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_count.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:6df46cc2e5b692bf9d5b9d0701bae1730255081b9b2506846968e47ce9c4524c"
+        },
+        {
+          "path": "reliable-data/lessons/p_count.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:aa0c8f4bb75f7a373c7ff5c56c5156182a89c55e0e79d36ad6862f47bb713af8"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "数\"一共有多少种\"最怕两件事：漏掉一种，或者数重复。解决办法只有一个——按顺序来。有顺序地数，比又快又乱地数更可靠，也更省力。",
+        "points": [
+          "按固定顺序列举（从小到大、从甲到乙），做到不重不漏",
+          "分几步完成的事情，用乘法想；分几类情况的事情，用加法想",
+          "画树状图把所有分支展开，一眼就能检查有没有漏"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_count.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:aa0c8f4bb75f7a373c7ff5c56c5156182a89c55e0e79d36ad6862f47bb713af8"
+        }
+      },
+      {
+        "title": "易错 · PF-p_count-01",
+        "body": "列举时没有固定顺序，结果漏掉 312 或把某个数数了两遍",
+        "points": [
+          "题目落在「枚举与计数初步」考点，或出现「一共有几种、搭配、列举」类识别信号时；参照本节点示范题「用 1、2、3 三张数字卡片摆三位数（每张用一次），一共能摆出多少个不同的三位数？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）按固定顺序列举（从小到大、从甲到乙），做到不重不漏；（2）分几步完成的事情，用乘法想；分几类情况的事情，用加法想；（3）画树状图把所有分支展开，一眼就能检查有没有漏；完成后回看结论是否满足题设条件。",
+          "为什么按顺序列就不会漏？说一说你自己的\"排序规则\"。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_count.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:b62f03667af8d072822bfe2c0a374e28eadd4b2a6067c060bee03cbc3462eb24"
+        }
+      },
+      {
+        "title": "易错 · PF-p_count-02",
+        "body": "把\"分步\"当成\"分类\"用了加法，或把\"分类\"当成\"分步\"用了乘法",
+        "points": [
+          "题目落在「枚举与计数初步」考点，或出现「一共有几种、搭配、列举」类识别信号时；参照本节点示范题「用 1、2、3 三张数字卡片摆三位数（每张用一次），一共能摆出多少个不同的三位数？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）按固定顺序列举（从小到大、从甲到乙），做到不重不漏；（2）分几步完成的事情，用乘法想；分几类情况的事情，用加法想；（3）画树状图把所有分支展开，一眼就能检查有没有漏；完成后回看结论是否满足题设条件。",
+          "什么时候用加法、什么时候用乘法？各编一道小题考考同桌。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_count.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:b62f03667af8d072822bfe2c0a374e28eadd4b2a6067c060bee03cbc3462eb24"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "有序枚举是初高中排列组合（s_count）和竞赛计数（o_binom）的地基，习惯从现在养成。",
+        "points": [
+          "为什么按顺序列就不会漏？说一说你自己的\"排序规则\"。",
+          "什么时候用加法、什么时候用乘法？各编一道小题考考同桌。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_count.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:aa0c8f4bb75f7a373c7ff5c56c5156182a89c55e0e79d36ad6862f47bb713af8"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_count-01",
+        "level": "待人工复核",
+        "question": "用 1、2、3 三张数字卡片摆三位数（每张用一次），一共能摆出多少个不同的三位数？",
+        "hint": "按固定顺序列举（从小到大、从甲到乙），做到不重不漏",
+        "solution": "按百位分类：百位是 1 时有 123、132 两个；百位是 2 时有 213、231 两个；百位是 3 时有 312、321 两个。共 2 + 2 + 2 = 6 个。**结论：6 个。**用乘法想也一样：百位 3 种选法、十位剩 2 种、个位剩 1 种，3 × 2 × 1 = 6。",
+        "answer": "3×2×1=6 个不同的三位数",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_count.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4f4a06914baa935f4980f548eed1f7e9ebc6072ed78b755ddb5f0d32a66c6f5b"
+        }
+      }
+    ]
+  },
+  "p_div": {
+    "concept": {
+      "title": "整除与余数初步",
+      "body": "把一堆东西平均分，有时刚好分完，有时会有剩下——\"整除\"和\"余数\"就是从这件小事里来的。判断能不能整除不用每次都除一遍，掌握小窍门就能一眼看出来。",
+      "points": [
+        "倍数特征",
+        "带余除法",
+        "质数合数",
+        "最大公因数与最小公倍数"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_div.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5cfdc03f372a78c8d83e75198e7bbad3ddbbe71222a1a3fad9f67685b99678d6"
+        },
+        {
+          "path": "reliable-data/lessons/p_div.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5f6c8aa693d5de008650a51a7de7ebd572dec91eb62927e8c0e232a46287e9de"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "把一堆东西平均分，有时刚好分完，有时会有剩下——\"整除\"和\"余数\"就是从这件小事里来的。判断能不能整除不用每次都除一遍，掌握小窍门就能一眼看出来。",
+        "points": [
+          "整除意义与 2、3、5、9 倍数特征；带余除法 被除数=除数×商+余数，且余数<除数",
+          "因数、倍数、质数、合数初步；1 既不是质数也不是合数",
+          "最大公因数与最小公倍数初步（短除法/分解质因数）",
+          "判断能否被 3 整除：各位数字和能否被 3 整除（本节点例题）"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_div.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5f6c8aa693d5de008650a51a7de7ebd572dec91eb62927e8c0e232a46287e9de"
+        }
+      },
+      {
+        "title": "易错 · PF-p_div-01",
+        "body": "把\"被 3 整除\"的规则错用成\"末位是 3 或 6/9\"——末位规则是给 2 和 5 用的",
+        "points": [
+          "题目落在「整除与余数初步」考点，或出现「能不能整除、除以某数余几、奇偶判断」类识别信号时；参照本节点示范题「不计算，判断 12345 能不能被 3 整除，并说明理由。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）整除意义与 2、3、5、9 倍数特征；带余除法 被除数=除数×商+余数，且余数<除数；（2）因数、倍数、质数、合数初步；1 既不是质数也不是合数；（3）最大公因数与最小公倍数初步（短除法/分解质因数）；（4）判断能否被 3 整除：各位数字和能否被 3 整除（本节点例题）；完成后回看结论是否满足题设条件。",
+          "为什么被 3 整除要看数字和，而不是看末位？你能用 12、21 这两个数试试看吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_div.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7622c785bcaea3653d6660c75a66042ffdbd974f50929f313cdb5017bf13d3fa"
+        }
+      },
+      {
+        "title": "易错 · PF-p_div-02",
+        "body": "写出余数时忘记检查它是不是比除数小",
+        "points": [
+          "题目落在「整除与余数初步」考点，或出现「能不能整除、除以某数余几、奇偶判断」类识别信号时；参照本节点示范题「不计算，判断 12345 能不能被 3 整除，并说明理由。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）整除意义与 2、3、5、9 倍数特征；带余除法 被除数=除数×商+余数，且余数<除数；（2）因数、倍数、质数、合数初步；1 既不是质数也不是合数；（3）最大公因数与最小公倍数初步（短除法/分解质因数）；（4）判断能否被 3 整除：各位数字和能否被 3 整除（本节点例题）；完成后回看结论是否满足题设条件。",
+          "一个数除以 7 余 8，这个答案可能吗？为什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_div.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7622c785bcaea3653d6660c75a66042ffdbd974f50929f313cdb5017bf13d3fa"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "整除特征是初中\"整除与同余初步\"（o_div0）的老朋友，先把小口诀记牢，以后学同余会很轻松。",
+        "points": [
+          "为什么被 3 整除要看数字和，而不是看末位？你能用 12、21 这两个数试试看吗？",
+          "一个数除以 7 余 8，这个答案可能吗？为什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_div.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5f6c8aa693d5de008650a51a7de7ebd572dec91eb62927e8c0e232a46287e9de"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_div-01",
+        "level": "待人工复核",
+        "question": "不计算，判断 12345 能不能被 3 整除，并说明理由。",
+        "hint": "整除意义与 2、3、5、9 倍数特征；带余除法 被除数=除数×商+余数，且余数<除数",
+        "solution": "各位数字相加：1+2+3+4+5=15，15 能被 3 整除，所以 12345 能被 3 整除。结论：**能整除**。理由就是\"各位数字之和能被 3 整除，这个数就能被 3 整除\"。",
+        "answer": "12345 能被 3 整除（各位数字和 15 能被 3 整除）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_div.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8f1e52ec1a759f9f626e3ccd168e037b1f67594097a48aefa6c5299317a84bab"
+        }
+      }
+    ]
+  },
+  "p_geo": {
+    "concept": {
+      "title": "图形周长与面积",
+      "body": "周长是\"绕一圈有多长\"，面积是\"里面有多大\"。这两个听起来像一回事，其实完全不同——先用手指沿着图形边线走一圈感受周长，再用手掌盖一盖感受面积，就分清楚了。",
+      "points": [
+        "长方形正方形周长面积",
+        "三角形平行四边形面积",
+        "梯形面积",
+        "组合图形面积"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_geo.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:02af00aa72d3eabd51d6e43b120140d3b1154536f3ddaf3926dc70cd3c8801c4"
+        },
+        {
+          "path": "reliable-data/lessons/p_geo.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:66d94ccc59c6b8c0a51b8cc6b6bbaab83e03de4e84df262fe83021602f7d1a77"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "周长是\"绕一圈有多长\"，面积是\"里面有多大\"。这两个听起来像一回事，其实完全不同——先用手指沿着图形边线走一圈感受周长，再用手掌盖一盖感受面积，就分清楚了。",
+        "points": [
+          "用公式前先认清底和高：高一定是和底垂直的那条线段",
+          "梯形面积 = (上底 + 下底) × 高 ÷ 2，除以 2 是因为两个梯形能拼成平行四边形",
+          "组合图形先想清楚是\"加\"还是\"减\"，单位不统一先换算"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_geo.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:66d94ccc59c6b8c0a51b8cc6b6bbaab83e03de4e84df262fe83021602f7d1a77"
+        }
+      },
+      {
+        "title": "易错 · PF-p_geo-01",
+        "body": "把梯形的\"腰\"当成\"高\"来用——高必须和底垂直",
+        "points": [
+          "题目落在「图形周长与面积」考点，或出现「求周长、求面积、组合图形」类识别信号时；参照本节点示范题「一个梯形上底 4 厘米、下底 6 厘米、高 3 厘米，面积是多少？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）用公式前先认清底和高：高一定是和底垂直的那条线段；（2）梯形面积 = (上底 + 下底) × 高 ÷ 2，除以 2 是因为两个梯形能拼成平行四边形；（3）组合图形先想清楚是\"加\"还是\"减\"，单位不统一先换算；完成后回看结论是否满足题设条件。",
+          "为什么梯形面积公式要除以 2？能用两个一模一样的梯形拼图说明吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_geo.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:18225f36324dfa0a9a4d52a9d89f65c076009f0cbe1b59332a131c7aaa4c7e21"
+        }
+      },
+      {
+        "title": "易错 · PF-p_geo-02",
+        "body": "周长和面积单位混写（面积要写\"平方厘米\"这样的平方单位）",
+        "points": [
+          "题目落在「图形周长与面积」考点，或出现「求周长、求面积、组合图形」类识别信号时；参照本节点示范题「一个梯形上底 4 厘米、下底 6 厘米、高 3 厘米，面积是多少？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）用公式前先认清底和高：高一定是和底垂直的那条线段；（2）梯形面积 = (上底 + 下底) × 高 ÷ 2，除以 2 是因为两个梯形能拼成平行四边形；（3）组合图形先想清楚是\"加\"还是\"减\"，单位不统一先换算；完成后回看结论是否满足题设条件。",
+          "周长相等的两个长方形，面积一定相等吗？举两个数试试。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_geo.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:18225f36324dfa0a9a4d52a9d89f65c076009f0cbe1b59332a131c7aaa4c7e21"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "面积公式背后的\"割补\"思想，正是后面 p_transform 和初中几何面积法（o_geo_area）的起点。",
+        "points": [
+          "为什么梯形面积公式要除以 2？能用两个一模一样的梯形拼图说明吗？",
+          "周长相等的两个长方形，面积一定相等吗？举两个数试试。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_geo.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:66d94ccc59c6b8c0a51b8cc6b6bbaab83e03de4e84df262fe83021602f7d1a77"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_geo-01",
+        "level": "待人工复核",
+        "question": "一个梯形上底 4 厘米、下底 6 厘米、高 3 厘米，面积是多少？",
+        "hint": "用公式前先认清底和高：高一定是和底垂直的那条线段",
+        "solution": "梯形面积 = (上底 + 下底) × 高 ÷ 2 = (4 + 6) × 3 ÷ 2 = 10 × 3 ÷ 2 = 15 平方厘米。**结论：面积是 15 平方厘米。**别忘了写面积单位。",
+        "answer": "梯形面积 15 平方厘米（(4+6)×3÷2）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_geo.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:26b31d7791173b0b4caf02ce07f71363447b74a17d5cee8d2c0c77d3a9f3b542"
+        }
+      }
+    ]
+  },
+  "p_logic": {
+    "concept": {
+      "title": "找规律与逻辑推理",
+      "body": "看到一串数，先别急着说\"下一个是几\"，先问自己\"我发现的规律能解释前面每一个数吗？\"能解释的才叫规律，只碰巧对上一个的叫猜。推理也是一样，每一步都要有根据。",
+      "points": [
+        "数列规律",
+        "图形规律",
+        "真假话判断",
+        "逆推法"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_logic.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:65e9778a3ea741c2fcc81510700c2cfae42370b33c5b9fef3155533b5d18c69f"
+        },
+        {
+          "path": "reliable-data/lessons/p_logic.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4f617de93f05690b8e36ef4d612ef559e0db4af4d20f4ea45371756cef7e7ddb"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "看到一串数，先别急着说\"下一个是几\"，先问自己\"我发现的规律能解释前面每一个数吗？\"能解释的才叫规律，只碰巧对上一个的叫猜。推理也是一样，每一步都要有根据。",
+        "points": [
+          "把已知条件列成表，找\"最确定的那一句\"先下手",
+          "数列规律先试相邻两数的差，再看倍数，别只盯第一个数猜",
+          "推完一定回过头检查，看结论有没有和某个条件打架"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_logic.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4f617de93f05690b8e36ef4d612ef559e0db4af4d20f4ea45371756cef7e7ddb"
+        }
+      },
+      {
+        "title": "易错 · PF-p_logic-01",
+        "body": "只看第一个数就猜规律（比如猜\"每次乘 2\"，但 4 之后就对不上了）",
+        "points": [
+          "题目落在「找规律与逻辑推理」考点，或出现「下一个是什么、谁说真话、倒推」类识别信号时；参照本节点示范题「找规律填数：2, 4, 6, 8, ( ), 12。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）把已知条件列成表，找\"最确定的那一句\"先下手；（2）数列规律先试相邻两数的差，再看倍数，别只盯第一个数猜；（3）推完一定回过头检查，看结论有没有和某个条件打架；完成后回看结论是否满足题设条件。",
+          "你说出的规律，能解释题目里给出的每一个数吗？怎么验证？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_logic.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8a8a2fc4d0cd254854054317db8abbedc88d714a016580df240c12d788ddd75a"
+        }
+      },
+      {
+        "title": "易错 · PF-p_logic-02",
+        "body": "推理时从\"可能\"的话出发，而不是从\"确定\"的话出发",
+        "points": [
+          "题目落在「找规律与逻辑推理」考点，或出现「下一个是什么、谁说真话、倒推」类识别信号时；参照本节点示范题「找规律填数：2, 4, 6, 8, ( ), 12。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）把已知条件列成表，找\"最确定的那一句\"先下手；（2）数列规律先试相邻两数的差，再看倍数，别只盯第一个数猜；（3）推完一定回过头检查，看结论有没有和某个条件打架；完成后回看结论是否满足题设条件。",
+          "三个人里只有一个人说真话，你该从哪句话开始推？说说你的理由。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_logic.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8a8a2fc4d0cd254854054317db8abbedc88d714a016580df240c12d788ddd75a"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "观察—猜想—验证的流程，就是数学归纳法（o_induct）的雏形；真假话问题是逻辑推理的经典入口。",
+        "points": [
+          "你说出的规律，能解释题目里给出的每一个数吗？怎么验证？",
+          "三个人里只有一个人说真话，你该从哪句话开始推？说说你的理由。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_logic.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4f617de93f05690b8e36ef4d612ef559e0db4af4d20f4ea45371756cef7e7ddb"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_logic-01",
+        "level": "待人工复核",
+        "question": "找规律填数：2, 4, 6, 8, ( ), 12。",
+        "hint": "把已知条件列成表，找\"最确定的那一句\"先下手",
+        "solution": "相邻两数都相差 2：4−2=2，6−4=2，8−6=2。按这个规律，括号里的数应是 8 + 2 = 10，再往后 10 + 2 = 12，正好和最后一个数对上。**结论：括号里填 10。**",
+        "answer": "括号里填 10（相邻两数差 2）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_logic.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2b1a688185c22ceff69d639e299576c2c0284cd11c837fdd86a4f3b68d89ed6d"
+        }
+      }
+    ]
+  },
+  "p_num": {
+    "concept": {
+      "title": "数的运算与简便计算",
+      "body": "运算不是背步骤，而是发现\"怎样算更聪明\"。加法交换、结合，乘法分配，这些运算律就是从\"凑整\"的需求里长出来的。先观察数字特点，再决定算法，比埋头硬算更重要。",
+      "points": [
+        "四则混合运算顺序",
+        "运算律（交换/结合/分配）",
+        "小数与分数互化",
+        "凑整与拆数速算",
+        "估算与验算"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_num.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:cf24a6ce09a9c7f3ec566a98aa295668e5bbc0ed0e4c333ebb2303f3c8ce9e73"
+        },
+        {
+          "path": "reliable-data/lessons/p_num.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f27af251c5668bff2be29e54913ddce59b8d3a7a652a9b17b3717cb5fdd5d662"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "运算不是背步骤，而是发现\"怎样算更聪明\"。加法交换、结合，乘法分配，这些运算律就是从\"凑整\"的需求里长出来的。先观察数字特点，再决定算法，比埋头硬算更重要。",
+        "points": [
+          "看到 25 就找 4，看到 125 就找 8，看到 99 就先当成 100 再调整",
+          "乘法分配律可以正着用也可以反着用，反着用常常能把一堆乘法合成一个",
+          "算完用估算检查：结果大概是多少？差得太远就要回头看"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_num.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f27af251c5668bff2be29e54913ddce59b8d3a7a652a9b17b3717cb5fdd5d662"
+        }
+      },
+      {
+        "title": "易错 · PF-p_num-01",
+        "body": "拿到题目就从前往后硬乘，不先观察能不能凑整",
+        "points": [
+          "题目落在「数的运算与简便计算」考点，或出现「简便计算、凑整、运算律填空」类识别信号时；参照本节点示范题「简便计算：25 × 32 × 125。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）看到 25 就找 4，看到 125 就找 8，看到 99 就先当成 100 再调整；（2）乘法分配律可以正着用也可以反着用，反着用常常能把一堆乘法合成一个；（3）算完用估算检查：结果大概是多少？差得太远就要回头看；完成后回看结论是否满足题设条件。",
+          "为什么 25 找 4、125 找 8？还有哪些数字对是\"好朋友\"？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_num.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:dc4baa91d9ba2ecb6b1b23032c6806a9cae7df20596aabe6143088b1e858ee54"
+        }
+      },
+      {
+        "title": "易错 · PF-p_num-02",
+        "body": "拆数时拆错，比如把 32 拆成 4 + 8（应该是 4 × 8）",
+        "points": [
+          "题目落在「数的运算与简便计算」考点，或出现「简便计算、凑整、运算律填空」类识别信号时；参照本节点示范题「简便计算：25 × 32 × 125。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）看到 25 就找 4，看到 125 就找 8，看到 99 就先当成 100 再调整；（2）乘法分配律可以正着用也可以反着用，反着用常常能把一堆乘法合成一个；（3）算完用估算检查：结果大概是多少？差得太远就要回头看；完成后回看结论是否满足题设条件。",
+          "什么时候分配律要反过来用？能举一个你自己发现的例子吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_num.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:dc4baa91d9ba2ecb6b1b23032c6806a9cae7df20596aabe6143088b1e858ee54"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "凑整的思想会一直用到初中的因式分解和小数运算；估算习惯是检验答案的好朋友。",
+        "points": [
+          "为什么 25 找 4、125 找 8？还有哪些数字对是\"好朋友\"？",
+          "什么时候分配律要反过来用？能举一个你自己发现的例子吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_num.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f27af251c5668bff2be29e54913ddce59b8d3a7a652a9b17b3717cb5fdd5d662"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_num-01",
+        "level": "待人工复核",
+        "question": "简便计算：25 × 32 × 125。",
+        "hint": "看到 25 就找 4，看到 125 就找 8，看到 99 就先当成 100 再调整",
+        "solution": "把 32 拆成 4 × 8：原式 = 25 × 4 × 8 × 125 = (25×4) × (8×125) = 100 × 1000 = 100000。关键不是算得快，而是先看出 32 里面藏着 4 和 8 这两个\"好朋友\"。",
+        "answer": "25×32×125=100000（把 32 拆成 4×8 凑整）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_num.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:001d6321fce303743c139768e10754313cf3d34cab977d84c7476b8a708e3c81"
+        }
+      }
+    ]
+  },
+  "p_pigeon": {
+    "concept": {
+      "title": "抽屉原理初步",
+      "body": "有 4 只鸽子飞进 3 个鸽笼，不管怎么飞，总有一个笼子里至少住 2 只。这个\"不用看也敢肯定\"的结论，就是抽屉原理——它妙在让你不用数完就能下判断。",
+      "points": [
+        "最不利原则",
+        "简单抽屉构造",
+        "至少有一个"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_pigeon.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:6ed8b69517dc5bfe424cef6ac4ed01ff17b28883690fbd994bdc5470aa173a62"
+        },
+        {
+          "path": "reliable-data/lessons/p_pigeon.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f76317aa40cb12b202b3db6e99511f8b1a99d48f01f649dbc3c55689ecf4e843"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "有 4 只鸽子飞进 3 个鸽笼，不管怎么飞，总有一个笼子里至少住 2 只。这个\"不用看也敢肯定\"的结论，就是抽屉原理——它妙在让你不用数完就能下判断。",
+        "points": [
+          "先想\"最不巧\"的放法：每个抽屉尽量只放一个",
+          "物品比抽屉多，多出来的那些必然要和别人挤在一起",
+          "说清\"物品是什么、抽屉是什么\"，是解题最关键的第一步"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_pigeon.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f76317aa40cb12b202b3db6e99511f8b1a99d48f01f649dbc3c55689ecf4e843"
+        }
+      },
+      {
+        "title": "易错 · PF-p_pigeon-01",
+        "body": "把\"抽屉\"和\"物品\"认反了（本题抽屉是月份，不是同学）",
+        "points": [
+          "题目落在「抽屉原理初步」考点，或出现「至少有几个、最不利、放进抽屉」类识别信号时；参照本节点示范题「一个班有 13 名同学，至少有两名同学在同一个月过生日。为什么？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）先想\"最不巧\"的放法：每个抽屉尽量只放一个；（2）物品比抽屉多，多出来的那些必然要和别人挤在一起；（3）说清\"物品是什么、抽屉是什么\"，是解题最关键的第一步；完成后回看结论是否满足题设条件。",
+          "为什么 13 个人对应 12 个月就一定有两人同月？12 个人时还一定吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_pigeon.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:320914e02992cf64e6f09a26c9c4f2d7ca5293e76d30fe75297c9ebc45f378c2"
+        }
+      },
+      {
+        "title": "易错 · PF-p_pigeon-02",
+        "body": "说成\"一定有两人生日同一天\"——题目按月份算，结论要和抽屉的划分一致",
+        "points": [
+          "题目落在「抽屉原理初步」考点，或出现「至少有几个、最不利、放进抽屉」类识别信号时；参照本节点示范题「一个班有 13 名同学，至少有两名同学在同一个月过生日。为什么？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）先想\"最不巧\"的放法：每个抽屉尽量只放一个；（2）物品比抽屉多，多出来的那些必然要和别人挤在一起；（3）说清\"物品是什么、抽屉是什么\"，是解题最关键的第一步；完成后回看结论是否满足题设条件。",
+          "如果改成\"至少三人在同一个月\"，至少要多少人？试试看。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_pigeon.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:320914e02992cf64e6f09a26c9c4f2d7ca5293e76d30fe75297c9ebc45f378c2"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "这是竞赛\"抽屉原理与极端原理\"（o_pigeon）的第一课，最不利原则会一直陪你走到组合数学。",
+        "points": [
+          "为什么 13 个人对应 12 个月就一定有两人同月？12 个人时还一定吗？",
+          "如果改成\"至少三人在同一个月\"，至少要多少人？试试看。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_pigeon.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f76317aa40cb12b202b3db6e99511f8b1a99d48f01f649dbc3c55689ecf4e843"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_pigeon-01",
+        "level": "待人工复核",
+        "question": "一个班有 13 名同学，至少有两名同学在同一个月过生日。为什么？",
+        "hint": "先想\"最不巧\"的放法：每个抽屉尽量只放一个",
+        "solution": "把 12 个月看成 12 个\"抽屉\"，13 名同学看成 13 件\"物品\"。就算前 12 名同学分别生在 12 个不同的月份，第 13 名同学也一定会和其中某人同一个月。**结论：至少有两名同学在同一个月过生日。**",
+        "answer": "至少有两名同学在同一个月过生日（13 人 / 12 个月）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_pigeon.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5c0d1778c2b3bd637e7273901f69530acc2a8d6a1a50406afc2195ef8acfd3f4"
+        }
+      }
+    ]
+  },
+  "p_ratio": {
+    "concept": {
+      "title": "比与百分数",
+      "body": "比是把两个数量放在一起比较，百分数是把\"占整体的多少\"统一写成\"每一百里面有几个\"。它们说的都是\"关系\"，不是孤立的数——先把总量找准，题目就简单一半。",
+      "points": [
+        "比与比值",
+        "比例基本性质",
+        "百分数互化",
+        "按比例分配"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_ratio.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f28089e1928e3fb9bd7352b9b627207830f581d7896a525f1982f6ee5626e63e"
+        },
+        {
+          "path": "reliable-data/lessons/p_ratio.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:279d7eb7b940c0697e19ae58d8e52834e12d26b7596eb92bc9cf3ce4e832145a"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "比是把两个数量放在一起比较，百分数是把\"占整体的多少\"统一写成\"每一百里面有几个\"。它们说的都是\"关系\"，不是孤立的数——先把总量找准，题目就简单一半。",
+        "points": [
+          "比的意义、比值与比的基本性质；化简比与求比值不同（化简比仍是比，比值是一个数）",
+          "比例基本性质：内项积=外项积；解比例",
+          "百分数与分数、小数互化；百分数应用先找\"单位 1\"（基准量）",
+          "按比例分配：总量×某份占比（本节点例题：60×3/5=36）"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_ratio.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:279d7eb7b940c0697e19ae58d8e52834e12d26b7596eb92bc9cf3ce4e832145a"
+        }
+      },
+      {
+        "title": "易错 · PF-p_ratio-01",
+        "body": "把 2 : 3 理解成\"甲比乙多 3 个\"——比表示的是份数关系，不是相差多少",
+        "points": [
+          "题目落在「比与百分数」考点，或出现「化简比、求百分率、按比例分配」类识别信号时；参照本节点示范题「把 60 个苹果按 2 : 3 分给甲乙两人，乙分到多少个？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）比的意义、比值与比的基本性质；化简比与求比值不同（化简比仍是比，比值是一个数）；（2）比例基本性质：内项积=外项积；解比例；（3）百分数与分数、小数互化；百分数应用先找\"单位 1\"（基准量）；（4）按比例分配：总量×某份占比（本节点例题：60×3/5=36）；完成后回看结论是否满足题设条件。",
+          "2 : 3 和 4 : 6 是同一个比吗？为什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_ratio.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1cedaa9f8b00665bdd519a3857a57bf1c1d072303fdfca52f3a6c5d0a99d134c"
+        }
+      },
+      {
+        "title": "易错 · PF-p_ratio-02",
+        "body": "求百分率时找错总量（如把\"增加了多少\"当成\"增加到多少\"）",
+        "points": [
+          "题目落在「比与百分数」考点，或出现「化简比、求百分率、按比例分配」类识别信号时；参照本节点示范题「把 60 个苹果按 2 : 3 分给甲乙两人，乙分到多少个？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）比的意义、比值与比的基本性质；化简比与求比值不同（化简比仍是比，比值是一个数）；（2）比例基本性质：内项积=外项积；解比例；（3）百分数与分数、小数互化；百分数应用先找\"单位 1\"（基准量）；（4）按比例分配：总量×某份占比（本节点例题：60×3/5=36）；完成后回看结论是否满足题设条件。",
+          "一件商品先涨价 10% 再降价 10%，最后价格和原来一样吗？说说你的想法。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_ratio.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1cedaa9f8b00665bdd519a3857a57bf1c1d072303fdfca52f3a6c5d0a99d134c"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "比和百分数是初中分式、比例函数以及高中浓度、增长率问题的常用语言。",
+        "points": [
+          "2 : 3 和 4 : 6 是同一个比吗？为什么？",
+          "一件商品先涨价 10% 再降价 10%，最后价格和原来一样吗？说说你的想法。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_ratio.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:279d7eb7b940c0697e19ae58d8e52834e12d26b7596eb92bc9cf3ce4e832145a"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_ratio-01",
+        "level": "待人工复核",
+        "question": "把 60 个苹果按 2 : 3 分给甲乙两人，乙分到多少个？",
+        "hint": "比的意义、比值与比的基本性质；化简比与求比值不同（化简比仍是比，比值是一个数）",
+        "solution": "总份数 = 2 + 3 = 5 份，每份 = 60 ÷ 5 = 12 个。乙占 3 份：12 × 3 = 36 个。**结论：乙分到 36 个。**检验：甲 24 + 乙 36 = 60，比例 24 : 36 = 2 : 3，正确。",
+        "answer": "乙分到 36 个（总份数 5，每份 12，乙占 3 份）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_ratio.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9092b5ba1d76539c601ec94303b64887b20073476804c9739f7f9adf4be3d8c7"
+        }
+      }
+    ]
+  },
+  "p_transform": {
+    "concept": {
+      "title": "割补与等积变形初步",
+      "body": "遇到不认识的图形，别急着套公式——试着剪一刀、拼一拼，把它变成你熟悉的长方形。形状变了，但面积一点没少，这就是\"等积变形\"。这是几何里最有趣的一个小魔法。",
+      "points": [
+        "平移与旋转",
+        "剪拼成熟悉图形",
+        "面积不变思想",
+        "对称与折叠"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/p_transform.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供，不写具体版次）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2d513eb35ce97c1988e05bc21b6f7d8cb532e89a07ec042f4264db2a26385930"
+        },
+        {
+          "path": "reliable-data/lessons/p_transform.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4d19bd5ef863e83522be8a19cd6d9eb102f833b4db03e154392081ae0f754dfe"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "遇到不认识的图形，别急着套公式——试着剪一刀、拼一拼，把它变成你熟悉的长方形。形状变了，但面积一点没少，这就是\"等积变形\"。这是几何里最有趣的一个小魔法。",
+        "points": [
+          "把平行四边形沿高剪下三角形移到另一边，就拼成了长方形",
+          "割补前后面积不变，但周长可能会变，别把两件事混在一起",
+          "拿不准的时候真的动手剪一剪、折一折，比盯着纸面想更有用"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_transform.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4d19bd5ef863e83522be8a19cd6d9eb102f833b4db03e154392081ae0f754dfe"
+        }
+      },
+      {
+        "title": "易错 · PF-p_transform-01",
+        "body": "以为割补后周长也不变——形状变了，周长常常跟着变",
+        "points": [
+          "题目落在「割补与等积变形初步」考点，或出现「剪拼、割补、面积不变」类识别信号时；参照本节点示范题「一个平行四边形底 6 厘米、高 4 厘米。把它割补成长方形后，长方形的面积是多少？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）把平行四边形沿高剪下三角形移到另一边，就拼成了长方形；（2）割补前后面积不变，但周长可能会变，别把两件事混在一起；（3）拿不准的时候真的动手剪一剪、折一折，比盯着纸面想更有用；完成后回看结论是否满足题设条件。",
+          "割补前后，什么变了、什么没变？能各说出一个吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_transform.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f84e22d085764576ad23c0c042e963292600197bc5a04782f452b2f395f16ad3"
+        }
+      },
+      {
+        "title": "易错 · PF-p_transform-02",
+        "body": "割补时沿斜线剪，拼不成规则图形，反而把题目弄复杂",
+        "points": [
+          "题目落在「割补与等积变形初步」考点，或出现「剪拼、割补、面积不变」类识别信号时；参照本节点示范题「一个平行四边形底 6 厘米、高 4 厘米。把它割补成长方形后，长方形的面积是多少？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）把平行四边形沿高剪下三角形移到另一边，就拼成了长方形；（2）割补前后面积不变，但周长可能会变，别把两件事混在一起；（3）拿不准的时候真的动手剪一剪、折一折，比盯着纸面想更有用；完成后回看结论是否满足题设条件。",
+          "为什么沿\"高\"剪平行四边形能拼成长方形，沿随便一条斜线就不行？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/p_transform.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；易错诊断与纠正方法原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f84e22d085764576ad23c0c042e963292600197bc5a04782f452b2f395f16ad3"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "等积变形是初中面积法、高中向量与复数解几何的思想前身，先用剪刀建立直觉。",
+        "points": [
+          "割补前后，什么变了、什么没变？能各说出一个吗？",
+          "为什么沿\"高\"剪平行四边形能拼成长方形，沿随便一条斜线就不行？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/p_transform.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；讲解措辞、例题与自检原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4d19bd5ef863e83522be8a19cd6d9eb102f833b4db03e154392081ae0f754dfe"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-p_transform-01",
+        "level": "待人工复核",
+        "question": "一个平行四边形底 6 厘米、高 4 厘米。把它割补成长方形后，长方形的面积是多少？",
+        "hint": "把平行四边形沿高剪下三角形移到另一边，就拼成了长方形",
+        "solution": "割补只改变形状，面积不变。原平行四边形面积 = 底 × 高 = 6 × 4 = 24 平方厘米，所以拼成的长方形面积也是 24 平方厘米。**结论：24 平方厘米。**",
+        "answer": "割补成长方形后面积仍为 24 平方厘米（等积变形）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/p_transform.json",
+          "source_ref": "未找到权威依据（小学分册版权页未提供）；示范题与解答原创，依据：数学公共知识与通用解题方法（C 级）；不得声称已核对教材（SPEC-008）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9244959cd2fcb534a8c1e31cb161aa39fec1ee40c549977d0ff16bfb1a34dc88"
+        }
+      }
+    ]
+  },
+  "s_complex": {
+    "concept": {
+      "title": "复数",
+      "body": "复数是把数系扩展到二维：z=a+bi。它的革命性在于，乘法运算天然包含了\"旋转与伸缩\"——乘一个复数等于做一次几何变换。这是\"代数运算几何化\"的第一次体验。",
+      "points": [
+        "复数概念与 i²=−1",
+        "四则运算与共轭",
+        "几何意义与模",
+        "三角形式与欧拉公式"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_complex.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:60efe332c58ab710796dd79db2cadba8233787b2fca0db86eb1b30d4057467f1"
+        },
+        {
+          "path": "reliable-data/lessons/s_complex.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2feaf7813ebec12e4b809791b9b441d289bfa0f7e20339d6de0129fd07c65f47"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "复数是把数系扩展到二维：z=a+bi。它的革命性在于，乘法运算天然包含了\"旋转与伸缩\"——乘一个复数等于做一次几何变换。这是\"代数运算几何化\"的第一次体验。",
+        "points": [
+          "复数 z=a+bi（i²=−1），相等 ⇔ 实部虚部分别相等；共轭 z̄=a−bi，|z|²=z·z̄",
+          "复数四则运算与几何意义（复平面点/向量、模与辐角）",
+          "欧拉公式 e^(iθ)=cosθ+isinθ 与三角形式 r(cosθ+isinθ)，用于乘幂与开方",
+          "复数法解几何：平行四边形对角线平方和（本节点例题）"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_complex.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2feaf7813ebec12e4b809791b9b441d289bfa0f7e20339d6de0129fd07c65f47"
+        }
+      },
+      {
+        "title": "易错 · PF-s_complex-01",
+        "body": "i²=−1 记成 1，或忽略 i 的幂的周期性",
+        "points": [
+          "题目落在「复数」考点，或出现「复数化简、几何意义」类识别信号时；参照本节点示范题「已知 (1+i)z=2，求 z」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）复数 z=a+bi（i²=−1），相等 ⇔ 实部虚部分别相等；共轭 z̄=a−bi，|z|²=z·z̄；（2）复数四则运算与几何意义（复平面点/向量、模与辐角）；（3）欧拉公式 e^(iθ)=cosθ+isinθ 与三角形式 r(cosθ+isinθ)，用于乘幂与开方；（4）复数法解几何：平行四边形对角线平方和（本节点例题）；完成后回看结论是否满足题设条件。",
+          "复数乘法为什么可以理解为旋转和伸缩？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_complex.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:08d3fb30b2ccdda061f8b69dc47cdedf197415adffab828cf88f0be50d0bba9b"
+        }
+      },
+      {
+        "title": "易错 · PF-s_complex-02",
+        "body": "两个非实数复数不能比较大小",
+        "points": [
+          "题目落在「复数」考点，或出现「复数化简、几何意义」类识别信号时；参照本节点示范题「已知 (1+i)z=2，求 z」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）复数 z=a+bi（i²=−1），相等 ⇔ 实部虚部分别相等；共轭 z̄=a−bi，|z|²=z·z̄；（2）复数四则运算与几何意义（复平面点/向量、模与辐角）；（3）欧拉公式 e^(iθ)=cosθ+isinθ 与三角形式 r(cosθ+isinθ)，用于乘幂与开方；（4）复数法解几何：平行四边形对角线平方和（本节点例题）；完成后回看结论是否满足题设条件。",
+          "为什么两个复数（非实数）不能比较大小？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_complex.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:08d3fb30b2ccdda061f8b69dc47cdedf197415adffab828cf88f0be50d0bba9b"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "复数是复数进阶（o_complex）、复数法解几何（o_geo_vec）的基础。",
+        "points": [
+          "复数乘法为什么可以理解为旋转和伸缩？",
+          "为什么两个复数（非实数）不能比较大小？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_complex.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2feaf7813ebec12e4b809791b9b441d289bfa0f7e20339d6de0129fd07c65f47"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_complex-01",
+        "level": "待人工复核",
+        "question": "已知 (1+i)z=2，求 z",
+        "hint": "复数 z=a+bi（i²=−1），相等 ⇔ 实部虚部分别相等；共轭 z̄=a−bi，|z|²=z·z̄",
+        "solution": "z=2/(1+i)=2(1−i)/[(1+i)(1−i)]=2(1−i)/2=1−i。核心是\"分母实数化\"——乘共轭复数，与分母有理化是同一个思路。",
+        "answer": "z=1−i",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_complex.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·复数｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:885d11dd3db286e2834fbcfcbc7f980e21646444098b24b64efc493a3f36330d"
+        }
+      }
+    ]
+  },
+  "s_conic": {
+    "concept": {
+      "title": "圆锥曲线",
+      "body": "圆锥曲线（椭圆、双曲线、抛物线）是解析几何的高峰。核心是\"定义 + 标准方程 + 统一套路\"：所有题目几乎都用\"设直线方程 → 与曲线联立 → 韦达定理\"这条流水线处理。",
+      "points": [
+        "椭圆",
+        "双曲线",
+        "抛物线",
+        "统一定义",
+        "直线与圆锥曲线"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:d7769216a4444c3b80d8143410fb3040d3c78fbeeb1b1beb98220c82d89690eb"
+        },
+        {
+          "path": "reliable-data/lessons/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c848c363148db61d3116a66d33a090f503df54a1f4de7177f192d299f1b8ca5e"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "圆锥曲线（椭圆、双曲线、抛物线）是解析几何的高峰。核心是\"定义 + 标准方程 + 统一套路\"：所有题目几乎都用\"设直线方程 → 与曲线联立 → 韦达定理\"这条流水线处理。",
+        "points": [
+          "牢记椭圆/双曲线/抛物线定义与标准方程：椭圆 c²=a²−b²，双曲线 c²=a²+b²",
+          "直线与曲线联立，用韦达定理得 x₁+x₂、x₁x₂，弦长公式 |AB|=√(1+k²)·|x₁−x₂|",
+          "设而不求：只求两根的和与积，避免解出具体交点；本题方程具体，可直接解出核对",
+          "联立后先验 Δ>0 确认两交点存在，再用弦长公式"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c848c363148db61d3116a66d33a090f503df54a1f4de7177f192d299f1b8ca5e"
+        }
+      },
+      {
+        "title": "易错 · PF-s_conic-01",
+        "body": "联立后不验 Δ>0，直接套弦长公式（可能无交点）",
+        "points": [
+          "题目落在「圆锥曲线」考点，或出现「求离心率、弦长面积、定点定值」类识别信号时；参照本节点示范题「椭圆 x²/4 + y² = 1 与直线 y = x + 1 交于 A、B 两点，求弦长 |AB|。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）牢记椭圆/双曲线/抛物线定义与标准方程：椭圆 c²=a²−b²，双曲线 c²=a²+b²；（2）直线与曲线联立，用韦达定理得 x₁+x₂、x₁x₂，弦长公式 |AB|=√(1+k²)·|x₁−x₂|；（3）设而不求：只求两根的和与积，避免解出具体交点；本题方程具体，可直接解出核对；（4）联立后先验 Δ>0 确认两交点存在，再用弦长公式；完成后回看结论是否满足题设条件。",
+          "本题 Δ 是多少？为什么有两个交点？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:354368eafe665fe7122d604fb131f61d651251d64581484db6d4c367a628a094"
+        }
+      },
+      {
+        "title": "易错 · PF-s_conic-02",
+        "body": "弦长公式漏掉 √(1+k²) 因子，直接拿 |x₁−x₂| 当答案",
+        "points": [
+          "题目落在「圆锥曲线」考点，或出现「求离心率、弦长面积、定点定值」类识别信号时；参照本节点示范题「椭圆 x²/4 + y² = 1 与直线 y = x + 1 交于 A、B 两点，求弦长 |AB|。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）牢记椭圆/双曲线/抛物线定义与标准方程：椭圆 c²=a²−b²，双曲线 c²=a²+b²；（2）直线与曲线联立，用韦达定理得 x₁+x₂、x₁x₂，弦长公式 |AB|=√(1+k²)·|x₁−x₂|；（3）设而不求：只求两根的和与积，避免解出具体交点；本题方程具体，可直接解出核对；（4）联立后先验 Δ>0 确认两交点存在，再用弦长公式；完成后回看结论是否满足题设条件。",
+          "若直线改为 y=x+3，还会与椭圆相交吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:354368eafe665fe7122d604fb131f61d651251d64581484db6d4c367a628a094"
+        }
+      },
+      {
+        "title": "易错 · PF-s_conic-03",
+        "body": "忽略椭圆方程具体系数，把 k 当未知却要求数值弦长",
+        "points": [
+          "题目落在「圆锥曲线」考点，或出现「求离心率、弦长面积、定点定值」类识别信号时；参照本节点示范题「椭圆 x²/4 + y² = 1 与直线 y = x + 1 交于 A、B 两点，求弦长 |AB|。」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）牢记椭圆/双曲线/抛物线定义与标准方程：椭圆 c²=a²−b²，双曲线 c²=a²+b²；（2）直线与曲线联立，用韦达定理得 x₁+x₂、x₁x₂，弦长公式 |AB|=√(1+k²)·|x₁−x₂|；（3）设而不求：只求两根的和与积，避免解出具体交点；本题方程具体，可直接解出核对；（4）联立后先验 Δ>0 确认两交点存在，再用弦长公式；完成后回看结论是否满足题设条件。",
+          "本题 Δ 是多少？为什么有两个交点？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:354368eafe665fe7122d604fb131f61d651251d64581484db6d4c367a628a094"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "圆锥曲线连接导数最值（s_deriv）、向量（s_vec3），是高考与竞赛的压轴常客。",
+        "points": [
+          "本题 Δ 是多少？为什么有两个交点？",
+          "若直线改为 y=x+3，还会与椭圆相交吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c848c363148db61d3116a66d33a090f503df54a1f4de7177f192d299f1b8ca5e"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_conic-01",
+        "level": "待人工复核",
+        "question": "椭圆 x²/4 + y² = 1 与直线 y = x + 1 交于 A、B 两点，求弦长 |AB|。",
+        "hint": "牢记椭圆/双曲线/抛物线定义与标准方程：椭圆 c²=a²−b²，双曲线 c²=a²+b²",
+        "solution": "联立 x²/4 + (x+1)² = 1，化为 5x² + 8x = 0，得 x₁=0、x₂=−8/5，对应 y₁=1、y₂=−3/5。弦长 |AB|=√(1+k²)·|x₁−x₂|=√2 × 8/5 = 8√2/5。核心是\"不解交点坐标也能用韦达定理算弦长\"：本题因方程具体，可直接解出交点验证。",
+        "answer": "弦长 |AB| = 8√2/5（椭圆 x²/4+y²=1 与直线 y=x+1）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_conic.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·圆锥曲线｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:025e3269b6ee6a9c09d4b2d2bc70ef63f7a59144c02fe83214c23290b693c61b"
+        }
+      }
+    ]
+  },
+  "s_count": {
+    "concept": {
+      "title": "计数原理",
+      "body": "计数原理是组合数学的地基：加法原理（分类）和乘法原理（分步）。排列组合的所有公式都从这两条推导而来。核心是判断\"分类还是分步\"\"有序还是无序\"。",
+      "points": [
+        "分类/分步",
+        "排列",
+        "组合",
+        "二项式定理"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_count.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:76760816fc0ed6b1f26462c4e7aa56174c3449957f2692d12efa1a98d0ff26e2"
+        },
+        {
+          "path": "reliable-data/lessons/s_count.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:33415b69c8481eb641d05f236db66f8ef7bf815ea8ccd9a982bfd97e858c2225"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "计数原理是组合数学的地基：加法原理（分类）和乘法原理（分步）。排列组合的所有公式都从这两条推导而来。核心是判断\"分类还是分步\"\"有序还是无序\"。",
+        "points": [
+          "加法原理：分类完成，各类相加",
+          "乘法原理：分步完成，各步相乘",
+          "排列（有序）A(n,m)、组合（无序）C(n,m)"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_count.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:33415b69c8481eb641d05f236db66f8ef7bf815ea8ccd9a982bfd97e858c2225"
+        }
+      },
+      {
+        "title": "易错 · PF-s_count-01",
+        "body": "排列组合用混（有无顺序判断错）",
+        "points": [
+          "题目落在「计数原理」考点，或出现「计数方案、展开式系数」类识别信号时；参照本节点示范题「从 5 人中选 3 人组成委员会，有多少种选法？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）加法原理：分类完成，各类相加；（2）乘法原理：分步完成，各步相乘；（3）排列（有序）A(n,m)、组合（无序）C(n,m)；完成后回看结论是否满足题设条件。",
+          "加法原理和乘法原理分别对应什么情形？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_count.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:de2c01e83bba88a18ceeb6e161453c5e295a78458d8476ae4e46ae42790ef2b2"
+        }
+      },
+      {
+        "title": "易错 · PF-s_count-02",
+        "body": "分类重复或分步遗漏",
+        "points": [
+          "题目落在「计数原理」考点，或出现「计数方案、展开式系数」类识别信号时；参照本节点示范题「从 5 人中选 3 人组成委员会，有多少种选法？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）加法原理：分类完成，各类相加；（2）乘法原理：分步完成，各步相乘；（3）排列（有序）A(n,m)、组合（无序）C(n,m)；完成后回看结论是否满足题设条件。",
+          "怎么判断一个问题该用排列还是组合？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_count.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:de2c01e83bba88a18ceeb6e161453c5e295a78458d8476ae4e46ae42790ef2b2"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "计数原理是组合恒等式（o_binom）、抽屉容斥（o_comb_adv）、概率的基础。",
+        "points": [
+          "加法原理和乘法原理分别对应什么情形？",
+          "怎么判断一个问题该用排列还是组合？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_count.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:33415b69c8481eb641d05f236db66f8ef7bf815ea8ccd9a982bfd97e858c2225"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_count-01",
+        "level": "待人工复核",
+        "question": "从 5 人中选 3 人组成委员会，有多少种选法？",
+        "hint": "加法原理：分类完成，各类相加",
+        "solution": "选人无顺序之分，用组合 C(5,3)=10。核心是\"先判断有没有顺序\"——有顺序用排列，无顺序用组合。",
+        "answer": "C(5,3)=10 种选法",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_count.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·计数原理｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:be09834cd0cb618b366ad9fd105e7ab2e2e3e55a90bfb981d3e711b6e6093d6e"
+        }
+      }
+    ]
+  },
+  "s_deriv": {
+    "concept": {
+      "title": "导数及其应用",
+      "body": "导数是研究函数变化率的工具，它把\"函数性质\"变成了\"可计算的问题\"。导数最核心的价值是判断单调性和求最值——过去靠图像观察的结论，现在可以严格算出来。",
+      "points": [
+        "导数概念",
+        "求导法则",
+        "单调性极值最值",
+        "切线"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_deriv.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:085c3037ca755109a4d3660dd21bc8f79ee0b1424b00f1a7569fc757041fdd4b"
+        },
+        {
+          "path": "reliable-data/lessons/s_deriv.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9f3f0f85c26a78d7f8cdd95fe6988eda629c4b0cb2b38df5b6c575a9551c8d5e"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "导数是研究函数变化率的工具，它把\"函数性质\"变成了\"可计算的问题\"。导数最核心的价值是判断单调性和求最值——过去靠图像观察的结论，现在可以严格算出来。",
+        "points": [
+          "求导后解 f′(x)=0，划分区间判断单调性",
+          "极值点是导数为零且两侧变号的点",
+          "恒成立问题转化为最值问题：f(x)≥a 恒成立 ⟺ min f(x)≥a"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_deriv.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9f3f0f85c26a78d7f8cdd95fe6988eda629c4b0cb2b38df5b6c575a9551c8d5e"
+        }
+      },
+      {
+        "title": "易错 · PF-s_deriv-01",
+        "body": "导数为零就断定是极值点（必须两侧变号）",
+        "points": [
+          "题目落在「导数及其应用」考点，或出现「求极值最值、证明不等式、恒成立」类识别信号时；参照本节点示范题「求 f(x)=x³−3x 的极值」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）求导后解 f′(x)=0，划分区间判断单调性；（2）极值点是导数为零且两侧变号的点；（3）恒成立问题转化为最值问题：f(x)≥a 恒成立 ⟺ min f(x)≥a；完成后回看结论是否满足题设条件。",
+          "f′(x₀)=0 一定是极值点吗？举例说明。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_deriv.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2dc6b7c461a08d8238a9a19ec70786cd0d86e153bfdf909a90ad1dbfdee29eb1"
+        }
+      },
+      {
+        "title": "易错 · PF-s_deriv-02",
+        "body": "求最值时忘记比较端点",
+        "points": [
+          "题目落在「导数及其应用」考点，或出现「求极值最值、证明不等式、恒成立」类识别信号时；参照本节点示范题「求 f(x)=x³−3x 的极值」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）求导后解 f′(x)=0，划分区间判断单调性；（2）极值点是导数为零且两侧变号的点；（3）恒成立问题转化为最值问题：f(x)≥a 恒成立 ⟺ min f(x)≥a；完成后回看结论是否满足题设条件。",
+          "为什么\"恒成立\"可以转化为\"最值\"问题？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_deriv.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2dc6b7c461a08d8238a9a19ec70786cd0d86e153bfdf909a90ad1dbfdee29eb1"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "导数是处理不等式证明、函数最值、解析几何最值问题的通用工具，是高中内容的顶点。",
+        "points": [
+          "f′(x₀)=0 一定是极值点吗？举例说明。",
+          "为什么\"恒成立\"可以转化为\"最值\"问题？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_deriv.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:9f3f0f85c26a78d7f8cdd95fe6988eda629c4b0cb2b38df5b6c575a9551c8d5e"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_deriv-01",
+        "level": "待人工复核",
+        "question": "求 f(x)=x³−3x 的极值",
+        "hint": "求导后解 f′(x)=0，划分区间判断单调性",
+        "solution": "f′(x)=3x²−3=3(x−1)(x+1)，令 f′=0 得 x=±1。x<−1 时 f′>0，−1<x<1 时 f′<0，x>1 时 f′>0。故 x=−1 是极大值点，x=1 是极小值点。核心是看导数在零点两侧是否变号。",
+        "answer": "x=−1 为极大值点，x=1 为极小值点",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_deriv.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·导数及其应用｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8647d0dcdc16950f8c369d9f0ca514c895894c3db1cf2711325384bf12e4cc37"
+        }
+      }
+    ]
+  },
+  "s_exp": {
+    "concept": {
+      "title": "指数与对数函数",
+      "body": "指数与对数是一对互逆运算。引入它们的意义在于描述\"增长与衰减\"——这是现实世界最常见的变化模式。竞赛中它们常与不等式、方程结合出现。",
+      "points": [
+        "指数运算",
+        "指数函数",
+        "对数运算",
+        "对数函数",
+        "函数零点"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_exp.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:5cba0c1e11a7e1f57343b87332ef7612666d3a92b1b75c1c1346bc672185656c"
+        },
+        {
+          "path": "reliable-data/lessons/s_exp.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:341045813f9bea80483220bd4c339a6d8d9697e8f48cc06855acc2f13fd81ec3"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "指数与对数是一对互逆运算。引入它们的意义在于描述\"增长与衰减\"——这是现实世界最常见的变化模式。竞赛中它们常与不等式、方程结合出现。",
+        "points": [
+          "指数运算律与对数运算律要熟练，尤其 log(ab)=log a+log b",
+          "比较大小用单调性：同底看指数、同指数看底",
+          "指数方程对数化，对数方程指数化"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_exp.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:341045813f9bea80483220bd4c339a6d8d9697e8f48cc06855acc2f13fd81ec3"
+        }
+      },
+      {
+        "title": "易错 · PF-s_exp-01",
+        "body": "对数运算律忽略真数为正的前提",
+        "points": [
+          "题目落在「指数与对数函数」考点，或出现「比较大小、解指数对数不等式、零点」类识别信号时；参照本节点示范题「比较 2^0.3 与 0.3² 的大小」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）指数运算律与对数运算律要熟练，尤其 log(ab)=log a+log b；（2）比较大小用单调性：同底看指数、同指数看底；（3）指数方程对数化，对数方程指数化；完成后回看结论是否满足题设条件。",
+          "指数和对数为什么是互逆运算？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_exp.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:db81e6d89029f1de4556a70b36fd5968eeb170c3eeaac8dd32336d61435359ac"
+        }
+      },
+      {
+        "title": "易错 · PF-s_exp-02",
+        "body": "比较大小时不找中间量，硬算近似值",
+        "points": [
+          "题目落在「指数与对数函数」考点，或出现「比较大小、解指数对数不等式、零点」类识别信号时；参照本节点示范题「比较 2^0.3 与 0.3² 的大小」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）指数运算律与对数运算律要熟练，尤其 log(ab)=log a+log b；（2）比较大小用单调性：同底看指数、同指数看底；（3）指数方程对数化，对数方程指数化；完成后回看结论是否满足题设条件。",
+          "比较大小时\"找中间量\"是什么意思？举一个用 0 或 1 作中间的例子。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_exp.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:db81e6d89029f1de4556a70b36fd5968eeb170c3eeaac8dd32336d61435359ac"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "指数对数是导数（s_deriv 中的 eˣ、ln x）、函数方程（o_func_eq）的重要载体。",
+        "points": [
+          "指数和对数为什么是互逆运算？",
+          "比较大小时\"找中间量\"是什么意思？举一个用 0 或 1 作中间的例子。"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_exp.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:341045813f9bea80483220bd4c339a6d8d9697e8f48cc06855acc2f13fd81ec3"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_exp-01",
+        "level": "待人工复核",
+        "question": "比较 2^0.3 与 0.3² 的大小",
+        "hint": "指数运算律与对数运算律要熟练，尤其 log(ab)=log a+log b",
+        "solution": "2^0.3>2^0=1，而 0.3²=0.09<1，故 2^0.3>0.3²。核心是找中间量 1 作比较——这是比较大小的常用策略。",
+        "answer": "2^0.3 > 0.3²",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_exp.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·指数与对数函数｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d457d7ea3159d7b2310bbf04faba6f8b63a37a7f4fc1dbd7f389b0b576ca5b3a"
+        }
+      }
+    ]
+  },
+  "s_func": {
+    "concept": {
+      "title": "函数概念与性质",
+      "body": "进入高中，函数从\"算式\"抽象为\"映射\"，重点转向研究函数的整体性质：单调性、奇偶性、周期性。这些性质让我们不必逐点计算，就能把握函数在全域的行为。",
+      "points": [
+        "定义域值域",
+        "单调性",
+        "奇偶性",
+        "最值",
+        "函数图像"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_func.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:e6360b4166eb8277df2f9fa2ec3f2fc15ea9f1228de84cf9fc20b5ba370eb486"
+        },
+        {
+          "path": "reliable-data/lessons/s_func.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:378fb26169859907cf6cfc7af2a9cca2868a7a5803e20a0117b3d44da75f5973"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "进入高中，函数从\"算式\"抽象为\"映射\"，重点转向研究函数的整体性质：单调性、奇偶性、周期性。这些性质让我们不必逐点计算，就能把握函数在全域的行为。",
+        "points": [
+          "单调性用定义证明：取值、作差、定号、下结论",
+          "奇偶性先看定义域是否关于原点对称",
+          "周期性用于把大自变量化到已知区间"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_func.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:378fb26169859907cf6cfc7af2a9cca2868a7a5803e20a0117b3d44da75f5973"
+        }
+      },
+      {
+        "title": "易错 · PF-s_func-01",
+        "body": "定义域不对称却判为偶/奇函数",
+        "points": [
+          "题目落在「函数概念与性质」考点，或出现「求定义域值域、判断单调奇偶、抽象函数」类识别信号时；参照本节点示范题「判断 f(x)=x³ 的奇偶性」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）单调性用定义证明：取值、作差、定号、下结论；（2）奇偶性先看定义域是否关于原点对称；（3）周期性用于把大自变量化到已知区间；完成后回看结论是否满足题设条件。",
+          "为什么判断奇偶性要先看定义域是否关于原点对称？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_func.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d1a3dd195376a4a77672d77ce20d95e570c6f9ab4b786cb5b876abcba9af42b8"
+        }
+      },
+      {
+        "title": "易错 · PF-s_func-02",
+        "body": "证明单调性只代入几个值，不用定义严格作差",
+        "points": [
+          "题目落在「函数概念与性质」考点，或出现「求定义域值域、判断单调奇偶、抽象函数」类识别信号时；参照本节点示范题「判断 f(x)=x³ 的奇偶性」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）单调性用定义证明：取值、作差、定号、下结论；（2）奇偶性先看定义域是否关于原点对称；（3）周期性用于把大自变量化到已知区间；完成后回看结论是否满足题设条件。",
+          "单调性的定义证明为什么必须\"作差定号\"而不能只取几个点？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_func.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d1a3dd195376a4a77672d77ce20d95e570c6f9ab4b786cb5b876abcba9af42b8"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "函数性质是导数应用、函数方程、三角函数、数列（把 n 看作自变量）的通用语言。",
+        "points": [
+          "为什么判断奇偶性要先看定义域是否关于原点对称？",
+          "单调性的定义证明为什么必须\"作差定号\"而不能只取几个点？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_func.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:378fb26169859907cf6cfc7af2a9cca2868a7a5803e20a0117b3d44da75f5973"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_func-01",
+        "level": "待人工复核",
+        "question": "判断 f(x)=x³ 的奇偶性",
+        "hint": "单调性用定义证明：取值、作差、定号、下结论",
+        "solution": "定义域为 R 关于原点对称；f(−x)=(−x)³=−x³=−f(x)，故为奇函数。核心是两步都不能省：先定义域，再 f(−x) 与 f(x) 的关系。",
+        "answer": "f(x)=x³ 为奇函数",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_func.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·函数概念与性质｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d95e343ae65287828eb4556d98e020e4443549265035ef6b4b7aee7e84585b75"
+        }
+      }
+    ]
+  },
+  "s_ineq": {
+    "concept": {
+      "title": "不等式",
+      "body": "高中不等式引入了几个强大的通用工具：基本不等式、一元二次不等式、简单的线性规划。核心思想是\"把未知范围转化为已知模型\"，尤其是基本不等式，它是求最值和证明不等式最常用的武器。",
+      "points": [
+        "基本不等式",
+        "一元二次不等式",
+        "简单证明"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_ineq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:99db9afd4b9ac963f886e9b0881438f42d3820e8ae53db4cc36926bc1258f02f"
+        },
+        {
+          "path": "reliable-data/lessons/s_ineq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:879116215067f7ecb45fb55b286ad466993c723765b2a77697ba1c6df5011179"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "高中不等式引入了几个强大的通用工具：基本不等式、一元二次不等式、简单的线性规划。核心思想是\"把未知范围转化为已知模型\"，尤其是基本不等式，它是求最值和证明不等式最常用的武器。",
+        "points": [
+          "基本不等式 a+b≥2√(ab)（a,b>0），注意\"一正二定三相等\"",
+          "一元二次不等式用图像法：开口方向+根的位置定解集",
+          "分式不等式转化为整式不等式，注意分母符号"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_ineq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:879116215067f7ecb45fb55b286ad466993c723765b2a77697ba1c6df5011179"
+        }
+      },
+      {
+        "title": "易错 · PF-s_ineq-01",
+        "body": "忽略\"一正二定三相等\"中的等号条件，直接写下界",
+        "points": [
+          "题目落在「不等式」考点，或出现「求最值、证明不等式」类识别信号时；参照本节点示范题「x>0，求 x+4/x 的最小值」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）基本不等式 a+b≥2√(ab)（a,b>0），注意\"一正二定三相等\"；（2）一元二次不等式用图像法：开口方向+根的位置定解集；（3）分式不等式转化为整式不等式，注意分母符号；完成后回看结论是否满足题设条件。",
+          "基本不等式为什么要求\"一正二定三相等\"？如果等号取不到会怎样？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_ineq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d02098a135079caadfdb330079f0ce7e115910737b1d49fb73b65b9ebb2fa120"
+        }
+      },
+      {
+        "title": "易错 · PF-s_ineq-02",
+        "body": "对负数用基本不等式（要求各项为正）",
+        "points": [
+          "题目落在「不等式」考点，或出现「求最值、证明不等式」类识别信号时；参照本节点示范题「x>0，求 x+4/x 的最小值」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）基本不等式 a+b≥2√(ab)（a,b>0），注意\"一正二定三相等\"；（2）一元二次不等式用图像法：开口方向+根的位置定解集；（3）分式不等式转化为整式不等式，注意分母符号；完成后回看结论是否满足题设条件。",
+          "x+1/x 对任意实数 x 都有 x+1/x≥2 吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_ineq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:d02098a135079caadfdb330079f0ce7e115910737b1d49fb73b65b9ebb2fa120"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "基本不等式上接初中不等式，下接不等式证明体系（o_ineq）与导数求最值（s_deriv）。",
+        "points": [
+          "基本不等式为什么要求\"一正二定三相等\"？如果等号取不到会怎样？",
+          "x+1/x 对任意实数 x 都有 x+1/x≥2 吗？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_ineq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:879116215067f7ecb45fb55b286ad466993c723765b2a77697ba1c6df5011179"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_ineq-01",
+        "level": "待人工复核",
+        "question": "x>0，求 x+4/x 的最小值",
+        "hint": "基本不等式 a+b≥2√(ab)（a,b>0），注意\"一正二定三相等\"",
+        "solution": "由基本不等式 x+4/x ≥ 2√(x·4/x)=4，当且仅当 x=4/x 即 x=2 时取等。核心是验证等号能取到——这是基本不等式使用的必要步骤。",
+        "answer": "最小值为 4，x=2 时取等",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_ineq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·不等式｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c7e0bc777074dcfe670a4db201dd04914efe5eaf4306756f3106830551d6bb89"
+        }
+      }
+    ]
+  },
+  "s_line": {
+    "concept": {
+      "title": "直线与圆",
+      "body": "直线与圆是解析几何的入门：核心是\"方程与几何的对应\"。点到直线距离公式、圆的方程、直线与圆的位置关系（判别式或距离法）是最重要的工具。",
+      "points": [
+        "直线方程",
+        "位置关系",
+        "距离公式",
+        "圆的方程",
+        "直线与圆"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_line.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:fd768661b1ee368fb5dad61f9de8e17576366dc941127355374c2b4ba084a409"
+        },
+        {
+          "path": "reliable-data/lessons/s_line.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7bae8a4e620b3145db5b3764a96f41a61d96fe5e77ac21e9c652046057e7b4e1"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "直线与圆是解析几何的入门：核心是\"方程与几何的对应\"。点到直线距离公式、圆的方程、直线与圆的位置关系（判别式或距离法）是最重要的工具。",
+        "points": [
+          "直线的斜率与方程（点斜式、一般式）",
+          "点到直线距离 d=|Ax₀+By₀+C|/√(A²+B²)",
+          "直线与圆位置关系：比较 d 与半径 r"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_line.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7bae8a4e620b3145db5b3764a96f41a61d96fe5e77ac21e9c652046057e7b4e1"
+        }
+      },
+      {
+        "title": "易错 · PF-s_line-01",
+        "body": "直线斜率不存在的情况忘记讨论",
+        "points": [
+          "题目落在「直线与圆」考点，或出现「求方程、弦长、相切」类识别信号时；参照本节点示范题「判断直线 x+y=1 与圆 x²+y²=2 的位置关系」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）直线的斜率与方程（点斜式、一般式）；（2）点到直线距离 d=|Ax₀+By₀+C|/√(A²+B²)；（3）直线与圆位置关系：比较 d 与半径 r；完成后回看结论是否满足题设条件。",
+          "为什么比较距离和半径就能判断直线与圆的位置？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_line.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5c99fdf1b2e173d3d87d64c27c31c90c57cc3d2942791a1129f472cdb449ad49"
+        }
+      },
+      {
+        "title": "易错 · PF-s_line-02",
+        "body": "距离公式记错",
+        "points": [
+          "题目落在「直线与圆」考点，或出现「求方程、弦长、相切」类识别信号时；参照本节点示范题「判断直线 x+y=1 与圆 x²+y²=2 的位置关系」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）直线的斜率与方程（点斜式、一般式）；（2）点到直线距离 d=|Ax₀+By₀+C|/√(A²+B²)；（3）直线与圆位置关系：比较 d 与半径 r；完成后回看结论是否满足题设条件。",
+          "什么情况下直线没有斜率？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_line.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:5c99fdf1b2e173d3d87d64c27c31c90c57cc3d2942791a1129f472cdb449ad49"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "直线与圆是圆锥曲线（s_conic）的基础，也是几何代数化的入门。",
+        "points": [
+          "为什么比较距离和半径就能判断直线与圆的位置？",
+          "什么情况下直线没有斜率？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_line.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:7bae8a4e620b3145db5b3764a96f41a61d96fe5e77ac21e9c652046057e7b4e1"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_line-01",
+        "level": "待人工复核",
+        "question": "判断直线 x+y=1 与圆 x²+y²=2 的位置关系",
+        "hint": "直线的斜率与方程（点斜式、一般式）",
+        "solution": "圆心 (0,0) 到直线距离 d=|0+0−1|/√2=1/√2，圆半径 r=√2。d<r，故相交。核心是\"用距离与半径的比较代替解方程组\"。",
+        "answer": "d=1/√2 < r=√2，直线与圆相交",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_line.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·直线与圆｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:df28c10984fe70754a60aef601af14964662e599b0671bbf849e2ad3d98ad1b4"
+        }
+      }
+    ]
+  },
+  "s_prob": {
+    "concept": {
+      "title": "概率与统计",
+      "body": "高中概率引入随机变量与分布，核心是期望——长期平均意义下的结果。期望的线性性质 E(X+Y)=E(X)+E(Y) 极其强大，因为它不需要 X、Y 独立。",
+      "points": [
+        "条件概率",
+        "分布列与期望",
+        "正态分布",
+        "回归与独立性检验"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_prob.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:c20f839bd503214638d688ee3c8f603670de14e62bb3e48c409d84ffd85ae1c0"
+        },
+        {
+          "path": "reliable-data/lessons/s_prob.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0a5727ca0ced85a99932f96e9d605ef858fcce4e7b0f148a2b961b66c4f83330"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "高中概率引入随机变量与分布，核心是期望——长期平均意义下的结果。期望的线性性质 E(X+Y)=E(X)+E(Y) 极其强大，因为它不需要 X、Y 独立。",
+        "points": [
+          "分布列描述随机变量取各值的概率",
+          "期望 E(X)=Σxᵢpᵢ，方差反映波动",
+          "期望的线性性不要求独立"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_prob.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0a5727ca0ced85a99932f96e9d605ef858fcce4e7b0f148a2b961b66c4f83330"
+        }
+      },
+      {
+        "title": "易错 · PF-s_prob-01",
+        "body": "把期望当成\"一次试验一定得到的值\"",
+        "points": [
+          "题目落在「概率与统计」考点，或出现「求分布列期望、统计推断」类识别信号时；参照本节点示范题「掷一枚公平硬币，正面得 1 分反面得 0 分，求期望」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）分布列描述随机变量取各值的概率；（2）期望 E(X)=Σxᵢpᵢ，方差反映波动；（3）期望的线性性不要求独立；完成后回看结论是否满足题设条件。",
+          "期望的直观含义是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_prob.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f536b5e1bb24538a840156e9a4e144e76ba7f7229d32cc65e3f5dae3822434b9"
+        }
+      },
+      {
+        "title": "易错 · PF-s_prob-02",
+        "body": "误用期望线性性时强加独立条件",
+        "points": [
+          "题目落在「概率与统计」考点，或出现「求分布列期望、统计推断」类识别信号时；参照本节点示范题「掷一枚公平硬币，正面得 1 分反面得 0 分，求期望」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）分布列描述随机变量取各值的概率；（2）期望 E(X)=Σxᵢpᵢ，方差反映波动；（3）期望的线性性不要求独立；完成后回看结论是否满足题设条件。",
+          "为什么期望的线性性不需要独立性？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_prob.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:f536b5e1bb24538a840156e9a4e144e76ba7f7229d32cc65e3f5dae3822434b9"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "概率统计连接计数原理、组合恒等式。",
+        "points": [
+          "期望的直观含义是什么？",
+          "为什么期望的线性性不需要独立性？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_prob.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0a5727ca0ced85a99932f96e9d605ef858fcce4e7b0f148a2b961b66c4f83330"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_prob-01",
+        "level": "待人工复核",
+        "question": "掷一枚公平硬币，正面得 1 分反面得 0 分，求期望",
+        "hint": "分布列描述随机变量取各值的概率",
+        "solution": "E=1×(1/2)+0×(1/2)=1/2。核心是\"期望=各取值×对应概率求和\"。",
+        "answer": "E=1/2",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_prob.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·计数与概率统计·概率与统计｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:43b3f0ef0aec9ff57b67736e143054ce91e4d5fece67a84f8d12086cd249a4fb"
+        }
+      }
+    ]
+  },
+  "s_seq": {
+    "concept": {
+      "title": "数列",
+      "body": "数列是按顺序排列的一列数，本质是定义域为正整数的函数。等差数列和等比数列是最基本的两种模型，它们的通项与求和公式是所有复杂数列的积木。",
+      "points": [
+        "等差等比",
+        "通项与前n和",
+        "递推关系",
+        "数列求和"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_seq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:2d628b8c1bbead3ca8e309cdef0789facbe39a2fb1fc3eda82c1fb998f60c45f"
+        },
+        {
+          "path": "reliable-data/lessons/s_seq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a4c5afd15d1a89572e5b53e9e7cfdb976366e77f066bd1c3654a7342bd0ae5b4"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "数列是按顺序排列的一列数，本质是定义域为正整数的函数。等差数列和等比数列是最基本的两种模型，它们的通项与求和公式是所有复杂数列的积木。",
+        "points": [
+          "等差：aₙ=a₁+(n−1)d，Sₙ=n(a₁+aₙ)/2",
+          "等比：aₙ=a₁qⁿ⁻¹，Sₙ=a₁(1−qⁿ)/(1−q)",
+          "已知 Sₙ 求 aₙ：a₁=S₁，n≥2 时 aₙ=Sₙ−Sₙ₋₁"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_seq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a4c5afd15d1a89572e5b53e9e7cfdb976366e77f066bd1c3654a7342bd0ae5b4"
+        }
+      },
+      {
+        "title": "易错 · PF-s_seq-01",
+        "body": "用 aₙ=Sₙ−Sₙ₋₁ 忘记验证 n=1",
+        "points": [
+          "题目落在「数列」考点，或出现「求通项、裂项相消、递推」类识别信号时；参照本节点示范题「已知 Sₙ=n²+2n，求 aₙ」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）等差：aₙ=a₁+(n−1)d，Sₙ=n(a₁+aₙ)/2；（2）等比：aₙ=a₁qⁿ⁻¹，Sₙ=a₁(1−qⁿ)/(1−q)；（3）已知 Sₙ 求 aₙ：a₁=S₁，n≥2 时 aₙ=Sₙ−Sₙ₋₁；完成后回看结论是否满足题设条件。",
+          "为什么由 Sₙ 求 aₙ 时必须单独验证 n=1？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_seq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1db8a4be3dd57139872528250483ec84159697f960611d472fd5f31b303b1354"
+        }
+      },
+      {
+        "title": "易错 · PF-s_seq-02",
+        "body": "等比数列求和忘记讨论 q=1",
+        "points": [
+          "题目落在「数列」考点，或出现「求通项、裂项相消、递推」类识别信号时；参照本节点示范题「已知 Sₙ=n²+2n，求 aₙ」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）等差：aₙ=a₁+(n−1)d，Sₙ=n(a₁+aₙ)/2；（2）等比：aₙ=a₁qⁿ⁻¹，Sₙ=a₁(1−qⁿ)/(1−q)；（3）已知 Sₙ 求 aₙ：a₁=S₁，n≥2 时 aₙ=Sₙ−Sₙ₋₁；完成后回看结论是否满足题设条件。",
+          "等比数列求和公式为什么要求 q≠1？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_seq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:1db8a4be3dd57139872528250483ec84159697f960611d472fd5f31b303b1354"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "数列是数学归纳法、递推数列的基础，也是函数思想在离散情形的体现。",
+        "points": [
+          "为什么由 Sₙ 求 aₙ 时必须单独验证 n=1？",
+          "等比数列求和公式为什么要求 q≠1？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_seq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a4c5afd15d1a89572e5b53e9e7cfdb976366e77f066bd1c3654a7342bd0ae5b4"
+        }
+      },
+      {
+        "title": "数列与递推",
+        "body": "竞赛递推数列的课标底座。等差、等比数列是基本盘，递推关系通过「构造」转化为等比是求通项的主线。",
+        "points": [
+          "等差：aₙ = a₁ + (n−1)d，Sₙ = n(a₁+aₙ)/2。",
+          "等比：aₙ = a₁q^(n−1)，Sₙ = a₁(1−qⁿ)/(1−q)。",
+          "递推 a_{n+1} = paₙ + q 可用待定系数法构造等比数列。"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.s_seq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:d68df3bd1896e404dcb21a8349776f14fec6e3cccced585acc857af9afec1be1"
+        }
+      },
+      {
+        "title": "一阶线性递推的构造法",
+        "body": "对 a_{n+1} = p·aₙ + q（p ≠ 1），设 a_{n+1} + t = p(aₙ + t)，比较系数得 t = q/(p−1)。于是 {aₙ + t} 是公比 p 的等比数列，写出通项后再减去 t。这就是「不动点」思想的雏形。",
+        "points": [
+          "待定系数求平移量 t",
+          "转化为等比后套公式",
+          "与「不动点法」一脉相承"
+        ],
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.s_seq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:d68df3bd1896e404dcb21a8349776f14fec6e3cccced585acc857af9afec1be1"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_seq-01",
+        "level": "待人工复核",
+        "question": "已知 Sₙ=n²+2n，求 aₙ",
+        "hint": "等差：aₙ=a₁+(n−1)d，Sₙ=n(a₁+aₙ)/2",
+        "solution": "a₁=S₁=3；n≥2 时 aₙ=Sₙ−Sₙ₋₁=(n²+2n)−[(n−1)²+2(n−1)]=2n+1。检验 n=1：2×1+1=3 符合，故 aₙ=2n+1。核心是\"单独验证 n=1\"这一步不能省。",
+        "answer": "aₙ=2n+1（n≥1）",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_seq.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·解析几何与代数·数列｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:14034a7e87d92e8cfcda210f734ba9d978f1a8c76c20d2244b8102fd791b74bb"
+        }
+      },
+      {
+        "title": "构造等比数列求通项",
+        "level": "基础",
+        "question": "已知 a₁ = 1，a_{n+1} = 2aₙ + 1，求通项 aₙ。",
+        "hint": "两边同时加 1，凑成等比结构。",
+        "solution": "由 a_{n+1} + 1 = 2(aₙ + 1)，故 {aₙ + 1} 是首项 a₁+1 = 2、公比 2 的等比数列，aₙ + 1 = 2·2^(n−1) = 2ⁿ。所以 aₙ = 2ⁿ − 1。",
+        "answer": "aₙ = 2ⁿ − 1",
+        "origin": {
+          "path": "reliable-data/source/app_organization.json#cards.s_seq",
+          "role": "独立组织层补充，不是四类卡镜像",
+          "review": "pending",
+          "contentHash": "sha256:d68df3bd1896e404dcb21a8349776f14fec6e3cccced585acc857af9afec1be1"
+        }
+      }
+    ]
+  },
+  "s_set": {
+    "concept": {
+      "title": "集合与常用逻辑用语",
+      "body": "集合是数学的\"语言层\"——它规定了我们如何精确地描述对象和范围。逻辑用语（命题、充分必要条件）则是推理的规则。这一节本身不难，但它是后面所有内容的表达基础。",
+      "points": [
+        "集合运算",
+        "充分必要条件",
+        "全称与存在量词",
+        "四种命题"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_set.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:5c97acd56b62d229d7324d19b246abe4bf0cd349212ab0c1cc1447716f2281fe"
+        },
+        {
+          "path": "reliable-data/lessons/s_set.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a65140c7e38258572e87d70f610aae0258c6589f394a4d3e38662cc8f275e1ec"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "集合是数学的\"语言层\"——它规定了我们如何精确地描述对象和范围。逻辑用语（命题、充分必要条件）则是推理的规则。这一节本身不难，但它是后面所有内容的表达基础。",
+        "points": [
+          "集合关系用韦恩图辅助理解：子集、交集、并集、补集",
+          "充分必要条件：A⟹B 则 A 是 B 的充分条件，B 是 A 的必要条件",
+          "全称量词与存在量词的否定要互换"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_set.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a65140c7e38258572e87d70f610aae0258c6589f394a4d3e38662cc8f275e1ec"
+        }
+      },
+      {
+        "title": "易错 · PF-s_set-01",
+        "body": "充分必要条件方向搞反",
+        "points": [
+          "题目落在「集合与常用逻辑用语」考点，或出现「集合关系、充要条件判断」类识别信号时；参照本节点示范题「判断\"x>2\"是\"x>1\"的什么条件」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）集合关系用韦恩图辅助理解：子集、交集、并集、补集；（2）充分必要条件：A⟹B 则 A 是 B 的充分条件，B 是 A 的必要条件；（3）全称量词与存在量词的否定要互换；完成后回看结论是否满足题设条件。",
+          "为什么\"小范围推大范围\"是充分条件？用集合包含关系解释。"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_set.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:168da875287f43fd59c1227c82e6c547efd99a280e3c780cee4b47585814c934"
+        }
+      },
+      {
+        "title": "易错 · PF-s_set-02",
+        "body": "全称命题的否定只否结论不含量词",
+        "points": [
+          "题目落在「集合与常用逻辑用语」考点，或出现「集合关系、充要条件判断」类识别信号时；参照本节点示范题「判断\"x>2\"是\"x>1\"的什么条件」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）集合关系用韦恩图辅助理解：子集、交集、并集、补集；（2）充分必要条件：A⟹B 则 A 是 B 的充分条件，B 是 A 的必要条件；（3）全称量词与存在量词的否定要互换；完成后回看结论是否满足题设条件。",
+          "\"所有实数x都满足P(x)\"的否定是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_set.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:168da875287f43fd59c1227c82e6c547efd99a280e3c780cee4b47585814c934"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "集合语言贯穿函数定义域、不等式解集、概率样本空间，是精确表达的底座。",
+        "points": [
+          "为什么\"小范围推大范围\"是充分条件？用集合包含关系解释。",
+          "\"所有实数x都满足P(x)\"的否定是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_set.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:a65140c7e38258572e87d70f610aae0258c6589f394a4d3e38662cc8f275e1ec"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_set-01",
+        "level": "待人工复核",
+        "question": "判断\"x>2\"是\"x>1\"的什么条件",
+        "hint": "集合关系用韦恩图辅助理解：子集、交集、并集、补集",
+        "solution": "x>2 ⟹ x>1 成立，反过来不成立。所以\"x>2\"是\"x>1\"的充分不必要条件。判断方法是看箭头方向：小范围推大范围是充分。",
+        "answer": "「x>2」是「x>1」的充分不必要条件",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_set.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·集合与常用逻辑用语｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:0181fc4c15618332a8e2751cb995cb146424ed65b872d4365cc1ebcff43b2d3f"
+        }
+      }
+    ]
+  },
+  "s_solid": {
+    "concept": {
+      "title": "立体几何初步",
+      "body": "立体几何初步建立空间点、线、面的位置关系。核心是三个公理与它们的推论——它们是我们\"从平面图判断空间关系\"的依据。空间想象能力主要在这一阶段培养。",
+      "points": [
+        "空间点线面关系",
+        "平行垂直判定",
+        "三视图",
+        "表面积体积"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_solid.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:78378102a9a5c733c2eac3dfc6750dd0fb00b758ab6180110f8e8fdcd3242f04"
+        },
+        {
+          "path": "reliable-data/lessons/s_solid.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2eba101db9c06e84602dcfcf989e12fa0f1ef308b46ca334ce8850866ddcabd7"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "立体几何初步建立空间点、线、面的位置关系。核心是三个公理与它们的推论——它们是我们\"从平面图判断空间关系\"的依据。空间想象能力主要在这一阶段培养。",
+        "points": [
+          "用三视图和直观图帮助建立空间感",
+          "判断线面平行/垂直有明确的判定定理",
+          "多画辅助图，把立体关系\"摊平\"来看"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_solid.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2eba101db9c06e84602dcfcf989e12fa0f1ef308b46ca334ce8850866ddcabd7"
+        }
+      },
+      {
+        "title": "易错 · PF-s_solid-01",
+        "body": "只凭直观图判断位置关系，忽略严格判定",
+        "points": [
+          "题目落在「立体几何初步」考点，或出现「线面平行垂直证明、求体积」类识别信号时；参照本节点示范题「如何判断一条直线与一个平面垂直？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）用三视图和直观图帮助建立空间感；（2）判断线面平行/垂直有明确的判定定理；（3）多画辅助图，把立体关系\"摊平\"来看；完成后回看结论是否满足题设条件。",
+          "为什么线面垂直需要垂直平面内两条相交直线？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_solid.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:37d846459adcaa1d76df3af5a7c03989c4372d06052686cd9b57e441c444bfc8"
+        }
+      },
+      {
+        "title": "易错 · PF-s_solid-02",
+        "body": "线面垂直判定忘记\"两条相交直线\"",
+        "points": [
+          "题目落在「立体几何初步」考点，或出现「线面平行垂直证明、求体积」类识别信号时；参照本节点示范题「如何判断一条直线与一个平面垂直？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）用三视图和直观图帮助建立空间感；（2）判断线面平行/垂直有明确的判定定理；（3）多画辅助图，把立体关系\"摊平\"来看；完成后回看结论是否满足题设条件。",
+          "三视图为什么能帮助我们想象立体图形？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_solid.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:37d846459adcaa1d76df3af5a7c03989c4372d06052686cd9b57e441c444bfc8"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "立体几何初步是空间向量（s_vec3）的几何基础。",
+        "points": [
+          "为什么线面垂直需要垂直平面内两条相交直线？",
+          "三视图为什么能帮助我们想象立体图形？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_solid.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2eba101db9c06e84602dcfcf989e12fa0f1ef308b46ca334ce8850866ddcabd7"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_solid-01",
+        "level": "待人工复核",
+        "question": "如何判断一条直线与一个平面垂直？",
+        "hint": "用三视图和直观图帮助建立空间感",
+        "solution": "若这条直线与平面内两条相交直线都垂直，则线面垂直。核心是\"线面垂直要找平面内两条相交直线\"，只垂直一条不够。",
+        "answer": "直线垂直于平面内两条相交直线则垂直于该平面",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_solid.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·立体几何初步｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:bb02e4220c3ba6233bbc8efae1a73f870e926ef634f9ad0dd77c85e0671d7ac8"
+        }
+      }
+    ]
+  },
+  "s_trig": {
+    "concept": {
+      "title": "三角函数与恒等变换",
+      "body": "高中把三角函数放到单位圆上定义，视角从\"直角三角形\"扩展到\"任意角\"。恒等变换的核心是\"统一\"——统一函数名、统一角、统一次数，让复杂的式子变成可以套公式的形式。",
+      "points": [
+        "任意角与弧度",
+        "诱导公式",
+        "和差倍角",
+        "图像与性质",
+        "解三角形"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_trig.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:131410da7e4357c9c4739060bd991ec7704f0f3e5defac0b88c3341e0de86830"
+        },
+        {
+          "path": "reliable-data/lessons/s_trig.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ce59f140a03e87658588e688edac724c126d9054c035dae07f40765c1f44f1cf"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "高中把三角函数放到单位圆上定义，视角从\"直角三角形\"扩展到\"任意角\"。恒等变换的核心是\"统一\"——统一函数名、统一角、统一次数，让复杂的式子变成可以套公式的形式。",
+        "points": [
+          "诱导公式：奇变偶不变，符号看象限",
+          "和差倍角公式是恒等变换的主力",
+          "辅助角公式 asinθ+bcosθ=√(a²+b²)sin(θ+φ) 处理同类项合并"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_trig.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ce59f140a03e87658588e688edac724c126d9054c035dae07f40765c1f44f1cf"
+        }
+      },
+      {
+        "title": "易错 · PF-s_trig-01",
+        "body": "公式记混符号，尤其和差与倍角",
+        "points": [
+          "题目落在「三角函数与恒等变换」考点，或出现「化简求值、图像变换、正余弦定理」类识别信号时；参照本节点示范题「化简 sin2x·cosx + cos2x·sinx」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）诱导公式：奇变偶不变，符号看象限；（2）和差倍角公式是恒等变换的主力；（3）辅助角公式 asinθ+bcosθ=√(a²+b²)sin(θ+φ) 处理同类项合并；完成后回看结论是否满足题设条件。",
+          "\"统一函数名、统一角、统一次数\"分别是什么意思？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_trig.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:30c64ca960e708cbfafed1435bc5e0ce1e5b0e6607f23e2c97e1a6b280d351bd"
+        }
+      },
+      {
+        "title": "易错 · PF-s_trig-02",
+        "body": "变换没有目标，盲目变形越变越复杂",
+        "points": [
+          "题目落在「三角函数与恒等变换」考点，或出现「化简求值、图像变换、正余弦定理」类识别信号时；参照本节点示范题「化简 sin2x·cosx + cos2x·sinx」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）诱导公式：奇变偶不变，符号看象限；（2）和差倍角公式是恒等变换的主力；（3）辅助角公式 asinθ+bcosθ=√(a²+b²)sin(θ+φ) 处理同类项合并；完成后回看结论是否满足题设条件。",
+          "辅助角公式为什么能把两项合成一项？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_trig.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:30c64ca960e708cbfafed1435bc5e0ce1e5b0e6607f23e2c97e1a6b280d351bd"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "三角变换连接解三角形、三角恒等式（o_trig_id）、向量数量积（s_vec）。",
+        "points": [
+          "\"统一函数名、统一角、统一次数\"分别是什么意思？",
+          "辅助角公式为什么能把两项合成一项？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_trig.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ce59f140a03e87658588e688edac724c126d9054c035dae07f40765c1f44f1cf"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_trig-01",
+        "level": "待人工复核",
+        "question": "化简 sin2x·cosx + cos2x·sinx",
+        "hint": "诱导公式：奇变偶不变，符号看象限",
+        "solution": "逆用正弦和角公式 sin(A+B)=sinAcosB+cosAsinB，原式=sin(2x+x)=sin3x。核心是\"看出式子的结构符合哪个公式的展开\"——恒等变换大半靠这种结构识别。",
+        "answer": "原式=sin3x",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_trig.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·集合与函数·三角函数与恒等变换｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：通用解题方法（C 级）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8ae02a15080cd7103ef4d9b5986acd52815f5d122efe1293b4a91313cbdead60"
+        }
+      }
+    ]
+  },
+  "s_vec": {
+    "concept": {
+      "title": "平面向量",
+      "body": "向量是\"有大小和方向的量\"，它的威力在于同时具备代数和几何两重身份：既能像数一样运算，又能表示几何中的位移、力。数量积是连接两者的关键——它把\"垂直\"变成了\"积为零\"。",
+      "points": [
+        "向量运算",
+        "数量积",
+        "坐标表示",
+        "共线垂直条件"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_vec.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:dcec06f3234c5837b31511ad44066f3a94a70061916d49e0e722a2bef0aa3913"
+        },
+        {
+          "path": "reliable-data/lessons/s_vec.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c251e5a7bff893318cc4e478a51e50489c361d2a11522e78ef1f55c8ffd69e19"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "向量是\"有大小和方向的量\"，它的威力在于同时具备代数和几何两重身份：既能像数一样运算，又能表示几何中的位移、力。数量积是连接两者的关键——它把\"垂直\"变成了\"积为零\"。",
+        "points": [
+          "向量加减的三角形/平行四边形法则",
+          "数量积 a·b=|a||b|cosθ，垂直 ⟺ a·b=0",
+          "共线 ⟺ a=λb，用于证明平行"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_vec.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c251e5a7bff893318cc4e478a51e50489c361d2a11522e78ef1f55c8ffd69e19"
+        }
+      },
+      {
+        "title": "易错 · PF-s_vec-01",
+        "body": "向量运算与实数运算混淆（向量不能直接比大小）",
+        "points": [
+          "题目落在「平面向量」考点，或出现「共线垂直、数量积求角、向量最值」类识别信号时；参照本节点示范题「已知 |a|=1，|b|=2，夹角 60°，求 a·b」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）向量加减的三角形/平行四边形法则；（2）数量积 a·b=|a||b|cosθ，垂直 ⟺ a·b=0；（3）共线 ⟺ a=λb，用于证明平行；完成后回看结论是否满足题设条件。",
+          "为什么数量积能判断垂直？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_vec.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8c72bd6245d1495bcb07d43aa1ec2da3fa9f18ff10acaefab7d9c8130c905a2d"
+        }
+      },
+      {
+        "title": "易错 · PF-s_vec-02",
+        "body": "数量积公式忘记夹角",
+        "points": [
+          "题目落在「平面向量」考点，或出现「共线垂直、数量积求角、向量最值」类识别信号时；参照本节点示范题「已知 |a|=1，|b|=2，夹角 60°，求 a·b」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）向量加减的三角形/平行四边形法则；（2）数量积 a·b=|a||b|cosθ，垂直 ⟺ a·b=0；（3）共线 ⟺ a=λb，用于证明平行；完成后回看结论是否满足题设条件。",
+          "向量和实数在运算上有什么本质区别？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_vec.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:8c72bd6245d1495bcb07d43aa1ec2da3fa9f18ff10acaefab7d9c8130c905a2d"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "平面向量是空间向量（s_vec3）、复数（s_complex）、向量法解几何（o_geo_vec）的基础。",
+        "points": [
+          "为什么数量积能判断垂直？",
+          "向量和实数在运算上有什么本质区别？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_vec.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:c251e5a7bff893318cc4e478a51e50489c361d2a11522e78ef1f55c8ffd69e19"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_vec-01",
+        "level": "待人工复核",
+        "question": "已知 |a|=1，|b|=2，夹角 60°，求 a·b",
+        "hint": "向量加减的三角形/平行四边形法则",
+        "solution": "a·b=|a||b|cos60°=1×2×½=1。核心是数量积把\"长度与夹角\"整合成一个数，这是它作为几何工具的基础。",
+        "answer": "a·b=1",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_vec.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·平面向量｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:69e82c04daa4b1b424a958f981b0fc3e18491cd31a19e603cd6bbc2d14229a5a"
+        }
+      }
+    ]
+  },
+  "s_vec3": {
+    "concept": {
+      "title": "空间向量与立体几何",
+      "body": "空间向量是平面向量在三维的推广。一旦建立空间直角坐标系，点、线、面都可以用坐标表示，垂直、夹角、距离全部化为一串计算——这是立体几何最系统、最可靠的方法。",
+      "points": [
+        "空间向量",
+        "法向量",
+        "空间角与距离"
+      ],
+      "origins": [
+        {
+          "path": "reliable-data/nodes/s_vec3.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）",
+          "review": "pending",
+          "evidence": "A",
+          "contentHash": "sha256:27ee9d246153aa08a302244e02f8eb61087788ad1e20e863a581a972dba8f938"
+        },
+        {
+          "path": "reliable-data/lessons/s_vec3.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ec0cd512185f92929f18077b1d168e37310dde7d296609bb1e2633a9222e8eb5"
+        }
+      ]
+    },
+    "explain": [
+      {
+        "title": "核心方法",
+        "body": "空间向量是平面向量在三维的推广。一旦建立空间直角坐标系，点、线、面都可以用坐标表示，垂直、夹角、距离全部化为一串计算——这是立体几何最系统、最可靠的方法。",
+        "points": [
+          "建立空间直角坐标系，写出各点坐标",
+          "用法向量求线面角、二面角",
+          "点到面距离用向量投影公式"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_vec3.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ec0cd512185f92929f18077b1d168e37310dde7d296609bb1e2633a9222e8eb5"
+        }
+      },
+      {
+        "title": "易错 · PF-s_vec3-01",
+        "body": "法向量求错或忘记单位化",
+        "points": [
+          "题目落在「空间向量与立体几何」考点，或出现「求二面角、点到面距离」类识别信号时；参照本节点示范题「如何求两个平面的二面角？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）建立空间直角坐标系，写出各点坐标；（2）用法向量求线面角、二面角；（3）点到面距离用向量投影公式；完成后回看结论是否满足题设条件。",
+          "为什么用法向量能求二面角？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_vec3.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4dc5939c3b34908f513e76335d92a52b199cdefa693204491137751b9ea78b44"
+        }
+      },
+      {
+        "title": "易错 · PF-s_vec3-02",
+        "body": "二面角与法向量夹角相等还是互补判断错误",
+        "points": [
+          "题目落在「空间向量与立体几何」考点，或出现「求二面角、点到面距离」类识别信号时；参照本节点示范题「如何求两个平面的二面角？」。",
+          "把形式相似或特殊情形当作普遍规则，跳过了适用条件与判定步骤的核对。",
+          "按核心方法逐步处理：（1）建立空间直角坐标系，写出各点坐标；（2）用法向量求线面角、二面角；（3）点到面距离用向量投影公式；完成后回看结论是否满足题设条件。",
+          "建立空间直角坐标系的关键是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/pitfalls/s_vec3.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；易错诊断与纠正方法原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:4dc5939c3b34908f513e76335d92a52b199cdefa693204491137751b9ea78b44"
+        }
+      },
+      {
+        "title": "知识连接与自检",
+        "body": "空间向量是立体几何计算的顶点，连接解析几何（s_conic）。",
+        "points": [
+          "为什么用法向量能求二面角？",
+          "建立空间直角坐标系的关键是什么？"
+        ],
+        "origin": {
+          "path": "reliable-data/lessons/s_vec3.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；讲解措辞、例题与自检原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:ec0cd512185f92929f18077b1d168e37310dde7d296609bb1e2633a9222e8eb5"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "title": "示范 · EX-s_vec3-01",
+        "level": "待人工复核",
+        "question": "如何求两个平面的二面角？",
+        "hint": "建立空间直角坐标系，写出各点坐标",
+        "solution": "分别求两个平面的法向量 n₁、n₂。先算 |cos⟨n₁,n₂⟩|=|n₁·n₂|/(|n₁||n₂|)，它给出二面角的锐角值；二面角本身等于这个角或其补角（π 减它），要结合图形判断是锐角还是钝角。核心是\"把二面角转成法向量夹角，再用图形定锐钝\"。注意：取绝对值只为先得到锐角参考值，不能把 cosθ 直接写成 |n₁·n₂|/(|n₁||n₂|) 就当二面角的余弦——那样只会得到锐角。",
+        "answer": "二面角等于法向量夹角或其补角，需结合图形定锐钝",
+        "provenance": "resource_data 无真题原件，不宣称来自某年真题；需人工签核",
+        "origin": {
+          "path": "reliable-data/examples/s_vec3.json",
+          "source_ref": "教育部《普通高中数学课程标准》（2017年版2020修订）｜2017年版2020修订｜必修 / 选择性必修对应主题·几何与向量·空间向量与立体几何｜原件：resource_data/official/（本地原件待补）；示范题与解答原创，依据：标准定理与定义（B 级，权威教材可交叉验证）",
+          "review": "pending",
+          "evidence": "C",
+          "contentHash": "sha256:2fc8b33e6d02558a660a47bc13c74f8ab14e1aa8bf297b4fee6c234546d0fde0"
+        }
+      }
+    ]
+  }
+};
 
 function cardCount(nodeId) {
   const c = CARDS[nodeId];
@@ -254,4 +8236,4 @@ function cardCount(nodeId) {
   return (c.concept ? 1 : 0) + (c.explain ? c.explain.length : 0) + (c.examples ? c.examples.length : 0);
 }
 
-module.exports = { CARDS: CARDS, cardCount: cardCount };
+module.exports = { CARDS: CARDS, cardCount: cardCount, SUPPLEMENTAL_CARDS: SUPPLEMENTAL_CARDS };

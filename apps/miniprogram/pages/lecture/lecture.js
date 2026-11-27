@@ -3,7 +3,9 @@ const knowledge = require('../../data/nodes.js');
 const store = require('../../utils/store.js');
 const tabbar = require('../../utils/tabbar.js');
 
-Page({
+const readingContext = require('../../utils/reading-context.js');
+
+Page(readingContext.attach('lecture', {
   data: {
     lectures: [],
     stat: {}
@@ -12,7 +14,16 @@ Page({
   onShow: function () {
     tabbar.setSelected(this, 0);
     this.build();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+    this._stopSyncRefresh = store.onChange((state, source) => {
+      if (source === 'remote' && this._reading.active) this.build();
+    });
   },
+
+  onHide: function () { if (this._stopSyncRefresh) this._stopSyncRefresh(); },
+  onUnload: function () { if (this._stopSyncRefresh) this._stopSyncRefresh(); },
+
+  onReadingRestore: function () { this.build(); },
 
   build: function () {
     const lectures = lectureData.LECTURES.map(function (g, idx) {
@@ -27,7 +38,6 @@ Page({
         id: g.id,
         title: g.title,
         subtitle: g.subtitle,
-        lead: g.lead,
         total: g.points.length,
         done: done,
         learning: learning,
@@ -41,7 +51,11 @@ Page({
     });
   },
 
+  goCards: function () {
+    readingContext.navigate(this, '/pages/cards/cards');
+  },
+
   goLesson: function (e) {
-    wx.navigateTo({ url: '/pages/lesson/lesson?id=' + e.currentTarget.dataset.id });
+    readingContext.navigate(this, '/pages/lesson/lesson?id=' + encodeURIComponent(e.currentTarget.dataset.id));
   }
-});
+}));

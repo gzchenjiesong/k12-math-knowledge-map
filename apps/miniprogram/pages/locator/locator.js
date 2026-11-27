@@ -5,13 +5,17 @@ const tabbar = require('../../utils/tabbar.js');
 
 const QUICK = ['证明三点共线', '整数解整除', '证明不等式最值', '至少存在染色', '求通项递推', '四点共圆切线'];
 
-Page({
+const readingContext = require('../../utils/reading-context.js');
+
+Page(readingContext.attach('locator', {
   data: {
     mode: 'index', // index=按题型浏览  search=输入定位
     groups: [],
     openGroups: {},
     expandedIds: {},
+    focusId: '',
     input: '',
+    locatedInput: '',
     quick: QUICK,
     results: [],
     topicHits: [],
@@ -23,15 +27,82 @@ Page({
   },
 
   onShow: function () {
+    this._focusVisible = true;
     tabbar.setSelected(this, 2);
-    // 从知识点详情页跳来时，展开指定题型
+    // 消费跨页焦点后，仅定位索引内确实存在的题型。
     const app = getApp();
-    if (app.globalData && app.globalData.focusTopic) {
+    if (app.globalData && app.globalData.focusTopic != null) {
       const tid = app.globalData.focusTopic;
       app.globalData.focusTopic = null;
-      this.setData({ mode: 'index', ['expandedIds.' + tid]: true });
-      wx.showToast({ title: '已展开该题型', icon: 'none' });
+      this.focusTopic(tid);
     }
+    this.refreshProgress();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+    this._stopSyncRefresh = store.onChange((state, source) => {
+      if (source === 'remote' && this._reading.active) this.refreshProgress();
+    });
+  },
+
+  onHide: function () {
+    this._focusVisible = false;
+    this.cancelFocus();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+  },
+  onUnload: function () {
+    this._focusVisible = false;
+    this.cancelFocus();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+  },
+
+  onReadingFocus: function (focus) { this.focusTopic(focus.topic); },
+
+  onReadingRestore: function () {
+    this.buildGroups();
+    if (this.data.searched && this.data.locatedInput) {
+      const input = this.data.input;
+      this.setData({ input: this.data.locatedInput });
+      this.locate();
+      this.setData({ input: input });
+    } else this.setData({ results: [], topicHits: [] });
+  },
+
+  cancelFocus: function () {
+    // 版本号同时使迟到的渲染回调与已出队的定时回调失效。
+    this._focusVersion = (this._focusVersion || 0) + 1;
+    if (this._focusTimer != null) clearTimeout(this._focusTimer);
+    this._focusTimer = null;
+    if (this.data.focusId) this.setData({ focusId: '' });
+  },
+
+  focusTopic: function (tid) {
+    this.cancelFocus();
+    if (typeof tid !== 'string' || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(tid)) return;
+    const group = topicIdx.TOPIC_GROUPS.find(g => g.items.some(item => item.id === tid));
+    if (!group || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(group.theme)) return;
+    const target = group.items.find(item => item.id === tid);
+    const version = this._focusVersion;
+    this.setData({
+      mode: 'index',
+      ['openGroups.' + group.theme]: true,
+      ['expandedIds.' + target.id]: true,
+      focusId: target.id
+    }, () => {
+      if (!this._focusVisible || this._focusVersion !== version) return;
+      if (this.data.mode !== 'index' || !this.data.openGroups[group.theme] || !this.data.expandedIds[target.id]) {
+        this.cancelFocus();
+        return;
+      }
+      wx.pageScrollTo({ selector: '#topic-index-' + target.id, duration: 0 });
+      this._focusTimer = setTimeout(() => {
+        if (!this._focusVisible || this._focusVersion !== version) return;
+        this._focusTimer = null;
+        this.setData({ focusId: '' });
+      }, 2000);
+    });
+  },
+
+  refreshProgress: function () {
+    this.setData({ results: this.data.results.map(item => Object.assign({}, item, { status: store.getStatus(item.id) })) });
   },
 
   buildGroups: function () {
@@ -144,10 +215,10 @@ Page({
       });
     });
 
-    self.setData({ results: top, topicHits: topicHits, searched: true });
+    self.setData({ results: top, topicHits: topicHits, searched: true, locatedInput: text });
   },
 
   goNode: function (e) {
-    wx.navigateTo({ url: '/pages/node/node?id=' + e.currentTarget.dataset.id });
+    readingContext.navigate(this, '/pages/node/node?id=' + encodeURIComponent(e.currentTarget.dataset.id));
   }
-});
+}));

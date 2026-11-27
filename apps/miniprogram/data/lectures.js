@@ -1,7 +1,7 @@
 // GENERATED FILE — 由 tools/build-data.js 从唯一真源生成，请勿手工编辑。
 // source=reliable-data version=2.1.0 generatedAt=2026-11-25T00:00:00+08:00
-// ⚠ 过渡数据：268 条未人工签核（review=pending），禁止用于交付判断（SPEC-008）
-// 导出 LECTURES：专题外壳取组织配置，六段式内容取真源 lessons。
+// 注意：带状态开发数据：268 条未人工签核为 verified；详见 CONTENT_REVIEW，构建成功不代表内容正确（SPEC-009）。
+// 导出 LECTURES：主体取 lessons，例题/易错取 examples/pitfalls；重复字段不一致则拒绝构建。
 module.exports = {
   "LECTURES": [
     {

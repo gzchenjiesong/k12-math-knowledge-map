@@ -1,139 +1,128 @@
-// 进度同步层（微信云开发）—— 本地优先，云端只同步几 KB 的进度。
-//
-// 设计约束：
-//   1) 本地 store.js 仍是唯一状态源（SPEC-003）：所有读写先落本地，UI 不等网络。
-//   2) 未初始化或网络失败时静默降级为纯离线，绝不阻塞学习，也不弹错误吓孩子。
-//   3) 数据隔离：集合 progress 权限设为「仅创建者可读写」，微信云开发按 _openid
-//      自动隔离，前端既不拿也不存 openid，只读写自己的那一条文档。
-//   4) 单用户单文档：一条文档存全量 state（status/notes/disputed），量级几 KB。
-//
-// 云端结构（集合 progress）：
-//   { _id, _openid, status:{}, notes:{}, disputed:{}, updatedAt:Number }
-
-var config;
-try {
-  config = require('./cloud-config');
-} catch (e) {
-  config = {};
-}
-var store = require('./store');
-
-var ENV = config.env || '';
-var COLLECTION = config.collection || 'progress';
-var ENABLED = !!ENV;
-
-var DOCID_KEY = 'olympiad_cloud_docid_v1';
-var QUEUE_KEY = 'olympiad_sync_queue_v1'; // 离线期间的待推送标记
+// 沿用 progress 集合及基础权限「仅创建者可读写」，不部署新服务。
+// 每个安装的每次操作有持久的独立 ID。只重试相同内容，不覆盖共享快照，
+// 即使超时请求在重启后才落库，也不能覆盖更新的操作。设备 ID 绝不是授权凭证。
+const config = require('./cloud-config');
+const store = require('./store');
+const protocol = require('./sync-state');
+const ENV = config.env || '';
+const COLLECTION = config.collection || 'progress';
+const PAGE_SIZE = 20;
+const MAX_PAGES = 5000;
+const BATCH_SIZE = 50;
+const REQUEST_TIMEOUT = 30000;
+const RETRIES = [3000, 10000, 30000];
+let pulling = null, pushing = null, timer = null, retry = 0, active = true;
 
 function getDb() {
-  if (!ENABLED || !wx.cloud) return null;
+  if (!ENV || !wx.cloud) return null;
   try { return wx.cloud.database({ env: ENV }); } catch (e) { return null; }
 }
-
-function getDocId() {
-  try { return wx.getStorageSync(DOCID_KEY) || ''; } catch (e) { return ''; }
+function request(invoke) {
+  return new Promise((resolve, reject) => {
+    let finished = false;
+    const timeout = setTimeout(() => settle(false), REQUEST_TIMEOUT);
+    function settle(ok, result) {
+      if (finished) return;
+      finished = true;
+      clearTimeout(timeout);
+      if (ok) resolve(result); else reject(new Error('同步请求失败'));
+    }
+    try { invoke({ success: res => settle(true, res), fail: () => settle(false) }); }
+    catch (e) { settle(false); }
+  });
 }
-function setDocId(id) {
-  try { wx.setStorageSync(DOCID_KEY, id || ''); } catch (e) {}
+function withCallback(promise, cb) {
+  if (typeof cb === 'function') promise.then(ok => { try { cb(ok); } catch (e) {} });
+  return promise;
 }
-function getQueue() {
-  try { return wx.getStorageSync(QUEUE_KEY) || 0; } catch (e) { return 0; }
+async function fetchAll() {
+  const db = getDb();
+  if (!db || store.pending() === null) return false;
+  let cursor = '', merged = protocol.empty();
+  for (let page = 0; page < MAX_PAGES; page++) {
+    // 仅支持基础权限「仅创建者可读写」：服务端自动加当前用户 _openid 约束。
+    // 不混用自定义安全规则的 {openid} 占位符；该规则下 doc.set 也不适用。
+    // 用稳定 _id 游标而不是 limit(1)/偏移翻页；扫描不是快照，新插入的较小 ID 下轮补齐。
+    const where = {};
+    if (cursor) where._id = db.command.gt(cursor);
+    const res = await request(callbacks => db.collection(COLLECTION).where(where)
+      .orderBy('_id', 'asc').limit(PAGE_SIZE).get(callbacks));
+    if (!res || !Array.isArray(res.data) || res.data.length > PAGE_SIZE) return false;
+    for (const doc of res.data) {
+      if (!doc || !protocol.documentId(doc._id) || doc._id <= cursor) return false;
+      merged = protocol.merge(merged, protocol.fromDocument(doc));
+      cursor = doc._id;
+    }
+    if (res.data.length < PAGE_SIZE) return store.mergeRemote(merged);
+  }
+  return false; // 防异常分页/持续写入导致无限循环；不提交半份拉取结果。
 }
-function markDirty() {
-  try { wx.setStorageSync(QUEUE_KEY, Date.now()); } catch (e) {}
-}
-function clearDirty() {
-  try { wx.removeStorageSync(QUEUE_KEY); } catch (e) {}
-}
-
-// 拉取云端进度并合并到本地（本地优先：仅填补本地缺失的条目，不覆盖已有学习进度）
 function pull(cb) {
-  var db = getDb();
-  if (!db) { if (cb) cb(false); return; }
-  db.collection(COLLECTION).limit(1).get({
-    success: function (res) {
-      var doc = res && res.data && res.data[0];
-      if (doc) {
-        if (doc._id) setDocId(doc._id);
-        try {
-          var local = store.load();
-          var merged = false;
-          ['status', 'notes', 'disputed'].forEach(function (k) {
-            var rs = doc[k] || {};
-            Object.keys(rs).forEach(function (id) {
-              // 本地没有该 id 的记录时才采用云端值 —— 合并而非覆盖
-              if (!local[k][id] && rs[id]) { local[k][id] = rs[id]; merged = true; }
-            });
-          });
-          if (merged) store.save(local);
-        } catch (e) {}
-      }
-      if (cb) cb(true);
-    },
-    fail: function () { if (cb) cb(false); }
-  });
+  if (!pulling) {
+    pulling = Promise.resolve().then(fetchAll).catch(() => false).then(ok => {
+      pulling = null;
+      return ok;
+    });
+  }
+  return withCallback(pulling, cb);
 }
-
-// 推送本地全量进度到云端：有文档 id 则 update，否则 add（add 后记下 id 供后续复用）
+function clearTimer() {
+  if (timer !== null) clearTimeout(timer);
+  timer = null;
+}
+function later(delay) {
+  if (!active || !ENV || !wx.cloud) return;
+  clearTimer();
+  timer = setTimeout(() => { timer = null; push(); }, delay);
+}
+async function sendBatch() {
+  // 读取/权限失败绝不当成空库；全部旧文档只读合并，不 add、update 或删除旧记录。
+  if (!await pull()) return false;
+  const db = getDb(), pending = store.pending();
+  if (!db || pending === null) return false;
+  const batch = pending.slice(0, BATCH_SIZE);
+  for (const op of batch) {
+    const res = await request(callbacks => db.collection(COLLECTION).doc(protocol.opId(op)).set({
+      data: op, success: callbacks.success, fail: callbacks.fail
+    }));
+    if (!res || !res.stats || (res.stats.created !== 1 && res.stats.updated !== 1)) return false;
+    if (!store.acknowledge(op)) return false;
+  }
+  return true;
+}
 function push(cb) {
-  var db = getDb();
-  if (!db) { if (cb) cb(false); return; }
-  var s = store.load();
-  var payload = {
-    status: s.status || {},
-    notes: s.notes || {},
-    disputed: s.disputed || {},
-    updatedAt: Date.now()
-  };
-  function settle(ok) {
-    if (ok) clearDirty(); else markDirty();
-    if (cb) cb(ok);
-  }
-  var docId = getDocId();
-  if (docId) {
-    db.collection(COLLECTION).doc(docId).update({
-      data: payload,
-      success: function () { settle(true); },
-      fail: function () { settle(false); }
-    });
-  } else {
-    db.collection(COLLECTION).add({
-      data: payload,
-      success: function (res) { if (res && res._id) setDocId(res._id); settle(true); },
-      fail: function () { settle(false); }
+  if (!pushing) {
+    clearTimer();
+    pushing = Promise.resolve().then(sendBatch).catch(() => false).then(ok => {
+      pushing = null;
+      if (ok) {
+        retry = 0;
+        const remaining = store.pending();
+        if (remaining && remaining.length) later(1500);
+      } else if (retry < RETRIES.length) {
+        later(RETRIES[retry++]);
+      }
+      return ok;
     });
   }
+  return withCallback(pushing, cb);
 }
-
-var timer = null;
-// 防抖推送：内容变更后调用，避免每次点按都发请求
 function schedulePush() {
-  if (!ENABLED) return;
-  markDirty();
-  if (timer) clearTimeout(timer);
-  timer = setTimeout(function () { timer = null; push(); }, 1500);
+  retry = 0;
+  later(1500);
 }
-
-// 云开发无需 wx.login 换 token，openid 由云数据库按 _openid 自动注入。
-// 保留 login 接口以兼容既有调用方：就绪即视为已登录。
-function login(cb) {
-  if (cb) cb(!!getDb());
+function resume(cb) {
+  active = true;
+  retry = 0;
+  return push(cb);
 }
-
-// 启动：先拉取合并；有离线待推送则再推一次（本地全量覆盖，幂等）
-function init(cb) {
-  if (!ENABLED) { if (cb) cb(false); return; }
-  pull(function () {
-    if (getQueue()) push(function (ok) { if (cb) cb(ok); });
-    else if (cb) cb(true);
-  });
+function pause() {
+  active = false;
+  clearTimer();
 }
-
 module.exports = {
-  isEnabled: function () { return ENABLED && !!wx.cloud; },
-  init: init,
-  login: login,
-  pull: pull,
-  push: push,
-  schedulePush: schedulePush
+  isEnabled: () => !!ENV && !!wx.cloud,
+  // 仅表示 SDK 可用，并非已验明账号或权限；真正结果以数据库请求为准。
+  login: cb => { if (typeof cb === 'function') cb(!!getDb()); },
+  init: resume, resume, pause, pull, push, schedulePush
 };

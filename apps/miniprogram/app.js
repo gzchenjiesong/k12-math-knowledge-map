@@ -8,6 +8,7 @@ App({
   },
 
   onLaunch: function () {
+    this._syncVisible = true;
     // 初始化微信云开发（环境 ID 非凭证，见 utils/cloud-config.js）。
     // 初始化失败也不影响小程序离线使用，故静默处理。
     try {
@@ -18,8 +19,25 @@ App({
 
     // 进度同步是可选增强：本地优先，云端不可用自动退化为纯离线。
     if (sync.isEnabled()) {
-      store.onChange(function () { sync.schedulePush(); });
+      store.onChange(function (state, source) {
+        if (source === 'local') sync.schedulePush();
+      });
+      if (wx.onNetworkStatusChange) {
+        wx.onNetworkStatusChange((res) => {
+          if (res.isConnected && this._syncVisible) sync.resume();
+        });
+      }
       sync.init();
     }
+  },
+
+  onShow: function () {
+    this._syncVisible = true;
+    if (sync.isEnabled()) sync.resume();
+  },
+
+  onHide: function () {
+    this._syncVisible = false;
+    sync.pause();
   }
 });

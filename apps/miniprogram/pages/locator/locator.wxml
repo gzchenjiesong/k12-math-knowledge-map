@@ -1,6 +1,6 @@
 <!-- 题型卡模板：题型浏览与输入定位两种模式共用 -->
 <template name="topicCard">
-  <view class="tp-card">
+  <view id="topic-{{cardMode}}-{{item.id}}" class="tp-card {{focusId === item.id ? 'tp-focused' : ''}}">
     <view class="tp-head" bindtap="toggleItem" data-id="{{item.id}}">
       <view class="tp-title-row">
         <text class="tp-arrow">{{open[item.id] ? '▾' : '▸'}}</text>
@@ -12,7 +12,7 @@
       </view>
     </view>
     <view class="tp-body" wx:if="{{open[item.id]}}">
-      <text class="sec-label">关联知识点 · 点按看讲解卡片</text>
+      <text class="sec-label">关联知识点</text>
       <view class="kn-row">
         <text class="kn-tag" wx:for="{{item.nodeNames}}" wx:for-item="nd" wx:key="id" bindtap="goNode" data-id="{{nd.id}}">{{nd.n}} ›</text>
       </view>
@@ -28,7 +28,8 @@
   </view>
 </template>
 
-<view class="page">
+<view class="page tab-page">
+  <view class="reading-back" wx:if="{{readingCanBack}}" bindtap="goReadingBack">‹ {{readingBackLabel}}</view>
   <view class="seg">
     <view class="seg-i {{mode === 'index' ? 'on' : ''}}" bindtap="switchMode" data-mode="index">按题型浏览</view>
     <view class="seg-i {{mode === 'search' ? 'on' : ''}}" bindtap="switchMode" data-mode="search">输入定位</view>
@@ -37,8 +38,7 @@
   <!-- 模式一：题型索引 -->
   <view wx:if="{{mode === 'index'}}">
     <view class="intro card">
-      <text class="intro-title">题型索引 · 补上教材缺的讲解</text>
-      <text class="intro-desc">小蓝本以习题为主、几乎没有讲解。这里把同一知识点散落在各讲里的题归成一类：看到什么信号 → 考哪个知识点 → 怎么切入 → 通用讲解。点开题型卡查看。</text>
+      <text class="intro-title">题型索引</text>
     </view>
 
     <view class="grp" wx:for="{{groups}}" wx:key="id">
@@ -47,7 +47,7 @@
         <text class="grp-count">{{item.items.length}} 题型</text>
       </view>
       <view class="grp-body" wx:if="{{openGroups[item.id]}}">
-        <template is="topicCard" wx:for="{{item.items}}" wx:for-item="it" wx:key="id" data="{{item: it, open: expandedIds}}" />
+        <template is="topicCard" wx:for="{{item.items}}" wx:for-item="it" wx:key="id" data="{{item: it, open: expandedIds, focusId: focusId, cardMode: 'index'}}" />
       </view>
     </view>
   </view>
@@ -56,7 +56,6 @@
   <view wx:else>
     <view class="intro card">
       <text class="intro-title">题目定位器</text>
-      <text class="intro-desc">把题目特征敲进去，先匹配题型卡（含讲解），再给出可能用到的知识域。这是训练「读题→定域」能力的核心工具。</text>
     </view>
 
     <view class="searchbox">
@@ -64,7 +63,7 @@
       <text class="go" bindtap="locate">定位</text>
     </view>
 
-    <view class="quick-label">常见信号（点一下试试）</view>
+    <view class="quick-label">常见信号</view>
     <view class="quick">
       <text class="quick-tag" wx:for="{{quick}}" wx:key="*this" bindtap="onQuick" data-text="{{item}}">{{item}}</text>
     </view>
@@ -77,7 +76,7 @@
 
       <block wx:if="{{topicHits.length > 0}}">
         <text class="result-sub">命中的题型（含讲解）</text>
-        <template is="topicCard" wx:for="{{topicHits}}" wx:for-item="it" wx:key="id" data="{{item: it, open: expandedIds}}" />
+        <template is="topicCard" wx:for="{{topicHits}}" wx:for-item="it" wx:key="id" data="{{item: it, open: expandedIds, focusId: focusId, cardMode: 'search'}}" />
       </block>
 
       <block wx:if="{{results.length > 0}}">
@@ -93,7 +92,7 @@
         </view>
       </block>
 
-      <view class="empty" wx:if="{{results.length === 0 && topicHits.length === 0}}">没识别到明确信号，试着描述题目里的关键词，比如「共线」「整数解」「最值」。</view>
+      <view class="empty" wx:if="{{results.length === 0 && topicHits.length === 0}}">未匹配到题型或知识点</view>
     </view>
   </view>
 </view>

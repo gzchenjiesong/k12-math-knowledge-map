@@ -1,0 +1,13 @@
+{
+  "name": "k12-math-knowledge-map",
+  "private": true,
+  "description": "数海扶摇：原生微信小程序与可追溯数学内容工程",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node tests/check-data.js && node tests/check-reliable-extra.js && node tests/validate.js && node tests/verify_content.js && node tests/check-app-build.js && node tests/check-sources.js --self-test && node tests/check-data-contract.js && node tests/check-sync.js && node tests/check-ui.js && node tests/check-reading-context.js && node tests/check-records.js",
+    "check": "node tests/validate.js",
+    "build:data": "node tools/build-data.js --allow-pending"
+  }
+}

@@ -58,15 +58,15 @@
 
 | 前缀 | 文件 | 已用范围 | 当前最大 | 下一个可用 |
 |---|---|---|---|---|
-| `SPEC-` | SPECS.md | 001–008 | 008 | 009 |
-| `CNF-` | CONFIG.md | 001–021 | 021 | 022 |
-| `RUL-` | RULES.md | 001–009 | 009 | 010 |
+| `SPEC-` | SPECS.md | 001–009 | 009 | 010 |
+| `CNF-` | CONFIG.md | 001–025 | 025 | 026 |
+| `RUL-` | RULES.md | 001–012 | 012 | 013 |
 | `DSN-` | DESIGNS.md | 001–012 | 012 | 013 |
-| `BUG-` | BUGWALL.md | 001–011 | 011 | 012 |
+| `BUG-` | BUGWALL.md | 001–012 | 012 | 013 |
 | `PRM-` | PROMPT.md | 001–010 | 010 | 011 |
 | `IDX-` | INDEX.md（本文件） | 001–007 | 007 | 008 |
-| `TST-` | TESTS.md | 001–019 | 019 | 020 |
-| `VFY-` | TESTS.md | 001–006 | 006 | 007 |
+| `TST-` | TESTS.md | 001–025 | 025 | 026 |
+| `VFY-` | TESTS.md | 001–009 | 009 | 010 |
 
 - 契约 / 规则引用配置一律写 `CNF-NNN`，不写字面值；引用流程只写 `IDX-NNN`。
 - 跨文件引用只写编号，不复制条目全文。校验脚本用一套正则 `/[A-Z]{3,4}-\d{3}/` 扫描全部九类。
@@ -142,6 +142,33 @@
 | R28 | 2026-11-26 | 投屏演示页改为标准 16:9 PPT 画布（家长要求按电视屏幕定制横屏 PPT、进入后类似 PPT 播放、电视投影手机/iPad 当控制器）。调研 55/65/75/85/100 寸电视：4:3 已淘汰、全是 16:9 4K，四个主力尺寸占 74%，故只做一套 16:9 母版不做 4:3 两套（4:3 只在 iPad 控制器端）。新增 CNF-020 固化口径。`pages/present` 重构：固定 1280×720 坐标系 + transform scale 等比适配，最大 16:9 矩形居中 letterbox；7 类 PPT 版式（封面金句/编号卡/题纸/绿框解析/双栏易错自检），例题保持先思后答两页；遥控器 4 按钮悬浮画布外、3.5s 自动淡出、触摸唤醒。iPad 13" 模拟器实测画布 1032×581（1.776≈16/9）、52 页、6 张版式截图取证；修复 kicker 与信息条重叠、方法卡溢出、封面标签压页脚、字段名笔误。五链全绿 | docs/CONFIG.md（CNF-020）/ docs/INDEX.md / apps/miniprogram/pages/present/{js,wxml,wxss} / tests/evidence/TV_PPT_16X9.md / tests/evidence/simulator/PPT16x9_*.jpg | 系统镜像固有限制：唤醒态控制条仍会出现在电视画面（3.5s 后淡出），要完全无控制条须升级双端方案，本轮按 M1 决策不做；真机投屏待家长按 MIRROR_TEST_GUIDE 实测。注意：本次为审核期功能改动，后台审核包为改动前版本，若需随首版上线须重传开发版（家长决策）。内容仍 pending=268/verified=0 |
 | R29 | 2026-11-26 | README 演示截图更新 + iPad 底栏字号适配。① README 投屏演示图从旧版 `IPAD13_present.png` 换为新版 16:9 PPT 实拍：从 `PPT16x9_*.jpg` 裁去上下黑边（定位画布 y=352..850、888×499、比例 1.7796）得 `README_present_{cover,essence,answer}.jpg`，README 由 4 图扩为 6 图（3 iPad 页 + 3 投屏页）。② 家长明确"控制条出现没关系、不影响功能使用"，本轮不改投屏控制条逻辑。③ 微信原生 tabBar 字号固定约 10px，iPad 1032px 窗口下偏小——改用自定义 tabBar（CNF-021）：`app.json` 加 `custom:true`（list 保留供断言）、新增 `custom-tab-bar/index` 四件套、物理 px 分档（手机 12px / 宽屏 16px）、`utils/tabbar.js` 同步四页选中态。iPad 实测 `hasBar:true`、selected 0↔1 切换正常、字号清晰。五链全绿 | README.md / docs/CONFIG.md（CNF-021）/ docs/INDEX.md / apps/miniprogram/{app.json,custom-tab-bar/index.*,utils/tabbar.js,pages/{lecture,graph,locator,gaps}/*.js} / tests/evidence/TABBAR_CUSTOM_IPAD.md / tests/evidence/simulator/{README_present_*.jpg,TABBAR_*_ipad.jpg} | 自定义 tabBar 基础库 <2.5.0 回退原生（功能不受影响）；审核期功能改动，若需随首版上线须重传开发版（家长决策）。内容仍 pending=268/verified=0 |
 | R30 | 2026-11-26 | README 首屏 3 张 iPad 截图补齐为新样式：家长发现 GitHub README 上 `IPAD13_{lecture,lesson,graph}.png` 仍是自定义 tabBar 之前的旧小字按钮样式。在 iPad 13" 模拟器（1032px）重截覆盖同名文件——首页/图谱页底部显示蓝色胶囊高亮新 tabBar，详情页用 `id=t_alg` 重截、内容完整。README 引用路径不变，推送后 GitHub 自动刷新。证据文档 `TABBAR_CUSTOM_IPAD.md` 补记 | tests/evidence/simulator/IPAD13_{lecture,lesson,graph}.png / tests/evidence/TABBAR_CUSTOM_IPAD.md / docs/INDEX.md | 纯截图更新，代码未改；五链全绿 |
+
+| R31 | 2026-11-26 | 按家庭信息工具边界补11条来源登记、67节点追溯（42范围定位）；字段版本/幂等操作同步，修正基础权限查询混用、旧本地迁移和页面保存失败；四卡镜像与审核/来源哈希绑定、实际答案变异防线、旧反向seed退役。先更新SPEC-009/RUL-010/CNF-022；本地回归全部通过，详见TST-020~022与执行摘要 | README、docs治理、evidence来源、store/sync/sync-state、app及状态页、构建器/contract、7生成模块及清单、tests | 不新增孩子档案或考核；268卡/manifest/历史快照不变；未commit/push/部署，真实云与真机VFY-007缺证，旧新客户端不得混用 |
+
+| R32 | 2026-11-26 | 使用官方本地命令行在禁云、独立storage键副本完成手机8页运行、18次模板样式摘要、67卡清单及四学段例题抽检；原生复现并修复取消笔记仍显示草稿，回归先37/39失败后39/39通过，模拟器复验取消不增加outbox。结果及调试限制见TESTS执行摘要 | RULES（RUL-010补充）/ TESTS（TST-021、VFY-007增补）/ INDEX / pages/node/node.js / tests/check-sync.js / tests/evidence/simulator-r32/ | iPad等待用户手动切换设备；真实云、真机、整包体积/性能仍缺证；未commit/push或上传发布，真源及生成数据无新增改动。SPEC/CONFIG/PROMPT无对应增量，未改 |
+
+R32追加（用户切换iPad后）：iPad Pro 13(M4)竖屏1032×1376已实测8页、两列专题/三列卡片、最长双来源换行、笔记取消及1032×581演示画布；新增9张截图与汇总，见TESTS的R32补充。当前停留演示页等待用户直接旋转，以验证实时resize；尚非横屏/真机/云同步通过。本次无业务代码改动。
+
+R32再补（配置式横屏）：用户未找到旋转按钮，改在隔离app.json及演示页覆盖中临时设landscape，实测iPad1376×1032下8页及1376×774演示画布，新增8张横屏证据后恢复auto。固定横屏验证不替代实时onResize；不再要求用户寻找按钮。生产配置及业务源码未改，边界详见TESTS。
+
+R32收尾：用户明确因缺实测环境暂缓投屏页验证，后续实时旋转/onResize/电视镜像标SKIPPED而非PASS；保留既有静态方向模拟器证据，结束本轮调整后范围的模拟器验收，不要求用户继续操作。投屏onResize未修、VFY-007真实云及真机缺证不变。
+
+| R33 | 2026-11-26 | 用户确认第一批：题型定位/卡片计数修复、响应式字号触控、首页精简、显式状态选择、提示解答分离、来源摘要。先登记RUL-011/CNF-023/TST-023/VFY-008，实施及结果续记 | RULES / CONFIG / TESTS / INDEX、相关页面与回归 | 实施中；不扩展第二批功能，不改真源与同步协议，投屏继续SKIPPED；SPEC/PROMPT无对应增量，未改 |
+| R33续记 | 2026-11-26 | 第一批代码与回归已落地：UI44/44、同步及详情65/65；来源/生成/数学子集回归通过。iPad固定横竖屏代表检查共16截图，含4张菜单诊断；实际题型链接跳转、零结果总数、提示/答案独立、图谱入口不误导航已观察。隔离auto恢复，63自有源码仅3配置差异 | 七阅读页 / app与tabBar样式 / utils/{status-picker,content-summary}.js / tests/{check-ui,check-sync}.js / tests/evidence/simulator-r33 / TESTS / CONFIG / INDEX | VFY-008仍BLOCKED：新版手机、原生菜单选择/取消缺证；VFY-007不解锁。未改数学真源、生产方向或present，未commit/push/上传发布，未实现第二批 |
+
+| R33手机补验 | 2026-11-27 | 用户切换iPhone17，手机竖屏七阅读页代表检查完成；新增15截图、总31。用户确认菜单实际可见并完成选择/取消/同值，回读j_eq=2、outbox仅4→5，同值仍5；截图缺原生选项不是界面缺失。UI44/44、同步65/65、数据契约49/49复跑通过 | TESTS / CONFIG / INDEX / tests/evidence/simulator-r33 | VFY-008代表性隔离范围PASS；未改业务代码或真源，未做完整手机横屏/iPad原生菜单矩阵，VFY-007仍缺证、投屏SKIPPED；未commit/push/发布 |
+
+| R34 | 2026-11-27 | 用户仅授权B2阅读上下文/草稿保护、B4笔记存疑聚合、B6自解释交互与去冗余文案；先登记RUL-012/CNF-024/TST-024/VFY-009再实施 | RULES / CONFIG / TESTS / INDEX及七阅读页与回归 | 实施中；不做B1/B3/B5，不改真源/同步协议/present，不发布；SPEC/PROMPT无对应契约增量未改 |
+
+| R34收尾 | 2026-11-27 | B2会话返回/草稿保护、B4查漏三视图与笔记查询/锚点及存疑、B6短控件和来源折叠已实施；B2回归36/36、记录40/40、UI44/44、同步65/65；手机代表链路及用户原生继续编辑/放弃+回读通过，15截图含2诊断；查漏聚合消除逐字段重复读取 | 七阅读页、custom-tab-bar、utils/{reading-context,draft-guard,status-picker,content-summary}.js、tests/{check-reading-context,check-records,check-ui,check-sync}.js、tests/evidence/simulator-r34、CONFIG / TESTS / INDEX | TST-024与VFY-009代表性隔离范围PASS；真源/生成物/协议/present未改，未做B1/B3/B5、未commit/push/发布；真实云/真机/性能VFY-007继续缺证，投屏SKIPPED |
+
+| R35 | 2026-11-27 | 用户授权两轮优化后整理工程并commit/push：更新README及PRM-001现行入口、标注旧deploy样例；移除首页建议死代码；专题存疑改为最新store取反并补回归；登记CNF-025/TST-025/BUG-012，统一11组测试入口与生成物LF，补运行数据忽略 | README / PROMPT / CONFIG / RULES / TESTS / BUGWALL / INDEX、deploy说明、package.json / .gitattributes / .gitignore、lecture / lesson / reading-context、check-sync / check-records / validate | 整理与复验进行中，提交/推送结果后续留痕；数学真源、manifest、快照、同步协议、present未改；SPEC/DESIGNS无对应增量未改；不上传提审发布 |
+
+> R35复验续记：npm test十一组全部通过；静态32/32、记录46/46、同步65/65、UI44/44、会话36/36，其余来源/契约/生成/内容子集通过。主代理内存恢复陈旧缓存读取，4项定向失败，证明确有回归防线；日志和边界见TST-025与TESTS R35执行摘要。推送待最终暂存检查；真实云/真机/性能缺证与投屏SKIPPED不变。
+
+> R35提交边界续记：本次源码提交纳入154个审核过的改动/新增文件，无删除；原件、私有配置、运行数据与隔离副本均排除，8个生成文件暂存字节一致。完整来源修复、两轮交互优化与历史证据一并纳入，未修改数学真源/快照及present。提交与远端推送是否完成以Git日志/远端SHA为事实来源，不在当前文件中预写成功。
+
+> R35文件清单修订：上表旧57节点/228卡和反向编制器描述仅为历史。现行基线见CNF-022；tools/build-reliable-data.js已退役并拒绝写入，正向入口为tools/build-data.js。工程快速回归见CNF-025，协作入口见PRM-001最新修订。
 
 ## IDX-007: 设计文档占用与生效说明
 

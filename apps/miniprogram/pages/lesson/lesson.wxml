@@ -1,10 +1,11 @@
 <view class="page {{demo ? 'demo' : ''}}">
+  <view class="reading-back" wx:if="{{readingCanBack}}" bindtap="goReadingBack">‹ {{readingBackLabel}}</view>
   <!-- 专题导语 -->
   <view class="intro card">
     <text class="i-title">{{group.title}}</text>
     <text class="i-sub">{{group.subtitle}}</text>
     <text class="i-lead">{{group.lead}}</text>
-    <view class="goal"><text class="goal-tag">学完目标</text><text class="goal-text">{{group.goal}}</text></view>
+    <view class="goal"><text class="goal-tag">参考目标</text><text class="goal-text">{{group.goal}}</text></view>
     <view class="chain"><text class="chain-tag">知识链</text><text class="chain-text">{{group.chain}}</text></view>
     <view class="intro-bar"><view class="intro-bar-in" style="width:{{percent}}%"></view></view>
     <view class="intro-foot">
@@ -42,15 +43,21 @@
     </view>
 
     <view class="pt-body" wx:if="{{openIds[p.nodeId]}}">
-      <!-- 内容证据条（RUL-008）：让用户看见"这条凭什么可信" -->
-      <view class="evidence-bar ev-{{p.review}}">
+      <!-- 存疑操作独立于真源审核，来源详情按知识点展开。 -->
+      <view class="source-actions">
+        <view class="source-toggle" bindtap="togglePointSource" data-id="{{p.nodeId}}">
+          <text>来源与审核</text><text>{{sourceOpenIds[p.nodeId] ? '▴' : '▾'}}</text>
+        </view>
+        <text class="ev-flag {{p.disputed?'on':''}}" bindtap="toggleDisputed" data-id="{{p.nodeId}}">{{p.disputed?'取消存疑':'标记存疑'}}</text>
+      </view>
+      <view class="evidence-bar ev-{{p.review}}" wx:if="{{sourceOpenIds[p.nodeId]}}">
         <view class="ev-line1">
           <text class="ev-badge evd-{{p.evidence}}">{{p.evidenceLabel}}</text>
-          <text class="ev-review">{{p.reviewLabel}}</text>
-          <text class="ev-flag {{p.disputed?'on':''}}" bindtap="toggleDisputed" data-id="{{p.nodeId}}">{{p.disputed?'已标存疑 · 点取消':'发现错误？标记存疑'}}</text>
+          <text class="ev-review">真源审核 · {{p.reviewLabel}}</text>
         </view>
         <text class="ev-source">范围依据：{{p.sourceName}}</text>
         <text class="ev-note">{{p.wordingNote}}</text>
+        <text class="lnk" bindtap="goNode" data-id="{{p.nodeId}}">卡片来源与缺口 ›</text>
       </view>
 
       <!-- 本质 -->
@@ -72,7 +79,7 @@
         <view class="sec-h"><text class="sec-badge b3">3</text><text class="sec-t">讲解型例题</text></view>
         <view class="ex-q">{{p.example.q}}</view>
         <view class="ex-toggle" bindtap="toggleExample" data-id="{{p.nodeId}}">
-          <text>{{exampleFold[p.nodeId]?'隐藏解答':'点此看讲解'}}</text>
+          <text>{{exampleFold[p.nodeId]?'收起解答 ▴':'查看解答 ▾'}}</text>
         </view>
         <view class="ex-a" wx:if="{{exampleFold[p.nodeId]}}">{{p.example.a}}</view>
       </view>
@@ -93,27 +100,23 @@
 
       <!-- 概念自检 -->
       <view class="sec check">
-        <view class="sec-h"><text class="sec-badge b6">6</text><text class="sec-t">概念自检 · 能答出才算真懂</text></view>
+        <view class="sec-h"><text class="sec-badge b6">6</text><text class="sec-t">概念自检</text></view>
         <view class="check-q" wx:for="{{p.check}}" wx:key="*this" wx:for-item="cq">{{cq}}</view>
       </view>
 
       <!-- 底部操作 -->
       <view class="pt-actions">
-        <text class="status-pill s{{p.status}}" bindtap="cycleStatus" data-id="{{p.nodeId}}">{{p.statusName}} · 点按切换</text>
+        <text class="status-pill s{{p.status}}" bindtap="chooseStatus" data-id="{{p.nodeId}}">{{p.statusName}} ▾</text>
         <view class="pt-links">
           <text class="lnk" bindtap="goNode" data-id="{{p.nodeId}}">看卡片详情 ›</text>
         </view>
       </view>
       <view class="pt-topics" wx:if="{{p.topics.length > 0}}">
-        <text class="pt-topics-label">验证题型：</text>
+        <text class="pt-topics-label">相关题型</text>
         <text class="topic-chip" wx:for="{{p.topics}}" wx:key="id" wx:for-item="tp" bindtap="goTopic" data-id="{{tp.id}}">{{tp.title}}</text>
       </view>
     </view>
   </view>
 
-  <view class="tail-hint" wx:if="{{done === total && total > 0}}">
-    <text>✓ 这个专题全部掌握了，可以去「题型」按小蓝本刷题验证</text>
-  </view>
-
-  <button class="finish-btn" bindtap="markWholeDone" wx:if="{{done < total && total > 0}}">整专题已学完 · 全部标记掌握</button>
+  <button class="finish-btn" bindtap="markWholeDone" wx:if="{{done < total && total > 0}}">全部标为已掌握</button>
 </view>

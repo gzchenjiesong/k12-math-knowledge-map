@@ -4,8 +4,11 @@ const cardsData = require('../../data/cards.js');
 const bridgeData = require('../../data/bridges.js');
 const store = require('../../utils/store.js');
 const tabbar = require('../../utils/tabbar.js');
+const statusPicker = require('../../utils/status-picker.js');
 
-Page({
+const readingContext = require('../../utils/reading-context.js');
+
+Page(readingContext.attach('graph', {
   data: {
     view: 'source', // source=按来源看进度  theme=按主题看专题
     domains: [],
@@ -24,6 +27,7 @@ Page({
   },
 
   onShow: function () {
+    statusPicker.onShow(this);
     tabbar.setSelected(this, 1);
     // 从详情页点主题标签跳回时，自动切到主题视图并展开该主题
     const app = getApp();
@@ -34,6 +38,25 @@ Page({
       this.setData({ view: 'theme', [key]: true });
     }
     this.buildTree();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+    this._stopSyncRefresh = store.onChange((state, source) => {
+      if (source === 'remote' && this._reading.active) this.buildTree();
+    });
+  },
+
+  onHide: function () {
+    statusPicker.onHide(this);
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+  },
+  onUnload: function () { this.onHide(); },
+
+  onReadingRestore: function () { this.buildTree(); },
+
+  onReadingFocus: function (focus) {
+    const tid = focus.theme;
+    if (!themeData.THEMES.some(theme => theme.id === tid)) return;
+    this._themeTouched = true;
+    this.setData({ view: 'theme', ['expandedThemes.' + tid]: true });
   },
 
   buildTree: function () {
@@ -47,11 +70,13 @@ Page({
             id: m.id,
             name: m.name,
             topics: m.topics.map(function (t) {
+              const status = store.getStatus(t.id);
               return {
                 id: t.id,
                 n: t.n,
                 d: t.d,
-                status: store.getStatus(t.id),
+                status: status,
+                statusName: statusPicker.NAMES[status],
                 cardCount: cardsData.cardCount(t.id)
               };
             })
@@ -73,6 +98,7 @@ Page({
             n: n.n,
             d: n.d,
             status: status,
+            statusName: statusPicker.NAMES[status],
             cardCount: cardsData.cardCount(n.id),
             domainKey: n.domain,
             domainShort: themeData.DOMAIN_SHORT[n.domain] || '',
@@ -144,17 +170,12 @@ Page({
 
   goNode: function (e) {
     const id = e.currentTarget.dataset.id;
-    wx.navigateTo({ url: '/pages/node/node?id=' + id });
+    readingContext.navigate(this, '/pages/node/node?id=' + encodeURIComponent(id));
   },
 
-  cycleStatus: function (e) {
-    const id = e.currentTarget.dataset.id;
-    const cur = store.getStatus(id);
-    const next = (cur + 1) % 3;
-    store.setStatus(id, next);
-    wx.vibrateShort && wx.vibrateShort({ type: 'light' });
-    this.buildTree();
-    const names = ['未开始', '学习中', '已掌握'];
-    wx.showToast({ title: '已标记：' + names[next], icon: 'none', duration: 1000 });
+  chooseStatus: function (e) {
+    const id = e && e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.id;
+    if (!knowledge.ALL_NODES.some(function (n) { return n.id === id; })) return;
+    statusPicker.choose(this, id, this.buildTree);
   }
-});
+}));

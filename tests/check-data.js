@@ -63,5 +63,5 @@ say(evBad === 0, 'D5 evidence 取值合法（异常 ' + evBad + '）');
 console.log('---');
 console.log('RESULT=' + pass + '/' + (pass + fail) + ' FAILED=' + fail);
 console.log('VERDICT=' + (fail === 0 ? 'PASSED' : 'FAILED'));
-console.log('注意：本脚本只检查发布资格与结构，不证明数学内容正确；人工闸门仍以 PRM-010 阶段 4c 为准。');
+console.log('注意：本脚本只检查结构，不证明数学内容正确；功能交付与内容核验分开，现行边界见 SPEC-009 / RUL-010。');
 process.exit(fail ? 1 : 0);

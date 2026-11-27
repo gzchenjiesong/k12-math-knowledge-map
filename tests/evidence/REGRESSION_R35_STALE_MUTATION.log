@@ -1,0 +1,166 @@
+R35 mutation evidence (2026-11-27)
+Purpose: replace only the in-memory lesson latest-store read with the previous cached-value read.
+The first attempt below failed to parse because of command-line escaping and is NOT regression evidence.
+The second attempt executed the real records suite: 42/46, four targeted failures, exit 1 (expected).
+No production source or storage was modified by either attempt. Unmodified source passes 46/46 in CHECKS_R35.log.
+
+[eval]:1
+const fs=require("node:fs");const read=fs.readFileSync;let mutated=0;fs.readFileSync=function(file,...args){let value=read.call(this,file,...args);if(String(file).replace(/\/g,"/").endsWith("/pages/lesson/lesson.js")&&typeof value==="string"){const target="const next = store.getDisputed(id) ? 0 : 1;";if(!value.includes(target))throw new Error("Mutation target missing");value=value.replace(target,"const next = this.data.points[key].disputed ? 0 : 1;");mutated++;}return value;};process.on("exit",()=>console.log("MUTATED_LESSON_LOADS="+mutated));require("D:/GitHub/k12-math-knowledge-map/tests/check-records.js");
+                                                                                                                                                                           ^^^^^^^
+Expected ',', got 'string literal ().endsWith(, ").endsWith(")'
+
+SyntaxError: missing ) after argument list
+    at makeContextifyScript (node:internal/vm:185:14)
+    at compileScript (node:internal/process/execution:383:10)
+    at evalTypeScript (node:internal/process/execution:256:22)
+    at node:internal/main/eval_string:74:3
+
+Node.js v22.22.2
+PASS 隔离 VM 确实加载真实 store/协议，remote 无 outbox，不同用例互不污染
+PASS gaps progress/all/todo/learning 按原节点顺序，统计与真实 store 一致
+PASS gaps notes 空白/空串不计、计数独立于查询、跨领域原顺序且不按写入或状态排序
+PASS gaps disputed 与有无笔记无关、按原顺序、保留空白笔记节点
+PASS gaps notes 不受旧 progress filter 影响
+PASS gaps disputed 不受旧 progress filter 影响
+PASS notes 查询仅正文连续子串，大小写/首尾空格处理，不扩展标题/描述/卡片全文
+PASS 摘要 99/100/101 字符边界、Unicode 码点及空白归一化，正文绝不截断或回写
+PASS 详情显式保存空串后 gaps onShow 移除笔记且不额外写入
+PASS 详情显式保存空白后 gaps onShow 移除笔记且不额外写入
+PASS 详情取消存疑后 gaps onShow 移除，保留独立笔记
+PASS gaps remote 实时更新 notes，保留原 query/view/filter 且不反向产生操作
+PASS gaps remote 实时更新 disputed，保留原 query/view/filter 且不反向产生操作
+PASS lecture 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS graph 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS locator 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS gaps 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS cards 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS node 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS lesson 隐藏取消订阅后，真实 remote 与已出队迟到回调均不写页面
+PASS notes 详情真实带 note anchor，渲染后才定位；进度/存疑详情不附加锚点
+PASS note anchor 隐藏后迟到渲染回调不再滚动
+PASS gaps→node→题型→返回重建链，再原生返回恢复 notes 查询且读取最新 store
+PASS node 存疑成功/取消仅修改个人 disputed，真实 outbox 每次一个操作
+PASS node disputed=0 真实 storage 失败不改 UI/业务/outbox，允许重试
+PASS node 不按陈旧 data.disputed=0 取反，必须读取最新 store
+PASS node disputed=1 真实 storage 失败不改 UI/业务/outbox，允许重试
+PASS node 不按陈旧 data.disputed=1 取反，必须读取最新 store
+FAIL lesson 不按陈旧 points.disputed=0 取反，必须读取最新 store
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    {
+      args: [
+        'p_div',
++       1
+-       0
+      ],
+      name: 'setDisputed'
+    }
+  ]
+
+    at assertEdit (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:211:10)
+    at Object.run (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:555:5)
+    at Object.<anonymous> (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:725:14)
+    at Module._compile (node:internal/modules/cjs/loader:1705:14)
+    at Object..js (node:internal/modules/cjs/loader:1838:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+FAIL lesson 陈旧 points.disputed=0 遇真实 storage 失败保持原状，重试仍读取最新 store
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    {
+      args: [
+        'p_div',
++       1
+-       0
+      ],
+      name: 'setDisputed'
+    }
+  ]
+
+    at Object.run (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:577:12)
+    at Object.<anonymous> (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:725:14)
+    at Module._compile (node:internal/modules/cjs/loader:1705:14)
+    at Object..js (node:internal/modules/cjs/loader:1838:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+FAIL lesson 不按陈旧 points.disputed=1 取反，必须读取最新 store
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    {
+      args: [
+        'p_div',
++       0
+-       1
+      ],
+      name: 'setDisputed'
+    }
+  ]
+
+    at assertEdit (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:211:10)
+    at Object.run (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:555:5)
+    at Object.<anonymous> (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:725:14)
+    at Module._compile (node:internal/modules/cjs/loader:1705:14)
+    at Object..js (node:internal/modules/cjs/loader:1838:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+FAIL lesson 陈旧 points.disputed=1 遇真实 storage 失败保持原状，重试仍读取最新 store
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    {
+      args: [
+        'p_div',
++       0
+-       1
+      ],
+      name: 'setDisputed'
+    }
+  ]
+
+    at Object.run (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:577:12)
+    at Object.<anonymous> (D:\GitHub\k12-math-knowledge-map\tests\check-records.js:725:14)
+    at Module._compile (node:internal/modules/cjs/loader:1705:14)
+    at Object..js (node:internal/modules/cjs/loader:1838:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+PASS lesson 存疑缺失事件 不抛错、不读取存疑、不改 UI/storage/outbox、不报成功
+PASS lesson 存疑无效节点 不抛错、不读取存疑、不改 UI/storage/outbox、不报成功
+PASS lesson reviewLabel 始终来自内容元数据，不被本地/远端个人 disputed 覆盖
+PASS lesson 来源默认折叠且经真实 WXML 控件可达，各知识点独立，展开/收起仅只读
+PASS node 来源/审核/缺口/补充来源展开可达，页签切换和折叠只读
+PASS gaps每次重建只取一次当前业务快照，不按节点反复读三个字段
+PASS handler 校验不把注释/字符串/继承方法当定义，不误判 template 的合理数据作用域
+PASS lecture WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS graph WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS locator WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS gaps WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS cards WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS node WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+PASS lesson WXML 事件均有真实 Page 自有函数，返回统一 goReadingBack，无冗余文案
+SUITE=R34_B4_B6_RECORDS
+HARNESS=REAL_PAGES_REAL_STORE_REAL_SYNC_STATE_ISOLATED_VM
+RESULT=42/46 FAILED=4
+VERDICT=FAILED
+NATIVE_EVIDENCE=BLOCKED_NO_EVIDENCE（隔离 VM/WXML 契约检查不是微信原生验收）
+MUTATED_LESSON_LOADS=10

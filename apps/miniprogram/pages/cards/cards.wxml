@@ -1,22 +1,26 @@
 <view class="page">
+  <view class="reading-back" wx:if="{{readingCanBack}}" bindtap="goReadingBack">‹ {{readingBackLabel}}</view>
   <view class="searchbox">
     <text class="search-icon">⌕</text>
     <input class="search-input" placeholder="搜索知识点、定理、方法…" value="{{keyword}}" bindinput="onSearch" confirm-type="search" />
   </view>
 
   <view class="filters">
-    <view class="filter {{filter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">全部教程</view>
+    <view class="filter {{filter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">全部卡片</view>
     <view class="filter {{filter === 'unmastered' ? 'active' : ''}}" bindtap="setFilter" data-filter="unmastered">未掌握</view>
-    <text class="count">共 {{count}} 个知识点</text>
+    <text class="count">找到 {{resultCount}} 个知识点</text>
   </view>
 
-  <view class="tip">已编写 {{count}} 个知识点的三维卡片，内容持续分批补充中</view>
+  <view class="tip">共收录 {{totalCardCount}} 个知识点</view>
 
   <view class="card-list">
     <view class="card item" wx:for="{{list}}" wx:key="id" bindtap="goNode" data-id="{{item.id}}">
       <view class="item-head">
         <text class="item-name">{{item.n}}</text>
-        <text class="status-dot s{{item.status}}"></text>
+        <view class="status-indicator">
+          <text class="status-dot s{{item.status}}"></text>
+          <text class="status-label">{{item.status === 2 ? '已掌握' : item.status === 1 ? '学习中' : '未开始'}}</text>
+        </view>
       </view>
       <text class="item-domain">{{item.domainName}} · {{item.module}}</text>
       <text class="item-concept">{{item.conceptTitle}}</text>
@@ -28,5 +32,5 @@
     </view>
   </view>
 
-  <view class="empty" wx:if="{{count === 0}}">没有匹配的卡片，换个关键词试试</view>
+  <view class="empty" wx:if="{{resultCount === 0}}">没有匹配的卡片</view>
 </view>

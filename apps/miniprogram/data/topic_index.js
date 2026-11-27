@@ -1,6 +1,6 @@
 // GENERATED FILE — 由 tools/build-data.js 从唯一真源生成，请勿手工编辑。
 // source=reliable-data version=2.1.0 generatedAt=2026-11-25T00:00:00+08:00
-// ⚠ 过渡数据：268 条未人工签核（review=pending），禁止用于交付判断（SPEC-008）
+// 注意：带状态开发数据：268 条未人工签核为 verified；详见 CONTENT_REVIEW，构建成功不代表内容正确（SPEC-009）。
 // 导出 TOPIC_ITEMS / TOPIC_GROUPS / TOPICS_BY_NODE：题型索引取组织配置。
 module.exports = {
   "TOPIC_GROUPS": [

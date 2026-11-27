@@ -8,9 +8,9 @@
  * 检查项：
  *   G1 七个模块可加载且导出名齐全
  *   G2 ALL_NODES 字段逐项等于真源 nodes/*.json 的映射结果（含 v2.1.0 补丁）
- *   G3 LECTURES 六段式逐字段等于真源 lessons/*.json（含补丁节点）
+ *   G3 LECTURES 主体取 lessons，例题/易错取独立卡，镜像相等（含补丁节点）
  *   G4 DOMAINS / THEMES / LECTURES 三视图覆盖同一 67 节点集
- *   G5 cards / topic_index / content_meta 等于组织配置
+ *   G5 CARDS 四类卡映射 + 独立组织补充；content_meta 绑定当前状态/哈希/来源，不继承历史名单
  *   G6 生成物头部含版本与来源标记，过渡态含未签核警告
  *   G7 BRIDGES 的 from/to/kind 逐条等于 bridges.json，富化字段与反向索引正确
  *
@@ -20,6 +20,7 @@
 const fs = require('fs');
 const path = require('path');
 const Module = require('module');
+const contract = require('../tools/lib/content-contract');
 
 const ROOT = path.resolve(__dirname, '..');
 const SRC = path.join(ROOT, 'reliable-data');
@@ -51,10 +52,10 @@ const MODS = {};
 const EXPECT_KEYS = {
   nodes: ['DOMAINS', 'ALL_NODES', 'SIGNAL_RULES'],
   lectures: ['LECTURES'],
-  cards: ['CARDS', 'cardCount'],
+  cards: ['CARDS', 'cardCount', 'SUPPLEMENTAL_CARDS'],
   themes: ['THEMES', 'THEME_OF', 'THEME_NAME', 'DOMAIN_SHORT'],
   topic_index: ['TOPIC_GROUPS', 'TOPIC_ITEMS', 'TOPICS_BY_NODE'],
-  content_meta: ['DOMAIN_SOURCE', 'R2_CHECKED', 'metaFor', 'EVIDENCE_LABEL', 'REVIEW_LABEL'],
+  content_meta: ['DOMAIN_SOURCE', 'R2_CHECKED', 'metaFor', 'EVIDENCE_LABEL', 'REVIEW_LABEL', 'NODE_META', 'CONTENT_REVIEW'],
   bridges: ['BRIDGES', 'BRIDGES_BY_NODE', 'BRIDGE_STATS']
 };
 for (const name of Object.keys(EXPECT_KEYS)) {
@@ -66,16 +67,15 @@ for (const name of Object.keys(EXPECT_KEYS)) {
   say(missing.length === 0, 'G1 ' + name + '.js 导出齐全（缺 ' + missing.join(',') + '）');
 }
 
-// 真源四类卡
-function loadCards(dir) {
-  const d = path.join(SRC, dir), out = {};
-  fs.readdirSync(d).filter(f => f.endsWith('.json')).forEach(f => {
-    const o = readJson(path.join(d, f)); out[o.nodeId] = o;
-  });
-  return out;
+// 只验证结构与忠实呈现，不做数学核验。
+let data, mapping;
+try { data = contract.loadContent(fs, SRC); mapping = contract.loadSourceMapping(fs, SRC, data.ids); }
+catch (e) {
+  console.error('FAIL ' + e.message); console.log('VERDICT=' + (e.code === 'SOURCE_DEPENDENCY' ? 'BLOCKED' : 'FAILED'));
+  process.exit(e.code === 'SOURCE_DEPENDENCY' ? 2 : 1);
 }
-const NODES = loadCards('nodes'), LESSONS = loadCards('lessons');
-const ids = Object.keys(NODES).sort();
+const { nodes: NODES, lessons: LESSONS, examples: EXAMPLES, pitfalls: PITFALLS } = data.cards;
+const ids = data.ids;
 
 // G2 ALL_NODES 逐字段等于真源映射
 if (MODS.nodes) {
@@ -106,7 +106,8 @@ if (MODS.lectures) {
     if (!l || !n) { bad.push(p.nodeId + ':NO_SOURCE'); return; }
     const expect = {
       nodeId: p.nodeId, title: n.title, essence: l.essence, method: l.method || [],
-      example: l.example || { q: '', a: '' }, pitfalls: l.pitfalls || [],
+      example: { q: EXAMPLES[p.nodeId].items[0].question, a: EXAMPLES[p.nodeId].items[0].answer },
+      pitfalls: PITFALLS[p.nodeId].items.map(it => it.mistake),
       links: l.links || '', check: l.check || []
     };
     if (!eq(p, expect)) bad.push(p.nodeId);
@@ -132,8 +133,39 @@ if (MODS.nodes && MODS.lectures && MODS.themes) {
     'G4 THEMES 等于组织配置');
 }
 
-// G5 组织层内容等于配置
-if (MODS.cards) say(eq(MODS.cards.CARDS, ORG.cards), 'G5 CARDS 等于组织配置');
+// G5 主卡来自四类真源；六节点补充独立保留，不与主例题比较相等。
+if (MODS.cards) {
+  const all = MODS.cards.CARDS;
+  const bad = [];
+  const origin = (kind, id) => {
+    const c = data.cards[kind][id];
+    return { path: 'reliable-data/' + kind + '/' + id + '.json', source_ref: c.source_ref,
+      review: c.review, evidence: c.evidence, contentHash: c.content_hash };
+  };
+  ids.forEach(id => {
+    const c = all[id], n = NODES[id], l = LESSONS[id], p = PITFALLS[id], e = EXAMPLES[id];
+    const extra = ORG.cards[id];
+    const concept = { title: n.title, body: l.essence, points: n.points, origins: [origin('nodes', id), origin('lessons', id)] };
+    const explain = [
+      { title: '核心方法', body: l.essence, points: l.method, origin: origin('lessons', id) },
+      ...p.items.map(it => ({ title: '易错 · ' + it.id, body: it.mistake,
+        points: [it.trigger, it.rootCause, it.correction].concat(it.selfCheck ? [it.selfCheck] : []), origin: origin('pitfalls', id) })),
+      { title: '知识连接与自检', body: l.links, points: l.check, origin: origin('lessons', id) }
+    ];
+    const examples = e.items.map(it => ({ title: '示范 · ' + it.id, level: ORG.reviewLabel[e.review],
+      question: it.question, hint: it.reasoningAnchor || '', solution: it.answer, answer: it.conclusion,
+      provenance: it.provenance || '', origin: origin('examples', id) }));
+    if (extra) {
+      const supplement = item => ({ ...item, origin: { path: 'reliable-data/source/app_organization.json#cards.' + id,
+        role: '独立组织层补充，不是四类卡镜像', review: 'pending', contentHash: contract.hashValue(extra) } });
+      explain.push(supplement(extra.concept), ...extra.explain.map(supplement));
+      examples.push(...extra.examples.map(supplement));
+    }
+    if (!eq(c, { concept, explain, examples }) || MODS.cards.cardCount(id) !== 1 + explain.length + examples.length) bad.push(id);
+  });
+  say(eq(Object.keys(all).sort(), ids) && bad.length === 0, 'G5 CARDS 全节点四类卡字段与来源映射正确（异常 ' + bad.join(',') + '）');
+  say(eq(MODS.cards.SUPPLEMENTAL_CARDS, ORG.cards), 'G5 组织层原六节点内容完整保留，与四类卡镜像明确分离');
+}
 if (MODS.topic_index) {
   say(eq(MODS.topic_index.TOPIC_ITEMS, ORG.topicItems) && eq(MODS.topic_index.TOPIC_GROUPS, ORG.topicGroups),
     'G5 题型索引 items/groups 等于组织配置');
@@ -141,8 +173,28 @@ if (MODS.topic_index) {
   say(eq(MODS.topic_index.TOPICS_BY_NODE, tbn), 'G5 TOPICS_BY_NODE 由 items 正确派生');
 }
 if (MODS.content_meta) {
-  say(eq(MODS.content_meta.DOMAIN_SOURCE, ORG.domainSource) && eq(MODS.content_meta.R2_CHECKED, ORG.r2Checked),
-    'G5 证据元数据等于组织配置');
+  const meta = MODS.content_meta;
+  say(eq(meta.DOMAIN_SOURCE, ORG.domainSource) && eq(meta.R2_CHECKED, ORG.r2Checked), 'G5 历史范围/复算名单仅保留供追溯');
+  const currentOk = ids.every(id => {
+    const m = meta.metaFor(id, NODES[id].domain), l = LESSONS[id];
+    return m.legacySourceRef === l.source_ref && m.review === l.review && m.evidence === l.evidence &&
+      m.contentHash === l.content_hash && m.sourceVersion === manifest.version &&
+      contract.KINDS.every(k => m.cards[k].contentHash === data.cards[k][id].content_hash && m.cards[k].review === data.cards[k][id].review &&
+        m.cards[k].legacySourceRef === data.cards[k][id].source_ref);
+  });
+  say(currentOk, 'G5 metaFor 状态/证据及 legacySourceRef 绑定当前卡片，不继承 R2 名单');
+  const sourceOk = ids.every(id => {
+    const m = meta.metaFor(id), checked = mapping.sidecar.nodes[id].references.filter(r => r.verification === 'section_checked');
+    return checked.length ? checked.every(r => m.source.includes(r.locator) && m.source.includes(mapping.anchors[r.anchorId].title)) &&
+      m.source.includes('非卡片签核') && m.source !== LESSONS[id].source_ref : m.source.startsWith('暂无已核正文章节定位');
+  });
+  say(sourceOk, 'G5 source 展示已核来源位置，无已核正文时明示缺口，不展示旧 source_ref');
+  const expected = contract.buildMetadata(data, mapping);
+  say(eq(meta.NODE_META, expected.nodes) && eq(meta.CONTENT_REVIEW, expected.contentReview), 'G5 全节点来源映射与当前内容哈希绑定，CONTENT_REVIEW 独立输出');
+  const generated = readJson(path.join(OUT, 'manifest.generated.json'));
+  say(generated.sourceVersion === manifest.version && generated.sourceMapHash === contract.hashValue(mapping.sidecar) &&
+    generated.sourceRegistryHash === contract.hashValue(mapping.registry) && generated.organizationHash === contract.hashValue(ORG) &&
+    eq(generated.contentReview, meta.CONTENT_REVIEW), 'G5 生成清单绑定当前来源版本与审核统计');
 }
 
 // G7 BRIDGES 忠实编译自 bridges.json + 富化字段/反向索引正确
@@ -179,8 +231,8 @@ const headOk = MODULE_NAMES.every(name => {
   const txt = fs.readFileSync(path.join(OUT, name + '.js'), 'utf8').split('\n').slice(0, 6).join('\n');
   return txt.indexOf('GENERATED FILE') >= 0 && txt.indexOf('version=' + manifest.version) >= 0;
 });
-say(headOk, 'G6 六个模块头部含 GENERATED FILE 与版本 ' + manifest.version);
-const pending = manifest.reviewStats && manifest.reviewStats.pending;
+say(headOk, 'G6 七个模块头部含 GENERATED FILE 与版本 ' + manifest.version);
+const pending = BASE_N * 4 - data.reviewStats.verified;
 const warnOk = pending > 0 ? MODULE_NAMES.every(name => {
   const txt = fs.readFileSync(path.join(OUT, name + '.js'), 'utf8').split('\n').slice(0, 6).join('\n');
   return txt.indexOf('未人工签核') >= 0;

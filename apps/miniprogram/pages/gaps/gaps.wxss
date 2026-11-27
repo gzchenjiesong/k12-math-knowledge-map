@@ -1,36 +1,45 @@
-.head { padding: 30rpx; }
-.h1 { display: block; font-size: 36rpx; font-weight: 700; color: #1f2d3d; }
-.sub { display: block; margin-top: 12rpx; font-size: 23rpx; color: #7a8699; line-height: 1.6; }
-.bar { height: 12rpx; background: #eef1f6; border-radius: 10rpx; margin-top: 20rpx; overflow: hidden; }
+.head { padding: 15px; }
+.h1 { display: block; font-size: 22px; font-weight: 700; color: #1f2d3d; }
+.sub { display: block; margin-top: 6px; font-size: 13px; color: #637086; line-height: 1.6; }
+.bar { height: 6px; background: #eef1f6; border-radius: 5px; margin-top: 10px; overflow: hidden; }
 .bar-in { height: 100%; background: linear-gradient(90deg, #2bb573, #52d391); }
 
-.filters { display: flex; margin: 4rpx 0 20rpx; }
-.filter { padding: 12rpx 28rpx; font-size: 25rpx; color: #7a8699; background: #fff; border-radius: 24rpx; margin-right: 14rpx; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 10px; }
+.filter { display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 44px; padding: 8px 14px; font-size: inherit; color: #637086; background: #fff; border-radius: 14px; }
 .filter.active { background: #1f6feb; color: #fff; }
 
-.group { margin-bottom: 22rpx; }
-.group-head { display: flex; align-items: center; justify-content: space-between; padding: 18rpx 28rpx; border-radius: 14rpx 14rpx 0 0; font-size: 27rpx; font-weight: 600; color: #fff; }
+.group { margin-bottom: 12px; }
+.group-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 8px; padding: 9px 14px; border-radius: 7px 7px 0 0; font-size: inherit; font-weight: 600; color: #fff; }
 .group-head.primary { background: #6f52c9; }
 .group-head.junior { background: #2f7de0; }
 .group-head.senior { background: #19967a; }
 .group-head.olympiad { background: #c8671c; }
-.group-count { font-size: 22rpx; opacity: 0.9; }
+.group-count { font-size: 13px; }
 
-.list { border-radius: 0 0 16rpx 16rpx; margin-bottom: 0; padding: 0 28rpx; }
-.gap-item { display: flex; align-items: center; padding: 20rpx 0; border-bottom: 2rpx solid #f5f6f8; }
+.list { border-radius: 0 0 8px 8px; margin-bottom: 0; padding: 0 14px; }
+.gap-item { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 9px; box-sizing: border-box; min-height: 44px; padding: 10px 0; border-bottom: 1px solid #f5f6f8; }
 .gap-item:last-child { border-bottom: none; }
-.dot { width: 16rpx; height: 16rpx; border-radius: 50%; margin-right: 18rpx; flex-shrink: 0; }
-.dot.s0 { background: #d8dee8; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot.s0 { background: #b3bdcb; }
 .dot.s1 { background: #f0a93b; }
 .dot.s2 { background: #2bb573; }
-.gi-body { flex: 1; min-width: 0; }
-.gi-name { display: block; font-size: 27rpx; color: #1f2329; font-weight: 500; }
-.gi-desc { display: block; margin-top: 6rpx; font-size: 22rpx; color: #9aa4b4; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.gi-module { font-size: 21rpx; color: #a8b0bd; margin-left: 14rpx; flex-shrink: 0; }
+.gi-body { flex: 1 1 150px; min-width: 0; }
+.gi-name { display: block; font-size: inherit; color: #1f2329; font-weight: 500; }
+.gi-desc { display: block; margin-top: 3px; font-size: 13px; color: #637086; white-space: normal; }
+.gi-meta { display: block; margin-top: 5px; font-size: 13px; color: #637086; }
+.gi-arrow { color: #637086; }
+.views { display: flex; margin-top: 10px; gap: 4px; }
+.view-tab { display: flex; align-items: center; justify-content: center; flex: 1; min-height: 44px; border-radius: 8px; color: #637086; }
+.view-tab.active { background: #eaf2ff; color: #1f6feb; font-weight: 600; }
+.note-search { display: flex; align-items: center; margin-top: 12px; background: #f4f6fa; border-radius: 8px; }
+.query-input { flex: 1; min-width: 0; height: 44px; padding: 0 12px; font-size: inherit; }
+.clear-query { display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #1f6feb; }
+.result-count { display: block; margin: 8px 0; color: #637086; font-size: 13px; }
+.reading-back { display: flex; align-items: center; min-height: 44px; color: #1f6feb; margin-bottom: 8px; }
 
-/* 宽屏兜底：限宽由 app.wxss 处理，这里只把字号拉回物理尺寸 */
 @media (min-width: 768px) {
+  .head { padding: 20px 24px; }
   .h1 { font-size: 26px; }
-  .sub, .gi-desc, .gi-module { font-size: 13px; }
-  .filter, .gi-name, .group-count { font-size: 15px; }
+  .group-head { padding: 12px 20px; }
+  .list { padding: 0 20px; }
 }

@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const contract = require('../tools/lib/content-contract');
 
 const ROOT = path.resolve(__dirname, '..');
 const SRC = path.join(ROOT, 'reliable-data');
@@ -125,37 +126,73 @@ const cross = [
   { id: 'o_comb_adv', why: '1..100 中被 2 或 3 整除', calc: () => 50 + 33 - 16, want: 67 },
   { id: 'j_simi', why: '射影定理 h²=4×9', calc: () => Math.sqrt(4 * 9), want: 6 },
   { id: 's_prob', why: '硬币得分期望', calc: () => 1 * 0.5 + 0 * 0.5, want: 0.5 },
-  { id: 's_complex', why: '2/(1+i)=1−i', calc: () => { const d = 1 + 1; return (2 * d / (1 + 1) === 2 && 2 * (1 - 1) / d === 0); }, want: true }
+  { id: 's_complex', why: '2/(1+i)=1−i', calc: () => { const d = 1 * 1 + 1 * 1; return 2 / d === 1 && -2 / d === -1; }, want: true }
 ];
+// 明确绑定已知题目、实际教案答案、独立示范答案与结论；不是只计算脚本内的 calc/want。
+// 这是有限题型回归，不是公式求值器。题设/结论变化须独立复核并更新 expectation，不能自动跟随真源。
+function formula(s) {
+  const powers = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+  return String(s).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹ⁿ]+/g, a => '^' + Array.from(a, c => c === 'ⁿ' ? 'n' : powers.indexOf(c)).join(''))
+    .normalize('NFKC').replace(/[−–]/g, '-').replace(/\s+/g, '')
+    .replace(/\^\{([^{}]+)\}/g, '^$1').replace(/\^\((\d+|n)\)/g, '^$1');
+}
+const expectations = {
+  j_quad: ['f(x)=x²−2x+3 在 [0,3] 上的最值', /最大值(?:为|是)?6(?:[。,(]|$)/, '最小值 2（x=1），最大值 6（x=3）'],
+  s_ineq: ['x>0，求 x+4/x 的最小值', /=4[,。]/, '最小值为 4，x=2 时取等'],
+  s_exp: ['比较 2^0.3 与 0.3² 的大小', /2\^0\.3>0\.3\^2(?:[。,]|$)/, '2^0.3 > 0.3²'],
+  s_vec: ['已知 |a|=1，|b|=2，夹角 60°，求 a·b', /=1[。,]/, 'a·b=1'],
+  o_numfun: ['求 φ(12)', /=4[。,]/, 'φ(12)=4'],
+  j_prob: ['掷两枚骰子，点数和为 7 的概率', /=1\/6[。,]/, 'P=1/6'],
+  o_cong: ['求 3²⁰⁰ mod 7', /≡2\(mod7\)/, '3²⁰⁰≡2 (mod 7)'],
+  o_fermat: ['求满足 x≡2(mod 3)、x≡3(mod 5) 的最小正整数', /最小正整数(?:是|为)8[。,]/, '最小正整数解 x=8'],
+  j_alg: ['分解 x⁴+x²+1', /\(x\^2\+x\+1\)\(x\^2-x\+1\)/, '(x²+x+1)(x²−x+1)'],
+  o_geo_trans: ['正方形 ABCD 内一点 P，PA=1,PB=2,PC=3，求 ∠APB', /=135°[。,;]/, '∠APB=135°'],
+  s_seq: ['已知 Sₙ=n²+2n，求 aₙ', /an=2n\+1[。,]/, 'aₙ=2n+1（n≥1）'],
+  o_recur: ['a₁=1，aₙ₊₁=2aₙ+1，求通项', /an=2\^n-1[。,]/, 'aₙ=2ⁿ−1'],
+  s_count: ['从 5 人中选 3 人组成委员会，有多少种选法？', /C\(5,3\)=10[。,]/, 'C(5,3)=10 种选法'],
+  o_comb_adv: ['1…100 中能被 2 或 3 整除的数有多少？', /=67[。,]/, '能被 2 或 3 整除的数共 67 个'],
+  j_simi: ['直角三角形斜边上的高把斜边分成 4 和 9，求高', /h=6[。,]/, '斜边上的高 h=6'],
+  s_prob: ['掷一枚公平硬币，正面得 1 分反面得 0 分，求期望', /=1\/2[。,]/, 'E=1/2'],
+  s_complex: ['已知 (1+i)z=2，求 z', /=1-i(?:[。,]|$)/, 'z=1−i']
+};
 let crossBad = 0;
 cross.forEach(c => {
-  let got, ok;
-  try { got = c.calc(); ok = near(got, c.want); } catch (e) { got = e.message; ok = false; }
-  if (!ok) { crossBad++; console.log('  CROSS ' + c.id + ' ' + c.why + ' 实算=' + got + ' 期望=' + c.want); }
+  let got, ok, textOk = false;
+  try {
+    got = c.calc(); ok = near(got, c.want);
+    const [question, answer, conclusion] = expectations[c.id];
+    const lesson = L[c.id], example = E[c.id].items[0];
+    textOk = formula(lesson.example.q) === formula(question) && formula(example.question) === formula(question) &&
+      answer.test(formula(lesson.example.a)) && answer.test(formula(example.answer)) && formula(example.conclusion) === formula(conclusion);
+  } catch (e) { got = e.message; ok = false; }
+  if (!ok || !textOk) { crossBad++; console.log('  CROSS ' + c.id + ' ' + c.why + ' 实算=' + got + ' 期望=' + c.want + ' 发布题目/答案/结论=' + textOk); }
 });
-say(crossBad === 0, 'E6 ' + cross.length + ' 条异源独立复算一致（异常 ' + crossBad + '）');
+say(crossBad === 0, 'E6 ' + cross.length + ' 条明确题设的复算与当前发布文本一致（异常 ' + crossBad + '）');
 
 console.log('=== E7 不自证与依据锚点 ===');
-const badReview = [];
-KINDS.forEach(k => cards[k].forEach(x => { if (x.obj.review !== 'pending') badReview.push(k + '/' + x.file); }));
-say(badReview.length === 0, 'E7a 全部 228 卡 review=pending（异常 ' + badReview.length + '）—— AI 未自证 verified');
-say(mf.humanSignOff && mf.humanSignOff.verifiedCount === 0 && mf.humanSignOff.status === 'BLOCKED_NO_EVIDENCE',
-  'E7b manifest 人工闸门如实标 BLOCKED_NO_EVIDENCE、verified=0');
-const noRef = [], fakeRef = [], honestRef = [];
+const badReview = [], noRef = [], reviewStats = { pending: 0, checked: 0, verified: 0, disputed: 0 };
 KINDS.forEach(k => cards[k].forEach(x => {
-  if (!x.obj.source_ref) noRef.push(k + '/' + x.file);
-  // v1.0.0 既有 57 节点：写「未找到权威依据」属虚假填充（有官方锚点）；
-  // v2.0.0 小学 10 节点：无教材版权页，写「未找到权威依据」是如实标注（E9c 要求）。
-  if (/未找到权威依据/.test(x.obj.source_ref)) {
-    (x.obj.nodeId && x.obj.nodeId.startsWith('p_') ? honestRef : fakeRef).push(k + '/' + x.file);
-  }
+  if (contract.reviewErrors(x.obj).length) badReview.push(k + '/' + x.file);
+  if (Object.prototype.hasOwnProperty.call(reviewStats, x.obj.review)) reviewStats[x.obj.review]++;
+  if (typeof x.obj.source_ref !== 'string' || !x.obj.source_ref.trim()) noRef.push(k + '/' + x.file);
 }));
+say(badReview.length === 0, 'E7a 当前卡片状态合法，verified 必须有签核字段（异常 ' + badReview.length + '；不强制永久 pending）');
+say(contract.equal(reviewStats, mf.reviewStats) && mf.humanSignOff && mf.humanSignOff.verifiedCount === reviewStats.verified,
+  'E7b manifest 审核统计与当前卡一致（签核字段存在不等于机器证明其真实性）');
 say(noRef.length === 0, 'E7c 全部卡有 source_ref（异常 ' + noRef.length + '）');
-say(fakeRef.length === 0, 'E7d 既有节点无虚假「未找到权威依据」填充（实际 ' + fakeRef.length + '）');
-say(honestRef.length === 40, 'E7f 小学 40 卡如实标注未找到权威依据（实际 ' + honestRef.length + '）');
+try {
+  contract.loadContent(fs, SRC);
+  say(true, 'E7d 定向结构、哈希与镜像契约通过（无数学正确性自证）');
+} catch (e) { say(false, 'E7d ' + e.message); }
 const ev = JSON.parse(fs.readFileSync(path.join(SRC, 'evidence/SOURCES.json'), 'utf8'));
-say(ev.sources && ev.sources.length === 8 && ev.sources.filter(s => s.originalStatus === 'MISSING_LOCAL_COPY').length === 7,
-  'E7e 8 条锚点中 7 条本地原件缺失已如实标注');
+try {
+  contract.validateSources(ev);
+  say(true, 'E7e 来源登记结构合法、anchorId 唯一、获取状态明确（不固定历史 8/7 计数）');
+} catch (e) { say(false, 'E7e ' + e.message); }
+try {
+  contract.loadSourceMapping(fs, SRC, baseIds);
+  say(true, 'E7f 全节点来源引用与缺口结构有效；不自动升级 review');
+} catch (e) { say(false, 'E7f ' + e.message); }
 
 console.log('=== E8 版本可追溯：快照保留 + 补丁作用域精确 ===');
 const snapV1 = path.join(SRC, 'snapshots/v1.0.0');
@@ -164,44 +201,54 @@ const snapV2 = path.join(SRC, 'snapshots/v2.0.0');
 if (fs.existsSync(snapV1)) {
   const m1 = JSON.parse(fs.readFileSync(path.join(snapV1, 'manifest.json'), 'utf8'));
   let intact = 0;
-  Object.keys(m1.entries).forEach(k => { if (fs.existsSync(path.join(snapV1, k))) intact++; });
-  say(intact === Object.keys(m1.entries).length && Object.keys(m1.entries).length === 228,
+  Object.keys(m1.entries).forEach(k => {
+    if (!fs.existsSync(path.join(snapV1, k))) return;
+    const card = JSON.parse(fs.readFileSync(path.join(snapV1, k), 'utf8'));
+    if (hashOf(card) === card.content_hash && card.content_hash === m1.entries[k].content_hash) intact++;
+  });
+  // 固定历史清单的规范化指纹，防止改完历史卡后连同历史 manifest 一起重算掩盖覆盖。
+  const originalManifest = contract.hashValue(m1) === 'sha256:cf7495ea770f449b61764ad249d33dfae46d98d951be810a3c0993fe5eb5927f';
+  say(originalManifest && intact === Object.keys(m1.entries).length && Object.keys(m1.entries).length === 228,
     'E8a v1.0.0 快照 228 卡完整保留（实际 ' + intact + '，历史版本不被内容修正覆盖）');
   const added = Object.keys(mf.entries).length - Object.keys(m1.entries).length;
   say(added === 40, 'E8b v2.0.0 曾新增 40 张小学卡（相对 v1.0.0，实际 ' + added + '）');
 } else {
-  say(true, 'E8a 无 v1.0.0 快照，跳过');
+  say(false, 'E8a 缺 v1.0.0 历史快照，不得跳过');
 }
 // E8c：当前版本相对 v2.0.0 的漂移，必须恰好等于补丁清单覆盖的卡（9 节点 × 4 卡）
 if (fs.existsSync(snapV2)) {
   const m2 = JSON.parse(fs.readFileSync(path.join(snapV2, 'manifest.json'), 'utf8'));
   const patched = new Set((mf.patchInfo && mf.patchInfo.modifiedNodes) || []);
-  let changedNodes = new Set(), unexpected = 0;
+  let changedNodes = new Set(), changedCards = 0, unexpected = 0;
+  let damaged = contract.hashValue(m2) === 'sha256:f098c112b7f91cfd4704865da33515f3e1be5d5f38355d1412499b7c8b650480' ? 0 : 1;
   Object.keys(m2.entries).forEach(k => {
+    if (!fs.existsSync(path.join(snapV2, k))) { damaged++; return; }
+    const old = JSON.parse(fs.readFileSync(path.join(snapV2, k), 'utf8'));
+    if (hashOf(old) !== old.content_hash || old.content_hash !== m2.entries[k].content_hash) damaged++;
     const id = k.split('/')[1].replace(/\.json$/, '');
     if (mf.entries[k] && mf.entries[k].content_hash !== m2.entries[k].content_hash) {
-      changedNodes.add(id);
+      changedNodes.add(id); changedCards++;
       if (!patched.has(id)) unexpected++;
     }
     if (fs.existsSync(path.join(snapV2, k)) &&
         fs.readFileSync(path.join(snapV2, k), 'utf8') !== fs.readFileSync(path.join(SRC, k), 'utf8') &&
         !patched.has(id)) unexpected++;
   });
-  say(unexpected === 0 && changedNodes.size === patched.size,
-    'E8c v2.1.0 变更作用域精确等于补丁清单（变更 ' + changedNodes.size + ' 节点 / 清单 ' + patched.size + ' / 越界 ' + unexpected + '）');
+  say(unexpected === 0 && damaged === 0 && changedNodes.size === patched.size && changedCards === patched.size * 4,
+    'E8c v2.0.0 快照哈希完整，当前变更作用域等于补丁清单（变更 ' + changedCards + ' 卡 / ' + changedNodes.size + ' 节点 / 越界 ' + unexpected + ' / 损坏 ' + damaged + '）');
   say(patched.size > 0 && /^2\.1\.0$/.test(mf.version),
     'E8d 内容修正走新版本 2.1.0，未覆盖 v2.0.0 发布版（version=' + mf.version + '）');
 } else {
-  say(true, 'E8c 无 v2.0.0 快照，跳过');
+  say(false, 'E8c 缺 v2.0.0 历史快照，不得跳过');
 }
 
-console.log('=== E9 小学段合规（evidence=C / pending / 无教材锚点不冒称）===');
+console.log('=== E9 小学段结构与当前状态（历史缺依据状态不锁死后续复核）===');
 const pIds = Object.keys(N).filter(id => id.startsWith('p_'));
-say(pIds.length === 10, 'E9a 小学节点数 = 10（实际 ' + pIds.length + '）');
-const pBad = pIds.filter(id => N[id].evidence !== 'C' || N[id].review !== 'pending');
-say(pBad.length === 0, 'E9b 小学卡全部 evidence=C 且 review=pending（异常 ' + pBad.length + '）');
-const pRefBad = pIds.filter(id => !/未找到权威依据/.test(N[id].source_ref));
-say(pRefBad.length === 0, 'E9c 小学知识点卡 source_ref 如实标注未找到权威依据（异常 ' + pRefBad.length + '）');
+say(pIds.length === mf.domainBaseline.primary, 'E9a 小学节点数与 manifest 基线一致（实际 ' + pIds.length + '）');
+const pBad = pIds.filter(id => !['A', 'B', 'C'].includes(N[id].evidence) || contract.reviewErrors(N[id]).length);
+say(pBad.length === 0, 'E9b 小学 evidence/review 合法、verified 有签核字段（异常 ' + pBad.length + '）');
+const pRefBad = pIds.filter(id => typeof N[id].source_ref !== 'string' || !N[id].source_ref.trim());
+say(pRefBad.length === 0, 'E9c 小学来源说明非空；详细缺口由 NODE_SOURCES 声明（异常 ' + pRefBad.length + '）');
 const bridge = JSON.parse(fs.readFileSync(path.join(SRC, 'index/bridges.json'), 'utf8'));
 say(bridge.reclassify.length === 5 && bridge.edges.length >= 10,
   'E9d 跨学段映射：5 条归属重划 + ' + bridge.edges.length + ' 条衔接边（不回写旧卡）');
@@ -234,5 +281,5 @@ console.log('---');
 console.log('RESULT=' + pass + '/' + (pass + fail) + ' FAILED=' + fail);
 console.log('UNCOVERED=' + uncovered.length);
 console.log('VERDICT=' + (fail === 0 && uncovered.length === 0 ? 'PASSED' : 'FAILED'));
-console.log('注意：本脚本校验结构、哈希、可判定数值与追溯关系，不证明数学讲解正确；人工闸门见 VFY-005。');
+console.log('注意：本脚本校验结构、哈希、可判定数值与追溯关系，不证明数学讲解正确；现行边界见 SPEC-009，VFY-005 缺人工证据状态不变。');
 process.exit(fail || uncovered.length ? 1 : 0);

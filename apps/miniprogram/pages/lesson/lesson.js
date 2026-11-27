@@ -4,10 +4,13 @@ const themeData = require('../../data/themes.js');
 const topicIndex = require('../../data/topic_index.js');
 const contentMeta = require('../../data/content_meta.js');
 const store = require('../../utils/store.js');
+const statusPicker = require('../../utils/status-picker.js');
 
 const STATUS_NAME = ['未开始', '学习中', '已掌握'];
 
-Page({
+const readingContext = require('../../utils/reading-context.js');
+
+Page(readingContext.attach('lesson', {
   data: {
     id: '',
     group: {},
@@ -15,6 +18,7 @@ Page({
     openIds: {},
     exampleFold: {},
     checkFold: {},
+    sourceOpenIds: {},
     percent: 0,
     done: 0,
     total: 0,
@@ -38,14 +42,31 @@ Page({
   },
 
   onShow: function () {
+    statusPicker.onShow(this);
     if (this.groupId) this.build();
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+    this._stopSyncRefresh = store.onChange((state, source) => {
+      if (source === 'remote' && this._reading.active && this.groupId) this.build();
+    });
   },
+
+  onHide: function () {
+    statusPicker.onHide(this);
+    this._batchStatus = null;
+    if (this._stopSyncRefresh) this._stopSyncRefresh();
+  },
+  onUnload: function () { this.onHide(); },
 
   onResize: function (res) {
     const wide = res.size.windowWidth >= 768;
     // 缩回窄屏时自动退出演示模式，避免小屏上被隐藏的知识点不可见
     if (!wide && this.data.demo) this.setData({ wide: false, demo: false });
     else if (wide !== this.data.wide) this.setData({ wide: wide });
+  },
+
+  onReadingRestore: function () {
+    if (!this.data.wide && this.data.demo) this.setData({ demo: false });
+    this.build();
   },
 
   build: function () {
@@ -78,7 +99,7 @@ Page({
         evidence: meta.evidence,
         evidenceLabel: contentMeta.EVIDENCE_LABEL[meta.evidence] || '',
         review: meta.review,
-        reviewLabel: disputed ? contentMeta.REVIEW_LABEL.disputed : (contentMeta.REVIEW_LABEL[meta.review] || ''),
+        reviewLabel: contentMeta.REVIEW_LABEL[meta.review] || '',
         sourceName: meta.source,
         sourceNote: meta.note,
         wordingNote: meta.wordingNote,
@@ -93,6 +114,12 @@ Page({
       total: total,
       percent: total ? Math.round(done * 100 / total) : 0
     });
+  },
+
+  togglePointSource: function (e) {
+    const id = e.currentTarget.dataset.id;
+    if (!this.data.points.some(function (point) { return point.nodeId === id; })) return;
+    this.setData({ ['sourceOpenIds.' + id]: !this.data.sourceOpenIds[id] });
   },
 
   togglePoint: function (e) {
@@ -153,66 +180,67 @@ Page({
     this.setData({ ['checkFold.' + id]: !this.data.checkFold[id] });
   },
 
-  cycleStatus: function (e) {
-    const id = e.currentTarget.dataset.id;
-    const cur = store.getStatus(id);
-    const next = (cur + 1) % 3;
-    store.setStatus(id, next);
-    wx.vibrateShort({ type: 'light' });
-    const key = this.data.points.findIndex(function (p) { return p.nodeId === id; });
-    if (key >= 0) {
-      this.setData({
-        ['points[' + key + '].status']: next,
-        ['points[' + key + '].statusName']: STATUS_NAME[next]
-      });
-    }
-    this.build();
+  chooseStatus: function (e) {
+    const id = e && e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.id;
+    if (!this.data.points.some(function (p) { return p.nodeId === id; })) return;
+    if (this._batchStatus) return;
+    statusPicker.choose(this, id, this.build);
   },
 
   // 标记内容存疑（RUL-008）：用户发现讲解可疑时标记，记录在本地并提示反馈路径
   toggleDisputed: function (e) {
-    const id = e.currentTarget.dataset.id;
-    const next = this.data.points.find(function (p) { return p.nodeId === id; }).disputed ? 0 : 1;
-    store.setDisputed(id, next);
+    const id = e && e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.id;
     const key = this.data.points.findIndex(function (p) { return p.nodeId === id; });
-    if (key >= 0) {
-      this.setData({
-        ['points[' + key + '].disputed']: next,
-        ['points[' + key + '].reviewLabel']: next ? '存疑待修' : (contentMeta.REVIEW_LABEL[this.data.points[key].review] || '')
-      });
+    if (key < 0) return;
+    const next = store.getDisputed(id) ? 0 : 1;
+    if (!store.setDisputed(id, next)) {
+      wx.showToast({ title: '本地保存失败，请重试', icon: 'none' });
+      return;
     }
+    this.setData({
+      ['points[' + key + '].disputed']: next
+    });
     wx.showToast({ title: next ? '已标记存疑' : '已取消存疑', icon: 'none' });
   },
 
   // 投屏演示：跳转到全屏幻灯片页，手机当遥控器（M1 系统镜像专用）
   goPresent: function () {
-    wx.navigateTo({ url: '/pages/present/present?id=' + this.data.id });
+    readingContext.navigate(this, '/pages/present/present?id=' + encodeURIComponent(this.data.id));
   },
 
   goNode: function (e) {
-    wx.navigateTo({ url: '/pages/node/node?id=' + e.currentTarget.dataset.id });
+    readingContext.navigate(this, '/pages/node/node?id=' + encodeURIComponent(e.currentTarget.dataset.id));
   },
 
   goTopic: function (e) {
-    const app = getApp();
-    app.globalData = app.globalData || {};
-    app.globalData.focusTopic = e.currentTarget.dataset.id;
-    wx.switchTab({ url: '/pages/locator/locator' });
+    readingContext.navigate(this, '/pages/locator/locator', { focus: { topic: e.currentTarget.dataset.id } });
   },
 
   markWholeDone: function () {
+    if (!this._statusPageActive || this._batchStatus || this._statusMenu || !this.data.points.length) return;
     const self = this;
+    const token = {};
+    this._batchStatus = token;
+    const release = function () { if (self._batchStatus === token) self._batchStatus = null; };
     wx.showModal({
-      title: '标记专题完成',
-      content: '把这 ' + this.data.total + ' 个知识点全部标记为"已掌握"？',
+      title: '全部标为已掌握？',
+      content: '将修改这 ' + this.data.total + ' 个知识点的记录。',
       success: function (res) {
-        if (!res.confirm) return;
-        self.data.points.forEach(function (p) {
-          if (store.getStatus(p.nodeId) !== 2) store.setStatus(p.nodeId, 2);
-        });
+        if (!self._statusPageActive || self._batchStatus !== token) return;
+        release();
+        if (!res || res.confirm !== true) return;
+        const state = store.load();
+        self.data.points.forEach(function (p) { state.status[p.nodeId] = 2; });
+        // 批量标记只落盘一次，失败不留下部分成功或虚假的成功提示。
+        if (!store.save(state)) {
+          wx.showToast({ title: '本地保存失败，请重试', icon: 'none' });
+          return;
+        }
         self.build();
-        wx.showToast({ title: '已全部掌握', icon: 'success' });
-      }
+        wx.showToast({ title: '已标记：全部已掌握', icon: 'none' });
+      },
+      fail: release,
+      complete: release
     });
   }
-});
+}));

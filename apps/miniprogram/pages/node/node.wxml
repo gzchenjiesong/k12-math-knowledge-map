@@ -1,4 +1,5 @@
 <view class="page" wx:if="{{node}}">
+  <view class="reading-back" wx:if="{{readingCanBack}}" bindtap="goReadingBack">‹ {{readingBackLabel}}</view>
   <!-- 知识点头部 -->
   <view class="card head">
     <view class="head-row">
@@ -6,7 +7,10 @@
         <text class="domain-label">{{node.domainName}}</text>
         <text wx:if="{{themeName}}" class="theme-label" bindtap="goTheme">{{themeName}} ›</text>
       </view>
-      <text class="status-pill s{{status}}" bindtap="cycleStatus">{{statusName}} · 点按切换</text>
+      <view class="head-actions">
+        <text class="status-pill s{{status}}" bindtap="chooseStatus">{{statusName}} ▾</text>
+        <text class="dispute-control {{disputed ? 'on' : ''}}" bindtap="toggleDisputed">{{disputed ? '取消存疑' : '标记存疑'}}</text>
+      </view>
     </view>
     <text class="title">{{node.n}}</text>
     <text class="oneline">{{node.d}}</text>
@@ -18,6 +22,30 @@
     <view class="tab {{tab === 'concept' ? 'active' : ''}}" bindtap="switchTab" data-tab="concept">知识点</view>
     <view class="tab {{tab === 'explain' ? 'active' : ''}}" bindtap="switchTab" data-tab="explain">知识讲解</view>
     <view class="tab {{tab === 'example' ? 'active' : ''}}" bindtap="switchTab" data-tab="example">试题示例</view>
+  </view>
+
+  <!-- 来源定位与当前页签真源审核分别呈现，不从历史备注推定状态 -->
+  <view class="card source-summary" wx:if="{{sourceSummary}}">
+    <view class="source-head" bindtap="toggleSource">
+      <text class="card-title">来源与审核</text>
+      <text class="source-toggle">{{sourceExpanded ? '▴' : '▾'}}</text>
+    </view>
+    <view class="source-body" wx:if="{{sourceExpanded}}">
+      <view class="source-statuses">
+        <text class="source-status" wx:for="{{sourceSummary.cards}}" wx:key="key">{{item.label}} · {{item.reviewLabel}}</text>
+      </view>
+      <text class="source-note" wx:if="{{sourceSummary.cards.length === 0}}">当前卡类来源未提供</text>
+      <text class="source-note" wx:if="{{sourceSummary.unknownOriginCount > 0}}">部分来源未提供，审核未知</text>
+      <text class="source-note" wx:if="{{sourceSummary.supplementalCount > 0}}">{{sourceSummary.supplementalLabel}} · {{sourceSummary.supplementalCount}} 项</text>
+      <text class="source-note">范围定位：已核 {{sourceSummary.checkedScopeCount === null ? '未提供' : sourceSummary.checkedScopeCount}} / 登记 {{sourceSummary.scopeCount === null ? '未提供' : sourceSummary.scopeCount}} · 缺口 {{sourceSummary.gapCount === null ? '未提供' : sourceSummary.gapCount}}</text>
+      <text class="source-note">{{sourceSummary.boundary}}</text>
+      <text class="source-label">来源与范围位置</text>
+      <text class="source-note">{{sourceSummary.source}}</text>
+      <text class="source-note">已核仅计正文定位，不含目录与待核项。</text>
+      <view class="source-row" wx:for="{{sourceSummary.gaps}}" wx:key="*this">
+        <text class="source-label">缺口 {{index + 1}}</text><text>{{item}}</text>
+      </view>
+    </view>
   </view>
 
   <!-- 知识点 -->
@@ -33,7 +61,6 @@
     </view>
     <view class="card empty-card" wx:else>
       <text class="empty-title">知识点卡片待补充</text>
-      <text class="empty-desc">该知识点暂未编写讲解内容，可先参考下方「关联知识」或在笔记中记录。</text>
     </view>
 
     <!-- 关键子点（来自图谱数据，始终可见） -->
@@ -59,6 +86,7 @@
   <view wx:if="{{tab === 'explain'}}">
     <view class="card" wx:for="{{card.explain}}" wx:for-item="ex" wx:key="title">
       <text class="card-title">{{ex.title}}</text>
+      <text wx:if="{{ex.originNote}}" class="origin-note">{{ex.originNote}}</text>
       <text class="body-text">{{ex.body}}</text>
       <view class="points">
         <view class="point" wx:for="{{ex.points}}" wx:key="*this">
@@ -68,7 +96,6 @@
     </view>
     <view class="card empty-card" wx:if="{{!card || !card.explain || card.explain.length === 0}}">
       <text class="empty-title">讲解卡片待补充</text>
-      <text class="empty-desc">后续会按知识点分批填充讲解内容。</text>
     </view>
   </view>
 
@@ -79,15 +106,19 @@
         <text class="card-title">{{ex.title}}</text>
         <text class="level">{{ex.level}}</text>
       </view>
+      <text wx:if="{{ex.originNote}}" class="origin-note">{{ex.originNote}}</text>
       <view class="question">{{ex.question}}</view>
+      <view wx:if="{{ex.hasHint}}" class="fold hint-fold" bindtap="toggleHint" data-idx="{{index}}">
+        <text>{{hintFoldState[index] ? '收起提示 ▴' : '查看提示 ▾'}}</text>
+      </view>
+      <view class="solution-block" wx:if="{{ex.hasHint && hintFoldState[index]}}">
+        <text class="block-label">思路提示</text>
+        <text class="block-text">{{ex.hint}}</text>
+      </view>
       <view class="fold" bindtap="toggleFold" data-idx="{{index}}">
-        <text>{{foldState[index] ? '收起提示与解答 ▴' : '查看提示与解答 ▾'}}</text>
+        <text>{{foldState[index] ? '收起解答 ▴' : '查看解答 ▾'}}</text>
       </view>
       <view wx:if="{{foldState[index]}}">
-        <view class="solution-block">
-          <text class="block-label">思路提示</text>
-          <text class="block-text">{{ex.hint}}</text>
-        </view>
         <view class="solution-block">
           <text class="block-label">解答</text>
           <text class="block-text">{{ex.solution}}</text>
@@ -97,7 +128,6 @@
     </view>
     <view class="card empty-card" wx:if="{{!card || !card.examples || card.examples.length === 0}}">
       <text class="empty-title">试题卡片待补充</text>
-      <text class="empty-desc">后续会按知识点分批填充例题。</text>
     </view>
   </view>
 
@@ -120,8 +150,7 @@
 
   <!-- 常考题型（题型↔知识点双向索引） -->
   <view class="card" wx:if="{{topicList.length > 0}}">
-    <text class="card-title">常考题型 · 点按看讲解</text>
-    <text class="rel-hint">这个知识点在不同讲次里常以这些题型出现</text>
+    <text class="card-title">常考题型</text>
     <view class="topic-links">
       <view class="topic-link" wx:for="{{topicList}}" wx:key="id" bindtap="goTopic" data-id="{{item.id}}">
         <text class="topic-link-name">{{item.name}}</text>
@@ -131,15 +160,16 @@
     </view>
   </view>
 
-  <!-- 我的笔记 -->
-  <view class="card">
+  <!-- 笔记 -->
+  <view class="card" id="note-section">
     <view class="note-head">
-      <text class="card-title">我的笔记</text>
+      <text class="card-title">笔记</text>
       <text class="note-action" bindtap="toggleNote">{{editingNote ? '取消' : (note ? '编辑' : '添加')}}</text>
     </view>
-    <textarea wx:if="{{editingNote}}" class="note-input" placeholder="记录卡点、心得、易错点…" value="{{note}}" bindinput="onNoteInput" maxlength="-1" />
+    <text wx:if="{{noteDraftRestored}}" class="note-draft">未保存草稿</text>
+    <textarea wx:if="{{editingNote}}" class="note-input" placeholder="记录思路、疑问…" value="{{note}}" bindinput="onNoteInput" maxlength="-1" />
     <button wx:if="{{editingNote}}" class="btn-primary save-btn" bindtap="saveNote">保存笔记</button>
     <text wx:elif="{{note}}" class="note-text">{{note}}</text>
-    <text wx:else class="note-placeholder">还没有笔记，点「添加」记下你的理解。</text>
+    <text wx:else class="note-placeholder">暂无笔记</text>
   </view>
 </view>
